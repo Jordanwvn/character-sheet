@@ -16,6 +16,20 @@ var d8 = [1, 8]; // eight-sided die
 var d20 = [1, 20]; // twenty-sided die
 var d100 = [1, 100]; // one hundred-sided die, or "percentile"
 
+// body hit locations
+var rightLeg = [1, 2, 3, 4];
+var leftLeg = [5, 6, 7, 8];
+var abdomen = [9, 10, 11];
+var chest = [12];
+var rightArm = [13, 14, 15];
+var leftArm = [16, 17, 18];
+var head = [19, 20];
+
+// combined combinations
+var legs = rightLeg.concat(leftLeg);
+var arms = rightArm.concat(leftArm);
+var abdomenAndLegs = abdomen.concat(legs);
+var chestAndAbdomen = chest.concat(abdomen);
 
 // species starting attribute rolls: STR, CON, SIZ, INT, POW, DEX, CHA
 var humanAttributes = [[3, d6, 0], [3, d6, 0], [3, d6, 0], [3, d6, 0], [3, d6, 0], [3, d6, 0], [3, d6, 0]];
@@ -40,10 +54,25 @@ var Attributes = function (attributesArray) {
   this.cha = attributesArray[6]; // charisma
 }
 
-var Species = function (type, speciesAttributes, ) {
+var Species = function (type, attributeValues, moveRate, treasureFactor, defenseBonus) {
   this.type = type;
-  this.attributes = new Attributes (speciesAttributes);
+  this.attributeValues = attributeValues;
+  this.moveRate = moveRate;
+  this.treasureFactor = treasureFactor;
+  this.defenseBonus = defenseBonus;
+
   // TODO finish constructor
+}
+
+var Character = function (name, species, socialClass, sex, age, nationality, cults) {
+  this.name = name;
+  this.species = species;
+  this.socialClass = socialClass;
+  this.sex = sex;
+  this.age = age;
+  this.nationality = nationality;
+  this.cults = cults;
+  this.attributes = new Attributes (rollAttributes (this.Species.attributeValues));
 }
 
 var Weapon = function (name, strRequirement, dexRequirement, damage, hp, mastery, cost, enc, length, sr, q1Training, q2Training, q3Training) {
@@ -74,14 +103,15 @@ var Shield = function (size, strRequirement, absorbs, mastery, cost, enc, q1Trai
   this.q3Training = q3Training;
 }
 
+var Armor = function (location, ) {
+  
+}
+
 
 /***** OBJECT METHODS *****/
 
 
 /***** OBJECT INSTANTIATION *****/
-
-
-var human = new Species ('human', rollAttributes(humanAttributes), )
 
 
 /***** HELPER FUNCTIONS *****/
@@ -116,3 +146,18 @@ var rollAttributes = function (attributesArray) {
 }
 
 /***** LOCAL STORAGE *****/
+
+
+
+
+/***** BESTIARY *****/
+
+
+var baboon = new Species (
+
+)
+
+var human = new Species (
+  'human', // type
+  [[3, d6, 0], [3, d6, 0], [3, d6, 0], [3, d6, 0], [3, d6, 0], [3, d6, 0], [3, d6, 0]], // attributes
+)
