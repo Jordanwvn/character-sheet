@@ -16,20 +16,22 @@ var d8 = [1, 8]; // eight-sided die
 var d20 = [1, 20]; // twenty-sided die
 var d100 = [1, 100]; // one hundred-sided die, or "percentile"
 
-// body hit locations
-var rightLeg = [1, 2, 3, 4];
-var leftLeg = [5, 6, 7, 8];
-var abdomen = [9, 10, 11];
-var chest = [12];
-var rightArm = [13, 14, 15];
-var leftArm = [16, 17, 18];
-var head = [19, 20];
+// hit location object
+var body = [
+  { name: 'right leg', hitNumbers: [1, 2, 3, 4], armor: 0 },
+  { name: 'left leg', hitNumbers: [5, 6, 7, 8], armor: 0 },
+  { name: 'abdomen', hitNumbers: [9, 10, 11], armor: 0 },
+  { name: 'chest', hitNumbers: [12], armor: 0 },
+  { name: 'right arm', hitNumbers: [13, 14, 15], armor: 0 },
+  { name: 'left arm', hitNumbers: [16, 17, 18], armor: 0 },
+  { name: 'head', hitNumbers: [19, 20], armor: 0 }
+];
 
 // combined combinations
-var legs = rightLeg.concat(leftLeg);
-var arms = rightArm.concat(leftArm);
-var abdomenAndLegs = abdomen.concat(legs);
-var chestAndAbdomen = chest.concat(abdomen);
+// var legs = rightLeg.concat(leftLeg);
+// var arms = rightArm.concat(leftArm);
+// var abdomenAndLegs = abdomen.concat(legs);
+// var chestAndAbdomen = chest.concat(abdomen);
 
 // species starting attribute rolls: STR, CON, SIZ, INT, POW, DEX, CHA
 var humanAttributes = [[3, d6, 0], [3, d6, 0], [3, d6, 0], [3, d6, 0], [3, d6, 0], [3, d6, 0], [3, d6, 0]];
@@ -104,7 +106,7 @@ var Shield = function (size, strRequirement, absorbs, mastery, cost, enc, q1Trai
 }
 
 var Armor = function (location, ) {
-  
+
 }
 
 
@@ -120,12 +122,10 @@ var Armor = function (location, ) {
 // function: roll die and return the result
 var roll = function (numberOfDice, diceType) {
   var rollResult = 0; // declare a variable to hold the final result
-  for (var rolls = 0; rolls < numberOfDice; rolls ++) { // for every dice to roll...
-    var dieResult = Math.floor ( //
-      Math.random ( // a random number between...
-        (diceType[0] * diceType[1]) - diceType[0] // the range of the two values in the dice array
-      ) // end random
-    ) // end floor
+  for (var rolls = numberOfDice; rolls > 0; rolls --) { // for every dice to roll...
+    console.log('rolls left:', rolls);
+    var dieResult = Math.floor (Math.random () * (diceType[1] - diceType[0]) + diceType[0]) // end floor
+    console.log('die result:', dieResult);
     rollResult += dieResult; // add the result of the single die to the end result
   } // end for
   return rollResult; // return the result
@@ -144,6 +144,17 @@ var rollAttributes = function (attributesArray) {
   } // end for
   return randomAttributes;
 }
+
+var findHitLocation = function () {
+  var locationRoll = roll(1, d20); // roll a twenty-sided die, then
+  for (var part = 0; part < body.length; part++) { // for every part of the body...
+    for (var hit = 0; hit < body[part].hitNumbers.length; hit++) { // and for every hit number of that part...
+      if (locationRoll === body[part].hitNumbers[hit]) { // if the rolled number matches a hit at that part...
+        return body[part].name; // return that body part
+      } // end if
+    } // end for (hit number)
+  } // end for (part)
+} // end findHitLocation function
 
 /***** LOCAL STORAGE *****/
 
