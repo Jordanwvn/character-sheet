@@ -57,42 +57,54 @@ var Attributes = function (attributesArray) {
 }
 
 var Skills = function (str, con, siz, int, pow, dex, cha) { // take in character.attributes
-  this.knowledge = {
-    value: setValue ('high', int) + setValue ('low', pow),
-    evaluateTreasure: this.value + 5,
-    readWriteOwnLanguage: this.value + 10
+  this.combat = {
+    attack: this.setValue ('low', str) + this.setValue ('high', int) + this.setValue ('low', pow) + this.setValue ('high', dex),
+    parry: this.setValue ('low', str) - this.setValue ('low', siz) + this.setValue ('low', pow) + this.setValue ('high', dex),
+    defense: this.setValue ('high', int) - this.setValue ('low', siz) + this.setValue ('low', pow) + this.setValue ('high', dex),
+    damageBonus: this.setDmgBonus(str, siz)
   };
+
+  this.baseKnowledge = this.setValue ('high', int) + this.setValue ('low', pow);
+  this.knowledge = {
+    evaluateTreasure: this.baseKnowledge + 5,
+    readWriteOwnLanguage: this.baseKnowledge + 10
+  };
+
+  this.baseManipulation = this.setValue ('low', str) + this.setValue ('high', int) + this.setValue ('low', pow) + this.setValue ('high', dex);
   this.manipulation = {
-    value: setValue ('low', str) + setValue ('high', int) + setValue ('low', pow) + setValue ('high', dex),
     armorMaking: 0,
-    climbing: this.value + 15,
-    hideItem: this.value + 10,
-    jumping: this.value + 15,
-    lockPicking: this.value + 5,
-    mapMaking: this.value + 10,
-    riding: this.value + 5,
+    climbing: this.baseManipulation + 15,
+    hideItem: this.baseManipulation + 10,
+    jumping: this.baseManipulation + 15,
+    lockPicking: this.baseManipulation + 5,
+    mapMaking: this.baseManipulation + 10,
+    riding: this.baseManipulation + 5,
     shieldMaking: 0,
-    swimming: this.value + 15,
-    trapSetAndDisarm: this.value + 5,
+    swimming: this.baseManipulation + 15,
+    trapSetAndDisarm: this.baseManipulation + 5,
     tumbling: 0,
     weaponMaking: 0
   };
+
+  this.basePerception = this.setValue ('high', int) + this.setValue ('low', pow);
   this.perception = {
-    value: setValue ('high', int) + setValue ('low', pow),
-    listen: this.value + 25,
-    spotHiddenItem: this.value + 5,
-    spotTrap: this.value + 5,
-    tracking: this.value + 10
+    listen: this.basePerception + 25,
+    spotHiddenItem: this.basePerception + 5,
+    spotTrap: this.basePerception + 5,
+    tracking: this.basePerception + 10
   };
+
+  this.baseStealth = this.setValue ('high', int) - this.setValue ('high', siz) + this.setValue ('low', pow) + this.setValue ('high', dex);
   this.stealth = {
-    value: setValue ('high', int) - setValue ('high', siz) + setValue ('low', pow) + setValue ('high', dex),
-    camoflauge: this.value + 10,
-    hideInCover: this.value + 5,
-    moveSilently: this.value + 5,
-    pickPockets: this.value + 5
+    camoflauge: this.baseStealth + 10,
+    hideInCover: this.baseStealth + 5,
+    moveSilently: this.baseStealth + 5,
+    pickPockets: this.baseStealth + 5
   };
+
+  this.baseOratory = this.setValue ('low', int) + this.setValue ('low', pow) + this.setValue ('high', cha);
   this.oratory = {
-    value: setValue ('low', int) + setValue ('low', pow) + setValue ('high', cha)
+    acting: this.baseOratory + 5
   }
 }
 
@@ -163,6 +175,13 @@ var Spell = function (name, range, focused, passive, duration, power, descriptio
   this.cost = cost;
 }
 
+var Item = function (name, cost, description, quantity) {
+  this.name = name;
+  this.cost = cost;
+  this.description = description;
+  this.quantity = quantity;
+}
+
 
 /***** OBJECT METHODS *****/
 
@@ -170,29 +189,45 @@ var Spell = function (name, range, focused, passive, duration, power, descriptio
 Skills.prototype.setValue = function (type, attribute) {
   var output = 0;
   if (type === 'low') {
-    if (attribute < 5 && attribute < 17) {
-      output -= 5;
+    if (attribute < 5) {
+      output = -5;
+    } else if (4 < attribute && attribute < 17) {
+      output = 0;
     } else {
-      output += ((attribute % 4) - 3) * 5;
+      output = (Math.ceil(attribute / 4) - 4) * 5;
     }
   } else if (type === 'high') {
-    output += ((atribute % 4) - 2) * 5;
-  } else if (type === 'hpLow') {
-    output += ((atribute % 4) - 2);
-  } else if (type === 'hpHigh') {
-    if (attribute < 5 && attribute < 17) {
-      output -= 1;
-    } else {
-      output += ((attribute % 4) - 3);
-    }
+    output = (Math.ceil(attribute / 4) - 3) * 5;
   }
   return output;
+}
+
+Skills.prototype.setDmgBonus = function (str, siz) {
+  var bonus = Math.ceil((str + siz) / 2);
+  if (bonus < 7) {
+    return [-1, d4];
+  } else if (bonus < 13) {
+    return [0, 0];
+  } else if (bonus < 17) {
+    return [1, d4];
+  } else if (bonus < 21) {
+    return [1, d6];
+  } else {
+    return [Math.ceil((bonus - 12) / 8), d6];
+  }
 }
 
 
 Spell.prototype.useOnSelf = function () { // if the spell is used on the user
   this.focused = false; // the spell does not need to be focused
 } // end useOnSelf method
+
+
+Item.prototype.removeIfEmpty = function () {
+  if (this.quantity === 0) {
+    delete this;
+  }
+}
 
 
 /***** OBJECT INSTANTIATION *****/
