@@ -34,7 +34,6 @@ var body = [
 // var chestAndAbdomen = chest.concat(abdomen);
 
 // species starting attribute rolls: STR, CON, SIZ, INT, POW, DEX, CHA
-var humanAttributes = [[3, d6, 0], [3, d6, 0], [3, d6, 0], [3, d6, 0], [3, d6, 0], [3, d6, 0], [3, d6, 0]];
 var dwarfAttributes = [[4, d6, 0], [2, d6, 6], [2, d6, 0], [3, d6, 0], [3, d6, 0], [3, d6, 0], [3, d6, 0]];
 var elfAttributes = [[2, d6, 2], [3, d6, 0], [2, d4, 4], [4, d6, 0], [2, d6, 6], [3, d6, 3], [3, d6, 0]];
 var minotaurAttributes = [[3, d6, 12], [2, d6, 6], [3, d6, 12], [2, d6, 0], [3, d6, 0], [3, d6, 0], [2, d6, 0]];
@@ -360,3 +359,64 @@ var countermagic = new Spell (
 
   500 * this.power // cost, in Lunars
 )
+
+
+/***** LIVING COSTS *****/
+
+
+// FOOD
+var cheapMeal = new Item ('cheap meal', 0.2, '', 1);
+var goodMeal = new Item ('good meal', 0.5, '', 1);
+var banquet = new Item ('banquet', 1, '', 1);
+var trailProvisions = new Item ('trail provisions', 5, '', 7); // week's worth of food
+
+// DRINK
+var beerMug = new Item ('mug of beer', 0.05, '', 1);
+var beerCask = new Item ('cask of beer', 0.5, '', 1);
+var beerKeg = new Item ('keg of beer', 1.5, '', 1);
+var wineMug = new Item ('mug of wine', 0.2, '', 1);
+var wineCask = new Item ('cask of wine', 2, '', 1);
+var wineKeg = new Item ('keg of wine', 6, '', 1);
+
+// ROOM
+var floor = new Item ('common room floor', 0.1, '', 1);
+var dorm = new Item ('dormitory', 0.5, '', 1);
+var shared = new Item ('shared private room', 1, '', 1);
+var single = new Item ('private room', 2, '', 1);
+var hotWater = new Item ('hot water', 0.2, '', 1);
+
+// CLOTHING
+var peasantClothes = new Item ('peasant yearly clothes', 2, '', 12);
+var townsmanClothes = new Item ('townsman yearly clothes', 5, '', 12);
+var adventurerClothes = new Item ('adventurer monthly clothes', 10, '', 1);
+var nobleClothes = new Item ('noble monthly clothes', 20, '', 1);
+
+// STABLE COSTS
+var stableStall = new Item ('stall for a day', 0.1, '', 1);
+var stableFeed = new Item ('feed for a day', 0.4, '', 1);
+var stableSpecialCare = new Item ('special care', 1, '', 1);
+
+// TRAIL FODDER
+var trailOats = new Item ('trail fodder for a week', 2, '', 7);
+
+
+/***** GENERAL COSTS *****/
+
+
+
+
+
+// TRANSPORTATION
+
+
+// EQUIPMENT
+
+// CAMPING GEAR
+
+// EXPEDITION GEAR
+
+// RIDING GEAR
+
+// CONTAINERS
+
+// MUSICAL INSTRUMENTS
