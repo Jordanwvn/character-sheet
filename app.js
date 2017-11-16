@@ -18,13 +18,13 @@ var d100 = [1, 100]; // one hundred-sided die, or "percentile"
 
 // hit location object
 var body = [
-  { name: 'right leg', hitNumbers: [1, 2, 3, 4], armor: 0 },
-  { name: 'left leg', hitNumbers: [5, 6, 7, 8], armor: 0 },
-  { name: 'abdomen', hitNumbers: [9, 10, 11], armor: 0 },
-  { name: 'chest', hitNumbers: [12], armor: 0 },
-  { name: 'right arm', hitNumbers: [13, 14, 15], armor: 0 },
-  { name: 'left arm', hitNumbers: [16, 17, 18], armor: 0 },
-  { name: 'head', hitNumbers: [19, 20], armor: 0 }
+  { name: 'right leg', hitNumbers: [1, 2, 3, 4], armor: 0 }, // body[0]
+  { name: 'left leg', hitNumbers: [5, 6, 7, 8], armor: 0 },  // body[1]
+  { name: 'abdomen', hitNumbers: [9, 10, 11], armor: 0 },    // body[2]
+  { name: 'chest', hitNumbers: [12], armor: 0 },             // body[3]
+  { name: 'right arm', hitNumbers: [13, 14, 15], armor: 0 }, // body[4]
+  { name: 'left arm', hitNumbers: [16, 17, 18], armor: 0 },  // body[5]
+  { name: 'head', hitNumbers: [19, 20], armor: 0 }           // body[6]
 ];
 
 // combined combinations
@@ -56,6 +56,46 @@ var Attributes = function (attributesArray) {
   this.cha = attributesArray[6]; // charisma
 }
 
+var Skills = function (str, con, siz, int, pow, dex, cha) { // take in character.attributes
+  this.knowledge = {
+    value: setValue ('high', int) + setValue ('low', pow),
+    evaluateTreasure: this.value + 5,
+    readWriteOwnLanguage: this.value + 10
+  };
+  this.manipulation = {
+    value: setValue ('low', str) + setValue ('high', int) + setValue ('low', pow) + setValue ('high', dex),
+    armorMaking: 0,
+    climbing: this.value + 15,
+    hideItem: this.value + 10,
+    jumping: this.value + 15,
+    lockPicking: this.value + 5,
+    mapMaking: this.value + 10,
+    riding: this.value + 5,
+    shieldMaking: 0,
+    swimming: this.value + 15,
+    trapSetAndDisarm: this.value + 5,
+    tumbling: 0,
+    weaponMaking: 0
+  };
+  this.perception = {
+    value: setValue ('high', int) + setValue ('low', pow),
+    listen: this.value + 25,
+    spotHiddenItem: this.value + 5,
+    spotTrap: this.value + 5,
+    tracking: this.value + 10
+  };
+  this.stealth = {
+    value: setValue ('high', int) - setValue ('high', siz) + setValue ('low', pow) + setValue ('high', dex),
+    camoflauge: this.value + 10,
+    hideInCover: this.value + 5,
+    moveSilently: this.value + 5,
+    pickPockets: this.value + 5
+  };
+  this.oratory = {
+    value: setValue ('low', int) + setValue ('low', pow) + setValue ('high', cha)
+  }
+}
+
 var Species = function (type, attributeValues, moveRate, treasureFactor, defenseBonus) {
   this.type = type;
   this.attributeValues = attributeValues;
@@ -66,7 +106,7 @@ var Species = function (type, attributeValues, moveRate, treasureFactor, defense
   // TODO finish constructor
 }
 
-var Character = function (name, species, socialClass, sex, age, nationality, cults) {
+var Character = function (name, species, socialClass, sex, age, nationality, cults, weapons, armor, spells) {
   this.name = name;
   this.species = species;
   this.socialClass = socialClass;
@@ -75,6 +115,9 @@ var Character = function (name, species, socialClass, sex, age, nationality, cul
   this.nationality = nationality;
   this.cults = cults;
   this.attributes = new Attributes (rollAttributes (this.Species.attributeValues));
+  this.weapons = weapons; // array
+  this.armor = armor;
+  this.spells = spells; // array
 }
 
 var Weapon = function (name, strRequirement, dexRequirement, damage, hp, mastery, cost, enc, length, sr, q1Training, q2Training, q3Training) {
@@ -109,8 +152,47 @@ var Armor = function (location, ) {
 
 }
 
+var Spell = function (name, range, focused, passive, duration, power, description, cost) {
+  this.name = name;
+  this.range = range;
+  this.focused = focused;
+  this.passive = passive;
+  this.duration = duration;
+  this.power = power;
+  this.description = description;
+  this.cost = cost;
+}
+
 
 /***** OBJECT METHODS *****/
+
+
+Skills.prototype.setValue = function (type, attribute) {
+  var output = 0;
+  if (type === 'low') {
+    if (attribute < 5 && attribute < 17) {
+      output -= 5;
+    } else {
+      output += ((attribute % 4) - 3) * 5;
+    }
+  } else if (type === 'high') {
+    output += ((atribute % 4) - 2) * 5;
+  } else if (type === 'hpLow') {
+    output += ((atribute % 4) - 2);
+  } else if (type === 'hpHigh') {
+    if (attribute < 5 && attribute < 17) {
+      output -= 1;
+    } else {
+      output += ((attribute % 4) - 3);
+    }
+  }
+  return output;
+}
+
+
+Spell.prototype.useOnSelf = function () { // if the spell is used on the user
+  this.focused = false; // the spell does not need to be focused
+} // end useOnSelf method
 
 
 /***** OBJECT INSTANTIATION *****/
@@ -132,17 +214,17 @@ var roll = function (numberOfDice, diceType) {
 } // end roll function
 
 
-var rollAttributes = function (attributesArray) {
-  var randomAttributes = [];
-  for (attributeIndex = 0; attributeIndex < attributesArray.length; attributeIndex++) {
-    randomAttributes.push (
+var rollAttributes = function (attributeRolls) {
+  var rolledAttributes = [];
+  for (attributeIndex = 0; attributeIndex < attributeRolls.length; attributeIndex++) {
+    rolledAttributes.push (
       roll (
-        attributesArray[attributeIndex][0], attributesArray[attributeIndex][1]
+        attributeRolls[attributeIndex][0], attributeRolls[attributeIndex][1]
       )
-      + attributesArray[attributeIndex][2]
-    );
+      + attributeRolls[attributeIndex][2]
+    ); // end push
   } // end for
-  return randomAttributes;
+  return rolledAttributes;
 }
 
 var findHitLocation = function () {
@@ -171,4 +253,75 @@ var baboon = new Species (
 var human = new Species (
   'human', // type
   [[3, d6, 0], [3, d6, 0], [3, d6, 0], [3, d6, 0], [3, d6, 0], [3, d6, 0], [3, d6, 0]], // attributes
+)
+
+
+/***** WEAPONRY *****/
+
+
+/***** ARMORY *****/
+
+
+/***** SPELLS *****/
+var befuddle = new Spell (
+  'Befuddle', // spell name
+  80, // range, in meters
+  true, // focused
+  true, // passive
+  10, // duration, in rounds. Categorized as "temporal".
+  1, // power required
+  'This spell confuses an opponent who succumbs to it. It causes him to wonder such things as: Is that a friend? Which ones are my enemies? Why is everyone fighting? A Befuddled enemy will not attack, cast an offensive spell, sound the alarm, etc. If attacked, he will parry and defend at full value, and beginning next round his confusion will go away (the guy that attacked me is my enemy, and after he is dead his obvious allies are my enemies). Thus, with some clever management, a Befuddled opponent might end up attacking his own party for as long as the spell is in effect.',
+  1500 // cost in Lunars
+);
+
+var binding = new Spell (
+  'Binding', // spell name
+  80, // range, in meters
+  true, // focused
+  true, // passive
+  10, // duration, in rounds
+  1, // power required
+  'This spell halves the movement class of those affected by it. It can never reduce the movement class below "one". It is often carried by huntsmen, police, and intelligent beasts of prey, such as baboons.',
+  1500 // cost in Lunars
+);
+
+var bladesharp = new Spell (
+  'Bladesharp', // spell name
+  80, // range in meters
+  true, // focused
+  true, // passive
+  10, // duration, in rounds
+  [1, 2, 3, 4], // power required
+  'This spell, when cast on any thrusting, stabbing, or hacking weapon, increases the chance of hitting with it by 5% per point of POW invested in the spell. It also increases the damage done by one point per point of spell. No weapon can be enchanted past 20% to hit and four points extra damage. It can be used to enchant one weapon up to +20% and +4 damage or four weapons up to +5% and +1 damage, or any combination possible within the limitation of the level of the spell known. The spell is incompatible with other weapon improving spells',
+  500 * this.power // cost in Lunars
+);
+
+var bludgeon = new Spell (
+  'Bludgeon', // spell name
+  80, // range in meters
+  true, // focused
+  true, // passive
+  10, // duration, in rounds
+  [1, 2, 3, 4], // power required
+  'When cast on any smashing weapon the spell increases the chance of hitting 5% per point of spell. It also adds one point of damage per point of spell.  No weapon can be enchanted past 20% to hit and four points extra damage. It can be used to enchant one weapon up to +20% and +4 damage or four weapons up to +5% and +1 damage, or any combination possible within the limitation of the level of the spell known. The spell is incompatible with other weapon improving spells',
+  500 * this.power // cost in Lunars
+);
+
+var coordination = new Spell (
+  'Coordination', // spell name
+  80, // range in meters
+  true, // focused, on others
+  true, // passive
+  10, // duration, in rounds
+  2, // power required
+  'This spell adds three to a character\'s effective DEX. This will decrease strike rank by one and improve the character\'s chance of making DEX rolls. DEX is never raised over the species maximum. Thus, the greatest DEX a human can have is 21.',
+  1500 // cost, in Lunars
+);
+
+var countermagic = new Spell (
+  'Counterspell', // spell name
+  80, // range, in meters
+  true, // focused, on others
+
+  500 * this.power // cost, in Lunars
 )
