@@ -13,6 +13,7 @@
 var d4 = [1, 4]; // four-sided die
 var d6 = [1, 6]; // six-sided die
 var d8 = [1, 8]; // eight-sided die
+var d10 = [1, 10]; // ten-sided die
 var d20 = [1, 20]; // twenty-sided die
 var d100 = [1, 100]; // one hundred-sided die, or "percentile"
 
@@ -25,6 +26,20 @@ var body = [
   { name: 'right arm', hitNumbers: [13, 14, 15], armor: 0 }, // body[4]
   { name: 'left arm', hitNumbers: [16, 17, 18], armor: 0 },  // body[5]
   { name: 'head', hitNumbers: [19, 20], armor: 0 }           // body[6]
+];
+
+// random treasure drops
+var treasureArray = [
+  [[75, 1, d100], [75, 1, d10], [50, 1, d6], [50, 1], [5, 1]],
+  [[85, 1, d100], [85, 1, d100], [65, 1, d10], [65, 1], [10, 1]],
+  [[95, 2, d100], [95, 2, d100], [75, 1, d10], [75, 1], [15, 1]],
+  [[95, 4, d100], [95, 3, d100], [90, 1, d20], [90, 1], [20, 1]],
+  [[95, 8, d100], [95, 4, d100], [95, 2, d20], [95, 1], [25, 1]],
+  [[95, 10, d100], [95, 5, d100], [95, 3, d20], [95, 1], [30, 1]],
+  [[95, 10, d100], [95, 6, d100], [95, 5, d20], [95, 2], [35, 1]],
+  [[95, 20, d100], [95, 10, d100], [95, 2, d100], [95, 2], [40, 1]],
+  [[95, 20, d100], [95, 10, d100], [95, 3, d100], [95, 2], [45, 1]],
+  [[95, 30, d100], [95, 20, d100], [95, 4, d100], [95, 3], [50, 1]]
 ];
 
 // combined combinations
@@ -272,6 +287,120 @@ var findHitLocation = function () {
   } // end for (part)
 } // end findHitLocation function
 
+// function: makes a percentile check and returns if it passed, as well as by how much
+var check = function (goal) {
+  var percentile = roll (1, d100);
+  if (percentile <= goal) {
+    return [true, Math.ceil((percentile / goal) * 100)];
+  } else {
+    return [false, Math.ceil((percentile / goal) * 100)];
+  }
+}
+
+var treasureCheck = function (goal) {
+  var results = check(goal);
+  var pass = results[0];
+  var passPercent = results[1];
+  if (pass === true) {
+    if (passPercent <= 5) {return 10}
+    else if (passPercent <= 10) {return 5}
+    else if (passPercent <= 12.5) {return 4}
+    else if (passPercent <= 25) {return 3}
+    else if (passPercent <= 50) {return 2}
+    else {return 1}
+  } else {
+    return 0;
+  }
+}
+
+var treasureResults = function (treasureInput) {
+  return treasureCheck (treasureInput[0]) * roll (treasureInput[1], treasureInput[2]);
+}
+
+var randomSpell = function () {
+  var index = Math.ceil(roll (1, d100) / 2);
+  return battleMagicSpellbook[index];
+}
+
+var randomScroll = function () {
+  var index = roll (1, d100);
+  var randomIncrease = roll (1, d4) * 5;
+  if (index === 1) {
+    return 'special scroll at referee\'s discretion';
+  } else if (2 <= index && index <= 15) {
+    var randomAttributesArray = ['strength', 'constitution', 'dexterity', 'charisma'];
+    var attributeIndex = roll (1, d4);
+    var attributeTime = roll (1, d20);
+    return 'scroll of increasing ' + randomAttributesArray[attributeIndex] + ' over ' + attributeTime + ' weeks'
+  } else if (16 <= index && index <= 30) {
+    return 'letter of credit, deed, or valuable historical knowledge';
+  } else if (31 <= index && index <= 50) {
+    return 'secret technique scroll, giving a ' + randomIncrease '% increase in any weapon'
+
+    //TODO implement this with the weapons table when built
+
+  } else if (51 <= index && index <= 65) {
+    var randomSkillArray = ['knowledge', 'perception', 'manipulation', 'manipulation', 'stealth', 'stealth'];
+    var skillIndex = roll (1, d6);
+    return 'scroll holding the secrets of using ' + randomSkillArray[skillIndex] + ', increasing all related skills by ' + randomIncrease + '%';
+  } else if (66 <= index && index <= 75) {
+    return 'map of an area, which seems quite interesting';
+  } else {
+    return 'seemingly useless scroll, not even readable'
+  }
+}
+
+var randomPotion = function () {
+  var index = roll (1, d100);
+  var poisonPotency = roll (2, d6) + 3
+  if (1 <= index && index <= 10) {
+    return 'potion of healing ' + roll (1, d6) + ' damage to the body\'s worst wound';
+  } else if (11 <= index && index <= 25) {
+    var spell = randomSpell();
+    return 'potion of ' + spell.name + 'with two hour duration';
+  } else if (26 <= index && index <= 55) {
+    var poison = ['poison gas', 'poison gas', 'herbal poison', 'mineral poison'];
+    return 'bottle of ' + poisonPotency + 'potency ' + poison[roll (1, d4) - 1];
+  } else if (56 <= index && index <= 65) {
+    var venom = ['manticore', 'wyvern', 'spider', 'spider'];
+    return venom[roll (1, d4) - 1] + ' blade venom of ' + poisonPotency + 'potency';
+  } else if (66 <= index && index <= 80) {
+    var antidote = ['manticore venom', 'poison gas', 'wyvern venom', 'spider venom', 'herbal poison', 'mineral poison'];
+    return 'antidote of ' + antidote[roll (1, d6) - 1];
+  } else if (81 <= index <= 90) {
+    return 'special potion at referee\'s discretion';
+  } else {
+    return 'spoiled potion, treated like poison of ' + poisonPotency + ', yet indestinguishable from a normal potion';
+  }
+}
+
+var randomGem = function () {}
+
+var treasureReturn = function (treasureValue) {
+  var clacks = 0;
+  var lunars = 0;
+  var wheels = 0;
+  var gems = 0;
+  var specialItems = 0;
+  var treasureIndex = Math.floor(treasureValue / 10);
+  console.log('treasure index', treasureIndex);
+
+  clacks += treasureResults(treasureArray[treasureIndex][0]);
+  lunars += treasureResults(treasureArray[treasureIndex][1]);
+  wheels += treasureResults(treasureArray[treasureIndex][2]);
+  gems += treasureCheck (treasureArray[treasureIndex][3][0]) * treasureArray[treasureIndex][3][1];
+  specialItems += treasureCheck (treasureArray[treasureIndex][4][0]) * treasureArray[treasureIndex][4][1];
+
+
+
+  console.log('clacks', clacks);
+  console.log('lunars', lunars);
+  console.log('wheels', wheels);
+  console.log('gems', gems);
+  console.log('special items', specialItems);
+
+}
+
 /***** LOCAL STORAGE *****/
 
 
@@ -297,68 +426,71 @@ var human = new Species (
 
 
 /***** SPELLS *****/
-var befuddle = new Spell (
-  'Befuddle', // spell name
-  80, // range, in meters
-  true, // focused
-  true, // passive
-  10, // duration, in rounds. Categorized as "temporal".
-  1, // power required
-  'This spell confuses an opponent who succumbs to it. It causes him to wonder such things as: Is that a friend? Which ones are my enemies? Why is everyone fighting? A Befuddled enemy will not attack, cast an offensive spell, sound the alarm, etc. If attacked, he will parry and defend at full value, and beginning next round his confusion will go away (the guy that attacked me is my enemy, and after he is dead his obvious allies are my enemies). Thus, with some clever management, a Befuddled opponent might end up attacking his own party for as long as the spell is in effect.',
-  1500 // cost in Lunars
-);
+var battleMagicSpellbook = [
 
-var binding = new Spell (
-  'Binding', // spell name
-  80, // range, in meters
-  true, // focused
-  true, // passive
-  10, // duration, in rounds
-  1, // power required
-  'This spell halves the movement class of those affected by it. It can never reduce the movement class below "one". It is often carried by huntsmen, police, and intelligent beasts of prey, such as baboons.',
-  1500 // cost in Lunars
-);
+  new Spell (
+    'Befuddle', // spell name
+    80, // range, in meters
+    true, // focused
+    true, // passive
+    10, // duration, in rounds. Categorized as "temporal".
+    1, // power required
+    'This spell confuses an opponent who succumbs to it. It causes him to wonder such things as: Is that a friend? Which ones are my enemies? Why is everyone fighting? A Befuddled enemy will not attack, cast an offensive spell, sound the alarm, etc. If attacked, he will parry and defend at full value, and beginning next round his confusion will go away (the guy that attacked me is my enemy, and after he is dead his obvious allies are my enemies). Thus, with some clever management, a Befuddled opponent might end up attacking his own party for as long as the spell is in effect.',
+    1500 // cost in Lunars
+  ),
 
-var bladesharp = new Spell (
-  'Bladesharp', // spell name
-  80, // range in meters
-  true, // focused
-  true, // passive
-  10, // duration, in rounds
-  [1, 2, 3, 4], // power required
-  'This spell, when cast on any thrusting, stabbing, or hacking weapon, increases the chance of hitting with it by 5% per point of POW invested in the spell. It also increases the damage done by one point per point of spell. No weapon can be enchanted past 20% to hit and four points extra damage. It can be used to enchant one weapon up to +20% and +4 damage or four weapons up to +5% and +1 damage, or any combination possible within the limitation of the level of the spell known. The spell is incompatible with other weapon improving spells',
-  500 * this.power // cost in Lunars
-);
+  new Spell (
+    'Binding', // spell name
+    80, // range, in meters
+    true, // focused
+    true, // passive
+    10, // duration, in rounds
+    1, // power required
+    'This spell halves the movement class of those affected by it. It can never reduce the movement class below "one". It is often carried by huntsmen, police, and intelligent beasts of prey, such as baboons.',
+    1500 // cost in Lunars
+  ),
 
-var bludgeon = new Spell (
-  'Bludgeon', // spell name
-  80, // range in meters
-  true, // focused
-  true, // passive
-  10, // duration, in rounds
-  [1, 2, 3, 4], // power required
-  'When cast on any smashing weapon the spell increases the chance of hitting 5% per point of spell. It also adds one point of damage per point of spell.  No weapon can be enchanted past 20% to hit and four points extra damage. It can be used to enchant one weapon up to +20% and +4 damage or four weapons up to +5% and +1 damage, or any combination possible within the limitation of the level of the spell known. The spell is incompatible with other weapon improving spells',
-  500 * this.power // cost in Lunars
-);
+  new Spell (
+    'Bladesharp', // spell name
+    80, // range in meters
+    true, // focused
+    true, // passive
+    10, // duration, in rounds
+    [1, 2, 3, 4], // power required
+    'This spell, when cast on any thrusting, stabbing, or hacking weapon, increases the chance of hitting with it by 5% per point of POW invested in the spell. It also increases the damage done by one point per point of spell. No weapon can be enchanted past 20% to hit and four points extra damage. It can be used to enchant one weapon up to +20% and +4 damage or four weapons up to +5% and +1 damage, or any combination possible within the limitation of the level of the spell known. The spell is incompatible with other weapon improving spells',
+    500 * this.power // cost in Lunars
+  ),
 
-var coordination = new Spell (
-  'Coordination', // spell name
-  80, // range in meters
-  true, // focused, on others
-  true, // passive
-  10, // duration, in rounds
-  2, // power required
-  'This spell adds three to a character\'s effective DEX. This will decrease strike rank by one and improve the character\'s chance of making DEX rolls. DEX is never raised over the species maximum. Thus, the greatest DEX a human can have is 21.',
-  1500 // cost, in Lunars
-);
+  new Spell (
+    'Bludgeon', // spell name
+    80, // range in meters
+    true, // focused
+    true, // passive
+    10, // duration, in rounds
+    [1, 2, 3, 4], // power required
+    'When cast on any smashing weapon the spell increases the chance of hitting 5% per point of spell. It also adds one point of damage per point of spell.  No weapon can be enchanted past 20% to hit and four points extra damage. It can be used to enchant one weapon up to +20% and +4 damage or four weapons up to +5% and +1 damage, or any combination possible within the limitation of the level of the spell known. The spell is incompatible with other weapon improving spells',
+    500 * this.power // cost in Lunars
+  ),
 
-var countermagic = new Spell (
-  'Counterspell', // spell name
-  80, // range, in meters
-  true, // focused, on others
+  new Spell (
+    'Coordination', // spell name
+    80, // range in meters
+    true, // focused, on others
+    true, // passive
+    10, // duration, in rounds
+    2, // power required
+    'This spell adds three to a character\'s effective DEX. This will decrease strike rank by one and improve the character\'s chance of making DEX rolls. DEX is never raised over the species maximum. Thus, the greatest DEX a human can have is 21.',
+    1500 // cost, in Lunars
+  ),
 
-  500 * this.power // cost, in Lunars
-)
+  new Spell (
+    'Counterspell', // spell name
+    80, // range, in meters
+    true, // focused, on others
+
+    500 * this.power // cost, in Lunars
+  )
+]
 
 
 /***** LIVING COSTS *****/
@@ -403,20 +535,61 @@ var trailOats = new Item ('trail fodder for a week', 2, '', 7);
 /***** GENERAL COSTS *****/
 
 
-
-
+// GENERAL FEES
+var adventurerFees = new Item ('average weekly adventurer expenses', 5, '', 7);
+// var adventurersPack = [backPack, wineSkin, rope, peasantClothes, handAxe, hammer, woodSpikes, fishHooks, sackSmall, knife, cookingGear, blanket];
+var nobleFees = new Item ('average weekly noble expenses', 10, '', 7);
 
 // TRANSPORTATION
-
+var horseCart = new Item ('cart horse', 50, '18 average HP', 1);
+var horseRiding = new Item ('riding horse (untrained)', 100, '18 average HP', 1);
+var horseCavalry = new Item ('cavalry horse (battle-trained)', 1500, '20 average HP', 1);
+var horseWar = new Item ('war horse (attack trained)', 5000, '25% on all attacks, 22 average HP', 1);
+var cartTwoWheeled = new Item ('two-wheeled cart', 35, '', 1);
+var cartFourWheeled = new Item ('four-wheeled cart', 85, '', 1);
 
 // EQUIPMENT
+var hammer = new Item ('hammer', 0.2, '', 1);
+var mallet = new Item ('mallet', 0.5, '', 1);
+var climbingPack = new Item ('climbing pack', 20, '', 1);
+var fishHooks = new Item ('fish hooks', 0.2, '', 1);
+var writingTools = new Item ('writing tools', 10, '', 1);
+var papyrus = new Item ('papyrus sheet', 0.5, '', 1);
 
 // CAMPING GEAR
+var cookingGear = new Item ('cooking and eating gear', 2, '', 1);
+var tentSmall = new Item ('small tent (1 man)', 10, '', 1);
+var tentMedium = new Item ('medium tent (3 man)', 25, '', 1);
+var tentLarge = new Item ('large tent (5 man)', 40, '', 1);
+var fireStarter = new Item ('fire starter', 1, '', 1);
+var backPack = new Item ('back pack', 1, '', 1);
 
 // EXPEDITION GEAR
+var rope = new Item ('15m rope', 5, '', 1);
+var pole = new Item ('3m pole', 0, '', 1);
+var woodSpikes = new Item ('wood spikes', 1, '', 10);
+var lamp = new Item ('lamp', 5, '', 1);
+var lampOil = new Item ('lamp oil', 0.5, '', 1);
+var sackSmall = new Item ('small sack', 0.2, '', 1);
+var sackLarge = new Item ('large sack', 0.5, '', 1);
+var torch = new Item ('torch', 0, '', 1);
 
 // RIDING GEAR
+var horseSaddle = new Item ('saddle', 20, '', 1);
+var horseBarding;
 
 // CONTAINERS
+var wineSkin = new Item ('wine skin', 1, '', 1);
+var flask = new Item ('flask', 1, '', 1);
+var jug = new Item ('jug (2 liters)', 2, '', 1);
+var cask = new Item ('cask (5 liters)', 5, '', 1);
+var keg = new Item ('keg (15 liters)', 15, '', 1);
+var barrel = new Item ('barrel (50 liters)', 25, '', 1);
 
 // MUSICAL INSTRUMENTS
+var bugle = new Item ('bugle', 5, '', 1);
+var lurHorn = new Item ('lur horn', 25, '', 1);
+var harp = new Item ('harp', 10, '', 1);
+var lyre = new Item ('lyre', 20, '', 1);
+var reedPipes = new Item ('reed pipes', 5, '', 1);
+var bagpipes = new Item ('bagpipes', 25, '', 1);
