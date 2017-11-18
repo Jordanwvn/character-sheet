@@ -28,46 +28,6 @@ var body = [
   { name: 'head', hitNumbers: [19, 20], armor: 0 }           // body[6]
 ];
 
-// random encounters
-var inTown = [
-  ['residents at work', d4], ['residents at work', d4], ['residents at work', d8], ['residents at work', d8], ['residents at work', d10], ['residents at work', d10], ['residents at work', d20], ['residents at work', d100], ['local rowdies', d6], ['non-local rowdies', d6], ['members of the local constabulary', d4], ['members of the local constabulary', d6], ['in company of a priest', d4], ['in company of a priest', d8], ['NPC friend', 1], ['hold-up man', 1], ['assassin', 1], ['pickpocket', 1], ['tiger sons', d4], ['vampire', 1]
-];
-var inCultivatedLands = [
-  ['residents at work', d6], ['residents at work', d8], ['residents at work', d10], ['residents at work', d20], ['residents at work', d100], ['residents from the militia', d10], ['residents from the militia', d4], ['members of the local soldiery', d20], ['adventurers', d6], ['snakes', d4], ['rubble runners', d4], ['rubble runners', d6], ['centaurs', d4], ['ogre', 1], ['raiding elves', d20], ['raiding elves', d100], ['raiding trolls', d100], ['thieves', d10], ['highwayman', 1], ['wyrm', 1]
-];
-var inOpenCountry = [
-  ['baboons', d6], ['centaurs', d6], ['minotaurs', d4], ['adventurers', d6], ['other thieves', d20], ['ogres', d4], ['morokanth', d4], ['crested dragonewt', 1], ['beaked dragonewt', 1], ['dragonewts in a party', d8], ['residents', d4], ['residents', d6], ['residents', d8], ['residents', d10], ['werewolf', 1], ['sky bull', 1], ['giant', 1], ['manticore', 1], ['wyrm', 1], ['dragon', 1]
-];
-var inPrax = [
-  ['animals in a wild herd', d10], ['baboons', d4], ['morokanth', d6], ['morokanth', d8], ['newtling', 1], ['rhino riders', d8], ['horse barbarians', d20], ['zebra people', d20], ['sable people', d20], ['sable people', d100], ['impala people', d8], ['impala people', d20], ['high llama people', d10], ['high llama people', d20], ['bison people', d4], ['bison people', d8], ['centaurs', d4], ['griffin', 1], ['wyvern', 1], ['dragon', 1]
-];
-var inWoods = [
-  ['pixie', 1], ['runner', 1], ['elf', 1], ['cockatrice', 1], ['dryad', 1], ['trollkin', 1], ['jack o bear', 1], ['dark trolls', d6], ['adventurers', d6], ['outlaws', d10], ['tusk riders', d8], ['crested dragonewt', 1], ['beaked dragonewt', 1], ['priest dragonewt', 1], ['shadow cat', 1], ['tusk brothers', d6], ['bear walker', 1], ['baboons', d8], ['wolfbrother', 1], ['snakes', d6]
-];
-var inElfWoods = [
-  ['pixies', d4], ['pixies', d8], ['runners', d4], ['runners', d8], ['runners', d20], ['elves', d6], ['elves', d8], ['elves', d10], ['elves', d20], ['elves', d100], ['dryads', d6], ['dryads', d10], ['elves in a war party', d20], ['elves in a war party', d100], ['ghost', 1], ['raiding dwarves', d100], ['raiding trolls', d100], ['raiding adventurer', 1], ['bear walker', 1], ['centaur', 1]
-];
-var inMountains = [
-  ['dwarf', 1], ['dwarf', 1], ['dwarf', 1], ['ghost', 1], ['adventurers', d6], ['trollkin', 1], ['trollkin', 1], ['dark trolls', d4], ['dark trolls', d6], ['great trolls', d6], ['rock lizards', d8], ['cliff toad', 1], 'wyvern', 'wind children', 'sky bull', 'griffin', 'gargoyle', 'giants', 'giants', 'broos'
-];
-var inDwarfMountains = [
-  'dwarves', 'dwarves', 'dwarves', 'dwarves', 'dwarves', 'dwarves', 'dwarves', 'dwarves', 'dwarves', 'rock lizards', 'cliff toad', 'wyverns', 'wind children', 'sky bulls', 'griffins', 'gargoyles', 'giants', 'raiding trolls', 'raiding trolls'
-];
-var inRivers = [
-  'fishermen', 'fishermen', 'fishermen', 'duck', 'duck', 'snakes', 'snakes', 'giant toad', 'small toad', 'cave trolls', 'dragonsnails', 'adventurers', 'dragonewts', 'dragonewts', 'dragonewts', 'newtlings', 'newtlings', 'newtlings', 'newtlings', 'wyrm'
-];
-var inMarsh = [
-  'duck', 'duck', 'snake', 'snake', 'snake', 'skeleton', 'zombie', 'ghoul', 'vampire', 'dragonsnail', 'gorp', 'giant toads', 'lizards', 'beaked dragonewt', 'newtlings', 'walktapi', 'ghost', 'ghosts', 'wyrm', 'dragon'
-];
-var inRuins = [
-  'baboobs', 'rock lizard', 'snakes', 'rubble runners', 'shadow cats', 'cave trolls', 'dark trolls', 'gargoyle', 'adventurers', 'weretiger', 'scorpion men', 'werewolf', 'broos', 'dragonsnail', 'skeletons', 'zombies', 'ghouls', 'vampire or ghost', 'wyrm or manticore', 'gorp'
-];
-var inChaosNests = [
-  'skeleton', 'ghoul', 'zombie', 'vampire', 'ghost', 'broos', 'broos', 'scorpion man', 'scorpion men', 'scorpion men', 'werebear', 'weretiger', 'werepig', 'werewolf', 'ogre', 'basalisk', 'jack o bear', 'dragonsnail', 'dragonewt party', 'walktapus'
-];
-var inTrollAreas = [
-  'great troll', 'great troll', 'dark troll', 'dark trolls', 'dark trolls', 'trollkin', 'trollkin', 'trollkin', 'trollkin', 'cave troll', 'cave trolls', 'dark troll war party', 'dark troll war party', 'cliff toad', 'jack o bear', 'wyrm', 'raiding adventurers', 'raiding dwarves', 'raiding elves'
-];
 
 // random treasure drops
 var treasureArray = [
@@ -285,7 +245,57 @@ Item.prototype.removeIfEmpty = function () {
 }
 
 
-/***** OBJECT INSTANTIATION *****/
+/***** OBJECT INSTANTIATION & LITERALS *****/
+
+
+// random encounters
+var inTown = {
+  chance: 85,
+  results: [['residents at work', d4], ['residents at work', d4], ['residents at work', d8], ['residents at work', d8], ['residents at work', d10], ['residents at work', d10], ['residents at work', d20], ['residents at work', d100], ['local rowdies', d6], ['non-local rowdies', d6], ['members of the local constabulary', d4], ['members of the local constabulary', d6], ['in company of a priest', d4], ['in company of a priest', d8], ['NPC friend', 1], ['hold-up man', 1], ['assassin', 1], ['pickpocket', 1], ['tiger sons', d4], ['vampire', 1]]
+};
+
+var inCultivatedLands = {
+  chance: 75,
+  results:[['residents at work', d6], ['residents at work', d8], ['residents at work', d10], ['residents at work', d20], ['residents at work', d100], ['residents from the militia', d10], ['residents from the militia', d4], ['members of the local soldiery', d20], ['adventurers', d6], ['snakes', d4], ['rubble runners', d4], ['rubble runners', d6], ['centaurs', d4], ['ogre', 1], ['raiding elves', d20], ['raiding elves', d100], ['raiding trolls', d100], ['thieves', d10], ['highwayman', 1], ['wyrm', 1]]
+};
+
+var inOpenCountry = {
+  chance: 60,
+  results: [['baboons', d6], ['centaurs', d6], ['minotaurs', d4], ['adventurers', d6], ['other thieves', d20], ['ogres', d4], ['morokanth', d4], ['crested dragonewt', 1], ['beaked dragonewt', 1], ['dragonewts in a party', d8], ['residents', d4], ['residents', d6], ['residents', d8], ['residents', d10], ['werewolf', 1], ['sky bull', 1], ['giant', 1], ['manticore', 1], ['wyrm', 1], ['dragon', 1]]
+};
+
+var inPrax = {
+  chance: 40,
+  results: [['animals in a wild herd', d10], ['baboons', d4], ['morokanth', d6], ['morokanth', d8], ['newtling', 1], ['rhino riders', d8], ['horse barbarians', d20], ['zebra people', d20], ['sable people', d20], ['sable people', d100], ['impala people', d8], ['impala people', d20], ['high llama people', d10], ['high llama people', d20], ['bison people', d4], ['bison people', d8], ['centaurs', d4], ['griffin', 1], ['wyvern', 1], ['dragon', 1]]
+};
+
+var inWoods = [
+  ['pixie', 1], ['runner', 1], ['elf', 1], ['cockatrice', 1], ['dryad', 1], ['trollkin', 1], ['jack o bear', 1], ['dark trolls', d6], ['adventurers', d6], ['outlaws', d10], ['tusk riders', d8], ['crested dragonewt', 1], ['beaked dragonewt', 1], ['priest dragonewt', 1], ['shadow cat', 1], ['tusk brothers', d6], ['bear walker', 1], ['baboons', d8], ['wolfbrother', 1], ['snakes', d6]
+];
+var inElfWoods = [
+  ['pixies', d4], ['pixies', d8], ['runners', d4], ['runners', d8], ['runners', d20], ['elves', d6], ['elves', d8], ['elves', d10], ['elves', d20], ['elves', d100], ['dryads', d6], ['dryads', d10], ['elves in a war party', d20], ['elves in a war party', d100], ['ghost', 1], ['raiding dwarves', d100], ['raiding trolls', d100], ['raiding adventurer', 1], ['bear walker', 1], ['centaur', 1]
+];
+var inMountains = [
+  ['dwarf', 1], ['dwarf', 1], ['dwarf', 1], ['ghost', 1], ['adventurers', d6], ['trollkin', 1], ['trollkin', 1], ['dark trolls', d4], ['dark trolls', d6], ['great trolls', d6], ['rock lizards', d8], ['cliff toad', 1], 'wyvern', 'wind children', 'sky bull', 'griffin', 'gargoyle', 'giants', 'giants', 'broos'
+];
+var inDwarfMountains = [
+  'dwarves', 'dwarves', 'dwarves', 'dwarves', 'dwarves', 'dwarves', 'dwarves', 'dwarves', 'dwarves', 'rock lizards', 'cliff toad', 'wyverns', 'wind children', 'sky bulls', 'griffins', 'gargoyles', 'giants', 'raiding trolls', 'raiding trolls'
+];
+var inRivers = [
+  'fishermen', 'fishermen', 'fishermen', 'duck', 'duck', 'snakes', 'snakes', 'giant toad', 'small toad', 'cave trolls', 'dragonsnails', 'adventurers', 'dragonewts', 'dragonewts', 'dragonewts', 'newtlings', 'newtlings', 'newtlings', 'newtlings', 'wyrm'
+];
+var inMarsh = [
+  'duck', 'duck', 'snake', 'snake', 'snake', 'skeleton', 'zombie', 'ghoul', 'vampire', 'dragonsnail', 'gorp', 'giant toads', 'lizards', 'beaked dragonewt', 'newtlings', 'walktapi', 'ghost', 'ghosts', 'wyrm', 'dragon'
+];
+var inRuins = [
+  'baboobs', 'rock lizard', 'snakes', 'rubble runners', 'shadow cats', 'cave trolls', 'dark trolls', 'gargoyle', 'adventurers', 'weretiger', 'scorpion men', 'werewolf', 'broos', 'dragonsnail', 'skeletons', 'zombies', 'ghouls', 'vampire or ghost', 'wyrm or manticore', 'gorp'
+];
+var inChaosNests = [
+  'skeleton', 'ghoul', 'zombie', 'vampire', 'ghost', 'broos', 'broos', 'scorpion man', 'scorpion men', 'scorpion men', 'werebear', 'weretiger', 'werepig', 'werewolf', 'ogre', 'basalisk', 'jack o bear', 'dragonsnail', 'dragonewt party', 'walktapus'
+];
+var inTrollAreas = [
+  'great troll', 'great troll', 'dark troll', 'dark trolls', 'dark trolls', 'trollkin', 'trollkin', 'trollkin', 'trollkin', 'cave troll', 'cave trolls', 'dark troll war party', 'dark troll war party', 'cliff toad', 'jack o bear', 'wyrm', 'raiding adventurers', 'raiding dwarves', 'raiding elves'
+];
 
 
 /***** HELPER FUNCTIONS *****/
@@ -339,11 +349,14 @@ var check = function (goal) {
 }
 
 var findEncounter = function (location) {
-  var encounterIndex = roll (1, d20) - 1;
-  if (location[encounterIndex][1] !== 1) {
-    return roll (1, location[encounterIndex][1]) + ' ' + location[encounterIndex][0]
+  if (check(location.chance)[0] === true) {
+    var encounterIndex = roll (1, d20) - 1;
+    if (location.results[encounterIndex][1] !== 1) {
+      return roll (1, location.results[encounterIndex][1]) + ' ' + location.results[encounterIndex][0];
+    }
+    return '1 ' + location.results[encounterIndex][0];
   }
-  return '1 ' + location[encounterIndex][0];
+  return 'nothing found';
 }
 
 var findResponse = function (index, rangeOne, rangeTwo, rangeThree, rangeFour, rangeFive) {
