@@ -28,6 +28,47 @@ var body = [
   { name: 'head', hitNumbers: [19, 20], armor: 0 }           // body[6]
 ];
 
+// random encounters
+var encountersInTown = [
+  'residents at work', 'residents at work', 'residents at work', 'residents at work', 'residents at work', 'residents at work', 'residents at work', 'residents at work', 'local rowdies', 'non-local rowdies', 'constabulary', 'constabulary', 'priest & company', 'priest & company', 'NPC friend', 'hold-up man', 'assassin', 'pickpocket', 'tiger sons', 'vampire'
+];
+var encountersInCultivatedLands = [
+  'residents at work', 'residents at work', 'residents at work', 'residents at work', 'residents at work', 'residents, militia', 'residents, militia', 'local soldiery', 'adventurers', 'snakes', 'rubble runners', 'rubble runners', 'centaurs', 'ogre', 'raiding elves', 'raiding elves', 'raiding trolls', 'thieves', 'highwayman', 'wyrm'
+];
+var encountersInOpenCountry = [
+  'baboons', 'centaurs', 'minotaurs', 'adventurers', 'other thieves', 'ogres', 'morokanth', 'crested dragonewt', 'beaked dragonewt', 'dragonewt party', 'residents', 'residents', 'residents', 'residents', 'werewolf', 'sky bull', 'giant', 'manticore and griffin', 'wyrm and wyvern', 'dragon'
+];
+var encountersInPrax = [
+  'wild herd', 'baboons', 'morokanth', 'morokanth', 'newtling', 'rhino riders', 'horse barbarians', 'zebra people', 'sable people', 'sable people', 'impala people', 'impala people', 'high llama people', 'high llama people', 'bison people', 'bison people', 'centaurs', 'griffin', 'wyvern', 'dragon and wyrm'
+];
+var encountersInWoods = [
+  'pixie', 'runner', 'elf', 'cockatrice', 'dryad', 'trollkin', 'jack o bear', 'dark trolls', 'adventurers', 'outlaws', 'tusk riders', 'crested dragonewt', 'beaked dragonewt', 'priest dragonewt', 'shadow cat', 'tusk brothers', 'bear walker', 'baboons', 'wolfbrother', 'snakes'
+];
+var encountersInElfWoods = [
+  'pixies', 'pixies', 'runners', 'runners', 'runners', 'elves', 'elves', 'elves', 'elves', 'elves', 'dryads', 'dryads', 'elf war party', 'elf war party', 'ghost', 'raiding dwarves', 'raiding trolls', 'raiding adventurer', 'bear walker', 'centaur'
+];
+var encountersInMountains = [
+  'dwarf', 'dwarf', 'dwarf', 'ghost', 'adventurers', 'trollkin', 'trollkin', 'dark trolls', 'dark trolls', 'great trolls', 'rock lizards', 'cliff toad', 'wyvern', 'wind children', 'sky bull', 'griffin', 'gargoyle', 'giants', 'giants', 'broos'
+];
+var encountersInDwarfMountains = [
+  'dwarves', 'dwarves', 'dwarves', 'dwarves', 'dwarves', 'dwarves', 'dwarves', 'dwarves', 'dwarves', 'rock lizards', 'cliff toad', 'wyverns', 'wind children', 'sky bulls', 'griffins', 'gargoyles', 'giants', 'raiding trolls', 'raiding trolls'
+];
+var encountersInRivers = [
+  'fishermen', 'fishermen', 'fishermen', 'duck', 'duck', 'snakes', 'snakes', 'giant toad', 'small toad', 'cave trolls', 'dragonsnails', 'adventurers', 'dragonewts', 'dragonewts', 'dragonewts', 'newtlings', 'newtlings', 'newtlings', 'newtlings', 'wyrm'
+];
+var encountersInMarsh = [
+  'duck', 'duck', 'snake', 'snake', 'snake', 'skeleton', 'zombie', 'ghoul', 'vampire', 'dragonsnail', 'gorp', 'giant toads', 'lizards', 'beaked dragonewt', 'newtlings', 'walktapi', 'ghost', 'ghosts', 'wyrm', 'dragon'
+];
+var encountersInRuins = [
+  'baboobs', 'rock lizard', 'snakes', 'rubble runners', 'shadow cats', 'cave trolls', 'dark trolls', 'gargoyle', 'adventurers', 'weretiger', 'scorpion men', 'werewolf', 'broos', 'dragonsnail', 'skeletons', 'zombies', 'ghouls', 'vampire or ghost', 'wyrm or manticore', 'gorp'
+];
+var encountersInChaosNests = [
+  'skeleton', 'ghoul', 'zombie', 'vampire', 'ghost', 'broos', 'broos', 'scorpion man', 'scorpion men', 'scorpion men', 'werebear', 'weretiger', 'werepig', 'werewolf', 'ogre', 'basalisk', 'jack o bear', 'dragonsnail', 'dragonewt party', 'walktapus'
+];
+var encountersInTrollAreas = [
+  'great troll', 'great troll', 'dark troll', 'dark trolls', 'dark trolls', 'trollkin', 'trollkin', 'trollkin', 'trollkin', 'cave troll', 'cave trolls', 'dark troll war party', 'dark troll war party', 'cliff toad', 'jack o bear', 'wyrm', 'raiding adventurers', 'raiding dwarves', 'raiding elves'
+];
+
 // random treasure drops
 var treasureArray = [
   [[75, 1, d100], [75, 1, d10], [50, 1, d6], [50, 1], [5, 1]],
@@ -297,24 +338,8 @@ var check = function (goal) {
   }
 }
 
-var treasureCheck = function (goal) {
-  var results = check(goal);
-  var pass = results[0];
-  var passPercent = results[1];
-  if (pass === true) {
-    if (passPercent <= 5) {return 10}
-    else if (passPercent <= 10) {return 5}
-    else if (passPercent <= 12.5) {return 4}
-    else if (passPercent <= 25) {return 3}
-    else if (passPercent <= 50) {return 2}
-    else {return 1}
-  } else {
-    return 0;
-  }
-}
-
-var treasureResults = function (treasureInput) {
-  return treasureCheck (treasureInput[0]) * roll (treasureInput[1], treasureInput[2]);
+var randomEncounter = function () {
+  // TODO: fill this is
 }
 
 var randomSpell = function () {
@@ -357,7 +382,7 @@ var randomPotion = function () {
     return 'potion of healing ' + roll (1, d6) + ' damage to the body\'s worst wound';
   } else if (11 <= index && index <= 25) {
     var spell = randomSpell();
-    return 'potion of ' + spell.name + 'with two hour duration';
+    return 'potion of ' + spell.name + 'with two hour duration'; // TODO: make spell names work
   } else if (26 <= index && index <= 55) {
     var poison = ['poison gas', 'poison gas', 'herbal poison', 'mineral poison'];
     return 'bottle of ' + poisonPotency + 'potency ' + poison[roll (1, d4) - 1];
@@ -472,7 +497,27 @@ var randomGem = function () {
   }
 }
 
-var treasureReturn = function (treasureValue) {
+var treasureCheck = function (goal) {
+  var results = check(goal);
+  var pass = results[0];
+  var passPercent = results[1];
+  if (pass === true) {
+    if (passPercent <= 5) {return 10}
+    else if (passPercent <= 10) {return 5}
+    else if (passPercent <= 12.5) {return 4}
+    else if (passPercent <= 25) {return 3}
+    else if (passPercent <= 50) {return 2}
+    else {return 1}
+  } else {
+    return 0;
+  }
+}
+
+var treasureResults = function (treasureInput) {
+  return treasureCheck (treasureInput[0]) * roll (treasureInput[1], treasureInput[2]);
+}
+
+var treasureValueReturn = function (treasureValue) {
   var clacks = 0;
   var lunars = 0;
   var wheels = 0;
@@ -488,22 +533,9 @@ var treasureReturn = function (treasureValue) {
   gems += treasureCheck (treasureArray[treasureIndex][3][0]) * treasureArray[treasureIndex][3][1];
   specialItems += treasureCheck (treasureArray[treasureIndex][4][0]) * treasureArray[treasureIndex][4][1];
 
-  for (gems; gems > 0; gems--) {
-    gemOutput += (', ' + randomGem ());
-  }
-
-  if (specialItems === 1) {
-    specialItemsOutput = ', ' + randomSpecialItem ();
-  }
-
-  return clacks + ' clacks, ' + lunars + ' lunars, ' + wheels + ' wheels' + gemOutput + specialItemsOutput;
-
-  console.log('clacks', clacks);
-  console.log('lunars', lunars);
-  console.log('wheels', wheels);
-  console.log('gems', gems);
-  console.log('special items', specialItems);
-
+  for (gems; gems > 0; gems--) { gemOutput += (', ' + randomGem ()) } // for every gem, generate a gem
+  if (specialItems === 1) { specialItemsOutput = ', ' + randomSpecialItem () } // if there is a special item, make it
+  return clacks + ' clacks, ' + lunars + ' lunars, ' + wheels + ' wheels' + gemOutput + specialItemsOutput; // return everything
 }
 
 /***** LOCAL STORAGE *****/
