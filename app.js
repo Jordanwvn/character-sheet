@@ -385,10 +385,10 @@ var randomPotion = function () {
     return 'potion of ' + spell.name + 'with two hour duration'; // TODO: make spell names work
   } else if (26 <= index && index <= 55) {
     var poison = ['poison gas', 'poison gas', 'herbal poison', 'mineral poison'];
-    return 'bottle of ' + poisonPotency + 'potency ' + poison[roll (1, d4) - 1];
+    return 'bottle of ' + poisonPotency + ' potency ' + poison[roll (1, d4) - 1];
   } else if (56 <= index && index <= 65) {
     var venom = ['manticore', 'wyvern', 'spider', 'spider'];
-    return venom[roll (1, d4) - 1] + ' blade venom of ' + poisonPotency + 'potency';
+    return venom[roll (1, d4) - 1] + ' blade venom of ' + poisonPotency + ' potency';
   } else if (66 <= index && index <= 80) {
     var antidote = ['manticore venom', 'poison gas', 'wyvern venom', 'spider venom', 'herbal poison', 'mineral poison'];
     return 'antidote of ' + antidote[roll (1, d6) - 1];
@@ -488,12 +488,12 @@ var randomGemAttribute = function (index) {
 var randomGem = function () {
   var index = roll (1, d100);
   if (index === 1) {
-    return randomSpecialItem() + ' at a value of ' + randomGemAttribute (index)[1] + ' lunars';
+    return randomSpecialItem() + ' worth ' + randomGemAttribute (index)[1] + ' lunars';
   } else if (index === 2) {
     return randomCrystal();
   } else {
     var gem = randomGemAttribute(index);
-    return gem[0] + ' at a value of ' + gem[1] + ' lunars';
+    return gem[0] + ' worth ' + gem[1] + ' lunars';
   }
 }
 
@@ -525,6 +525,9 @@ var treasureValueReturn = function (treasureValue) {
   var gemOutput = '';
   var specialItems = 0;
   var specialItemsOutput = '';
+
+  if (treasureValue === 0) {return false}
+
   var treasureIndex = Math.floor(treasureValue / 10);
 
   clacks += treasureResults(treasureArray[treasureIndex][0]);
@@ -534,7 +537,7 @@ var treasureValueReturn = function (treasureValue) {
   specialItems += treasureCheck (treasureArray[treasureIndex][4][0]) * treasureArray[treasureIndex][4][1];
 
   for (gems; gems > 0; gems--) { gemOutput += (', ' + randomGem ()) } // for every gem, generate a gem
-  if (specialItems === 1) { specialItemsOutput = ', ' + randomSpecialItem () } // if there is a special item, make it
+  for (specialItems; specialItems > 0; specialItems--) { specialItemsOutput = ', ' + randomSpecialItem () } // if there is a special item, make it
   return clacks + ' clacks, ' + lunars + ' lunars, ' + wheels + ' wheels' + gemOutput + specialItemsOutput; // return everything
 }
 
