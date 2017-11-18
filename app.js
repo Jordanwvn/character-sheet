@@ -254,9 +254,9 @@ Item.prototype.removeIfEmpty = function () {
 var roll = function (numberOfDice, diceType) {
   var rollResult = 0; // declare a variable to hold the final result
   for (var rolls = numberOfDice; rolls > 0; rolls --) { // for every dice to roll...
-    console.log('rolls left:', rolls);
+    // console.log('rolls left:', rolls);
     var dieResult = Math.floor (Math.random () * (diceType[1] - diceType[0]) + diceType[0]) // end floor
-    console.log('die result:', dieResult);
+    // console.log('die result:', dieResult);
     rollResult += dieResult; // add the result of the single die to the end result
   } // end for
   return rollResult; // return the result
@@ -335,18 +335,18 @@ var randomScroll = function () {
   } else if (16 <= index && index <= 30) {
     return 'letter of credit, deed, or valuable historical knowledge';
   } else if (31 <= index && index <= 50) {
-    return 'secret technique scroll, giving a ' + randomIncrease + '% increase in any weapon';
+    return 'secret technique scroll giving a ' + randomIncrease + '% increase in any weapon';
 
     //TODO implement this with the weapons table when built
 
   } else if (51 <= index && index <= 65) {
     var randomSkillArray = ['knowledge', 'perception', 'manipulation', 'manipulation', 'stealth', 'stealth'];
     var skillIndex = roll (1, d6);
-    return 'scroll holding the secrets of using ' + randomSkillArray[skillIndex] + ', increasing all related skills by ' + randomIncrease + '%';
+    return 'scroll holding the secrets of using ' + randomSkillArray[skillIndex] + 'and increasing all related skills by ' + randomIncrease + '%';
   } else if (66 <= index && index <= 75) {
-    return 'map of an area, which seems quite interesting';
+    return 'map of an area which seems quite interesting';
   } else {
-    return 'seemingly useless scroll, not even readable'
+    return 'seemingly useless scroll that\'s not even readable'
   }
 }
 
@@ -370,7 +370,7 @@ var randomPotion = function () {
   } else if (81 <= index <= 90) {
     return 'special potion at referee\'s discretion';
   } else {
-    return 'spoiled potion, treated like poison of ' + poisonPotency + ', yet indestinguishable from a normal potion';
+    return 'spoiled potion: treated like poison of ' + poisonPotency + ' yet indestinguishable from a normal potion';
   }
 }
 
@@ -457,7 +457,7 @@ var randomGemAttribute = function (index) {
     return ['semi-precious stones', roll (1, d10)];
   } else {
     return ['pretty stones', 0];
-  } 
+  }
 }
 
 var randomGem = function () {
@@ -477,9 +477,10 @@ var treasureReturn = function (treasureValue) {
   var lunars = 0;
   var wheels = 0;
   var gems = 0;
+  var gemOutput = '';
   var specialItems = 0;
+  var specialItemsOutput = '';
   var treasureIndex = Math.floor(treasureValue / 10);
-  console.log('treasure index', treasureIndex);
 
   clacks += treasureResults(treasureArray[treasureIndex][0]);
   lunars += treasureResults(treasureArray[treasureIndex][1]);
@@ -487,7 +488,15 @@ var treasureReturn = function (treasureValue) {
   gems += treasureCheck (treasureArray[treasureIndex][3][0]) * treasureArray[treasureIndex][3][1];
   specialItems += treasureCheck (treasureArray[treasureIndex][4][0]) * treasureArray[treasureIndex][4][1];
 
+  for (gems; gems > 0; gems--) {
+    gemOutput += (', ' + randomGem ());
+  }
 
+  if (specialItems === 1) {
+    specialItemsOutput = ', ' + randomSpecialItem ();
+  }
+
+  return clacks + ' clacks, ' + lunars + ' lunars, ' + wheels + ' wheels' + gemOutput + specialItemsOutput;
 
   console.log('clacks', clacks);
   console.log('lunars', lunars);
