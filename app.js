@@ -48,7 +48,7 @@ var inElfWoods = [
   ['pixies', d4], ['pixies', d8], ['runners', d4], ['runners', d8], ['runners', d20], ['elves', d6], ['elves', d8], ['elves', d10], ['elves', d20], ['elves', d100], ['dryads', d6], ['dryads', d10], ['elves in a war party', d20], ['elves in a war party', d100], ['ghost', 1], ['raiding dwarves', d100], ['raiding trolls', d100], ['raiding adventurer', 1], ['bear walker', 1], ['centaur', 1]
 ];
 var inMountains = [
-  'dwarf', 'dwarf', 'dwarf', 'ghost', 'adventurers', 'trollkin', 'trollkin', 'dark trolls', 'dark trolls', 'great trolls', 'rock lizards', 'cliff toad', 'wyvern', 'wind children', 'sky bull', 'griffin', 'gargoyle', 'giants', 'giants', 'broos'
+  ['dwarf', 1], ['dwarf', 1], ['dwarf', 1], ['ghost', 1], ['adventurers', d6], ['trollkin', 1], ['trollkin', 1], ['dark trolls', d4], ['dark trolls', d6], ['great trolls', d6], ['rock lizards', d8], ['cliff toad', 1], 'wyvern', 'wind children', 'sky bull', 'griffin', 'gargoyle', 'giants', 'giants', 'broos'
 ];
 var inDwarfMountains = [
   'dwarves', 'dwarves', 'dwarves', 'dwarves', 'dwarves', 'dwarves', 'dwarves', 'dwarves', 'dwarves', 'rock lizards', 'cliff toad', 'wyverns', 'wind children', 'sky bulls', 'griffins', 'gargoyles', 'giants', 'raiding trolls', 'raiding trolls'
@@ -344,6 +344,35 @@ var findEncounter = function (location) {
     return roll (1, location[encounterIndex][1]) + ' ' + location[encounterIndex][0]
   }
   return '1 ' + location[encounterIndex][0];
+}
+
+var findResponse = function (index, rangeOne, rangeTwo, rangeThree, rangeFour, rangeFive) {
+  if (index <= rangeOne) {
+    return 'encountered creatures are extremely friendly to party, and very ameable to suggestions';
+  } else if (index <= rangeTwo) {
+    return 'encountered creatures are will to let the party go their own way; they will go theirs';
+  } else if (index <= rangeThree) {
+    return 'encountered creatures are unsure and will stall for time, or for something significant or telling to occur';
+  } else if (index <= rangeFour) {
+    return 'encountered creatures take an active dislike of the party, just short of blind hatred';
+  } else if (index <= rangeFive) {
+    return 'encountered creatures cannot conceal their contempt and/or hatred for the party';
+  }
+}
+
+var randomResponse = function (predisposition) {
+  var responseIndex = roll (1, d100);
+  var response;
+  if (predisposition === 'hostile') {
+    response = findResponse (responseIndex, 5, 15, 25, 85, 100);
+    return response;
+  } else if (predisposition === 'neutral') {
+    response = findResponse (responseIndex, 10, 30, 70, 90, 100);
+    return response;
+  } else if (predisposition === 'friendly') {
+    response = findResponse (responseIndex, 15, 75, 85, 95, 100);
+    return response;
+  }
 }
 
 var randomSpell = function () {
