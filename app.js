@@ -335,7 +335,7 @@ var randomScroll = function () {
   } else if (16 <= index && index <= 30) {
     return 'letter of credit, deed, or valuable historical knowledge';
   } else if (31 <= index && index <= 50) {
-    return 'secret technique scroll, giving a ' + randomIncrease '% increase in any weapon'
+    return 'secret technique scroll, giving a ' + randomIncrease + '% increase in any weapon';
 
     //TODO implement this with the weapons table when built
 
@@ -374,7 +374,103 @@ var randomPotion = function () {
   }
 }
 
-var randomGem = function () {}
+var randomCrystalAttribute = function (index) {
+  if (index <= 5) {
+    return ['healing focusing', roll (1, d8)];
+  } else if (index <= 8) {
+    return ['sensitivity', roll (1, d8)];
+  } else if (index <= 11) {
+    return ['twice power yielding', roll (1, d8)];
+  } else if (index <= 14) {
+    return ['power enhancing', roll (1, d8)];
+  } else if (index <= 16) {
+    return ['spell reinforcing', roll (1, d4)];
+  } else if (index <= 18) {
+    return ['spell strengthening', roll (1, d4)];
+  } else if (index <= 20) {
+    return ['spell resisting', roll (1, d4)];
+  } else if (index <= 22) {
+    return ['spell supporting', roll (1, d4)];
+  } else if (index <= 24) {
+    return ['spell storing', roll (1, d4)];
+  } else {
+    return ['power storing / spirit trapping', (roll (2, d6) + 3)];
+  }
+}
+
+var randomCrystal = function () {
+  var index = roll (1, d100);
+  if (index === 1) {
+    var crystalOne = randomCrystalAttribute (roll (1, d100));
+    var crystalTwo = randomCrystalAttribute (roll (1, d100));
+    return 'crystal of ' + crystalOne[0] + ' and ' + crystalTwo[0] + ' filled with ' + (crystalOne[1] + crystalTwo[1]) + ' power';
+  } else if (index === 2) {
+    var boostedCrystal = randomCrystalAttribute (roll (1, d100))
+    return 'crystal of ' + boostedCrystal[0] + ' filled with ' + (boostedCrystal[1] + roll (1, d6)) + ' power';
+  } else if (25 <= index && index <= 30) {
+    return 'flawed crystal';
+  } else {
+    return 'crystal of ' + randomCrystalAttribute (index)[0] + ' filled with ' + randomCrystalAttribute (index)[1] + ' power';
+  }
+}
+
+var randomSpecialItem = function () {
+  var index = roll (1, d100);
+  if (index <= 35) {
+    return randomScroll();
+  } else if (index <= 60) {
+    return randomPotion();
+  } else if (index <= 85) {
+    var specialItemSpell = randomSpell();
+    return 'spell of ' + specialItemSpell.name;
+  } else {
+    return randomCrystal(); //TODO: add functionality to choose between this and an item with a spell matrix
+  }
+}
+
+var randomGemAttribute = function (index) {
+  if (index <= 3) {
+    return ['ancient treasure', (roll (1, d20) * 10000)];
+  } else if (index <= 5) {
+    return ['heirloom jewelry', (roll (3, d6) * 1000)];
+  } else if (index <= 10) {
+    return ['superb gemstone', (roll (1, d10) * 1000)];
+  } else if (index <= 15) {
+    return ['excellent jewelry', (roll (1, d6) * 1000)];
+  } else if (index <= 20) {
+    return ['excellent gemstone', (roll (3, d6) * 100)];
+  } else if (index <= 30) {
+    return ['very good jewelry', roll (12, d100)];
+  } else if (index <= 40) {
+    return ['very good gemstone', roll (6, d100)];
+  } else if (index <= 50) {
+    return ['good jewelry', roll (10, d20)];
+  } else if (index <= 60) {
+    return ['good gemstone', roll (2, d100)];
+  } else if (index <= 70) {
+    return ['costume jewelry', roll (5, d20)];
+  } else if (index <= 80) {
+    return ['flawed gemstone', roll (1, d100)];
+  } else if (index <= 90) {
+    return ['trade junk jewelry', roll (1, d20)];
+  } else if (index <= 95) {
+    return ['semi-precious stones', roll (1, d10)];
+  } else {
+    return ['pretty stones', 0];
+  } 
+}
+
+var randomGem = function () {
+  var index = roll (1, d100);
+  if (index === 1) {
+    return randomSpecialItem() + ' at a value of ' + randomGemAttribute (index)[1] + ' lunars';
+  } else if (index === 2) {
+    return randomCrystal();
+  } else {
+    var gem = randomGemAttribute(index);
+    return gem[0] + ' at a value of ' + gem[1] + ' lunars';
+  }
+}
 
 var treasureReturn = function (treasureValue) {
   var clacks = 0;
