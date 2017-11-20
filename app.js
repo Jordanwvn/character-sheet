@@ -365,6 +365,14 @@ var check = function (goal) {
   }
 }
 
+var resistanceCheck = function (attackingPower, defendingPower) {
+  var difference = 50 + (5 * (attackingPower - defendingPower));
+  if (check (difference)[0] === true) {
+    return 'attack successful';
+  }
+  return 'attack unsuccessful';
+}
+
 var findEncounter = function (location) {
   if (check(location.chance)[0] === true) {
     var encounterIndex = roll (1, d20) - 1;
