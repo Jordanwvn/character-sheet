@@ -269,33 +269,50 @@ var inPrax = {
   results: [['animals in a wild herd', d10], ['baboons', d4], ['morokanth', d6], ['morokanth', d8], ['newtling', 1], ['rhino riders', d8], ['horse barbarians', d20], ['zebra people', d20], ['sable people', d20], ['sable people', d100], ['impala people', d8], ['impala people', d20], ['high llama people', d10], ['high llama people', d20], ['bison people', d4], ['bison people', d8], ['centaurs', d4], ['griffin', 1], ['wyvern', 1], ['dragon', 1]]
 };
 
-var inWoods = [
-  ['pixie', 1], ['runner', 1], ['elf', 1], ['cockatrice', 1], ['dryad', 1], ['trollkin', 1], ['jack o bear', 1], ['dark trolls', d6], ['adventurers', d6], ['outlaws', d10], ['tusk riders', d8], ['crested dragonewt', 1], ['beaked dragonewt', 1], ['priest dragonewt', 1], ['shadow cat', 1], ['tusk brothers', d6], ['bear walker', 1], ['baboons', d8], ['wolfbrother', 1], ['snakes', d6]
-];
-var inElfWoods = [
-  ['pixies', d4], ['pixies', d8], ['runners', d4], ['runners', d8], ['runners', d20], ['elves', d6], ['elves', d8], ['elves', d10], ['elves', d20], ['elves', d100], ['dryads', d6], ['dryads', d10], ['elves in a war party', d20], ['elves in a war party', d100], ['ghost', 1], ['raiding dwarves', d100], ['raiding trolls', d100], ['raiding adventurer', 1], ['bear walker', 1], ['centaur', 1]
-];
-var inMountains = [
-  ['dwarf', 1], ['dwarf', 1], ['dwarf', 1], ['ghost', 1], ['adventurers', d6], ['trollkin', 1], ['trollkin', 1], ['dark trolls', d4], ['dark trolls', d6], ['great trolls', d6], ['rock lizards', d8], ['cliff toad', 1], 'wyvern', 'wind children', 'sky bull', 'griffin', 'gargoyle', 'giants', 'giants', 'broos'
-];
-var inDwarfMountains = [
-  'dwarves', 'dwarves', 'dwarves', 'dwarves', 'dwarves', 'dwarves', 'dwarves', 'dwarves', 'dwarves', 'rock lizards', 'cliff toad', 'wyverns', 'wind children', 'sky bulls', 'griffins', 'gargoyles', 'giants', 'raiding trolls', 'raiding trolls'
-];
-var inRivers = [
-  'fishermen', 'fishermen', 'fishermen', 'duck', 'duck', 'snakes', 'snakes', 'giant toad', 'small toad', 'cave trolls', 'dragonsnails', 'adventurers', 'dragonewts', 'dragonewts', 'dragonewts', 'newtlings', 'newtlings', 'newtlings', 'newtlings', 'wyrm'
-];
-var inMarsh = [
-  'duck', 'duck', 'snake', 'snake', 'snake', 'skeleton', 'zombie', 'ghoul', 'vampire', 'dragonsnail', 'gorp', 'giant toads', 'lizards', 'beaked dragonewt', 'newtlings', 'walktapi', 'ghost', 'ghosts', 'wyrm', 'dragon'
-];
-var inRuins = [
-  'baboobs', 'rock lizard', 'snakes', 'rubble runners', 'shadow cats', 'cave trolls', 'dark trolls', 'gargoyle', 'adventurers', 'weretiger', 'scorpion men', 'werewolf', 'broos', 'dragonsnail', 'skeletons', 'zombies', 'ghouls', 'vampire or ghost', 'wyrm or manticore', 'gorp'
-];
-var inChaosNests = [
-  'skeleton', 'ghoul', 'zombie', 'vampire', 'ghost', 'broos', 'broos', 'scorpion man', 'scorpion men', 'scorpion men', 'werebear', 'weretiger', 'werepig', 'werewolf', 'ogre', 'basalisk', 'jack o bear', 'dragonsnail', 'dragonewt party', 'walktapus'
-];
-var inTrollAreas = [
-  'great troll', 'great troll', 'dark troll', 'dark trolls', 'dark trolls', 'trollkin', 'trollkin', 'trollkin', 'trollkin', 'cave troll', 'cave trolls', 'dark troll war party', 'dark troll war party', 'cliff toad', 'jack o bear', 'wyrm', 'raiding adventurers', 'raiding dwarves', 'raiding elves'
-];
+var inWoods = {
+  chance: 30,
+  results: [['pixie', 1], ['runner', 1], ['elf', 1], ['cockatrice', 1], ['dryad', 1], ['trollkin', 1], ['jack o bear', 1], ['dark trolls', d6], ['adventurers', d6], ['outlaws', d10], ['tusk riders', d8], ['crested dragonewt', 1], ['beaked dragonewt', 1], ['priest dragonewt', 1], ['shadow cat', 1], ['tusk brothers', d6], ['bear walker', 1], ['baboons', d8], ['wolfbrother', 1], ['snakes', d6]]
+};
+
+var inElfWoods = {
+  chance: 80,
+  results: [['pixies', d4], ['pixies', d8], ['runners', d4], ['runners', d8], ['runners', d20], ['elves', d6], ['elves', d8], ['elves', d10], ['elves', d20], ['elves', d100], ['dryads', d6], ['dryads', d10], ['elves in a war party', d20], ['elves in a war party', d100], ['ghost', 1], ['raiding dwarves', d100], ['raiding trolls', d100], ['raiding adventurer', 1], ['bear walker', 1], ['centaur', 1]]
+};
+
+var inMountains = {
+  chance: 80,
+  results: [['dwarf', 1], ['dwarf', 1], ['dwarf', 1], ['ghost', 1], ['adventurers', d6], ['trollkin', 1], ['trollkin', 1], ['dark trolls', d4], ['dark trolls', d6], ['great trolls', d6], ['rock lizards', d8], ['cliff toad', 1], ['wyvern', 1], ['wind children', d6], ['sky bull', 1], ['griffin', 1], ['gargoyle', 1], ['giants', d4], ['giants', d8], ['broos', d8]]
+};
+
+var inDwarfMountains = {
+  chance: 80,
+  results: [['dwarves', d4], ['dwarves', d6], ['dwarves', d8], ['dwarves', d10], ['dwarves', d10], ['dwarves', d20], ['dwarves', d20], ['dwarves', d100], ['dwarves', d100], ['rock lizards', d6], ['cliff toad', 1], ['wyverns', d4], ['wind children', d8], ['sky bulls', d6], ['griffins', d4], ['gargoyles', d6], ['giants', d4], ['raiding trolls', d20], ['raiding trolls', d100]]
+};
+
+var inRivers = {
+  chance: 30,
+  results: [['fishermen', d4], ['fishermen', d6], ['fishermen', d8], ['duck', d6], ['duck', d10], ['snakes', d6], ['snakes', d20], ['giant toad', 1], ['small toad', 1], ['cave trolls', d6], ['dragonsnails', d4], ['adventurers', d6], ['dragonewts', d6], ['dragonewts', d10], ['dragonewts', d20], ['newtlings', d6], ['newtlings', d8], ['newtlings', d10], ['newtlings', d20], ['wyrm', 1]]
+};
+
+var inMarsh = {
+  chance: 45,
+  results: [['duck', d4], ['duck', d8], ['snake', d4], ['snake', d6], ['snake', d8], ['skeleton', 1], ['zombie', 1], ['ghoul', 1], ['vampire', 1], ['dragonsnail', 1], ['gorp', 1], ['giant toads', d4], ['lizards', d6], ['beaked dragonewt', 1], ['newtlings', d6], ['walktapi', d4], ['ghost', 1], ['ghosts', d4], ['wyrm', 1], ['dragon', 1]]
+};
+
+var inRuins = {
+  chance: 85,
+  results: [['baboons', d6], ['rock lizard', 1], ['snakes', d4], ['rubble runners', d8], ['shadow cats', d4], ['cave trolls', d6], ['dark trolls', d4], ['gargoyle', 1], ['adventurers', d6], ['weretiger', 1], ['scorpion men', d4], ['werewolf', 1], ['broos', d4], ['dragonsnail', 1], ['skeletons', d20], ['zombies', d20], ['ghouls', d10], ['vampire', 1], ['wyrm', 1], ['gorp', 1]]
+};
+
+var inChaosNests = {
+  chance: 85,
+  results: [['skeleton', 1], ['ghoul', 1], ['zombie', 1], ['vampire', 1], ['ghost', 1], ['broos', d4], ['broos', d8], ['scorpion man', 1], ['scorpion men', d4], ['scorpion men', d8], ['werebear', 1], ['weretiger', 1], ['werepig', 1], ['werewolf', 1], ['ogre', 1], ['basalisk', 1], ['jack o bear', 1], ['dragonsnail', 1], ['dragonewts in a party', d6], ['walktapus', 1]]
+};
+
+var inTrollAreas = {
+  chance: 80,
+  results: [['great troll', 1], ['great troll', 1], ['dark troll', 1], ['dark trolls', d4], ['dark trolls', d8], ['trollkin', d4], ['trollkin', d6], ['trollkin', d8], ['trollkin', d10], ['cave troll', 1], ['cave trolls', d6], ['dark trolls in war party', d20], ['dark trolls in war party', d100], ['cliff toad', 1], ['jack o bear', 1], ['wyrm', 1], ['raiding adventurers', d20], ['raiding dwarves', d100], ['raiding elves', d100]]
+};
 
 
 /***** HELPER FUNCTIONS *****/
