@@ -247,6 +247,7 @@ Item.prototype.removeIfEmpty = function () {
 
 /***** OBJECT INSTANTIATION & LITERALS *****/
 
+// aldryami, mostali, uz, neutral
 
 // random encounters
 var inTown = {
