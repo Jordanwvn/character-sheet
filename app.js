@@ -654,25 +654,91 @@ var battleMagicSpellbook = [
   ),
 
   new Spell (
-    'Bladesharp', // spell name
+    'Bladesharp (1)', // spell name
     80, // range in meters
     true, // focused
     true, // passive
     10, // duration, in rounds
-    [1, 2, 3, 4], // power required
+    1, // power required
     'This spell, when cast on any thrusting, stabbing, or hacking weapon, increases the chance of hitting with it by 5% per point of POW invested in the spell. It also increases the damage done by one point per point of spell. No weapon can be enchanted past 20% to hit and four points extra damage. It can be used to enchant one weapon up to +20% and +4 damage or four weapons up to +5% and +1 damage, or any combination possible within the limitation of the level of the spell known. The spell is incompatible with other weapon improving spells',
-    500 * this.power // cost in Lunars
+    500 // cost in Lunars
   ),
 
   new Spell (
-    'Bludgeon', // spell name
+    'Bladesharp (2)', // spell name
     80, // range in meters
     true, // focused
     true, // passive
     10, // duration, in rounds
-    [1, 2, 3, 4], // power required
+    2, // power required
+    'This spell, when cast on any thrusting, stabbing, or hacking weapon, increases the chance of hitting with it by 5% per point of POW invested in the spell. It also increases the damage done by one point per point of spell. No weapon can be enchanted past 20% to hit and four points extra damage. It can be used to enchant one weapon up to +20% and +4 damage or four weapons up to +5% and +1 damage, or any combination possible within the limitation of the level of the spell known. The spell is incompatible with other weapon improving spells',
+    1000 // cost in Lunars
+  ),
+
+  new Spell (
+    'Bladesharp (3)', // spell name
+    80, // range in meters
+    true, // focused
+    true, // passive
+    10, // duration, in rounds
+    3, // power required
+    'This spell, when cast on any thrusting, stabbing, or hacking weapon, increases the chance of hitting with it by 5% per point of POW invested in the spell. It also increases the damage done by one point per point of spell. No weapon can be enchanted past 20% to hit and four points extra damage. It can be used to enchant one weapon up to +20% and +4 damage or four weapons up to +5% and +1 damage, or any combination possible within the limitation of the level of the spell known. The spell is incompatible with other weapon improving spells',
+    1500 // cost in Lunars
+  ),
+
+  new Spell (
+    'Bladesharp (4)', // spell name
+    80, // range in meters
+    true, // focused
+    true, // passive
+    10, // duration, in rounds
+    4, // power required
+    'This spell, when cast on any thrusting, stabbing, or hacking weapon, increases the chance of hitting with it by 5% per point of POW invested in the spell. It also increases the damage done by one point per point of spell. No weapon can be enchanted past 20% to hit and four points extra damage. It can be used to enchant one weapon up to +20% and +4 damage or four weapons up to +5% and +1 damage, or any combination possible within the limitation of the level of the spell known. The spell is incompatible with other weapon improving spells',
+    2000 // cost in Lunars
+  ),
+
+  new Spell (
+    'Bludgeon (1)', // spell name
+    80, // range in meters
+    true, // focused
+    true, // passive
+    10, // duration, in rounds
+    1, // power required
     'When cast on any smashing weapon the spell increases the chance of hitting 5% per point of spell. It also adds one point of damage per point of spell.  No weapon can be enchanted past 20% to hit and four points extra damage. It can be used to enchant one weapon up to +20% and +4 damage or four weapons up to +5% and +1 damage, or any combination possible within the limitation of the level of the spell known. The spell is incompatible with other weapon improving spells',
-    500 * this.power // cost in Lunars
+    500 // cost in Lunars
+  ),
+
+  new Spell (
+    'Bludgeon (2)', // spell name
+    80, // range in meters
+    true, // focused
+    true, // passive
+    10, // duration, in rounds
+    2, // power required
+    'When cast on any smashing weapon the spell increases the chance of hitting 5% per point of spell. It also adds one point of damage per point of spell.  No weapon can be enchanted past 20% to hit and four points extra damage. It can be used to enchant one weapon up to +20% and +4 damage or four weapons up to +5% and +1 damage, or any combination possible within the limitation of the level of the spell known. The spell is incompatible with other weapon improving spells',
+    1000 // cost in Lunars
+  ),
+
+  new Spell (
+    'Bludgeon (3)', // spell name
+    80, // range in meters
+    true, // focused
+    true, // passive
+    10, // duration, in rounds
+    3, // power required
+    'When cast on any smashing weapon the spell increases the chance of hitting 5% per point of spell. It also adds one point of damage per point of spell.  No weapon can be enchanted past 20% to hit and four points extra damage. It can be used to enchant one weapon up to +20% and +4 damage or four weapons up to +5% and +1 damage, or any combination possible within the limitation of the level of the spell known. The spell is incompatible with other weapon improving spells',
+    1500 // cost in Lunars
+  ),
+
+  new Spell (
+    'Bludgeon (4)', // spell name
+    80, // range in meters
+    true, // focused
+    true, // passive
+    10, // duration, in rounds
+    4, // power required
+    'When cast on any smashing weapon the spell increases the chance of hitting 5% per point of spell. It also adds one point of damage per point of spell.  No weapon can be enchanted past 20% to hit and four points extra damage. It can be used to enchant one weapon up to +20% and +4 damage or four weapons up to +5% and +1 damage, or any combination possible within the limitation of the level of the spell known. The spell is incompatible with other weapon improving spells',
+    2000 // cost in Lunars
   ),
 
   new Spell (
