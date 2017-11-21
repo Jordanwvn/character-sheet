@@ -125,8 +125,8 @@ var Skills = function (playerAttributes) { // take in character.attributes
   this.acting = this.oratory + 5
 }
 
-var Species = function (type, attributeValues, moveRate, treasureFactor, defenseBonus) {
-  this.type = type;
+var Species = function (name, attributeValues, moveRate, treasureFactor, defenseBonus) {
+  this.name = name;
   this.attributeValues = attributeValues;
   this.moveRate = moveRate;
   this.treasureFactor = treasureFactor;
@@ -135,14 +135,14 @@ var Species = function (type, attributeValues, moveRate, treasureFactor, defense
   // TODO finish constructor
 }
 
-var Character = function (name, species, socialClass, sex, age, nationality, cults, weapons, armor, spells) {
+var Character = function (name, species, sex, age, nationality, weapons, armor, spells) {
   this.name = name;
   this.species = species;
-  this.socialClass = socialClass;
+  this.background = randomBackground();
   this.sex = sex;
   this.age = age;
   this.nationality = nationality;
-  this.cults = cults;
+  this.cults = 'none';
   this.attributes = new Attributes (rollAttributes (this.species.attributeValues));
   this.skills = new Skills (this.attributes);
   this.weapons = weapons; // array
@@ -378,16 +378,37 @@ var resistanceCheck = function (attackingPower, defendingPower) {
 }
 
 var skillCheck = function (player, skill) {
-  if (check (player['skills'][skill])[0] === true) {
-    if (check (100 - player['skills'][skill])[0] === true) {
+  if (check (player['skills'][skill])[0] === true) { // if a check of the selected skill passes...
+    if (check (100 - player['skills'][skill])[0] === true) { // and if that skill is set to increase...
       // add learning bonus
-      player['skills'][skill] += 5;
+      player['skills'][skill] += 5; // increase the skill
       return player.name + ' was successful, ' + skill + ' was increased to ' + player['skills'][skill];
-    } else {
+    } else { // otherwise, if the check was successful but the skill is not set to increase...
       return player.name + ' was successful';
-    }
-  } else {
+    } // end else
+  } else { // otherwise, if the check was unsuccessful...
     return player.name + ' was unsuccessful';
+  } // end else
+} // end skillCheck function
+
+var randomBackground = function () {
+  var backgroundIndex = roll (1, d100);
+  var income = 0;
+  if (backgroundIndex <= 25) {
+    return ['peasant', roll (1, d100), income];
+  } else if (backgroundIndex <= 60) {
+    return ['townsman', roll (2, d100), income];
+  } else if (backgroundIndex <= 85) {
+    return ['barbarian', roll (1, d100), income];
+  } else if (backgroundIndex <= 95) {
+    income = (roll (1, d100)) * 5;
+    return ['poor noble', income, income];
+  } else if (backgroundIndex <= 99) {
+    income = (roll (1, d100)) * 10;
+    return ['rich noble', income, income];
+  } else if (backgroundIndex <= 100) {
+    income = (roll (1, d100)) * 20;
+    return ['very rich noble', income, income];
   }
 }
 
@@ -639,8 +660,62 @@ var treasureValueReturn = function (treasureValue) {
 
 
 var baboon = new Species (
-
+  'baboon',
+  [[3, d6, 6], [3, d6, 0], [3, d6, 0], [3, d6, 0], [2, d6, 6], [2, d6, 6], [3, d6, 0]],
+  10, // movement
+  8, // treasure factor
+  5 // defense bonus
 )
+
+var basalisk = new Species (
+  'basalisk',
+  [[2, d6, 0], [3, d6, 0], [2, d6, 0], [1, [1, 1], 0], [1, d6, 12], [2, d6, 0], [1, [1, 1], 0]],
+  4, // move
+  10, // treasure
+  0 // defense
+)
+
+var bearwalker = new Species (
+  'bearwalker',
+  [[2, d6, 6], [3, d6, 0], [1, d6, 12], [3, d6, 0], [3, d6, 0], [3, d6, 0], [3, d6, 0]],
+  8, // move
+  11, // treasure
+  0 // defense
+)
+
+var bison = new Species (
+  'bison',
+  [[3, d6, 24], [3, d6, 0], [3, d6, 24], [1, [1 ,1], 0], [3, d6, 0], [2, d6, 0], [1, [1, 1], 0]],
+  12, // move
+  0, // treasure
+  0 // defense
+)
+
+var boloLizard = new Species (
+  'bolo lizard',
+  [[2, d6, 12], [3, d6, 0], [2, d6, 12], [1, [1, 1], 0], [3, d6, 0], [1, d6, 12], [1, [1, 1], 0]],
+  12,
+  0,
+  0
+)
+
+var smallCliffToad = new Species (
+  'cliff toad',
+  [[2, d6, 0], [3, d6, 0], [2, d6, 0], [1, [1, 1], 0], [3, d6, 0], [3, d6, 0], [1, [1, 1], 0]],
+  6, // 2 speed walking
+  8,
+  0
+)
+
+var largeCliffToad = new Species (
+  'cliff toad',
+  [[12, d6, 0], [3, d6, 0], [12, d6, 0], [1, [1, 1], 0], [3, d6, 0], [3, d6, 0], [1, [1, 1], 0]],
+  6, // 2 speed walking
+  8,
+  0
+)
+
+
 
 var human = new Species (
   'human', // type
