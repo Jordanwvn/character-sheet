@@ -71,7 +71,15 @@ var Attributes = function (attributesArray) {
   this.cha = attributesArray[6]; // charisma
 }
 
-var Skills = function (str, con, siz, int, pow, dex, cha) { // take in character.attributes
+var Skills = function (playerAttributes) { // take in character.attributes
+  var str = playerAttributes.str;
+  var con = playerAttributes.con;
+  var siz = playerAttributes.siz;
+  var int = playerAttributes.int;
+  var pow = playerAttributes.pow;
+  var dex = playerAttributes.dex;
+  var cha = playerAttributes.cha;
+
   this.combat = {
     attack: this.setValue ('low', str) + this.setValue ('high', int) + this.setValue ('low', pow) + this.setValue ('high', dex),
     parry: this.setValue ('low', str) - this.setValue ('low', siz) + this.setValue ('low', pow) + this.setValue ('high', dex),
@@ -79,48 +87,42 @@ var Skills = function (str, con, siz, int, pow, dex, cha) { // take in character
     damageBonus: this.setDmgBonus(str, siz)
   };
 
-  this.baseKnowledge = this.setValue ('high', int) + this.setValue ('low', pow);
-  this.knowledge = {
-    evaluateTreasure: this.baseKnowledge + 5,
-    readWriteOwnLanguage: this.baseKnowledge + 10
-  };
+  this.knowledge = this.setValue ('high', int) + this.setValue ('low', pow);
 
-  this.baseManipulation = this.setValue ('low', str) + this.setValue ('high', int) + this.setValue ('low', pow) + this.setValue ('high', dex);
-  this.manipulation = {
-    armorMaking: 0,
-    climbing: this.baseManipulation + 15,
-    hideItem: this.baseManipulation + 10,
-    jumping: this.baseManipulation + 15,
-    lockPicking: this.baseManipulation + 5,
-    mapMaking: this.baseManipulation + 10,
-    riding: this.baseManipulation + 5,
-    shieldMaking: 0,
-    swimming: this.baseManipulation + 15,
-    trapSetAndDisarm: this.baseManipulation + 5,
-    tumbling: 0,
-    weaponMaking: 0
-  };
+  this.evaluateTreasure = this.knowledge + 5,
+  this.readWriteOwnLanguage = this.knowledge + 10
 
-  this.basePerception = this.setValue ('high', int) + this.setValue ('low', pow);
-  this.perception = {
-    listen: this.basePerception + 25,
-    spotHiddenItem: this.basePerception + 5,
-    spotTrap: this.basePerception + 5,
-    tracking: this.basePerception + 10
-  };
+  this.manipulation = this.setValue ('low', str) + this.setValue ('high', int) + this.setValue ('low', pow) + this.setValue ('high', dex);
 
-  this.baseStealth = this.setValue ('high', int) - this.setValue ('high', siz) + this.setValue ('low', pow) + this.setValue ('high', dex);
-  this.stealth = {
-    camoflauge: this.baseStealth + 10,
-    hideInCover: this.baseStealth + 5,
-    moveSilently: this.baseStealth + 5,
-    pickPockets: this.baseStealth + 5
-  };
+  this.armorMaking = 0,
+  this.climbing = this.manipulation + 15,
+  this.hideItem = this.manipulation + 10,
+  this.jumping = this.manipulation + 15,
+  this.lockPicking = this.manipulation + 5,
+  this.mapMaking = this.manipulation + 10,
+  this.riding = this.manipulation + 5,
+  this.shieldMaking = 0,
+  this.swimming = this.manipulation + 15,
+  this.trapSetAndDisarm = this.manipulation + 5,
+  this.tumbling = 0,
+  this.weaponMaking = 0
 
-  this.baseOratory = this.setValue ('low', int) + this.setValue ('low', pow) + this.setValue ('high', cha);
-  this.oratory = {
-    acting: this.baseOratory + 5
-  }
+  this.perception = this.setValue ('high', int) + this.setValue ('low', pow);
+
+  this.listen = this.perception + 25,
+  this.spotHiddenItem = this.perception + 5,
+  this.spotTrap = this.perception + 5,
+  this.tracking = this.perception + 10
+
+  this.stealth = this.setValue ('high', int) - this.setValue ('high', siz) + this.setValue ('low', pow) + this.setValue ('high', dex);
+
+  this.camoflauge = this.stealth + 10,
+  this.hideInCover = this.stealth + 5,
+  this.moveSilently = this.stealth + 5,
+  this.pickPockets = this.stealth + 5
+
+  this.oratory = this.setValue ('low', int) + this.setValue ('low', pow) + this.setValue ('high', cha);
+  this.acting = this.oratory + 5
 }
 
 var Species = function (type, attributeValues, moveRate, treasureFactor, defenseBonus) {
@@ -141,9 +143,10 @@ var Character = function (name, species, socialClass, sex, age, nationality, cul
   this.age = age;
   this.nationality = nationality;
   this.cults = cults;
-  this.attributes = new Attributes (rollAttributes (this.Species.attributeValues));
+  this.attributes = new Attributes (rollAttributes (this.species.attributeValues));
+  this.skills = new Skills (this.attributes);
   this.weapons = weapons; // array
-  this.armor = armor;
+  this.armor = armor; // array
   this.spells = spells; // array
 }
 
@@ -334,7 +337,7 @@ var roll = function (numberOfDice, diceType) {
 
 var rollAttributes = function (attributeRolls) {
   var rolledAttributes = [];
-  for (attributeIndex = 0; attributeIndex < attributeRolls.length; attributeIndex++) {
+  for (var attributeIndex = 0; attributeIndex < attributeRolls.length; attributeIndex++) {
     rolledAttributes.push (
       roll (
         attributeRolls[attributeIndex][0], attributeRolls[attributeIndex][1]
@@ -372,6 +375,20 @@ var resistanceCheck = function (attackingPower, defendingPower) {
     return 'attack successful';
   }
   return 'attack unsuccessful';
+}
+
+var skillCheck = function (player, skill) {
+  if (check (player['skills'][skill])[0] === true) {
+    if (check (100 - player['skills'][skill])[0] === true) {
+      // add learning bonus
+      player['skills'][skill] += 5;
+      return player.name + ' was successful, ' + skill + ' was increased to ' + player['skills'][skill];
+    } else {
+      return player.name + ' was successful';
+    }
+  } else {
+    return player.name + ' was unsuccessful';
+  }
 }
 
 var findEncounter = function (location) {
