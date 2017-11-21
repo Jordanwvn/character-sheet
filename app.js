@@ -694,9 +694,25 @@ var bison = new Species (
 var boloLizard = new Species (
   'bolo lizard',
   [[2, d6, 12], [3, d6, 0], [2, d6, 12], [1, [1, 1], 0], [3, d6, 0], [1, d6, 12], [1, [1, 1], 0]],
-  12,
-  0,
-  0
+  12, // move
+  0, // treasure
+  0 // defense
+)
+
+var broo = new Species (
+  'broo',
+  [[2, d6, 6], [1, d6, 12], [2, d6, 6], [3, d6, 0], [3, d6, 0], [3, d6, 0], [2, d6, 0]],
+  9, // move
+  12, // treasure
+  0 // defense
+)
+
+var centaur = new Species (
+  'centaur',
+  [[3, d6, 6], [3, d6, 0], [4, d6, 12], [3, d6, 0], [3, d6, 0], [3, d6, 3], [3, d6, 0]],
+  12, // move
+  11, // treasure
+  0 // defense
 )
 
 var smallCliffToad = new Species (
@@ -712,6 +728,22 @@ var largeCliffToad = new Species (
   [[12, d6, 0], [3, d6, 0], [12, d6, 0], [1, [1, 1], 0], [3, d6, 0], [3, d6, 0], [1, [1, 1], 0]],
   6, // 2 speed walking
   8,
+  0
+)
+
+var cockatrice = new Species (
+  'cockatrice',
+  [[2, d6, 0], [3, d6, 0], [2, d6, 0], [1, [1, 1], 0], [1, d6, 12], [2, d6, 6], [1, [1, 1], 0]],
+  8,
+  10,
+  0
+)
+
+var demi-bird = new Species (
+  'demi-bird',
+  [[3, d6, 18], [2, d6, 6], [3, d6, 12], [1, [1, 1], 0], [3, d6, 0], [2, d6, 6], [1, [1, 1], 0]],
+  12, // move
+  0, // treasure
   0
 )
 
