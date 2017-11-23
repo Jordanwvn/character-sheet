@@ -747,7 +747,14 @@ var demi-bird = new Species (
   0
 )
 
+var dreamDragon = new Species (
+  'dream dragon',
+  // make a way to take in a variable size of dragon to use for both the strength and size
+)
 
+var dragonewt = new Species (
+  ''
+)
 
 var human = new Species (
   'human', // type
