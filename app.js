@@ -49,14 +49,6 @@ var treasureArray = [
 // var abdomenAndLegs = abdomen.concat(legs);
 // var chestAndAbdomen = chest.concat(abdomen);
 
-// species starting attribute rolls: STR, CON, SIZ, INT, POW, DEX, CHA
-var dwarfAttributes = [[4, d6, 0], [2, d6, 6], [2, d6, 0], [3, d6, 0], [3, d6, 0], [3, d6, 0], [3, d6, 0]];
-var elfAttributes = [[2, d6, 2], [3, d6, 0], [2, d4, 4], [4, d6, 0], [2, d6, 6], [3, d6, 3], [3, d6, 0]];
-var minotaurAttributes = [[3, d6, 12], [2, d6, 6], [3, d6, 12], [2, d6, 0], [3, d6, 0], [3, d6, 0], [2, d6, 0]];
-var newtlingAttributes = [[3, d6, 0], [3, d6, 0], [2, d6, 0], [3, d6, 0], [3, d6, 0], [2, d6, 6], [3, d6, 0]];
-var pixieAttributes = [[2, d4, 0], [3, d6, 0], [1, d6, 0], [3, d6, 0], [2, d6, 6], [4, d6, 0], [3, d6, 0]];
-var runnerAttributes = [[2, d6, 0], [2, d6, 6], [2, d6, 0], [3, d6, 0], [3, d6, 0], [2, d6, 6], [3, d6, 0]];
-
 
 /***** OBJECT CONSTRUCTORS *****/
 
@@ -753,13 +745,259 @@ var dreamDragon = new Species (
 )
 
 var dragonewt = new Species (
-  ''
+  'crested dragonewt',
+  [[2, d6, 0], [3, d6, 0], [2, d6, 0], [3, d6, 0], [2, d6, 0], [2, d6, 6], [3, d6, 0]],
+  7,
+  7,
+  5
+)
+
+var dragonsnail = new Species (
+  'draonsnail',
+  [[4, d6, 12], [3, d6, 0], [4, d6, 12], [1, [1, 1], 0], [3, d6, 0], [2, d6, 0], [1, [1, 1], 0]],
+  3, // movement
+  13, // treasure
+  0 // defense
+)
+
+var dryad = new Species (
+  'dryad',
+  [[2, d6, 0], [3, d6, 0], [2, d6, 0], [4, d6, 0], [2, d6, 8], [2, d6, 6],[3, d6, 0]],
+  9, // movement
+  9, // treasure value
+  10 // defense
+)
+
+var duck = new Species (
+  'duck',
+  [[2, d6, 1], [2, d6, 6], [1, d6, 2], [3, d6, 0], [3, d6, 0], [2, d6, 6], [2, d6, 0]],
+  5, // movement
+  6, // treasure
+  10 // defense
+)
+
+var dwarf = new Species (
+  'dwarf',
+  [[4, d6, 0], [2, d6, 6], [2, d6, 0], [3, d6, 0], [3, d6, 0], [3, d6, 0], [3, d6, 0]],
+  6, // movement
+  10, // treasure
+  0 // defense
+)
+
+var elf = new Species (
+  'elf',
+  [[2, d6, 2], [3, d6, 0], [2, d4, 4], [4, d6, 0], [2, d6, 6], [3, d6, 3], [3, d6, 0]],
+  9, // movement
+  14, // treasure
+  10 // defense
+)
+
+var gargoyle = new Species (
+  'gargoyle',
+  // variable size
+)
+
+var ghost = new Species (
+  'ghost', // int pow dex 20
+  [[1, [1, 1], 0], [1, [1, 1], 0], [1, [1, 1], 0], [1, [20, 20], 0], [1, [20, 20], 0], [1, [20, 20], 0], [1, [1, 1], 0]],
+  0,
+  0,
+  0
+)
+
+var ghoul = new Species (
+  'ghoul',
+  [[4, d6, 0], [3, d6, 0], [3, d6, 0], [2, d6, 0], [2, d6, 6], [3, d6, 0], [1, [0, 0], 0]],
+  8, // movement
+  9, // treasure value
+  0 // defense
+)
+
+var giant = new Species (
+  'giant',
+  // variable size
+)
+
+var gorp = new Species (
+  'gorp',
+  [[1, [0, 0], 0], [3, d6, 0], [6, d6, 0], [1, [0, 0], 0], [3, d6, 0], [1, [0, 0], 0], [1, [0, 0], 0]],
+  5, // movement
+  10, // treasure
+  0 // defense
+)
+
+var griffin = new Species (
+  'griffin',
+  [[8, d6, 0], [2, d6, 6], [8, d6, 0], [2, d6, 6], [2, d6, 6], [3, d6, 0], [3, d6, 0]],
+  8, // movement, 12 flying
+  18, // treasure
+  0 // defense
+)
+
+var highLlama = new Species (
+  'high llama',
+  [[2, d6, 24], [3, d6, 0], [3, d6, 24], [1 [1, 1], 0], [3, d6, 0], [2, d6, 0], [1, [1, 1], 0]],
+  12, // movement
+  0, // treasure
+  0 // defense
+)
+
+var horse = new Species (
+  'horse',
+  [[3, d6, 18], [2, d6, 6], [4, d6, 12], [1, [1, 1], 0], [3, d6, 0], [3, d6, 0], [1, [1, 1], 0]],
+  12, // movement
+  0, // treasure
+  0 // defense
 )
 
 var human = new Species (
   'human', // type
   [[3, d6, 0], [3, d6, 0], [3, d6, 0], [3, d6, 0], [3, d6, 0], [3, d6, 0], [3, d6, 0]], // attributes
+  8, // movement
+  10, // treasure
+  0 // defense
 )
+
+var impala = new Species (
+  'impala',
+  [[2, d6, 6], [3, d6, 0], [2, d6, 6], [1, [1, 1], 0], [3, d6, 0], [2, d6, 6], [1, [1, 1], 0]],
+  10, // movement
+  0, // treasure
+  0 // defense
+)
+
+var jackOBears = new Species (
+  'jack o\'bears',
+  [[3, d6, 6], [2, d6, 6], [3, d6, 6], [2, d6, 0], [4, d6, 0], [3, d6, 0], [3, d6, 0]],
+  10, // movement
+  10, // treasure
+  0 // defense
+)
+
+var manticore = new Species (
+  'manticore',
+  [[4, d6, 12], [2, d6, 6], [4, d6, 12], [2, d6, 0], [3, d6, 0], [2, d6, 3], [2, d6, 0]],
+  9, // movement
+  15, // treasure
+  0 // defense
+)
+
+var minotaur = new Species (
+  'minotaur',
+  [[3, d6, 12], [2, d6, 6], [3, d6, 12], [2, d6, 0], [3, d6, 0], [3, d6, 0], [2, d6, 0]],
+  10, // movement
+  10, // treasure
+  0 // defense
+)
+
+var morokanth = new Species (
+  'morokanth',
+  [[3, d6, 6], [3, d6, 0], [3, d6, 6], [3, d6, 0], [3, d6, 0], [2, d6, 3], [3, d6, 0]],
+  8, // movement
+  13, // treasure
+  0 // defense
+)
+
+var newtling = new Species (
+  'newtling',
+  [[3, d6, 0], [3, d6, 0], [2, d6, 0], [3, d6, 0], [3, d6, 0], [2, d6, 6], [3, d6, 0]],
+  6, // movement
+  5, // treasure
+  5 // defense
+)
+
+var ogre = new Species (
+  'ogre',
+  [[2, d6, 12], [2, d6, 6], [3, d6, 0], [3, d6, 0], [2, d6, 6], [3, d6, 0], [3, d6, 0]],
+  8, // movement
+  10, // treasure
+  0 // defense
+)
+
+var pixie = new Species (
+  'pixie',
+  [[2, d4, 0], [3, d6, 0], [1, d6, 0], [3, d6, 0], [2, d6, 6], [4, d6, 0], [3, d6, 0]],
+  3, // movement, 10 flying
+  13, // treasure
+  10 // defense
+)
+
+var rhino = new Species (
+  'rhino',
+  [[2, d6, 30], [3, d6, 0], [2, d6, 30], [1, [1, 1], 0], [3, d6, 0], [2, d6, 0], [1, [1, 1], 0]],
+  8, // movement
+  0, // treasure
+  0 // defense
+)
+
+var rockLizard = new Species (
+  'rock lizard',
+  [[2, d6, 6], [2, d6, 6], [4, d6, 0], [1, [1, 1], 0], [2, d6, 3], [2, d6, 6], [1, [1, 1], 0]],
+  4, // movement
+  8, // treasure
+  0 // defense
+)
+
+var rubbleRunner = new Species (
+  'rubble runnner',
+  [[1, d6, 0], [3, d6, 0], [1, d4, 0], [1, [1, 1], 0], [1, d6, 6], [2, d6, 6], [1, [1, 1], 0]],
+  6, // movement
+  5, // treasure
+  10 // defense
+)
+
+var runner = new Species (
+  'runner',
+  [[2, d6, 0], [2, d6, 6], [2, d6, 0], [3, d6, 0], [3, d6, 0], [2, d6, 6], [3, d6, 0]],
+  5, // movement, 9 in trees
+  5, // treasure
+  5 // defense
+)
+
+var sable = new Species (
+  'sable',
+  [[3, d6, 12], [3, d6, 0], [3, d6, 12], [1, [1, 1], 0], [3, d6, 0], [2, d6, 6], [1, [1, 1], 0]],
+  12, // movement
+  0, // treasure
+  0 // defense
+)
+
+var scorpionMan = new Species (
+  'scorpion man',
+  [[2, d6, 12], [3, d6, 0], [2, d6, 12], [2, d6, 0], [2, d6, 0], [3, d6, 3], [3, d6, 0]],
+  8, // movement
+  12, // treasure
+  0 // defense
+)
+
+var shadowCat = new Species (
+  'shadow cat',
+  [[2, d6, 0], [2, d6, 6], [1, d6, 0], [1, [1, 1], 0], [2, d6, 12], [2, d6, 12], [1, [1, 1], 0]],
+  10, // movement
+  6, // treasure
+  20 // defense
+)
+
+var skeleton = new Species (
+  'skeleton',
+  [[1, d4, 8], [1, [0, 0], 0], [3, d6, 0], [1, [0, 0], 0], [1, [1, 1], 0], [3, d6, 0], [1, [0, 0], 0]],
+  8, // movement
+  3, // treasure
+  0 // defense
+)
+
+var skyBull = new Species (
+  'sky bull',
+  [[4, d6, 12], [2, d6, 6], [8, d6, 12], [1, [1, 1], 0], [3, d6, 0], [2, d6, 0], [1, [1, 1], 0]],
+  11, // movement, 11 flying
+  12, // treasure
+  0 // defense
+)
+
+// species starting attribute rolls: STR, CON, SIZ, INT, POW, DEX, CHA
+var runnerAttributes = ;
+
+
 
 
 /***** WEAPONRY *****/
