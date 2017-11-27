@@ -10,27 +10,15 @@
 
 
 // types of dice
-var d4 = [1, 4]; // four-sided die
-var d6 = [1, 6]; // six-sided die
-var d8 = [1, 8]; // eight-sided die
-var d10 = [1, 10]; // ten-sided die
-var d20 = [1, 20]; // twenty-sided die
-var d100 = [1, 100]; // one hundred-sided die, or "percentile"
-
-// hit location object
-var body = [
-  { name: 'right leg', hitNumbers: [1, 2, 3, 4], armor: 0 }, // body[0]
-  { name: 'left leg', hitNumbers: [5, 6, 7, 8], armor: 0 },  // body[1]
-  { name: 'abdomen', hitNumbers: [9, 10, 11], armor: 0 },    // body[2]
-  { name: 'chest', hitNumbers: [12], armor: 0 },             // body[3]
-  { name: 'right arm', hitNumbers: [13, 14, 15], armor: 0 }, // body[4]
-  { name: 'left arm', hitNumbers: [16, 17, 18], armor: 0 },  // body[5]
-  { name: 'head', hitNumbers: [19, 20], armor: 0 }           // body[6]
-];
-
+const d4 = [1, 4]; // four-sided die
+const d6 = [1, 6]; // six-sided die
+const d8 = [1, 8]; // eight-sided die
+const d10 = [1, 10]; // ten-sided die
+const d20 = [1, 20]; // twenty-sided die
+const d100 = [1, 100]; // one hundred-sided die, or "percentile"
 
 // random treasure drops
-var treasureArray = [
+const treasureArray = [ // copper, silver, gold, gems, then special items
   [[75, 1, d100], [75, 1, d10], [50, 1, d6], [50, 1], [5, 1]],
   [[85, 1, d100], [85, 1, d100], [65, 1, d10], [65, 1], [10, 1]],
   [[95, 2, d100], [95, 2, d100], [75, 1, d10], [75, 1], [15, 1]],
@@ -42,12 +30,6 @@ var treasureArray = [
   [[95, 20, d100], [95, 10, d100], [95, 3, d100], [95, 2], [45, 1]],
   [[95, 30, d100], [95, 20, d100], [95, 4, d100], [95, 3], [50, 1]]
 ];
-
-// combined combinations
-// var legs = rightLeg.concat(leftLeg);
-// var arms = rightArm.concat(leftArm);
-// var abdomenAndLegs = abdomen.concat(legs);
-// var chestAndAbdomen = chest.concat(abdomen);
 
 
 /***** OBJECT CONSTRUCTORS *****/
@@ -125,6 +107,24 @@ var Species = function (name, attributeValues, moveRate, treasureFactor, defense
   this.defenseBonus = defenseBonus;
 
   // TODO finish constructor
+}
+
+var BodyPart = function (name, hitNumbers, health, armor) {
+  this.name = name;
+  this.hitNumbers = hitNumbers;
+  this.health = health;
+  this.armor = armor;
+}
+
+var Body = function (hitPoints) {
+  this.rightLeg = new BodyPart ('right leg', [1, 2, 3, 4], hitpoints - 4, 0);
+  // this.rightLeg = { name: 'right leg', health: hitPoints - 4, hitNumbers: [1, 2, 3, 4], armor: 0 };
+  // this.leftLeg = { name: 'left leg', hitNumbers: [5, 6, 7, 8], armor: 0 };
+  // this.abdomen = { name: 'abdomen', hitNumbers: [9, 10, 11], armor: 0 };
+  // this.chest = { name: 'chest', hitNumbers: [12], armor: 0 };
+  // this.rightArm = { name: 'right arm', hitNumbers: [13, 14, 15], armor: 0 };
+  // this.leftArm = { name: 'left arm', hitNumbers: [16, 17, 18], armor: 0 };
+  // this.head = { name: 'head', hitNumbers: [19, 20], armor: 0 };
 }
 
 var Character = function (name, species, sex, age, nationality, weapons, armor, spells) {
@@ -374,12 +374,12 @@ var skillCheck = function (player, skill) {
     if (check (100 - player['skills'][skill])[0] === true) { // and if that skill is set to increase...
       // add learning bonus
       player['skills'][skill] += 5; // increase the skill
-      return player.name + ' was successful, ' + skill + ' was increased to ' + player['skills'][skill];
+      return `${player.name} was successful, ${skill} was increased to ${player['skills'][skill]}`;
     } else { // otherwise, if the check was successful but the skill is not set to increase...
-      return player.name + ' was successful';
+      return `${player.name} was successful`;
     } // end else
   } else { // otherwise, if the check was unsuccessful...
-    return player.name + ' was unsuccessful';
+    return `${player.name} was unsuccessful`;
   } // end else
 } // end skillCheck function
 
@@ -408,9 +408,9 @@ var findEncounter = function (location) {
   if (check(location.chance)[0] === true) {
     var encounterIndex = roll (1, d20) - 1;
     if (location.results[encounterIndex][1] !== 1) {
-      return roll (1, location.results[encounterIndex][1]) + ' ' + location.results[encounterIndex][0];
+      return `${roll (1, location.results[encounterIndex][1])} ${location.results[encounterIndex][0]}`;
     }
-    return '1 ' + location.results[encounterIndex][0];
+    return `1 ${location.results[encounterIndex][0]}`;
   }
   return 'nothing found';
 }
@@ -458,18 +458,18 @@ var randomScroll = function () {
     var randomAttributesArray = ['strength', 'constitution', 'dexterity', 'charisma'];
     var attributeIndex = roll (1, d4);
     var attributeTime = roll (1, d20);
-    return 'scroll of increasing ' + randomAttributesArray[attributeIndex] + ' over ' + attributeTime + ' weeks'
+    return `scroll of increasing ${randomAttributesArray[attributeIndex]} over ${attributeTime} weeks`;
   } else if (16 <= index && index <= 30) {
     return 'letter of credit, deed, or valuable historical knowledge';
   } else if (31 <= index && index <= 50) {
-    return 'secret technique scroll giving a ' + randomIncrease + '% increase in any weapon';
+    return `secret technique scroll giving a ${randomIncrease}% increase in any weapon`;
 
     //TODO implement this with the weapons table when built
 
   } else if (51 <= index && index <= 65) {
     var randomSkillArray = ['knowledge', 'perception', 'manipulation', 'manipulation', 'stealth', 'stealth'];
     var skillIndex = roll (1, d6);
-    return 'scroll holding the secrets of using ' + randomSkillArray[skillIndex] + 'and increasing all related skills by ' + randomIncrease + '%';
+    return `scroll holding the secrets of using ${randomSkillArray[skillIndex]} and increasing all related skills by ${randomIncrease}%`;
   } else if (66 <= index && index <= 75) {
     return 'map of an area which seems quite interesting';
   } else {
@@ -481,23 +481,23 @@ var randomPotion = function () {
   var index = roll (1, d100);
   var poisonPotency = roll (2, d6) + 3
   if (1 <= index && index <= 10) {
-    return 'potion of healing ' + roll (1, d6) + ' damage to the body\'s worst wound';
+    return `potion of healing ${roll (1, d6)} damage to the body\'s worst wound`;
   } else if (11 <= index && index <= 25) {
     var spell = randomSpell();
-    return 'potion of ' + spell.name + 'with two hour duration'; // TODO: make spell names work
+    return `potion of ${spell.name} with two hour duration`; // TODO: make spell names work
   } else if (26 <= index && index <= 55) {
-    var poison = ['poison gas', 'poison gas', 'herbal poison', 'mineral poison'];
-    return 'bottle of ' + poisonPotency + ' potency ' + poison[roll (1, d4) - 1];
+    let poison = ['poison gas', 'poison gas', 'herbal poison', 'mineral poison'];
+    return `bottle of ${poisonPotency} potency ${poison[roll (1, d4) - 1]}`;
   } else if (56 <= index && index <= 65) {
-    var venom = ['manticore', 'wyvern', 'spider', 'spider'];
-    return venom[roll (1, d4) - 1] + ' blade venom of ' + poisonPotency + ' potency';
+    let venom = ['manticore', 'wyvern', 'spider', 'spider'];
+    return `${venom[roll (1, d4) - 1]} blade venom of ${poisonPotency} potency`;
   } else if (66 <= index && index <= 80) {
-    var antidote = ['manticore venom', 'poison gas', 'wyvern venom', 'spider venom', 'herbal poison', 'mineral poison'];
-    return 'antidote of ' + antidote[roll (1, d6) - 1];
+    let antidote = ['manticore venom', 'poison gas', 'wyvern venom', 'spider venom', 'herbal poison', 'mineral poison'];
+    return `antidote of ${antidote[roll (1, d6) - 1]}`;
   } else if (81 <= index <= 90) {
     return 'special potion at referee\'s discretion';
   } else {
-    return 'spoiled potion: treated like poison of ' + poisonPotency + ' yet indestinguishable from a normal potion';
+    return `spoiled potion: treated like poison of ${poisonPotency} yet indestinguishable from a normal potion`;
   }
 }
 
@@ -530,14 +530,14 @@ var randomCrystal = function () {
   if (index === 1) {
     var crystalOne = randomCrystalAttribute (roll (1, d100));
     var crystalTwo = randomCrystalAttribute (roll (1, d100));
-    return 'crystal of ' + crystalOne[0] + ' and ' + crystalTwo[0] + ' filled with ' + (crystalOne[1] + crystalTwo[1]) + ' power';
+    return `crystal of ${crystalOne[0]} and ${crystalTwo[0]} filled with ${crystalOne[1] + crystalTwo[1]} power`;
   } else if (index === 2) {
     var boostedCrystal = randomCrystalAttribute (roll (1, d100))
-    return 'crystal of ' + boostedCrystal[0] + ' filled with ' + (boostedCrystal[1] + roll (1, d6)) + ' power';
+    return `crystal of ${boostedCrystal[0]} filled with ${boostedCrystal[1] + roll (1, d6)} power`;
   } else if (25 <= index && index <= 30) {
     return 'flawed crystal';
   } else {
-    return 'crystal of ' + randomCrystalAttribute (index)[0] + ' filled with ' + randomCrystalAttribute (index)[1] + ' power';
+    return `crystal of ${randomCrystalAttribute (index)[0]} filled with ${randomCrystalAttribute (index)[1]} power`;
   }
 }
 
@@ -549,7 +549,7 @@ var randomSpecialItem = function () {
     return randomPotion();
   } else if (index <= 85) {
     var specialItemSpell = randomSpell();
-    return 'spell of ' + specialItemSpell.name;
+    return `spell of ${specialItemSpell.name}`;
   } else {
     return randomCrystal(); //TODO: add functionality to choose between this and an item with a spell matrix
   }
@@ -590,12 +590,12 @@ var randomGemAttribute = function (index) {
 var randomGem = function () {
   var index = roll (1, d100);
   if (index === 1) {
-    return randomSpecialItem() + ' worth ' + randomGemAttribute (index)[1] + ' lunars';
+    return `${randomSpecialItem()} worth ${randomGemAttribute (index)[1]} lunars`;
   } else if (index === 2) {
     return randomCrystal();
   } else {
     var gem = randomGemAttribute(index);
-    return gem[0] + ' worth ' + gem[1] + ' lunars';
+    return `${gem[0]} worth ${gem[1]} lunars`;
   }
 }
 
@@ -640,7 +640,7 @@ var treasureValueReturn = function (treasureValue) {
 
   for (gems; gems > 0; gems--) { gemOutput += (', ' + randomGem ()) } // for every gem, generate a gem
   for (specialItems; specialItems > 0; specialItems--) { specialItemsOutput = ', ' + randomSpecialItem () } // if there is a special item, make it
-  return clacks + ' clacks, ' + lunars + ' lunars, ' + wheels + ' wheels' + gemOutput + specialItemsOutput; // return everything
+  return `${clacks} clacks, ${lunars} lunars, ${wheels} wheels${gemOutput}${specialItemsOutput}`; // return everything
 }
 
 /***** LOCAL STORAGE *****/
@@ -651,7 +651,7 @@ var treasureValueReturn = function (treasureValue) {
 /***** BESTIARY *****/
 
 
-var baboon = new Species (
+const baboon = new Species (
   'baboon',
   [[3, d6, 6], [3, d6, 0], [3, d6, 0], [3, d6, 0], [2, d6, 6], [2, d6, 6], [3, d6, 0]],
   10, // movement
@@ -659,7 +659,7 @@ var baboon = new Species (
   5 // defense bonus
 )
 
-var basalisk = new Species (
+const basalisk = new Species (
   'basalisk',
   [[2, d6, 0], [3, d6, 0], [2, d6, 0], [1, [1, 1], 0], [1, d6, 12], [2, d6, 0], [1, [1, 1], 0]],
   4, // move
@@ -667,7 +667,7 @@ var basalisk = new Species (
   0 // defense
 )
 
-var bearwalker = new Species (
+const bearwalker = new Species (
   'bearwalker',
   [[2, d6, 6], [3, d6, 0], [1, d6, 12], [3, d6, 0], [3, d6, 0], [3, d6, 0], [3, d6, 0]],
   8, // move
@@ -675,7 +675,7 @@ var bearwalker = new Species (
   0 // defense
 )
 
-var bison = new Species (
+const bison = new Species (
   'bison',
   [[3, d6, 24], [3, d6, 0], [3, d6, 24], [1, [1 ,1], 0], [3, d6, 0], [2, d6, 0], [1, [1, 1], 0]],
   12, // move
@@ -683,7 +683,7 @@ var bison = new Species (
   0 // defense
 )
 
-var boloLizard = new Species (
+const boloLizard = new Species (
   'bolo lizard',
   [[2, d6, 12], [3, d6, 0], [2, d6, 12], [1, [1, 1], 0], [3, d6, 0], [1, d6, 12], [1, [1, 1], 0]],
   12, // move
@@ -691,7 +691,7 @@ var boloLizard = new Species (
   0 // defense
 )
 
-var broo = new Species (
+const broo = new Species (
   'broo',
   [[2, d6, 6], [1, d6, 12], [2, d6, 6], [3, d6, 0], [3, d6, 0], [3, d6, 0], [2, d6, 0]],
   9, // move
@@ -699,7 +699,7 @@ var broo = new Species (
   0 // defense
 )
 
-var centaur = new Species (
+const centaur = new Species (
   'centaur',
   [[3, d6, 6], [3, d6, 0], [4, d6, 12], [3, d6, 0], [3, d6, 0], [3, d6, 3], [3, d6, 0]],
   12, // move
@@ -707,7 +707,7 @@ var centaur = new Species (
   0 // defense
 )
 
-var smallCliffToad = new Species (
+const smallCliffToad = new Species (
   'cliff toad',
   [[2, d6, 0], [3, d6, 0], [2, d6, 0], [1, [1, 1], 0], [3, d6, 0], [3, d6, 0], [1, [1, 1], 0]],
   6, // 2 speed walking
@@ -715,7 +715,7 @@ var smallCliffToad = new Species (
   0
 )
 
-var largeCliffToad = new Species (
+const largeCliffToad = new Species (
   'cliff toad',
   [[12, d6, 0], [3, d6, 0], [12, d6, 0], [1, [1, 1], 0], [3, d6, 0], [3, d6, 0], [1, [1, 1], 0]],
   6, // 2 speed walking
@@ -723,7 +723,7 @@ var largeCliffToad = new Species (
   0
 )
 
-var cockatrice = new Species (
+const cockatrice = new Species (
   'cockatrice',
   [[2, d6, 0], [3, d6, 0], [2, d6, 0], [1, [1, 1], 0], [1, d6, 12], [2, d6, 6], [1, [1, 1], 0]],
   8,
@@ -731,7 +731,7 @@ var cockatrice = new Species (
   0
 )
 
-var demi-bird = new Species (
+const demiBird = new Species (
   'demi-bird',
   [[3, d6, 18], [2, d6, 6], [3, d6, 12], [1, [1, 1], 0], [3, d6, 0], [2, d6, 6], [1, [1, 1], 0]],
   12, // move
@@ -739,12 +739,12 @@ var demi-bird = new Species (
   0
 )
 
-var dreamDragon = new Species (
+const dreamDragon = new Species (
   'dream dragon',
   // make a way to take in a variable size of dragon to use for both the strength and size
 )
 
-var dragonewt = new Species (
+const dragonewt = new Species (
   'crested dragonewt',
   [[2, d6, 0], [3, d6, 0], [2, d6, 0], [3, d6, 0], [2, d6, 0], [2, d6, 6], [3, d6, 0]],
   7,
@@ -752,7 +752,7 @@ var dragonewt = new Species (
   5
 )
 
-var dragonsnail = new Species (
+const dragonsnail = new Species (
   'draonsnail',
   [[4, d6, 12], [3, d6, 0], [4, d6, 12], [1, [1, 1], 0], [3, d6, 0], [2, d6, 0], [1, [1, 1], 0]],
   3, // movement
@@ -760,7 +760,7 @@ var dragonsnail = new Species (
   0 // defense
 )
 
-var dryad = new Species (
+const dryad = new Species (
   'dryad',
   [[2, d6, 0], [3, d6, 0], [2, d6, 0], [4, d6, 0], [2, d6, 8], [2, d6, 6],[3, d6, 0]],
   9, // movement
@@ -768,7 +768,7 @@ var dryad = new Species (
   10 // defense
 )
 
-var duck = new Species (
+const duck = new Species (
   'duck',
   [[2, d6, 1], [2, d6, 6], [1, d6, 2], [3, d6, 0], [3, d6, 0], [2, d6, 6], [2, d6, 0]],
   5, // movement
@@ -776,7 +776,7 @@ var duck = new Species (
   10 // defense
 )
 
-var dwarf = new Species (
+const dwarf = new Species (
   'dwarf',
   [[4, d6, 0], [2, d6, 6], [2, d6, 0], [3, d6, 0], [3, d6, 0], [3, d6, 0], [3, d6, 0]],
   6, // movement
@@ -784,7 +784,7 @@ var dwarf = new Species (
   0 // defense
 )
 
-var elf = new Species (
+const elf = new Species (
   'elf',
   [[2, d6, 2], [3, d6, 0], [2, d4, 4], [4, d6, 0], [2, d6, 6], [3, d6, 3], [3, d6, 0]],
   9, // movement
@@ -792,12 +792,12 @@ var elf = new Species (
   10 // defense
 )
 
-var gargoyle = new Species (
+const gargoyle = new Species (
   'gargoyle',
   // variable size
 )
 
-var ghost = new Species (
+const ghost = new Species (
   'ghost', // int pow dex 20
   [[1, [1, 1], 0], [1, [1, 1], 0], [1, [1, 1], 0], [1, [20, 20], 0], [1, [20, 20], 0], [1, [20, 20], 0], [1, [1, 1], 0]],
   0,
@@ -805,7 +805,7 @@ var ghost = new Species (
   0
 )
 
-var ghoul = new Species (
+const ghoul = new Species (
   'ghoul',
   [[4, d6, 0], [3, d6, 0], [3, d6, 0], [2, d6, 0], [2, d6, 6], [3, d6, 0], [1, [0, 0], 0]],
   8, // movement
@@ -813,12 +813,12 @@ var ghoul = new Species (
   0 // defense
 )
 
-var giant = new Species (
+const giant = new Species (
   'giant',
   // variable size
 )
 
-var gorp = new Species (
+const gorp = new Species (
   'gorp',
   [[1, [0, 0], 0], [3, d6, 0], [6, d6, 0], [1, [0, 0], 0], [3, d6, 0], [1, [0, 0], 0], [1, [0, 0], 0]],
   5, // movement
@@ -826,7 +826,7 @@ var gorp = new Species (
   0 // defense
 )
 
-var griffin = new Species (
+const griffin = new Species (
   'griffin',
   [[8, d6, 0], [2, d6, 6], [8, d6, 0], [2, d6, 6], [2, d6, 6], [3, d6, 0], [3, d6, 0]],
   8, // movement, 12 flying
@@ -834,7 +834,7 @@ var griffin = new Species (
   0 // defense
 )
 
-var highLlama = new Species (
+const highLlama = new Species (
   'high llama',
   [[2, d6, 24], [3, d6, 0], [3, d6, 24], [1 [1, 1], 0], [3, d6, 0], [2, d6, 0], [1, [1, 1], 0]],
   12, // movement
@@ -842,7 +842,7 @@ var highLlama = new Species (
   0 // defense
 )
 
-var horse = new Species (
+const horse = new Species (
   'horse',
   [[3, d6, 18], [2, d6, 6], [4, d6, 12], [1, [1, 1], 0], [3, d6, 0], [3, d6, 0], [1, [1, 1], 0]],
   12, // movement
@@ -850,7 +850,7 @@ var horse = new Species (
   0 // defense
 )
 
-var human = new Species (
+const human = new Species (
   'human', // type
   [[3, d6, 0], [3, d6, 0], [3, d6, 0], [3, d6, 0], [3, d6, 0], [3, d6, 0], [3, d6, 0]], // attributes
   8, // movement
@@ -858,7 +858,7 @@ var human = new Species (
   0 // defense
 )
 
-var impala = new Species (
+const impala = new Species (
   'impala',
   [[2, d6, 6], [3, d6, 0], [2, d6, 6], [1, [1, 1], 0], [3, d6, 0], [2, d6, 6], [1, [1, 1], 0]],
   10, // movement
@@ -866,7 +866,7 @@ var impala = new Species (
   0 // defense
 )
 
-var jackOBears = new Species (
+const jackOBears = new Species (
   'jack o\'bears',
   [[3, d6, 6], [2, d6, 6], [3, d6, 6], [2, d6, 0], [4, d6, 0], [3, d6, 0], [3, d6, 0]],
   10, // movement
@@ -874,7 +874,7 @@ var jackOBears = new Species (
   0 // defense
 )
 
-var manticore = new Species (
+const manticore = new Species (
   'manticore',
   [[4, d6, 12], [2, d6, 6], [4, d6, 12], [2, d6, 0], [3, d6, 0], [2, d6, 3], [2, d6, 0]],
   9, // movement
@@ -882,7 +882,7 @@ var manticore = new Species (
   0 // defense
 )
 
-var minotaur = new Species (
+const minotaur = new Species (
   'minotaur',
   [[3, d6, 12], [2, d6, 6], [3, d6, 12], [2, d6, 0], [3, d6, 0], [3, d6, 0], [2, d6, 0]],
   10, // movement
@@ -890,7 +890,7 @@ var minotaur = new Species (
   0 // defense
 )
 
-var morokanth = new Species (
+const morokanth = new Species (
   'morokanth',
   [[3, d6, 6], [3, d6, 0], [3, d6, 6], [3, d6, 0], [3, d6, 0], [2, d6, 3], [3, d6, 0]],
   8, // movement
@@ -898,7 +898,7 @@ var morokanth = new Species (
   0 // defense
 )
 
-var newtling = new Species (
+const newtling = new Species (
   'newtling',
   [[3, d6, 0], [3, d6, 0], [2, d6, 0], [3, d6, 0], [3, d6, 0], [2, d6, 6], [3, d6, 0]],
   6, // movement
@@ -906,7 +906,7 @@ var newtling = new Species (
   5 // defense
 )
 
-var ogre = new Species (
+const ogre = new Species (
   'ogre',
   [[2, d6, 12], [2, d6, 6], [3, d6, 0], [3, d6, 0], [2, d6, 6], [3, d6, 0], [3, d6, 0]],
   8, // movement
@@ -914,7 +914,7 @@ var ogre = new Species (
   0 // defense
 )
 
-var pixie = new Species (
+const pixie = new Species (
   'pixie',
   [[2, d4, 0], [3, d6, 0], [1, d6, 0], [3, d6, 0], [2, d6, 6], [4, d6, 0], [3, d6, 0]],
   3, // movement, 10 flying
@@ -922,7 +922,7 @@ var pixie = new Species (
   10 // defense
 )
 
-var rhino = new Species (
+const rhino = new Species (
   'rhino',
   [[2, d6, 30], [3, d6, 0], [2, d6, 30], [1, [1, 1], 0], [3, d6, 0], [2, d6, 0], [1, [1, 1], 0]],
   8, // movement
@@ -930,7 +930,7 @@ var rhino = new Species (
   0 // defense
 )
 
-var rockLizard = new Species (
+const rockLizard = new Species (
   'rock lizard',
   [[2, d6, 6], [2, d6, 6], [4, d6, 0], [1, [1, 1], 0], [2, d6, 3], [2, d6, 6], [1, [1, 1], 0]],
   4, // movement
@@ -938,7 +938,7 @@ var rockLizard = new Species (
   0 // defense
 )
 
-var rubbleRunner = new Species (
+const rubbleRunner = new Species (
   'rubble runnner',
   [[1, d6, 0], [3, d6, 0], [1, d4, 0], [1, [1, 1], 0], [1, d6, 6], [2, d6, 6], [1, [1, 1], 0]],
   6, // movement
@@ -946,7 +946,7 @@ var rubbleRunner = new Species (
   10 // defense
 )
 
-var runner = new Species (
+const runner = new Species (
   'runner',
   [[2, d6, 0], [2, d6, 6], [2, d6, 0], [3, d6, 0], [3, d6, 0], [2, d6, 6], [3, d6, 0]],
   5, // movement, 9 in trees
@@ -954,7 +954,7 @@ var runner = new Species (
   5 // defense
 )
 
-var sable = new Species (
+const sable = new Species (
   'sable',
   [[3, d6, 12], [3, d6, 0], [3, d6, 12], [1, [1, 1], 0], [3, d6, 0], [2, d6, 6], [1, [1, 1], 0]],
   12, // movement
@@ -962,7 +962,7 @@ var sable = new Species (
   0 // defense
 )
 
-var scorpionMan = new Species (
+const scorpionMan = new Species (
   'scorpion man',
   [[2, d6, 12], [3, d6, 0], [2, d6, 12], [2, d6, 0], [2, d6, 0], [3, d6, 3], [3, d6, 0]],
   8, // movement
@@ -970,7 +970,7 @@ var scorpionMan = new Species (
   0 // defense
 )
 
-var shadowCat = new Species (
+const shadowCat = new Species (
   'shadow cat',
   [[2, d6, 0], [2, d6, 6], [1, d6, 0], [1, [1, 1], 0], [2, d6, 12], [2, d6, 12], [1, [1, 1], 0]],
   10, // movement
@@ -978,7 +978,7 @@ var shadowCat = new Species (
   20 // defense
 )
 
-var skeleton = new Species (
+const skeleton = new Species (
   'skeleton',
   [[1, d4, 8], [1, [0, 0], 0], [3, d6, 0], [1, [0, 0], 0], [1, [1, 1], 0], [3, d6, 0], [1, [0, 0], 0]],
   8, // movement
@@ -986,18 +986,13 @@ var skeleton = new Species (
   0 // defense
 )
 
-var skyBull = new Species (
+const skyBull = new Species (
   'sky bull',
   [[4, d6, 12], [2, d6, 6], [8, d6, 12], [1, [1, 1], 0], [3, d6, 0], [2, d6, 0], [1, [1, 1], 0]],
   11, // movement, 11 flying
   12, // treasure
   0 // defense
 )
-
-// species starting attribute rolls: STR, CON, SIZ, INT, POW, DEX, CHA
-var runnerAttributes = ;
-
-
 
 
 /***** WEAPONRY *****/
@@ -1007,6 +1002,8 @@ var runnerAttributes = ;
 
 
 /***** SPELLS *****/
+
+
 var battleMagicSpellbook = [
 
   new Spell (
@@ -1138,6 +1135,12 @@ var battleMagicSpellbook = [
     500 * this.power // cost, in Lunars
   )
 ]
+
+
+/***** CULTS *****/
+
+
+
 
 
 /***** LIVING COSTS *****/
