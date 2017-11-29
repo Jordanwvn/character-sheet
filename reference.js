@@ -697,6 +697,13 @@ let Armor = function (location, ) {
 /***** CULTS *****/
 
 
+let Cult = function (name, parameters) {
+  this.name = name;
+  this.parameters = parameters;
+}
+
+let aldrya = new Cult ('Aldrya', parameters);
+
 /***** GENERAL COSTS *****/
 
 
