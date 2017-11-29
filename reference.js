@@ -463,7 +463,18 @@ const skyBull = new Species (
 /***** SPELLS *****/
 
 
-var battleMagicSpellbook = [
+let Spell = function (name, range, focused, passive, duration, power, description, cost) {
+  this.name = name;
+  this.range = range;
+  this.focused = focused;
+  this.passive = passive;
+  this.duration = duration;
+  this.power = power;
+  this.description = description;
+  this.cost = cost;
+}
+
+const battleMagicSpellbook = [
 
   new Spell (
     'Befuddle', // spell name
@@ -599,6 +610,13 @@ var battleMagicSpellbook = [
 /***** LIVING COSTS *****/
 
 
+let Item = function (name, cost, description, quantity) {
+  this.name = name;
+  this.cost = cost;
+  this.description = description;
+  this.quantity = quantity;
+}
+
 // FOOD
 var cheapMeal = new Item ('cheap meal', 0.2, '', 1);
 var goodMeal = new Item ('good meal', 0.5, '', 1);
@@ -637,9 +655,44 @@ var trailOats = new Item ('trail fodder for a week', 2, '', 7);
 
 /***** WEAPONRY *****/
 
+let Weapon = function (name, strRequirement, dexRequirement, damage, hp, mastery, cost, enc, length, sr, q1Training, q2Training, q3Training) {
+  this.name = name;
+  this.strRequirement = strRequirement;
+  this.dexRequirement = dexRequirement;
+  this.damage = damage;
+  this.hp = hp;
+  this.mastery = mastery;
+  this.cost = cost;
+  this.enc = enc;
+  this.length = length;
+  this.sr = sr;
+  this.q1Training = q1Training;
+  this.q2Training = q2Training;
+  this.q3Training = q3Training;
+}
+
+
+/***** SHIELDS *****/
+
+
+let Shield = function (size, strRequirement, absorbs, mastery, cost, enc, q1Training, q2Training, q3Training) {
+  this.size = size;
+  this.strRequirement = strRequirement;
+  this.absorbs = absorbs;
+  this.mastery = mastery;
+  this.cost = cost;
+  this.enc = enc;
+  this.q1Training = q1Training;
+  this.q2Training = q2Training;
+  this.q3Training = q3Training;
+}
+
 
 /***** ARMORY *****/
 
+var Armor = function (location, ) {
+
+}
 
 /***** CULTS *****/
 

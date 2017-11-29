@@ -22,14 +22,14 @@ let Attributes = function (attributesArray) {
   this.cha = attributesArray[6]; // charisma
 }
 
-var Skills = function (playerAttributes) { // take in character.attributes
-  var str = playerAttributes.str;
-  var con = playerAttributes.con;
-  var siz = playerAttributes.siz;
-  var int = playerAttributes.int;
-  var pow = playerAttributes.pow;
-  var dex = playerAttributes.dex;
-  var cha = playerAttributes.cha;
+let Skills = function (playerAttributes) { // take in Character.Attributes
+  let str = playerAttributes.str; // get strength from the player's attributes
+  let con = playerAttributes.con; // get constitution from the player's attributes
+  let siz = playerAttributes.siz; // get size from the player's attributes
+  let int = playerAttributes.int; // get intelligence from the player's attributes
+  let pow = playerAttributes.pow; // get power from the player's attributes
+  let dex = playerAttributes.dex; // get dexterity from the player's attributes
+  let cha = playerAttributes.cha; // get charisma from the player's attributes
 
   this.combat = {
     attack: this.setValue ('low', str) + this.setValue ('high', int) + this.setValue ('low', pow) + this.setValue ('high', dex),
@@ -109,56 +109,6 @@ var Character = function (name, species, sex, age, nationality, weapons, armor, 
   this.spells = spells; // array
 }
 
-var Weapon = function (name, strRequirement, dexRequirement, damage, hp, mastery, cost, enc, length, sr, q1Training, q2Training, q3Training) {
-  this.name = name;
-  this.strRequirement = strRequirement;
-  this.dexRequirement = dexRequirement;
-  this.damage = damage;
-  this.hp = hp;
-  this.mastery = mastery;
-  this.cost = cost;
-  this.enc = enc;
-  this.length = length;
-  this.sr = sr;
-  this.q1Training = q1Training;
-  this.q2Training = q2Training;
-  this.q3Training = q3Training;
-}
-
-var Shield = function (size, strRequirement, absorbs, mastery, cost, enc, q1Training, q2Training, q3Training) {
-  this.size = size;
-  this.strRequirement = strRequirement;
-  this.absorbs = absorbs;
-  this.mastery = mastery;
-  this.cost = cost;
-  this.enc = enc;
-  this.q1Training = q1Training;
-  this.q2Training = q2Training;
-  this.q3Training = q3Training;
-}
-
-var Armor = function (location, ) {
-
-}
-
-var Spell = function (name, range, focused, passive, duration, power, description, cost) {
-  this.name = name;
-  this.range = range;
-  this.focused = focused;
-  this.passive = passive;
-  this.duration = duration;
-  this.power = power;
-  this.description = description;
-  this.cost = cost;
-}
-
-var Item = function (name, cost, description, quantity) {
-  this.name = name;
-  this.cost = cost;
-  this.description = description;
-  this.quantity = quantity;
-}
-
 
 /***** OBJECT METHODS *****/
 
@@ -214,9 +164,7 @@ Item.prototype.removeIfEmpty = function () {
 var roll = function (numberOfDice, diceType) {
   var rollResult = 0; // declare a variable to hold the final result
   for (var rolls = numberOfDice; rolls > 0; rolls --) { // for every dice to roll...
-    // console.log('rolls left:', rolls);
     var dieResult = Math.floor (Math.random () * (diceType[1] - diceType[0]) + diceType[0]) // end floor
-    // console.log('die result:', dieResult);
     rollResult += dieResult; // add the result of the single die to the end result
   } // end for
   return rollResult; // return the result
