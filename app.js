@@ -35,7 +35,7 @@ const treasureArray = [ // copper, silver, gold, gems, then special items
 /***** OBJECT CONSTRUCTORS *****/
 
 
-var Attributes = function (attributesArray) {
+let Attributes = function (attributesArray) {
   this.str = attributesArray[0]; // strength
   this.con = attributesArray[1]; // constitution
   this.siz = attributesArray[2]; // size
@@ -372,7 +372,7 @@ var resistanceCheck = function (attackingPower, defendingPower) {
 var skillCheck = function (player, skill) {
   if (check (player['skills'][skill])[0] === true) { // if a check of the selected skill passes...
     if (check (100 - player['skills'][skill])[0] === true) { // and if that skill is set to increase...
-      // add learning bonus
+      //TODO add learning bonus
       player['skills'][skill] += 5; // increase the skill
       return `${player.name} was successful, ${skill} was increased to ${player['skills'][skill]}`;
     } else { // otherwise, if the check was successful but the skill is not set to increase...
