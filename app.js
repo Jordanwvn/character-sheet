@@ -84,14 +84,13 @@ var BodyPart = function (name, hitNumbers, health, armor) {
 }
 
 var Body = function (hitPoints) {
-  this.rightLeg = new BodyPart ('right leg', [1, 2, 3, 4], hitpoints - 4, 0);
-  // this.rightLeg = { name: 'right leg', health: hitPoints - 4, hitNumbers: [1, 2, 3, 4], armor: 0 };
-  // this.leftLeg = { name: 'left leg', hitNumbers: [5, 6, 7, 8], armor: 0 };
-  // this.abdomen = { name: 'abdomen', hitNumbers: [9, 10, 11], armor: 0 };
-  // this.chest = { name: 'chest', hitNumbers: [12], armor: 0 };
-  // this.rightArm = { name: 'right arm', hitNumbers: [13, 14, 15], armor: 0 };
-  // this.leftArm = { name: 'left arm', hitNumbers: [16, 17, 18], armor: 0 };
-  // this.head = { name: 'head', hitNumbers: [19, 20], armor: 0 };
+  this.rightLeg = new BodyPart ('right leg', [1, 2, 3, 4], hitPoints - 4, 0); // create the right leg
+  this.leftLeg = new BodyPart ('left leg', [5, 6, 7, 8], hitPoints - 5, 0); // create the left leg
+  this.abdomen = new BodyPart ('abdomen', [9, 10, 11], hitPoints - 2, 0); // create the abdomen
+  this.chest = new BodyPart ('chest', [12], hitPoints - 4, 0); // create the chest
+  this.rightArm = new BodyPart ('right arm', [13, 14, 15], hitPoints - 3, 0); // create the right arm
+  this.leftArm = new BodyPart ('left arm', [16, 17, 18], hitPoints - 2, 0); // create the left arm
+  this.head = new BodyPart ('head', [19, 20], hitPoints - 2, 0); // create the head
 }
 
 var Character = function (name, species, sex, age, nationality, weapons, armor, spells) {
