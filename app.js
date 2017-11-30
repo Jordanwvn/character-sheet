@@ -6,9 +6,6 @@
 ****************************************************************/ 'use strict';
 
 
-/***** VARIABLE DECLARATIONS *****/
-
-
 /***** OBJECT CONSTRUCTORS *****/
 
 
