@@ -8,7 +8,7 @@
 
 
 // function: roll die and return the result
-var roll = function (numberOfDice, diceType) {
+var roll = (numberOfDice, diceType) => {
   var rollResult = 0; // declare a variable to hold the final result
   for (var rolls = numberOfDice; rolls > 0; rolls --) { // for every dice to roll...
     var dieResult = Math.floor (Math.random () * (diceType[1] - diceType[0]) + diceType[0]) // end floor
@@ -22,7 +22,7 @@ var roll = function (numberOfDice, diceType) {
 
 
 // function: makes a percentile check and returns if it passed, as well as by how much
-var check = function (goal) {
+var check = (goal) => {
   var percentile = roll (1, d100);
   if (percentile <= goal) {
     return [true, Math.ceil((percentile / goal) * 100)];
@@ -31,7 +31,7 @@ var check = function (goal) {
   }
 }
 
-var skillCheck = function (player, skill) {
+var skillCheck = (player, skill) => {
   if (check (player['skills'][skill])[0] === true) { // if a check of the selected skill passes...
     if (check (100 - player['skills'][skill])[0] === true) { // and if that skill is set to increase...
       //TODO add learning bonus
@@ -49,7 +49,7 @@ var skillCheck = function (player, skill) {
 /***** RANDOM CHARACTER ELEMENTS *****/
 
 
-var randomAttributes = function (attributeRolls) {
+var randomAttributes = (attributeRolls) => {
   var rolledAttributes = [];
   for (var attributeIndex = 0; attributeIndex < attributeRolls.length; attributeIndex++) {
     rolledAttributes.push (
@@ -62,7 +62,7 @@ var randomAttributes = function (attributeRolls) {
   return rolledAttributes;
 }
 
-var randomBackground = function () {
+var randomBackground = () => {
   var backgroundIndex = roll (1, d100);
   var income = 0;
   if (backgroundIndex <= 25) {
@@ -87,7 +87,7 @@ var randomBackground = function () {
 /***** RANDOM COMBAT ELEMENTS *****/
 
 
-var randomHitLocation = function () {
+var randomHitLocation = () => {
   var locationRoll = roll(1, d20); // roll a twenty-sided die, then
   for (var part = 0; part < body.length; part++) { // for every part of the body...
     for (var hit = 0; hit < body[part].hitNumbers.length; hit++) { // and for every hit number of that part...
@@ -98,7 +98,7 @@ var randomHitLocation = function () {
   } // end for (part)
 } // end randomHitLocation function
 
-var resistanceCheck = function (attackingPower, defendingPower) {
+var resistanceCheck = (attackingPower, defendingPower) => {
   var difference = 50 + (5 * (attackingPower - defendingPower));
   if (check (difference)[0] === true) {
     return 'attack successful';
@@ -110,7 +110,7 @@ var resistanceCheck = function (attackingPower, defendingPower) {
 /***** RANDOM ENCOUNTERS *****/
 
 
-var randomEncounter = function (location) {
+var randomEncounter = location => {
   if (check(location.chance)[0] === true) {
     var encounterIndex = roll (1, d20) - 1;
     if (location.results[encounterIndex][1] !== 1) {
@@ -121,7 +121,7 @@ var randomEncounter = function (location) {
   return 'nothing found';
 }
 
-var findResponse = function (index, rangeOne, rangeTwo, rangeThree, rangeFour, rangeFive) {
+var findResponse = (index, rangeOne, rangeTwo, rangeThree, rangeFour, rangeFive) => {
   if (index <= rangeOne) {
     return 'encountered creatures are extremely friendly to party, and very ameable to suggestions';
   } else if (index <= rangeTwo) {
@@ -135,7 +135,7 @@ var findResponse = function (index, rangeOne, rangeTwo, rangeThree, rangeFour, r
   }
 }
 
-var randomResponse = function (predisposition) {
+var randomResponse = (predisposition) => {
   var responseIndex = roll (1, d100);
   var response;
   if (predisposition === 'hostile') {
@@ -154,12 +154,12 @@ var randomResponse = function (predisposition) {
 /***** RANDOM TREASURE *****/
 
 
-var randomSpell = function () {
+var randomSpell = () => {
   var index = Math.ceil(roll (1, d100) / 2);
   return battleMagicSpellbook[index];
 }
 
-var randomScroll = function () {
+var randomScroll = () => {
   var index = roll (1, d100);
   var randomIncrease = roll (1, d4) * 5;
   if (index === 1) {
@@ -187,7 +187,7 @@ var randomScroll = function () {
   }
 }
 
-var randomPotion = function () {
+var randomPotion = () => {
   var index = roll (1, d100);
   var poisonPotency = roll (2, d6) + 3
   if (1 <= index && index <= 10) {
@@ -211,28 +211,41 @@ var randomPotion = function () {
   }
 }
 
-var randomCrystalAttribute = function (index) {
-  if (index <= 5) {
-    return ['healing focusing', roll (1, d8)];
-  } else if (index <= 8) {
-    return ['sensitivity', roll (1, d8)];
-  } else if (index <= 11) {
-    return ['twice power yielding', roll (1, d8)];
-  } else if (index <= 14) {
-    return ['power enhancing', roll (1, d8)];
-  } else if (index <= 16) {
-    return ['spell reinforcing', roll (1, d4)];
-  } else if (index <= 18) {
-    return ['spell strengthening', roll (1, d4)];
-  } else if (index <= 20) {
-    return ['spell resisting', roll (1, d4)];
-  } else if (index <= 22) {
-    return ['spell supporting', roll (1, d4)];
-  } else if (index <= 24) {
-    return ['spell storing', roll (1, d4)];
-  } else {
-    return ['power storing / spirit trapping', (roll (2, d6) + 3)];
-  }
+// var randomCrystalAttribute = index => {
+//   if (index <= 5) {
+//     return ['healing focusing', roll (1, d8)];
+//   } else if (index <= 8) {
+//     return ['sensitivity', roll (1, d8)];
+//   } else if (index <= 11) {
+//     return ['twice power yielding', roll (1, d8)];
+//   } else if (index <= 14) {
+//     return ['power enhancing', roll (1, d8)];
+//   } else if (index <= 16) {
+//     return ['spell reinforcing', roll (1, d4)];
+//   } else if (index <= 18) {
+//     return ['spell strengthening', roll (1, d4)];
+//   } else if (index <= 20) {
+//     return ['spell resisting', roll (1, d4)];
+//   } else if (index <= 22) {
+//     return ['spell supporting', roll (1, d4)];
+//   } else if (index <= 24) {
+//     return ['spell storing', roll (1, d4)];
+//   } else {
+//     return ['power storing / spirit trapping', (roll (2, d6) + 3)];
+//   }
+// }
+
+let randomCrystalAttribute = index => {
+  let output = index <5 ? ['healing focusing', roll (1, d8)] :
+  index <= 8 ? ['sensitivity', roll(1, d8)] :
+  index <= 11 ? ['twice power yielding', roll (1, d8)] :
+  index <= 14 ? ['power enhancing', roll(1, d8)] :
+  index <= 16 ? ['spell reinforcing', roll (1, d4)] :
+  index <= 18 ? ['spell strenthening', roll (1, d4)] :
+  index <= 20 ? ['spell resisting', roll (1, d4)] :
+  index <= 22 ? ['spell supporting', roll (1, d4)] :
+  index <= 24 ? ['spell storing', roll (1, d4)] :
+  ['power storing / spirit trapping', (roll (2, d6) + 3)];
 }
 
 var randomCrystal = function () {
