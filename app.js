@@ -102,12 +102,13 @@ var Character = function (name, species, sex, age, nationality, weapons, armor, 
   this.attributes = new Attributes (randomAttributes (this.species.attributeValues));
   this.skills = new Skills (this.attributes);
   this.skillsToIncrease = [];
-  this.learnBonus = learningBonus(this.attributes.int);
+  this.learnBonus = learningBonus (this.attributes.int);
   this.weapons = weapons; // array
   this.armor = armor; // array
   this.spells = spells; // array
-  this.hitPoints = this.attributes.con
-  this.body = new Body (this.hitPoints)
+  this.hitPoints = this.attributes.con + this.hpBonus;
+  this.hpBonus = healthBonus (this.attributes.siz, this.attributes.pow);
+  this.body = new Body (this.hitPoints);
 }
 
 
@@ -117,9 +118,16 @@ var Character = function (name, species, sex, age, nationality, weapons, armor, 
 Skills.prototype.setValue = function (type, attribute) {
   return type === 'low' ? (
     attribute <= 4 ? -5
-    : attribute <= 16 ? 0
+    : (5 <= attribute && attribute <= 16) ? 0
     : (Math.ceil(attribute / 4) - 4) * 5
   ) : (Math.ceil(attribute / 4) - 3) * 5
+}
+
+let healthBonus = (size, power) => {
+  let sizeBonus = Math.ceil(size / 4) - 3;
+  return power <= 4 ? -1 + sizeBonus
+  : (5 <= power && power <= 16) ? 0 + sizeBonus
+  : Math.ceil(power / 4) - 2 + sizeBonus;
 }
 
 Skills.prototype.setDmgBonus = function (str, siz) {
