@@ -24,11 +24,7 @@ var roll = function (numberOfDice, diceType) {
 // function: makes a percentile check and returns if it passed, as well as by how much
 var check = function (goal) {
   var percentile = roll (1, d100);
-  if (percentile <= goal) {
-    return [true, Math.ceil((percentile / goal) * 100)];
-  } else {
-    return [false, Math.ceil((percentile / goal) * 100)];
-  }
+  return percentile <= goal ? [true, Math.ceil((percentile / goal) * 100)] : [false, Math.ceil((percentile / goal) * 100)];
 }
 
 var skillCheck = function (player, skill) {
