@@ -8,10 +8,10 @@
 
 
 // function: roll die and return the result
-var roll = function (numberOfDice, diceType) {
-  var rollResult = 0; // declare a variable to hold the final result
-  for (var rolls = numberOfDice; rolls > 0; rolls --) { // for every dice to roll...
-    var dieResult = Math.floor (Math.random () * (diceType[1] - diceType[0]) + diceType[0]) // end floor
+var roll = (rolls, diceType) => {
+  let rollResult = 0; // declare a variable to hold the final result
+  for (rolls; rolls > 0; rolls --) { // for every dice to roll...
+    let dieResult = Math.floor (Math.random () * (diceType[1] - diceType[0]) + diceType[0]) // end floor
     rollResult += dieResult; // add the result of the single die to the end result
   } // end for
   return rollResult; // return the result
@@ -22,329 +22,232 @@ var roll = function (numberOfDice, diceType) {
 
 
 // function: makes a percentile check and returns if it passed, as well as by how much
+<<<<<<< HEAD
 var check = function (goal) {
   var percentile = roll (1, d100);
   return percentile <= goal ? [true, Math.ceil((percentile / goal) * 100)] : [false, Math.ceil((percentile / goal) * 100)];
+=======
+let check = goal => {
+  let result = roll (1, d100);
+  let percentage = Math.ceil((result / goal) * 100);
+  return result <= goal ? [true, percentage] : [false, percentage];
+>>>>>>> 777a55734a60b36be35e2985e90e6883c3541b51
 }
 
-var skillCheck = function (player, skill) {
-  if (check (player['skills'][skill])[0] === true) { // if a check of the selected skill passes...
-    if (check (100 - player['skills'][skill])[0] === true) { // and if that skill is set to increase...
+// TODO move to app.js
+let skillCheck = (player, skill) => {
+  return check (player['skills'][skill])[0] === true ? ( // if a check of the selected skill passes...
+    check (100 - player['skills'][skill])[0] === true ? ( // and if that skill is set to increase...
       //TODO add learning bonus
-      player['skills'][skill] += 5; // increase the skill
-      return `${player.name} was successful, ${skill} was increased to ${player['skills'][skill]}`;
-    } else { // otherwise, if the check was successful but the skill is not set to increase...
-      return `${player.name} was successful`;
-    } // end else
-  } else { // otherwise, if the check was unsuccessful...
-    return `${player.name} was unsuccessful`;
-  } // end else
+      player['skills'][skill] += 5, // increase the skill
+      `${player.name} was successful, ${skill} was increased to ${player['skills'][skill]}`
+    ) : `${player.name} was successful`
+  ) : `${player.name} was unsuccessful`;
 } // end skillCheck function
 
 
 /***** RANDOM CHARACTER ELEMENTS *****/
 
 
-var randomAttributes = function (attributeRolls) {
-  var rolledAttributes = [];
-  for (var attributeIndex = 0; attributeIndex < attributeRolls.length; attributeIndex++) {
-    rolledAttributes.push (
-      roll (
-        attributeRolls[attributeIndex][0], attributeRolls[attributeIndex][1]
-      )
-      + attributeRolls[attributeIndex][2]
-    ); // end push
+let randomAttributes = rollsArray => {
+  let rolledAttributes = [];
+  for (let attribute in rollsArray) {
+    let attributeRoll = rollsArray[attribute];
+    rolledAttributes.push (roll (attributeRoll[0], attributeRoll[1]) + attributeRoll[2]); // end push
   } // end for
   return rolledAttributes;
 }
 
-var randomBackground = function () {
-  var backgroundIndex = roll (1, d100);
-  var income = 0;
-  if (backgroundIndex <= 25) {
-    return ['peasant', roll (1, d100), income];
-  } else if (backgroundIndex <= 60) {
-    return ['townsman', roll (2, d100), income];
-  } else if (backgroundIndex <= 85) {
-    return ['barbarian', roll (1, d100), income];
-  } else if (backgroundIndex <= 95) {
-    income = (roll (1, d100)) * 5;
-    return ['poor noble', income, income];
-  } else if (backgroundIndex <= 99) {
-    income = (roll (1, d100)) * 10;
-    return ['rich noble', income, income];
-  } else if (backgroundIndex <= 100) {
-    income = (roll (1, d100)) * 20;
-    return ['very rich noble', income, income];
-  }
+let randomBackground = () => {
+  let backgroundIndex = roll (1, d100);
+  let income = roll (1, d100);
+  return backgroundIndex <= 25 ? ['peasant', roll (1, d100), 0]
+  : backgroundIndex <= 60 ? ['townsman', roll (2, d100), 0]
+  : backgroundIndex <= 85 ? ['barbarian', roll (1, d100), 0]
+  : backgroundIndex <= 95 ? ['poor noble', income * 5, income * 5]
+  : backgroundIndex <= 99 ? ['rich noble', income * 10, income * 10]
+  : ['very rich noble', income * 20, income * 20];
 }
 
 
 /***** RANDOM COMBAT ELEMENTS *****/
 
 
-var randomHitLocation = function () {
-  var locationRoll = roll(1, d20); // roll a twenty-sided die, then
-  for (var part = 0; part < body.length; part++) { // for every part of the body...
-    for (var hit = 0; hit < body[part].hitNumbers.length; hit++) { // and for every hit number of that part...
-      if (locationRoll === body[part].hitNumbers[hit]) { // if the rolled number matches a hit at that part...
-        return body[part].name; // return that body part
-      } // end if
+// TODO maybe move to app.js
+let randomHitLocation = (target) => {
+  let locationRoll = roll(1, d20); // roll a twenty-sided die, then
+  for (let part in target.body) { // for every part of the body...
+    for (let hit in target.body[part].hitNumbers) { // and for every hit number of that part...
+      if (locationRoll === target.body[part].hitNumbers[hit]) return target.body[part].name  // if the part is hit, return the part
     } // end for (hit number)
   } // end for (part)
 } // end randomHitLocation function
 
-var resistanceCheck = function (attackingPower, defendingPower) {
-  var difference = 50 + (5 * (attackingPower - defendingPower));
-  if (check (difference)[0] === true) {
-    return 'attack successful';
-  }
-  return 'attack unsuccessful';
+let resistanceCheck = (attackingPower, defendingPower) => {
+  let difference = 50 + (5 * (attackingPower - defendingPower));
+  return check (difference)[0] === true ? 'attack successful' : 'attack unsuccessful';
 }
 
 
 /***** RANDOM ENCOUNTERS *****/
 
 
-var randomEncounter = function (location) {
-  if (check(location.chance)[0] === true) {
-    var encounterIndex = roll (1, d20) - 1;
-    if (location.results[encounterIndex][1] !== 1) {
-      return `${roll (1, location.results[encounterIndex][1])} ${location.results[encounterIndex][0]}`;
-    }
-    return `1 ${location.results[encounterIndex][0]}`;
-  }
-  return 'nothing found';
+let randomEncounter = location => {
+  let encounterIndex = roll (1, d20) - 1;
+  let encounterCreature = location.results[encounterIndex][0];
+  let encounterDice = location.results[encounterIndex][1];
+
+  return check(location.chance)[0] === true ? (
+    location.results[encounterIndex][1] !== 1 ? `${roll (1, encounterDice)} ${encounterCreature}`
+    : `1 ${encounterCreature}`
+  ) : 'nothing found';
 }
 
-var findResponse = function (index, rangeOne, rangeTwo, rangeThree, rangeFour, rangeFive) {
-  if (index <= rangeOne) {
-    return 'encountered creatures are extremely friendly to party, and very ameable to suggestions';
-  } else if (index <= rangeTwo) {
-    return 'encountered creatures are will to let the party go their own way; they will go theirs';
-  } else if (index <= rangeThree) {
-    return 'encountered creatures are unsure and will stall for time, or for something significant or telling to occur';
-  } else if (index <= rangeFour) {
-    return 'encountered creatures take an active dislike of the party, just short of blind hatred';
-  } else if (index <= rangeFive) {
-    return 'encountered creatures cannot conceal their contempt and/or hatred for the party';
-  }
+let findResponse = (index, rangeOne, rangeTwo, rangeThree, rangeFour) => {
+  return index <= rangeOne ? 'encountered creatures are extremely friendly to party, and very ameable to suggestions'
+  : index <= rangeTwo ? 'encountered creatures are extremely friendly to party, and very ameable to suggestions'
+  : index <= rangeThree ? 'encountered creatures are unsure and will stall for time, or for something significant or telling to occur'
+  : index <= rangeFour ? 'encountered creatures take an active dislike of the party, just short of blind hatred'
+  : 'encountered creatures cannot conceal their contempt and/or hatred for the party'
 }
 
-var randomResponse = function (predisposition) {
-  var responseIndex = roll (1, d100);
-  var response;
-  if (predisposition === 'hostile') {
-    response = findResponse (responseIndex, 5, 15, 25, 85, 100);
-    return response;
-  } else if (predisposition === 'neutral') {
-    response = findResponse (responseIndex, 10, 30, 70, 90, 100);
-    return response;
-  } else if (predisposition === 'friendly') {
-    response = findResponse (responseIndex, 15, 75, 85, 95, 100);
-    return response;
-  }
+let randomResponse = (predisposition) => {
+  let responseIndex = roll (1, d100);
+  return predisposition === 'hostile' ? findResponse (responseIndex, 5, 15, 25, 85)
+  : predisposition === 'neutral' ? findResponse (responseIndex, 10, 30, 70, 90)
+  : findResponse (responseIndex, 15, 75, 85, 95);
 }
 
 
 /***** RANDOM TREASURE *****/
 
 
-var randomSpell = function () {
+var randomSpell = () => {
   var index = Math.ceil(roll (1, d100) / 2);
   return battleMagicSpellbook[index];
 }
 
-var randomScroll = function () {
-  var index = roll (1, d100);
-  var randomIncrease = roll (1, d4) * 5;
-  if (index === 1) {
-    return 'special scroll at referee\'s discretion';
-  } else if (2 <= index && index <= 15) {
-    var randomAttributesArray = ['strength', 'constitution', 'dexterity', 'charisma'];
-    var attributeIndex = roll (1, d4);
-    var attributeTime = roll (1, d20);
-    return `scroll of increasing ${randomAttributesArray[attributeIndex]} over ${attributeTime} weeks`;
-  } else if (16 <= index && index <= 30) {
-    return 'letter of credit, deed, or valuable historical knowledge';
-  } else if (31 <= index && index <= 50) {
-    return `secret technique scroll giving a ${randomIncrease}% increase in any weapon`;
+var randomScroll = () => {
+  let index = roll (1, d100);
+  let randomIncrease = roll (1, d4) * 5;
 
-    //TODO implement this with the weapons table when built
+  let randomAttributesArray = ['strength', 'constitution', 'dexterity', 'charisma'];
+  let attributeIndex = roll (1, d4);
+  let attributeTime = roll (1, d20);
+  var randomSkillArray = ['knowledge', 'perception', 'manipulation', 'manipulation', 'stealth', 'stealth'];
+  var skillIndex = roll (1, d6);
 
-  } else if (51 <= index && index <= 65) {
-    var randomSkillArray = ['knowledge', 'perception', 'manipulation', 'manipulation', 'stealth', 'stealth'];
-    var skillIndex = roll (1, d6);
-    return `scroll holding the secrets of using ${randomSkillArray[skillIndex]} and increasing all related skills by ${randomIncrease}%`;
-  } else if (66 <= index && index <= 75) {
-    return 'map of an area which seems quite interesting';
-  } else {
-    return 'seemingly useless scroll that\'s not even readable'
-  }
+  return index === 1 ? 'special scroll at referee\'s discretion'
+  : index <= 15 ? `scroll of increasing ${randomAttributesArray[attributeIndex]} over ${attributeTime} weeks`
+  : index <= 30 ? 'letter of credit, deed, or valuable historical knowledge'
+  : index <= 50 ? `secret technique scroll giving a ${randomIncrease}% increase in any weapon` // TODO implemet weapons table
+  : index <= 65 ? `scroll holding the secrets of using ${randomSkillArray[skillIndex]} and increasing all related skills by ${randomIncrease}%`
+  : index <= 75 ? 'map of an area which seems quite interesting'
+  : 'seemingly useless scroll that\'s not even readable';
 }
 
-var randomPotion = function () {
-  var index = roll (1, d100);
-  var poisonPotency = roll (2, d6) + 3
-  if (1 <= index && index <= 10) {
-    return `potion of healing ${roll (1, d6)} damage to the body\'s worst wound`;
-  } else if (11 <= index && index <= 25) {
-    var spell = randomSpell();
-    return `potion of ${spell.name} with two hour duration`; // TODO: make spell names work
-  } else if (26 <= index && index <= 55) {
-    let poison = ['poison gas', 'poison gas', 'herbal poison', 'mineral poison'];
-    return `bottle of ${poisonPotency} potency ${poison[roll (1, d4) - 1]}`;
-  } else if (56 <= index && index <= 65) {
-    let venom = ['manticore', 'wyvern', 'spider', 'spider'];
-    return `${venom[roll (1, d4) - 1]} blade venom of ${poisonPotency} potency`;
-  } else if (66 <= index && index <= 80) {
-    let antidote = ['manticore venom', 'poison gas', 'wyvern venom', 'spider venom', 'herbal poison', 'mineral poison'];
-    return `antidote of ${antidote[roll (1, d6) - 1]}`;
-  } else if (81 <= index <= 90) {
-    return 'special potion at referee\'s discretion';
-  } else {
-    return `spoiled potion: treated like poison of ${poisonPotency} yet indestinguishable from a normal potion`;
-  }
+let randomPotion = () => {
+  let index = roll (1, d100);
+  let poisonPotency = roll (2, d6) + 3;
+  let poisons = ['poison gas', 'poison gas', 'herbal poison', 'mineral poison'];
+  let venoms = ['manticore venom', 'wyvern venom', 'spider venom', 'spider venom'];
+  let antidotes = poisons.concat(venoms).slice(1, 7);
+  return index <= 10 ? `potion of healing ${roll (1, d6)} damage to the body\'s worst wound`
+  : index <= 25 ? `potion of ${randomSpell().name} with two hour duration`
+  : index <= 55 ? `bottle of ${poisonPotency} potency ${poisons[roll (1, d4) - 1]}`
+  : index <= 65 ? `${venoms[roll (1, d4) - 1]} blade venom of ${poisonPotency} potency`
+  : index <= 80 ? `antidote of ${antidotes[roll (1, d6) - 1]}`
+  : index <= 90 ? 'special potion at referee\'s discretion'
+  : `spoiled potion: treated like poison of ${poisonPotency} yet indestinguishable from a normal potion`;
 }
 
-var randomCrystalAttribute = function (index) {
-  if (index <= 5) {
-    return ['healing focusing', roll (1, d8)];
-  } else if (index <= 8) {
-    return ['sensitivity', roll (1, d8)];
-  } else if (index <= 11) {
-    return ['twice power yielding', roll (1, d8)];
-  } else if (index <= 14) {
-    return ['power enhancing', roll (1, d8)];
-  } else if (index <= 16) {
-    return ['spell reinforcing', roll (1, d4)];
-  } else if (index <= 18) {
-    return ['spell strengthening', roll (1, d4)];
-  } else if (index <= 20) {
-    return ['spell resisting', roll (1, d4)];
-  } else if (index <= 22) {
-    return ['spell supporting', roll (1, d4)];
-  } else if (index <= 24) {
-    return ['spell storing', roll (1, d4)];
-  } else {
-    return ['power storing / spirit trapping', (roll (2, d6) + 3)];
-  }
+let randomCrystalAttribute = index => {
+  return index <= 5 ? ['healing focusing', roll (1, d8)]
+  : index <= 8 ? ['sensitivity', roll(1, d8)]
+  : index <= 11 ? ['twice power yielding', roll (1, d8)]
+  : index <= 14 ? ['power enhancing', roll(1, d8)]
+  : index <= 16 ? ['spell reinforcing', roll (1, d4)]
+  : index <= 18 ? ['spell strenthening', roll (1, d4)]
+  : index <= 20 ? ['spell resisting', roll (1, d4)]
+  : index <= 22 ? ['spell supporting', roll (1, d4)]
+  : index <= 24 ? ['spell storing', roll (1, d4)]
+  : ['power storing / spirit trapping', (roll (2, d6) + 3)];
 }
 
-var randomCrystal = function () {
-  var index = roll (1, d100);
-  if (index === 1) {
-    var crystalOne = randomCrystalAttribute (roll (1, d100));
-    var crystalTwo = randomCrystalAttribute (roll (1, d100));
-    return `crystal of ${crystalOne[0]} and ${crystalTwo[0]} filled with ${crystalOne[1] + crystalTwo[1]} power`;
-  } else if (index === 2) {
-    var boostedCrystal = randomCrystalAttribute (roll (1, d100))
-    return `crystal of ${boostedCrystal[0]} filled with ${boostedCrystal[1] + roll (1, d6)} power`;
-  } else if (25 <= index && index <= 30) {
-    return 'flawed crystal';
-  } else {
-    return `crystal of ${randomCrystalAttribute (index)[0]} filled with ${randomCrystalAttribute (index)[1]} power`;
-  }
+let randomCrystal = () => {
+  let index = roll (1, d100);
+  let crystalOne = randomCrystalAttribute (roll (1, d100));
+  let crystalTwo = randomCrystalAttribute (roll (1, d100));
+  return index === 1 ? `crystal of ${crystalOne[0]} and ${crystalTwo[0]} filled with ${crystalOne[1] + crystalTwo[1]} power`
+  : index === 2 ? `crystal of ${crystalOne[0]} filled with ${crystalOne[1] + roll (1, d6)} power`
+  : index <= 30 ? 'flawed crystal'
+  : `crystal of ${randomCrystalAttribute (index)[0]} filled with ${randomCrystalAttribute (index)[1]} power`;
 }
 
-var randomSpecialItem = function () {
-  var index = roll (1, d100);
-  if (index <= 35) {
-    return randomScroll();
-  } else if (index <= 60) {
-    return randomPotion();
-  } else if (index <= 85) {
-    var specialItemSpell = randomSpell();
-    return `spell of ${specialItemSpell.name}`;
-  } else {
-    return randomCrystal(); //TODO: add functionality to choose between this and an item with a spell matrix
-  }
+let randomSpecialItem = () => {
+  let index = roll (1, d100);
+  return index <= 35 ? randomScroll()
+  : index <= 60 ? randomPotion()
+  : index <= 85 ? `spell of ${randomSpell().name}`
+  : randomCrystal(); //TODO: add functionality to choose between this and an item with a spell matrix
 }
 
-var randomGemAttribute = function (index) {
-  if (index <= 3) {
-    return ['ancient treasure', (roll (1, d20) * 10000)];
-  } else if (index <= 5) {
-    return ['heirloom jewelry', (roll (3, d6) * 1000)];
-  } else if (index <= 10) {
-    return ['superb gemstone', (roll (1, d10) * 1000)];
-  } else if (index <= 15) {
-    return ['excellent jewelry', (roll (1, d6) * 1000)];
-  } else if (index <= 20) {
-    return ['excellent gemstone', (roll (3, d6) * 100)];
-  } else if (index <= 30) {
-    return ['very good jewelry', roll (12, d100)];
-  } else if (index <= 40) {
-    return ['very good gemstone', roll (6, d100)];
-  } else if (index <= 50) {
-    return ['good jewelry', roll (10, d20)];
-  } else if (index <= 60) {
-    return ['good gemstone', roll (2, d100)];
-  } else if (index <= 70) {
-    return ['costume jewelry', roll (5, d20)];
-  } else if (index <= 80) {
-    return ['flawed gemstone', roll (1, d100)];
-  } else if (index <= 90) {
-    return ['trade junk jewelry', roll (1, d20)];
-  } else if (index <= 95) {
-    return ['semi-precious stones', roll (1, d10)];
-  } else {
-    return ['pretty stones', 0];
-  }
+let randomGemAttribute = index => {
+  return index <= 3 ? ['ancient treasure', (roll (1, d20) * 10000)]
+  : index <= 5 ? ['heirloom jewelry', (roll (3, d6) * 1000)]
+  : index <= 10 ? ['superb gemstone', (roll (1, d10) * 1000)]
+  : index <= 15 ? ['excellent jewelry', (roll (1, d6) * 1000)]
+  : index <= 20 ? ['excellent gemstone', (roll (3, d6) * 100)]
+  : index <= 30 ? ['very good jewelry', roll (12, d100)]
+  : index <= 40 ? ['very good gemstone', roll (6, d100)]
+  : index <= 50 ? ['good jewelry', roll (10, d20)]
+  : index <= 60 ? ['good gemstone', roll (2, d100)]
+  : index <= 70 ? ['costume jewelry', roll (5, d20)]
+  : index <= 80 ? ['flawed gemstone', roll (1, d100)]
+  : index <= 90 ? ['trade junk jewelry', roll (1, d20)]
+  : index <= 95 ? ['semi-precious stones', roll (1, d10)]
+  : ['pretty stones', 0];
 }
 
-var randomGem = function () {
-  var index = roll (1, d100);
-  if (index === 1) {
-    return `${randomSpecialItem()} worth ${randomGemAttribute (index)[1]} lunars`;
-  } else if (index === 2) {
-    return randomCrystal();
-  } else {
-    var gem = randomGemAttribute(index);
-    return `${gem[0]} worth ${gem[1]} lunars`;
-  }
+let randomGem = () => {
+  let index = roll (1, d100);
+  let gem = randomGemAttribute (index);
+  return index === 1 ? `${randomSpecialItem()} worth ${randomGemAttribute (index)[1]} lunars`
+  : index === 2 ? randomCrystal()
+  : `${gem[0]} worth ${gem[1]} lunars`;
 }
 
-var treasureCheck = function (goal) {
-  var results = check(goal);
-  var pass = results[0];
-  var passPercent = results[1];
-  if (pass === true) {
-    if (passPercent <= 5) {return 10}
-    else if (passPercent <= 10) {return 5}
-    else if (passPercent <= 12.5) {return 4}
-    else if (passPercent <= 25) {return 3}
-    else if (passPercent <= 50) {return 2}
-    else {return 1}
-  } else {
-    return 0;
-  }
+let treasureCheck = goal => {
+  let results = check (goal);
+  let pass = results[0];
+  let passPercent = results[1];
+  return pass === true ? (
+    passPercent <= 5 ? 10
+    : passPercent <= 10 ? 5
+    : passPercent <= 12.5 ? 4
+    : passPercent <= 25 ? 3
+    : passPercent <= 50 ? 2
+    : 1
+  ) : 0
 }
 
-var treasureResults = function (treasureInput) {
+let treasureResults = function (treasureInput) {
   return treasureCheck (treasureInput[0]) * roll (treasureInput[1], treasureInput[2]);
 }
 
-var treasureValueReturn = function (treasureValue) {
-  var clacks = 0;
-  var lunars = 0;
-  var wheels = 0;
-  var gems = 0;
-  var gemOutput = '';
-  var specialItems = 0;
-  var specialItemsOutput = '';
+let treasureValueReturn = treasureValue => {
+  let clacks = 0, lunars = 0, wheels = 0, gems = 0, specialItems = 0;
+  let gemOutput = '', specialItemsOutput = '';
+  let treasureIndex = Math.floor(treasureValue / 10);
 
-  if (treasureValue === 0) {return false}
-
-  var treasureIndex = Math.floor(treasureValue / 10);
-
+  if (treasureValue === 0) return false;
   clacks += treasureResults(treasureArray[treasureIndex][0]);
   lunars += treasureResults(treasureArray[treasureIndex][1]);
   wheels += treasureResults(treasureArray[treasureIndex][2]);
   gems += treasureCheck (treasureArray[treasureIndex][3][0]) * treasureArray[treasureIndex][3][1];
   specialItems += treasureCheck (treasureArray[treasureIndex][4][0]) * treasureArray[treasureIndex][4][1];
 
-  for (gems; gems > 0; gems--) { gemOutput += (', ' + randomGem ()) } // for every gem, generate a gem
-  for (specialItems; specialItems > 0; specialItems--) { specialItemsOutput = ', ' + randomSpecialItem () } // if there is a special item, make it
+  for (gems; gems > 0; gems--) gemOutput += `, ${randomGem()}` // for every gem, generate a gem
+  for (specialItems; specialItems > 0; specialItems--) specialItemsOutput = `, ${randomSpecialItem()}`// if there is a special item, make it
   return `${clacks} clacks, ${lunars} lunars, ${wheels} wheels${gemOutput}${specialItemsOutput}`; // return everything
 }
