@@ -103,6 +103,8 @@ var Character = function (name, species, sex, age, nationality, weapons, armor, 
   this.weapons = weapons; // array
   this.armor = armor; // array
   this.spells = spells; // array
+  this.hitPoints = this.attributes.con
+  this.body = new Body (this.hitPoints)
 }
 
 

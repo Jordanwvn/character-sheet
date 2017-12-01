@@ -552,7 +552,7 @@ const windChild = new Species (
 const wyrm = new Species (
   'Wyrm',
   [[10, d6, 0], [3, d6, 0], [10, d6, 0], [3, d6, 0], [3, d6, 6], [3, d6, 0], [3, d6, 0]],
-  10 // movement
+  10, // movement
   18, // treasure
   0 // defense
 )
@@ -937,7 +937,7 @@ let Cult = function (name, parameters) {
   this.parameters = parameters;
 }
 
-let aldrya = new Cult ('Aldrya', parameters);
+// let aldrya = new Cult ('Aldrya', parameters);
 
 /***** GENERAL COSTS *****/
 
