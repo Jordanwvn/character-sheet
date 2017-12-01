@@ -157,5 +157,31 @@ Item.prototype.removeIfEmpty = function () {
 
 /***** HELPER FUNCTIONS *****/
 
+// TODO maybe move to app.js
+let randomHitLocation = (target) => {
+  let locationRoll = roll(1, d20); // roll a twenty-sided die, then
+  for (let part in target.body) { // for every part of the body...
+    for (let hit in target.body[part].hitNumbers) { // and for every hit number of that part...
+      if (locationRoll === target.body[part].hitNumbers[hit]) return target.body[part].name  // if the part is hit, return the part
+    } // end for (hit number)
+  } // end for (part)
+} // end randomHitLocation function
+
+let resistanceCheck = (attackingPower, defendingPower) => {
+  let difference = 50 + (5 * (attackingPower - defendingPower));
+  return check (difference)[0] === true ? 'attack successful' : 'attack unsuccessful';
+}
+
+// TODO move to app.js
+let skillCheck = (player, skill) => {
+  return check (player['skills'][skill])[0] === true ? ( // if a check of the selected skill passes...
+    check (100 - player['skills'][skill])[0] === true ? ( // and if that skill is set to increase...
+      //TODO add learning bonus
+      player['skills'][skill] += 5, // increase the skill
+      `${player.name} was successful, ${skill} was increased to ${player['skills'][skill]}`
+    ) : `${player.name} was successful`
+  ) : `${player.name} was unsuccessful`;
+} // end skillCheck function
+
 
 /***** LOCAL STORAGE *****/

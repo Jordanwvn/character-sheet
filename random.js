@@ -22,28 +22,11 @@ var roll = (rolls, diceType) => {
 
 
 // function: makes a percentile check and returns if it passed, as well as by how much
-<<<<<<< HEAD
-var check = function (goal) {
-  var percentile = roll (1, d100);
-  return percentile <= goal ? [true, Math.ceil((percentile / goal) * 100)] : [false, Math.ceil((percentile / goal) * 100)];
-=======
 let check = goal => {
   let result = roll (1, d100);
   let percentage = Math.ceil((result / goal) * 100);
   return result <= goal ? [true, percentage] : [false, percentage];
->>>>>>> 777a55734a60b36be35e2985e90e6883c3541b51
 }
-
-// TODO move to app.js
-let skillCheck = (player, skill) => {
-  return check (player['skills'][skill])[0] === true ? ( // if a check of the selected skill passes...
-    check (100 - player['skills'][skill])[0] === true ? ( // and if that skill is set to increase...
-      //TODO add learning bonus
-      player['skills'][skill] += 5, // increase the skill
-      `${player.name} was successful, ${skill} was increased to ${player['skills'][skill]}`
-    ) : `${player.name} was successful`
-  ) : `${player.name} was unsuccessful`;
-} // end skillCheck function
 
 
 /***** RANDOM CHARACTER ELEMENTS *****/
@@ -69,24 +52,6 @@ let randomBackground = () => {
   : ['very rich noble', income * 20, income * 20];
 }
 
-
-/***** RANDOM COMBAT ELEMENTS *****/
-
-
-// TODO maybe move to app.js
-let randomHitLocation = (target) => {
-  let locationRoll = roll(1, d20); // roll a twenty-sided die, then
-  for (let part in target.body) { // for every part of the body...
-    for (let hit in target.body[part].hitNumbers) { // and for every hit number of that part...
-      if (locationRoll === target.body[part].hitNumbers[hit]) return target.body[part].name  // if the part is hit, return the part
-    } // end for (hit number)
-  } // end for (part)
-} // end randomHitLocation function
-
-let resistanceCheck = (attackingPower, defendingPower) => {
-  let difference = 50 + (5 * (attackingPower - defendingPower));
-  return check (difference)[0] === true ? 'attack successful' : 'attack unsuccessful';
-}
 
 
 /***** RANDOM ENCOUNTERS *****/
