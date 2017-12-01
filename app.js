@@ -81,13 +81,13 @@ var BodyPart = function (name, hitNumbers, health, armor) {
 }
 
 var Body = function (hitPoints) {
-  this.rightLeg = new BodyPart ('right leg', [1, 2, 3, 4], hitPoints - 4, 0); // create the right leg
-  this.leftLeg = new BodyPart ('left leg', [5, 6, 7, 8], hitPoints - 5, 0); // create the left leg
-  this.abdomen = new BodyPart ('abdomen', [9, 10, 11], hitPoints - 2, 0); // create the abdomen
-  this.chest = new BodyPart ('chest', [12], hitPoints - 4, 0); // create the chest
-  this.rightArm = new BodyPart ('right arm', [13, 14, 15], hitPoints - 3, 0); // create the right arm
-  this.leftArm = new BodyPart ('left arm', [16, 17, 18], hitPoints - 2, 0); // create the left arm
-  this.head = new BodyPart ('head', [19, 20], hitPoints - 2, 0); // create the head
+  this.rightLeg = new BodyPart ('right leg', [1, 2, 3, 4], partHP(hitPoints, 'rl'), 0); // create the right leg
+  this.leftLeg = new BodyPart ('left leg', [5, 6, 7, 8], partHP(hitPoints, 'll'), 0); // create the left leg
+  this.abdomen = new BodyPart ('abdomen', [9, 10, 11], partHP(hitPoints, 'a'), 0); // create the abdomen
+  this.chest = new BodyPart ('chest', [12], partHP(hitPoints, 'c'), 0); // create the chest
+  this.rightArm = new BodyPart ('right arm', [13, 14, 15], partHP(hitPoints, 'ra'), 0); // create the right arm
+  this.leftArm = new BodyPart ('left arm', [16, 17, 18], partHP(hitPoints, 'la'), 0); // create the left arm
+  this.head = new BodyPart ('head', [19, 20], partHP(hitPoints, 'h'), 0); // create the head
 }
 
 var Character = function (name, species, sex, age, nationality, weapons, armor, spells) {
@@ -98,8 +98,11 @@ var Character = function (name, species, sex, age, nationality, weapons, armor, 
   this.age = age;
   this.nationality = nationality;
   this.cults = 'none';
+  this.cultStatus = 'none';
   this.attributes = new Attributes (randomAttributes (this.species.attributeValues));
   this.skills = new Skills (this.attributes);
+  this.skillsToIncrease = [];
+  this.learnBonus = learningBonus(this.attributes.int);
   this.weapons = weapons; // array
   this.armor = armor; // array
   this.spells = spells; // array
@@ -112,34 +115,20 @@ var Character = function (name, species, sex, age, nationality, weapons, armor, 
 
 
 Skills.prototype.setValue = function (type, attribute) {
-  var output = 0;
-  if (type === 'low') {
-    if (attribute < 5) {
-      output = -5;
-    } else if (4 < attribute && attribute < 17) {
-      output = 0;
-    } else {
-      output = (Math.ceil(attribute / 4) - 4) * 5;
-    }
-  } else if (type === 'high') {
-    output = (Math.ceil(attribute / 4) - 3) * 5;
-  }
-  return output;
+  return type === 'low' ? (
+    attribute <= 4 ? -5
+    : attribute <= 16 ? 0
+    : (Math.ceil(attribute / 4) - 4) * 5
+  ) : (Math.ceil(attribute / 4) - 3) * 5
 }
 
 Skills.prototype.setDmgBonus = function (str, siz) {
-  var bonus = Math.ceil((str + siz) / 2);
-  if (bonus < 7) {
-    return [-1, d4];
-  } else if (bonus < 13) {
-    return [0, 0];
-  } else if (bonus < 17) {
-    return [1, d4];
-  } else if (bonus < 21) {
-    return [1, d6];
-  } else {
-    return [Math.ceil((bonus - 12) / 8), d6];
-  }
+  let bonus = Math.ceil((str + siz) / 2);
+  return bonus <= 6 ? [-1, d4]
+  : bonus <= 12 ? [0, 0]
+  : bonus <= 16 ? [1, d4]
+  : bonus <= 20 ? [1, d6]
+  : [Math.ceil((bonus - 12) / 8), d6]
 }
 
 
@@ -149,15 +138,29 @@ Spell.prototype.useOnSelf = function () { // if the spell is used on the user
 
 
 Item.prototype.removeIfEmpty = function () {
-  if (this.quantity === 0) {
-    delete this;
-  }
+  if (this.quantity === 0) delete this;
 }
 
 
 /***** HELPER FUNCTIONS *****/
 
-// TODO maybe move to app.js
+
+let learningBonus = int => {
+  return int < 9 ? (9 - int) * -3
+  : int > 12 ? (int - 12) * 3
+  : 0
+}
+
+
+let partHP = (hitPoints, part) => {
+  let index = Math.ceil(hitPoints / 3);
+  if (index === 0) index ++;
+  return (part === 'rl' || part === 'll' || part === 'h' || part === 'a') ? index
+  : (part === 'ra' || part === 'la') ? index - 1
+  : index + 1
+}
+
+
 let randomHitLocation = (target) => {
   let locationRoll = roll(1, d20); // roll a twenty-sided die, then
   for (let part in target.body) { // for every part of the body...
@@ -172,16 +175,33 @@ let resistanceCheck = (attackingPower, defendingPower) => {
   return check (difference)[0] === true ? 'attack successful' : 'attack unsuccessful';
 }
 
-// TODO move to app.js
+let skillNotSet = (player, skill) => {
+  for (let skillItem in player.skillsToIncrease) {
+    if (player.skillsToIncrease[skillItem] === skill) return false;
+  }
+  return true;
+}
+
 let skillCheck = (player, skill) => {
-  return check (player['skills'][skill])[0] === true ? ( // if a check of the selected skill passes...
-    check (100 - player['skills'][skill])[0] === true ? ( // and if that skill is set to increase...
-      //TODO add learning bonus
-      player['skills'][skill] += 5, // increase the skill
-      `${player.name} was successful, ${skill} was increased to ${player['skills'][skill]}`
+  return check (player.skills[skill])[0] === true ? (
+    skillNotSet(player, skill === true) ? (
+      player.skillsToIncrease.push(skill),
+      `${player.name} was successful, and ${skill} is eligable to be increased`
     ) : `${player.name} was successful`
-  ) : `${player.name} was unsuccessful`;
+  )
+  : `${player.name} was unsuccessful`
 } // end skillCheck function
+
+let runSkillIncreases = (player) => {
+  for (let validSkills in player.skillsToIncrease) {
+    let currentSkill = player.skillsToIncrease[validSkills];
+    return check (100 - player.skills[currentSkill] + player.learnBonus)[0] === true ? (
+      player.skills[currentSkill] += 5,
+      player.skillsToIncrease.splice(validSkills, 1),
+      `${currentSkill} was increased to ${player.skills[currentSkill]}`
+    ) : `${currentSkill} was not increased`;
+  }
+}
 
 
 /***** LOCAL STORAGE *****/
