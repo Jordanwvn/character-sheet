@@ -459,6 +459,113 @@ const skyBull = new Species (
   0 // defense
 )
 
+// snake
+
+// tigerson
+
+const trollCave = new Species (
+  'Cave Troll',
+  [[3, d6, 12], [2, d6, 6], [4, d6, 12], [2, d6, 0], [2, d6, 0], [2, d6, 3], [1, d6, 0]],
+  7, // movement
+  12, // treasure
+  0 // defense
+)
+
+const trollDark = new Species (
+  'Dark Troll',
+  [[3, d6, 6], [3, d6, 0], [3, d6, 6], [3, d6, 0], [3, d6, 0], [3, d6, 0], [3, d6, 0]],
+  8, // movement
+  12, // treasure
+  0 // defense
+)
+
+const trollGreat = new Species (
+  'Great Troll',
+  [[4, d6, 12], [1, d4, 14], [4, d6, 12], [2, d6, 2], [3, d6, 0], [3, d6, 0], [2, d6, 0]],
+  7, // movement
+  16, // treasure
+  0 // defense
+)
+
+const trollMistress = new Species (
+  'Mistress Troll',
+  [[4, d6, 6], [2, d6, 6], [3, d6, 12], [2, d6, 6], [4, d6, 0], [2, d6, 6], [2, d6, 6]],
+  9, // movement
+  20, // treasure
+  0 // defense
+)
+
+const trollkin = new Species (
+  'Trollkin',
+  [[2, d6, 3], [3, d6, 0], [1, d6, 6], [2, d6, 3], [2, d6, 0], [3, d6, 3], [2, d6, 0]],
+  6, // movement
+  6, // treasure
+  5 // defense
+)
+
+// Tusk Brother
+
+const tuskRider = new Species (
+  'Tusk Rider',
+  [[2, d6, 6], [2, d6, 6], [3, d6, 0], [3, d6, 0], [3, d6, 0], [3, d6, 0], [1, d6, 0]],
+  8, // movement
+  7, // treasure
+  0 // defense
+)
+
+const tusker = new Species (
+  'Tusker',
+  [[3, d6, 12], [1, d6, 12], [4, d6, 12], [1, [1, 1], 0], [3, d6, 0], [1, d6, 0], [1, [1, 1], 0]],
+  10, // movement
+  0, // treasure
+  0 // defense
+)
+
+const unicorn = new Species (
+  'Unicorn',
+  [[2, d6, 24], [2, d6, 6], [2, d6, 18], [3, d6, 0], [2, d6, 12], [2, d6, 6], [1, [1, 1], 0]],
+  12, // movement
+  0, // treasure
+  0 // defense
+)
+
+// Vampire
+
+const walktapi = new Species (
+  'Walktapi',
+  [[2, d6, 18], [2, d6, 6], [2, d6, 18], [1, [1, 1], 0], [3, d6, 0], [3, d6, 0], [1, [1, 1], 0]],
+  7, // movement
+  15, // treasure
+  0 // defense
+)
+
+const windChild = new Species (
+  'Wind Child',
+  [[2, d6, 0], [3, d6, 0], [2, d6, 0], [3, d6, 0], [2, d6, 6], [2, d6, 6], [3, d6, 0]],
+  6, // movement, 12 flying
+  18, // treasure
+  0 // defense
+)
+
+// Wolfbrother
+
+const wyrm = new Species (
+  'Wyrm',
+  [[10, d6, 0], [3, d6, 0], [10, d6, 0], [3, d6, 0], [3, d6, 6], [3, d6, 0], [3, d6, 0]],
+  10, // movement
+  18, // treasure
+  0 // defense
+)
+
+const wyvern = new Species (
+  'Wyvern',
+  [[4, d6, 12], [2, d6, 6], [2, d6, 24], [2, d6, 0], [3, d6, 0], [2, d6, 6], [2, d6, 0]],
+  6, // movement, 10 flying
+  19, // treasure
+  0 // defense
+)
+
+// Zombie
 
 /***** SPELLS *****/
 
@@ -603,7 +710,139 @@ const battleMagicSpellbook = [
     true, // focused, on others
 
     500 * this.power // cost, in Lunars
-  )
+  ),
+
+  new Spell (
+    'Darkwall', // spell name
+    80, // range, in meters
+    true,
+    true,
+    10,
+    2,
+    'This spell creates a 10 meter wide by 3 meter high wall of darkness. Thickness of this is 6 cm. This wall can be moved by the caster at 3 meters per melee round on any round that he does nothing else. Torches yield no light within the wall and creatures that can see in the dark cannot see through it. It is opaque from both sides. The wall can be formed or moved into any shape desired.',
+    1500
+  ),
+
+  new Spell (
+    'Demoralize',
+    80,
+    true,
+    true,
+    10,
+    1,
+    'The victim of this spell loses faith in the ability of himself and his party to win the fight, find the treasure, rescue the princess, or whatever. He can still defend himself at full, but attacks at half value. The victim will not use offensive magic. The advantage of the spell is that you can attack a Demoralized foe without affecting the spell. Essentially, it softens an enemy up for the kill. If it takes place before combat a Demoralized foe generally will not attack unless ordered to. If faced with superior force, he will probably run or surrender. A Fanaticism spell will cancel the effect of a Demoralize spell, and vice versa.',
+    1500
+  ),
+
+  new Spell (
+    'Detect Detection',
+    80,
+    true, // focused on others
+    true,
+    10,
+    1,
+    'This may be cast on any person or object within reach of the spell. It informs the caster if that personal object is detected by magic, whether by battle magic or more sophisticated means.',
+    300
+  ),
+
+  new Spell (
+    'Detect Enemies',
+    40,
+    true,
+    false,
+    1,
+    1,
+    'This spell gives the direction and distance from the caster of any being intending to harm a specific individual on whom the caster concentrates. If the caster does not specify someone else as the person whose enemies are being detected, it detects enemies of the caster. It is stopped by more than 3 meters of solid rock or metal.',
+    300
+  ),
+
+  new Spell (
+    'Detect Gems',
+    40,
+    true,
+    false,
+    1,
+    1,
+    'This spell will give the number and position relative to the caster of all gems within range. Like Detect Magic it will cause detected gems to glow while the spell is in effect. The position given includes direction and distance. The spell is blocked by more than 3 meters of rock or metal.',
+    1000
+  ),
+
+  new Spell (
+    'Detect Gold',
+    40,
+    true,
+    false,
+    1,
+    1,
+    'Detects direction, distance, and approximate amount (to the nearest tenth of a kg) within the range of the spell. It is stopped by more than 3 meters of solid rock or metal.',
+    300
+  ),
+
+  new Spell (
+    'Detect Life',
+    40, // range, in meters
+    true, // focused
+    false, // impassive
+    1, // duration
+    1, // power used
+    'Detects the existence of human or larger size life. Gives direction and distance from the spellcaster. Divides life forms detected into two classes, those of human size (between 3 and 21, and those of large size (from 22 on up). Life smaller than SIZ 3 is ignored. It is stopped by more than 3 meters of solid rock or metal.',
+    300 // cost, in lunars
+  ),
+
+  new Spell (
+    'Detect Magic',
+    40,
+    true,
+    false,
+    1,
+    1,
+    'This spell gives direction and distance from the caster of all enchantments and similar magically potent objects. It does not distinguish between magical objects or enchantments, telling only that it is magical, not what or how powerful it is. Also, any magic object within range of the spell will glow, possibly warning enemies. It is stopped by 3 meters or more of rock or metal.',
+    300
+  ),
+
+  new Spell (
+    'Detect Silver',
+    80,
+    true,
+    false,
+    1,
+    1,
+    'Similar to Detect Gold in all respects except that it detects silver rather than gold. It is stopped by more than 3 meters of rock or metal.',
+    200
+  ),
+
+  new Spell (
+    'Detect Spirit',
+    40,
+    true,
+    false,
+    1,
+    1,
+    'Like Detect Life in its effects except that it detects the presence of spirits. It divides spirits detected into two sizes, those of POW 18 and below, and those of POW 19 and above. It is stopped by more than 3 meters of rock or metal.',
+    300
+  ),
+
+  new Spell (
+    'Detect Traps',
+    40,
+    true,
+    false,
+    1,
+    2,
+    'This spell detects the intent to trap. Thus, it would detect an ambush, magical trap, or physical trap. It would not detect a naturally occurring pit, or poison, which is not in itself a trap. It makes a 3 meter diameter circle around the trap glow. It does not give the exact location or type of the trap. Note that it will not detect the existence of defensive spells, such as Warding. It is stopped by more than 3 meters of rock or metal.',
+    300
+  ),
+
+  new Spell (
+    'Detect Undead',
+    40,
+    true,
+    false,
+    1,
+    1,
+    'This spell functions like Detect Life in its effect, except that it detects things neither dead nor alive, such as zombies, mummies, and vampires. It does not tell which type of undead is being detected, but it does tell the size. It is stopped by more than 3 meters of stone or metal.',
+    300
+  ),
 ]
 
 
@@ -653,7 +892,7 @@ let stableSpecialCare = new Item ('special care', 1, '', 1);
 let trailOats = new Item ('trail fodder for a week', 2, '', 7);
 
 
-/***** WEAPONRY *****/
+/***** ARMS *****/
 
 let Weapon = function (name, strRequirement, dexRequirement, damage, hp, mastery, cost, enc, length, sr, q1Training, q2Training, q3Training) {
   this.name = name;
@@ -671,10 +910,6 @@ let Weapon = function (name, strRequirement, dexRequirement, damage, hp, mastery
   this.q3Training = q3Training;
 }
 
-
-/***** SHIELDS *****/
-
-
 let Shield = function (size, strRequirement, absorbs, mastery, cost, enc, q1Training, q2Training, q3Training) {
   this.size = size;
   this.strRequirement = strRequirement;
@@ -688,7 +923,7 @@ let Shield = function (size, strRequirement, absorbs, mastery, cost, enc, q1Trai
 }
 
 
-/***** ARMORY *****/
+/***** ARMOR *****/
 
 let Armor = function (location, ) {
 
@@ -702,7 +937,7 @@ let Cult = function (name, parameters) {
   this.parameters = parameters;
 }
 
-let aldrya = new Cult ('Aldrya', parameters);
+// let aldrya = new Cult ('Aldrya', parameters);
 
 /***** GENERAL COSTS *****/
 
