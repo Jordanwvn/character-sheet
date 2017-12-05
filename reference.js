@@ -843,6 +843,17 @@ const battleMagicSpellbook = [
     'This spell functions like Detect Life in its effect, except that it detects things neither dead nor alive, such as zombies, mummies, and vampires. It does not tell which type of undead is being detected, but it does tell the size. It is stopped by more than 3 meters of stone or metal.',
     300
   ),
+
+  new Spell (
+    'Detection Blank',
+    80, // range, in meters
+    true, // focused on others
+    true, // passive
+    10, // cast time
+    1, // variable
+    'A specialized version of Countermagic, designed to block detection spells. May screen either the caster or another person from detection. It stops only detection spells, but unlike Countermagic it does not let the person doing the detection know that his spell has been blocked. Otherwise it functions like Countermagic.',
+    500 // per point of spell
+  ),
 ]
 
 

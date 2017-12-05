@@ -123,13 +123,6 @@ Skills.prototype.setValue = function (type, attribute) {
   ) : (Math.ceil(attribute / 4) - 3) * 5
 }
 
-let healthBonus = (size, power) => {
-  let sizeBonus = Math.ceil(size / 4) - 3;
-  return power <= 4 ? -1 + sizeBonus
-  : (5 <= power && power <= 16) ? 0 + sizeBonus
-  : Math.ceil(power / 4) - 2 + sizeBonus;
-}
-
 Skills.prototype.setDmgBonus = function (str, siz) {
   let bonus = Math.ceil((str + siz) / 2);
   return bonus <= 6 ? [-1, d4]
@@ -138,7 +131,6 @@ Skills.prototype.setDmgBonus = function (str, siz) {
   : bonus <= 20 ? [1, d6]
   : [Math.ceil((bonus - 12) / 8), d6]
 }
-
 
 Spell.prototype.useOnSelf = function () { // if the spell is used on the user
   this.focused = false; // the spell does not need to be focused
@@ -159,6 +151,12 @@ let learningBonus = int => {
   : 0
 }
 
+let healthBonus = (size, power) => {
+  let sizeBonus = Math.ceil(size / 4) - 3;
+  return power <= 4 ? -1 + sizeBonus
+  : (5 <= power && power <= 16) ? 0 + sizeBonus
+  : Math.ceil(power / 4) - 2 + sizeBonus;
+}
 
 let partHP = (hitPoints, part) => {
   let index = Math.ceil(hitPoints / 3);
@@ -183,13 +181,6 @@ let resistanceCheck = (attackingPower, defendingPower) => {
   return check (difference)[0] === true ? 'attack successful' : 'attack unsuccessful';
 }
 
-let skillNotSet = (player, skill) => {
-  for (let skillItem in player.skillsToIncrease) {
-    if (player.skillsToIncrease[skillItem] === skill) return false;
-  }
-  return true;
-}
-
 let skillCheck = (player, skill) => {
   return check (player.skills[skill])[0] === true ? (
     skillNotSet(player, skill === true) ? (
@@ -199,6 +190,13 @@ let skillCheck = (player, skill) => {
   )
   : `${player.name} was unsuccessful`
 } // end skillCheck function
+
+let skillNotSet = (player, skill) => {
+  for (let skillItem in player.skillsToIncrease) {
+    if (player.skillsToIncrease[skillItem] === skill) return false;
+  }
+  return true;
+}
 
 let runSkillIncreases = (player) => {
   for (let validSkills in player.skillsToIncrease) {

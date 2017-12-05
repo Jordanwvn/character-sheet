@@ -53,19 +53,17 @@ let randomBackground = () => {
 }
 
 
-
 /***** RANDOM ENCOUNTERS *****/
 
 
 let randomEncounter = location => {
-  let encounterIndex = roll (1, d20) - 1;
-  let encounterCreature = location.results[encounterIndex][0];
-  let encounterDice = location.results[encounterIndex][1];
-
-  return check(location.chance)[0] === true ? (
-    location.results[encounterIndex][1] !== 1 ? `${roll (1, encounterDice)} ${encounterCreature}`
-    : `1 ${encounterCreature}`
-  ) : 'nothing found';
+  let encounterIndex = roll (1, d20) - 1; // encounter index is something between 1 and 20
+  let encounterCreature = location.results[encounterIndex][0]; // get the random creature from the defined location
+  let encounterDice = location.results[encounterIndex][1]; // get the dice to define the number of those creatures
+  return check(location.chance)[0] === true ? ( // did you find a location in the area?
+    location.results[encounterIndex][1] !== 1 ? `${roll (1, encounterDice)} ${encounterCreature}` // return what creatures are there
+    : `1 ${encounterCreature}` // if there is only 1, don't roll for number
+  ) : 'nothing found'; // if you didn't find a creature, return nothing found
 }
 
 let findResponse = (index, rangeOne, rangeTwo, rangeThree, rangeFour) => {
