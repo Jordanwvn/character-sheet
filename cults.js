@@ -74,6 +74,18 @@ let RunePriesthood = function (generalStatement, acceptanceRequirements, restric
   this.spellbook = spellbook;
 }
 
+let RuneSpell = function (name, range, passive, reusable, duration, stackLimit, power, cost, description) {
+  this.name = name;
+  this.range = range;
+  this.passive = passive;
+  this.reusable = reusable;
+  this.duration = duration;
+  this.stackLimit = stackLimit;
+  this.power = power;
+  this.cost = cost;
+  this.description = description;
+}
+
 
 /***** CULTS *****/
 
@@ -153,7 +165,52 @@ let dakaFal = new Cult ('Daka Fal',
     // RUNE SPELL COMPATABILITY
     'une Magic allow them to know only a few Rune Spells. These few listed are said to be originally made by Daka Fal, from whom the other gods learned them. Spells available are: Discorporation, Divination, Extension 1-3, Mind Link, Warding.',
     // CULT SPECIAL RUNE SPELLS
-    'This list of spells are known to have been made by Daka Fal and taught to living mortals in the Darkness. These are, as indicated, available to any mortal being who meets priestly requirements. Some cults of other gods forbid their hierarchy to use these spells, as noted in this book.',
-    // SPELLS
-  )
-)
+    'This list of spells are known to have been made by Daka Fal and taught to living mortals in the Darkness. These are, as indicated, available to any mortal being who meets priestly requirements. Some cults of other gods forbid their hierarchy to use these spells, as noted in this book.'
+  ),
+  // SPELLS
+  [
+    new RuneSpell ( // name, range, passive, reusable, duration, stackLimit, power, description, cost
+      'Free Ghost', 160, true, true, 'instant', 1, 1, 0,
+      'This Rune Spell is cast to unbind a ghost from its haunting spot and return it to the Land of the Dead. It is cast on one ghost, and the POW of the caster must overcome the POW of the ghost for it to be successful.'
+    ),
+    new RuneSpell (
+      'Summon Ancestor', 160, true, true, '1 combat', 1, 1, 0,
+      'This summons a randomly determined spirit of the caster\’s ancestors from the Land of the Dead. The same spirit is rarely gotten twice. The spirit arrives as indicated on the ANCESTRAL SUMMONS CHART. After giving commands to the spirit (providing it is friendly) the summoner must throw D100 and if a 96-00 (fumble) is cast then the spirit misunderstands the command and turns on the summoner. These may be used for Spirit Attack against a foe, as ordered by the Summoner. They may also use known spells but will deplete their Power to do so. In either case, loss of Power to a level of 11 will cause the spirit to disappear (even from Spirit Combat) and return to the Land of the Dead. They can not be used to memorize spells, supply Power, or to teach the summoner.'
+    ),
+    new RuneSpell ( // name, range, passive?, reusable?, duration, stack limit, power, cost
+      'Summon Specific Ancestor', 160, true, true, 'instant', 1, 2, 0,
+      'This spell must be stacked with a 1 point Summon Ancestor. It will call a specific ancestor spirit already known to the summoner. Otherwise is as Summon Ancestor.'
+    ),
+    new RuneSpell ( // name, range, passive?, reusable?, duration, stack limit, power, cost
+      'Summon Spirit Teacher', 160, true, true, '1 day', 1, 2, 0,
+      'This must be stacked with the 1 point Summon Ancestor spell. The spirit so summoned will be able to teach spells, give information, or act as a shaman\'s fetch for the length of the spell. It allows “rapid teaching” of spells, to be learned in one day. It may be stacked with Summon Specific Ancestor.'
+    ),
+    new RuneSpell ( // name, range, passive?, reusable?, duration, stack limit, power, cost
+      'Incarnate Ancestor', 160, true, true, '15 minutes', 1, 3, 0,
+      'This spell can bring the spirit of an ancestor to occupy the body of one of its descendants. The family member must be willing, and the Daka Fal priest is typically the host body. The summoned spirit will know all spells, knowledge, and possible skills which it knew while still living. The host spirit is temporarily suspended in the Spirit Plane and will return when the spell expires unless a Fumble Roll was made when the spell was cast, or the Spell was extended longer than one day. In either case, the body is permanently possessed, and the previous host spirit goes to the Land of the Dead.'
+    ),
+    new RuneSpell ( // name, range, passive?, reusable?, duration, stack limit, power, cost
+      'Resurrection', 1, true, false, 'duration to completion', 1, 3, 0,
+      'With this spell the priest will find the departed spirit of a patient and return it to the healed body for the resurrection of its life. The deceased must have died by wounds, poison, or other physical damage, It does not work on beings slain in spirit combat, by Soul Waste, or magically-oriented, Power-draining death. The body must be healed to a minimum of three positive hit points or characteristic points using a cure spell appropriate to the cause of death, such as a Cure Shakes or Cure All Disease for someone dead from that illness. Heal Body also may be used. Once using the spell, the priest or his allied spirit must engage in spirit combat with the departed\'s soul. If the healing spirit or priest is successful in the first round of combat, then the resurrection occurs. If the soul of the departed wins the round, it returns again to the courts of silence. If a number of full days passed before resurrection was attempted, the resurrected may have lost some abilities and magics. See the Chalana Arroy (Lightbringers) Resurrection spell section for details.'
+    )
+  ],
+  // SUBSERVIENT CULTS
+  [
+    {
+      name: 'Grandfather Mortal',
+      description: 'As explained, Grandfather Mortal is thought to have been Daka Fal during the divine age of the early creation. The association, though, confers no special spells or abilities.'
+    },
+    {
+      name: 'Flesh Man',
+      description: 'Flesh Man is explained in more detail in the Introduction to the Lightbringer\'s Cult. There it explains that he has no cult, but he is known. He is especially liked because he taught this spell to all living priests. He called it their “vote on the spirit plane.”',
+      spells: [
+        new RuneSpell ( // name, range, passive?, reusable?, duration, stack limit, power, cost
+          'Spirit Block', 160, true, true, '15 minutes', false, 1, 0,
+          'Each point of Rune Spell used blocks off ten points from the attacking spirit’s Power.'
+        )
+      ]
+    }
+  ],
+  // MISCELLANEOUS NOTES
+  'None.'
+);
