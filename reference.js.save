@@ -940,6 +940,33 @@ let Armor = function (location, ) {
 
 }
 
+/***** CULTS *****/
+
+
+let Cult = function (name, mythos, nature, organization, layMembership, initiateMembership, runeLordMembership, runePriestMembership, subservientCults, associatedCults, miscellaneousNotes) {
+  this.name = name;
+  this.mythos = mythos;
+  this.nature = nature;
+  this.organization = organization;
+  this.layMembership = layMembership;
+  this.initiateMembership = initiateMembership;
+  this.runeLordMembership = runeLordMembership;
+  this.runePriesthoodMembership = runePriestMembership;
+  this.subservientCults = subservientCults;
+  this.associatedCults = associatedCults;
+  this.miscellaneousNotes = miscellaneousNotes;.
+}
+
+let daka_fal = new Cult (
+  'Daka Fal',
+  {
+    beforeDawn: 'There are no known tales of Daka Fal before the Great Darkness There are no known tales of Daka Fal before the Great Darkness. Ancient philosophers connect him with the primeval being called Grandfather Mortal, who is the Rune-ancestor of the Man-Rune, and thereby the common ancestor of all humanoid creatures. The tales of Grandfather Mortal explain the current position of mankind in the cosmos through a series of legends and fables. Briefly told, they mention the origin of the first man, called Wanderer in those days, in the Court of Creation of the Celestial Court. His origin was held in common by many gods so that he contained some of all the world within him, and so he could work for all of the gods. Grandfather Mortal had many adventures, but most important was his encounter with Death. The destroying god was still an infant, a small sharp thing cradled in the palm of Humakt, when Grandfather Mortal was invited to test the newcomer\'s powers. When he agreed, he was the first to know Death. Since then all men have been destined to die, and follow in the path of their great Ancestor. Thus disappeared Grandfather Mortal from the tales of the gods. When the Darkness came it was the time for all mortality to join in with their ancestor, but many resisted. They lived in hopeless fear amid the disintegrating world where chaos seeped or howled in, unable to separate life from death anymore. It was then that Daka Fal appeared and taught them how to separate the living from the dead. He taught the living how to test a creature to see if it is truly alive or if it is a phantom spirit. He also taught the first burial rites to keep the deceased from harassing the living afterwards. He also taught the basic cult spells which allow communication to the Other Side. Thus, by aid from their ancestors some people survived the dark.',
+    since_time_began: 'Daka Fal was named by the gods to be the Judge of the Dead, for it was he who first knew that power and who holds all of the secrets of Death. In Prax his worship has had no actual power in the face of the gods. In times of crisis, when the gods fail their worshippers, this cult gets very popular.',
+    life_after_death:
+  }
+)
+
+// let aldrya = new Cult ('Aldrya', parameters);
 
 /***** GENERAL COSTS *****/
 

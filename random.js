@@ -28,17 +28,6 @@ let check = goal => {
   return result <= goal ? [true, percentage] : [false, percentage];
 }
 
-// TODO move to app.js
-let skillCheck = (player, skill) => {
-  return check (player['skills'][skill])[0] === true ? ( // if a check of the selected skill passes...
-    check (100 - player['skills'][skill])[0] === true ? ( // and if that skill is set to increase...
-      //TODO add learning bonus
-      player['skills'][skill] += 5, // increase the skill
-      `${player.name} was successful, ${skill} was increased to ${player['skills'][skill]}`
-    ) : `${player.name} was successful`
-  ) : `${player.name} was unsuccessful`;
-} // end skillCheck function
-
 
 /***** RANDOM CHARACTER ELEMENTS *****/
 
@@ -64,37 +53,17 @@ let randomBackground = () => {
 }
 
 
-/***** RANDOM COMBAT ELEMENTS *****/
-
-
-// TODO maybe move to app.js
-let randomHitLocation = (target) => {
-  let locationRoll = roll(1, d20); // roll a twenty-sided die, then
-  for (let part in target.body) { // for every part of the body...
-    for (let hit in target.body[part].hitNumbers) { // and for every hit number of that part...
-      if (locationRoll === target.body[part].hitNumbers[hit]) return target.body[part].name  // if the part is hit, return the part
-    } // end for (hit number)
-  } // end for (part)
-} // end randomHitLocation function
-
-let resistanceCheck = (attackingPower, defendingPower) => {
-  let difference = 50 + (5 * (attackingPower - defendingPower));
-  return check (difference)[0] === true ? 'attack successful' : 'attack unsuccessful';
-}
-
-
 /***** RANDOM ENCOUNTERS *****/
 
 
 let randomEncounter = location => {
-  let encounterIndex = roll (1, d20) - 1;
-  let encounterCreature = location.results[encounterIndex][0];
-  let encounterDice = location.results[encounterIndex][1];
-
-  return check(location.chance)[0] === true ? (
-    location.results[encounterIndex][1] !== 1 ? `${roll (1, encounterDice)} ${encounterCreature}`
-    : `1 ${encounterCreature}`
-  ) : 'nothing found';
+  let encounterIndex = roll (1, d20) - 1; // encounter index is something between 1 and 20
+  let encounterCreature = location.results[encounterIndex][0]; // get the random creature from the defined location
+  let encounterDice = location.results[encounterIndex][1]; // get the dice to define the number of those creatures
+  return check(location.chance)[0] === true ? ( // did you find a location in the area?
+    location.results[encounterIndex][1] !== 1 ? `${roll (1, encounterDice)} ${encounterCreature}` // return what creatures are there
+    : `1 ${encounterCreature}` // if there is only 1, don't roll for number
+  ) : 'nothing found'; // if you didn't find a creature, return nothing found
 }
 
 let findResponse = (index, rangeOne, rangeTwo, rangeThree, rangeFour) => {
