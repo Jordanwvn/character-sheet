@@ -91,7 +91,7 @@ let barbarian_gods = [
     {
       lay: 'Unless already chosen for another cult, all male barbarian children join as Lay Members as part of their puberty initiation. The cult is not open to women.',
       initiate: 'Tribe members are Initiated after they have proved their warrior abilities to the tribe elders when the men are 20-25 years old or by proving themselves at a seasonal festival. Tribal warriors must have 50%+ ability in riding and in a tribal weapon, and know one spell.',
-      runelord: 'Rune Lords must have proven themselves, and not be proved murderers, robbers, or cowards. Candidates must provide their own iron armor and weapons. Candidates must have a 90% Ability with Riding and using their Tribal Weapon, and a 90% Ability in any three of these skills: Peaceful Cut, Another weapon, Shield, Tracking, Sense Ambush, or Oratory.'
+      runelord: 'Rune Lords must have proven themselves, and not be proved murderers, robbers, or cowards. Candidates must provide their own iron armor and weapons. Candidates must have a 90% Ability with Riding and using their Tribal Weapon, and a 90% Ability in any three of these skills: Peaceful Cut, Another weapon, Shield, Tracking, Sense Ambush, or Oratory.',
       runepriest: 'Membership in the priesthood requires that a person be of noble blood. Instead of knowing how to read and write his native tongue a candidate must have purchased the Beast-speech Rune Magic spell as an Initiate'
     },
     // RESTRICTIONS
@@ -129,7 +129,7 @@ let barbarian_gods = [
     // RESTRICTIONS
     {
       lay: 'Membership in the cult is permanent for all Lay members unless they are outlawed. They must also worship each week with the cult and maintain the cult prejudices.',
-      initiate: 'Membership in the cult is permanent for all Initiate members unless they are outlawed. They must also worship each week with the cult and maintain the cult prejudices.'
+      initiate: 'Membership in the cult is permanent for all Initiate members unless they are outlawed. They must also worship each week with the cult and maintain the cult prejudices.',
       runelord: 'Herd Sisters have only the usual restrictions on their status.',
       runepriest: 'The restrictions are the same as those of the Initiates, but there is a strict prohibition against using any weapons other than axes or knives. Also, they may not use any weapons magic. Offensive spells are allowed.'
     },
@@ -332,7 +332,7 @@ let lightbringers = [
     // BENEFITS
     {
       lay: 'Lay Members will be healed by the temple for free and gain this privilege for family members as well.',
-      initiate: 'The Initiate is given room and board at the Temple, or any other Temple he may visit. They are known by the title of Nurse. They may receive 4 hours/day training free from the cult.'
+      initiate: 'The Initiate is given room and board at the Temple, or any other Temple he may visit. They are known by the title of Nurse. They may receive 4 hours/day training free from the cult.',
       runelord: 'The Chalana Arroy healer is inviolate in the eyes of most gods. Almost anyone harming a healer would be outcast from his cult unless he belonged to a Darkness or a chaos cult. Healers are welcome always at feasts and festivals and are much honored. Chalana Arroy cult spells work equally well on any creature, and need not distinguish between Healing and Xenohealing. For each year in the cult, Healers receive another 5% free training in Find Healing Plants.',
       runepriest: 'The Healer Priest receives the same benefits as the Healer Lord.'
     },
@@ -406,5 +406,5 @@ let lightbringers = [
 ]
 
 let nonhuman_gods = [
-  
+
 ]

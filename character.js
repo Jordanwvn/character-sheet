@@ -9,70 +9,6 @@
 /***** OBJECT CONSTRUCTORS *****/
 
 
-let Attributes = function (attributesArray) {
-  this.str = attributesArray[0]; // strength
-  this.con = attributesArray[1]; // constitution
-  this.siz = attributesArray[2]; // size
-  this.int = attributesArray[3]; // intelligence
-  this.pow = attributesArray[4]; // power
-  this.dex = attributesArray[5]; // dexterity
-  this.cha = attributesArray[6]; // charisma
-}
-
-let Skills = function (playerAttributes) { // take in Character.Attributes
-  let str = playerAttributes.str; // get strength from the player's attributes
-  let con = playerAttributes.con; // get constitution from the player's attributes
-  let siz = playerAttributes.siz; // get size from the player's attributes
-  let int = playerAttributes.int; // get intelligence from the player's attributes
-  let pow = playerAttributes.pow; // get power from the player's attributes
-  let dex = playerAttributes.dex; // get dexterity from the player's attributes
-  let cha = playerAttributes.cha; // get charisma from the player's attributes
-
-  this.combat = { // the combat section of skills
-    attack: this.setValue ('low', str) + this.setValue ('high', int) + this.setValue ('low', pow) + this.setValue ('high', dex), // attack skill is initially set by checking various ability scores
-    parry: this.setValue ('low', str) - this.setValue ('low', siz) + this.setValue ('low', pow) + this.setValue ('high', dex), // parry skill is initially set by checking various ability scores
-    defense: this.setValue ('high', int) - this.setValue ('low', siz) + this.setValue ('low', pow) + this.setValue ('high', dex), //
-    damageBonus: this.setDmgBonus(str, siz)
-  };
-
-  this.knowledge = this.setValue ('high', int) + this.setValue ('low', pow);
-
-  this.evaluateTreasure = this.knowledge + 5,
-  this.readWriteOwnLanguage = this.knowledge + 10
-
-  this.manipulation = this.setValue ('low', str) + this.setValue ('high', int) + this.setValue ('low', pow) + this.setValue ('high', dex);
-
-  this.armorMaking = 0,
-  this.climbing = this.manipulation + 15,
-  this.hideItem = this.manipulation + 10,
-  this.jumping = this.manipulation + 15,
-  this.lockPicking = this.manipulation + 5,
-  this.mapMaking = this.manipulation + 10,
-  this.riding = this.manipulation + 5,
-  this.shieldMaking = 0,
-  this.swimming = this.manipulation + 15,
-  this.trapSetAndDisarm = this.manipulation + 5,
-  this.tumbling = 0,
-  this.weaponMaking = 0
-
-  this.perception = this.setValue ('high', int) + this.setValue ('low', pow);
-
-  this.listen = this.perception + 25,
-  this.spotHiddenItem = this.perception + 5,
-  this.spotTrap = this.perception + 5,
-  this.tracking = this.perception + 10
-
-  this.stealth = this.setValue ('high', int) - this.setValue ('high', siz) + this.setValue ('low', pow) + this.setValue ('high', dex);
-
-  this.camoflauge = this.stealth + 10,
-  this.hideInCover = this.stealth + 5,
-  this.moveSilently = this.stealth + 5,
-  this.pickPockets = this.stealth + 5
-
-  this.oratory = this.setValue ('low', int) + this.setValue ('low', pow) + this.setValue ('high', cha);
-  this.acting = this.oratory + 5
-}
-
 var BodyPart = function (name, hitNumbers, health, armor) {
   this.name = name;
   this.hitNumbers = hitNumbers;
@@ -115,30 +51,13 @@ var Character = function (name, species, sex, age, nationality, weapons, armor, 
 /***** OBJECT METHODS *****/
 
 
-Skills.prototype.setValue = function (type, attribute) {
-  return type === 'low' ? (
-    attribute <= 4 ? -5
-    : (5 <= attribute && attribute <= 16) ? 0
-    : (Math.ceil(attribute / 4) - 4) * 5
-  ) : (Math.ceil(attribute / 4) - 3) * 5
-}
-
-Skills.prototype.setDmgBonus = function (str, siz) {
-  let bonus = Math.ceil((str + siz) / 2);
-  return bonus <= 6 ? [-1, d4]
-  : bonus <= 12 ? [0, 0]
-  : bonus <= 16 ? [1, d4]
-  : bonus <= 20 ? [1, d6]
-  : [Math.ceil((bonus - 12) / 8), d6]
-}
-
 Spell.prototype.useOnSelf = function () { // if the spell is used on the user
   this.focused = false; // the spell does not need to be focused
 } // end useOnSelf method
 
 
 Item.prototype.removeIfEmpty = function () {
-  if (this.quantity === 0) delete this;
+  this.quantity === 0 && delete this; // same as a single line if statement
 }
 
 
@@ -181,24 +100,7 @@ let resistanceCheck = (attackingPower, defendingPower) => {
   return check (difference)[0] === true ? 'attack successful' : 'attack unsuccessful';
 }
 
-let skillCheck = (player, skill) => {
-  return check (player.skills[skill])[0] === true ? (
-    skillNotSet(player, skill === true) ? (
-      player.skillsToIncrease.push(skill),
-      `${player.name} was successful, and ${skill} is eligable to be increased`
-    ) : `${player.name} was successful`
-  )
-  : `${player.name} was unsuccessful`
-} // end skillCheck function
-
-let skillNotSet = (player, skill) => {
-  for (let skillItem in player.skillsToIncrease) {
-    if (player.skillsToIncrease[skillItem] === skill) return false;
-  }
-  return true;
-}
-
-let runSkillIncreases = (player) => {
+let resolveSkillIncreases = (player) => {
   for (let validSkills in player.skillsToIncrease) {
     let currentSkill = player.skillsToIncrease[validSkills];
     return check (100 - player.skills[currentSkill] + player.learnBonus)[0] === true ? (
