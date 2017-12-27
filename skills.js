@@ -17,19 +17,26 @@ let Attributes = function (attributesArray) {
 let Skills = function (playerAttributes) { // take in Character.Attributes
   let {str, con, siz, int, pow, dex, cha} = playerAttributes; // set values to their equivalent at playerAttributes
 
+  let strLow = this.setValue ('low', str),
+      sizLow = this.setValue ('low', siz), sizHigh = this.setValue ('high', siz),
+      intLow = this.setValue ('low', int), intHigh = this.setValue ('high', int),
+      powLow = this.setValue ('low', pow),
+                                           dexHigh = this.setValue ('high'),
+                                           chaHigh = this.setValue ('high');
+
   this.combat = { // the combat section of skills
-    attack: this.setValue ('low', str) + this.setValue ('high', int) + this.setValue ('low', pow) + this.setValue ('high', dex), // attack skill is initially set by checking various ability scores
-    parry: this.setValue ('low', str) - this.setValue ('low', siz) + this.setValue ('low', pow) + this.setValue ('high', dex), // parry skill is initially set by checking various ability scores
-    defense: this.setValue ('high', int) - this.setValue ('low', siz) + this.setValue ('low', pow) + this.setValue ('high', dex), //
+    attack: strLow + intHigh + powLow + dexHigh, // attack skill is initially set by checking various ability scores
+    parry: strLow - sizLow + powLow + dexHigh, // parry skill is initially set by checking various ability scores
+    defense: intHigh - sizLow + powLow + dexHigh, //
     damageBonus: this.setDmgBonus(str, siz)
   };
 
-  this.knowledge = this.setValue ('high', int) + this.setValue ('low', pow);
+  this.knowledge = intHigh + powLow;
 
   this.evaluateTreasure = this.knowledge + 5,
   this.readWriteOwnLanguage = this.knowledge + 10
 
-  this.manipulation = this.setValue ('low', str) + this.setValue ('high', int) + this.setValue ('low', pow) + this.setValue ('high', dex);
+  this.manipulation = strLow + intHigh + powLow + dexHigh;
 
   this.armorMaking = 0,
   this.climbing = this.manipulation + 15,
@@ -44,21 +51,21 @@ let Skills = function (playerAttributes) { // take in Character.Attributes
   this.tumbling = 0,
   this.weaponMaking = 0
 
-  this.perception = this.setValue ('high', int) + this.setValue ('low', pow);
+  this.perception = intHigh + powLow;
 
   this.listen = this.perception + 25,
   this.spotHiddenItem = this.perception + 5,
   this.spotTrap = this.perception + 5,
   this.tracking = this.perception + 10
 
-  this.stealth = this.setValue ('high', int) - this.setValue ('high', siz) + this.setValue ('low', pow) + this.setValue ('high', dex);
+  this.stealth = intHigh - sizHigh + powLow + dexHigh;
 
   this.camoflauge = this.stealth + 10,
   this.hideInCover = this.stealth + 5,
   this.moveSilently = this.stealth + 5,
   this.pickPockets = this.stealth + 5
 
-  this.oratory = this.setValue ('low', int) + this.setValue ('low', pow) + this.setValue ('high', cha);
+  this.oratory = intLow + powLow + chaH;
   this.acting = this.oratory + 5
 }
 

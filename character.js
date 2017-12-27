@@ -65,24 +65,24 @@ Item.prototype.removeIfEmpty = function () {
 
 
 let learningBonus = int => {
-  return int < 9 ? (9 - int) * -3
-  : int > 12 ? (int - 12) * 3
-  : 0
+  return int < 9 ? (9 - int) * -3 // if intelligence less than 9? Set a negative learning bonus
+  : int > 12 ? (int - 12) * 3 // otherwise, is intelligence greater than 12? Set a positive learning bonus
+  : 0 // otherwise, set the learning bonus to 0.
 }
 
 let healthBonus = (size, power) => {
-  let sizeBonus = Math.ceil(size / 4) - 3;
-  return power <= 4 ? -1 + sizeBonus
-  : (5 <= power && power <= 16) ? 0 + sizeBonus
-  : Math.ceil(power / 4) - 2 + sizeBonus;
+  let sizeBonus = Math.ceil(size / 4) - 3; // set size bonus to size divided by 4, rounded up
+  return power <= 4 ? -1 + sizeBonus // power less than 4? Return -1 plus size bonus
+  : (5 <= power && power <= 16) ? 0 + sizeBonus // otherwise, poser between 5 and 16? Return size bonus
+  : Math.ceil(power / 4) - 2 + sizeBonus; // otherwise, return power divided by four, minus 2, plus size bonus
 }
 
 let partHP = (hitPoints, part) => {
-  let index = Math.ceil(hitPoints / 3);
-  if (index === 0) index ++;
-  return (part === 'rl' || part === 'll' || part === 'h' || part === 'a') ? index
-  : (part === 'ra' || part === 'la') ? index - 1
-  : index + 1
+  let index = Math.ceil(hitPoints / 3); // let index equal hit points divided by 3, rounded up
+  if (index === 0) index ++; // if index is 0, increase it by one
+  return (part === 'rl' || part === 'll' || part === 'h' || part === 'a') ? index // for one of these parts, return index
+  : (part === 'ra' || part === 'la') ? index - 1 // otherwise, for these other parts, return index minus 1
+  : index + 1 // otherwise, return index plus 1
 }
 
 
@@ -96,20 +96,17 @@ let randomHitLocation = (target) => {
 } // end randomHitLocation function
 
 let resistanceCheck = (attackingPower, defendingPower) => {
-  let difference = 50 + (5 * (attackingPower - defendingPower));
-  return check (difference)[0] === true ? 'attack successful' : 'attack unsuccessful';
+  let difference = 50 + (5 * (attackingPower - defendingPower)); // set difference between attacking and defending
+  return check (difference)[0] === true ? 'attack successful' : 'attack unsuccessful'; // return the result of a check
 }
 
 let resolveSkillIncreases = (player) => {
-  for (let validSkills in player.skillsToIncrease) {
-    let currentSkill = player.skillsToIncrease[validSkills];
-    return check (100 - player.skills[currentSkill] + player.learnBonus)[0] === true ? (
-      player.skills[currentSkill] += 5,
-      player.skillsToIncrease.splice(validSkills, 1),
-      `${currentSkill} was increased to ${player.skills[currentSkill]}`
-    ) : `${currentSkill} was not increased`;
-  }
-}
-
-
-/***** LOCAL STORAGE *****/
+  for (let validSkills in player.skillsToIncrease) { // fo each skill set to be increased...
+    let currentSkill = player.skillsToIncrease[validSkills]; // find the skill at the current index
+    return check (100 - player.skills[currentSkill] + player.learnBonus)[0] === true ? ( // if the skill passes increasing,
+      player.skills[currentSkill] += 5, // increase the skill by 5%
+      player.skillsToIncrease.splice(validSkills, 1), // remove it from the array of skills to be increased
+      `${currentSkill} was increased to ${player.skills[currentSkill]}` // return that it was increased
+    ) : `${currentSkill} was not increased`; // if increasing failed, return that message
+  } // end loop
+} // end function
