@@ -1,6 +1,36 @@
 'use strict';
 
 
+/***** VARIABLE DECLARATIONS *****/
+
+
+const skillArray = [
+  ['knowledge',    'evaluateTreasure'],
+  ['knowledge',    'readWriteOwnLanguage'],
+  ['manipulation', 'armorMaking'],
+  ['manipulation', 'climbing'],
+  ['manipulation', 'hideItem'],
+  ['manipulation', 'jumping'],
+  ['manipulation', 'lockPicking'],
+  ['manipulation', 'mapMaking'],
+  ['manipulation', 'riding'],
+  ['manipulation', 'shieldMaking'],
+  ['manipulation', 'swimming'],
+  ['manipulation', 'trapSetAndDisarm'],
+  ['manipulation', 'tumbling'],
+  ['manipulation', 'weaponMaking'],
+  ['perception',   'listen'],
+  ['perception',   'spotHiddenItem'],
+  ['perception',   'spotTrap'],
+  ['perception',   'tracking'],
+  ['stealth',      'camoflauge'],
+  ['stealth',      'hideInCover'],
+  ['stealth',      'moveSilently'],
+  ['stealth',      'pickPockets'],
+  ['oratory',      'acting']
+]
+
+
 /***** CONSTRUCTORS *****/
 
 
@@ -14,66 +44,52 @@ let Attributes = function (attributesArray) {
   this.cha = attributesArray[6]; // charisma
 }
 
-let Skills = function (playerAttributes) { // take in Character.Attributes
+let BaseSkills = function (playerAttributes) { // take in Character.Attributes
   let {str, con, siz, int, pow, dex, cha} = playerAttributes; // set values to their equivalent at playerAttributes
-
-  let strLow = this.setValue ('low', str),
-      sizLow = this.setValue ('low', siz), sizHigh = this.setValue ('high', siz),
-      intLow = this.setValue ('low', int), intHigh = this.setValue ('high', int),
-      powLow = this.setValue ('low', pow),
-                                           dexHigh = this.setValue ('high'),
-                                           chaHigh = this.setValue ('high');
-
+  let strLow = setValue ('low', str),
+      sizLow = setValue ('low', siz), sizHigh = setValue ('high', siz),
+      intLow = setValue ('low', int), intHigh = setValue ('high', int),
+      powLow = setValue ('low', pow),
+                                      dexHigh = setValue ('high', dex),
+                                      chaHigh = setValue ('high', cha);
+  // COMBAT SKILLS
   this.combat = { // the combat section of skills
-    attack: strLow + intHigh + powLow + dexHigh, // attack skill is initially set by checking various ability scores
-    parry: strLow - sizLow + powLow + dexHigh, // parry skill is initially set by checking various ability scores
-    defense: intHigh - sizLow + powLow + dexHigh, //
-    damageBonus: this.setDmgBonus(str, siz)
+   attack: strLow + intHigh + powLow + dexHigh, // attack skill is initially set by checking various ability scores
+   parry: strLow - sizLow + powLow + dexHigh, // parry skill is initially set by checking various ability scores
+   defense: intHigh - sizLow + powLow + dexHigh, //
+   damageBonus: setDmgBonus(str, siz)
   };
 
+  // NON-COMBAT SKILLS
   this.knowledge = intHigh + powLow;
-
-  this.evaluateTreasure = this.knowledge + 5,
-  this.readWriteOwnLanguage = this.knowledge + 10
-
   this.manipulation = strLow + intHigh + powLow + dexHigh;
-
-  this.armorMaking = 0,
-  this.climbing = this.manipulation + 15,
-  this.hideItem = this.manipulation + 10,
-  this.jumping = this.manipulation + 15,
-  this.lockPicking = this.manipulation + 5,
-  this.mapMaking = this.manipulation + 10,
-  this.riding = this.manipulation + 5,
-  this.shieldMaking = 0,
-  this.swimming = this.manipulation + 15,
-  this.trapSetAndDisarm = this.manipulation + 5,
-  this.tumbling = 0,
-  this.weaponMaking = 0
-
   this.perception = intHigh + powLow;
-
-  this.listen = this.perception + 25,
-  this.spotHiddenItem = this.perception + 5,
-  this.spotTrap = this.perception + 5,
-  this.tracking = this.perception + 10
-
   this.stealth = intHigh - sizHigh + powLow + dexHigh;
+  this.oratory = intLow + powLow + chaHigh;
+}
 
-  this.camoflauge = this.stealth + 10,
-  this.hideInCover = this.stealth + 5,
-  this.moveSilently = this.stealth + 5,
-  this.pickPockets = this.stealth + 5
+let SetSkillBonuses = function (species) {
+  for (let skill in skillArray) {
+    for (let )
+  }
+  this.evaluateTreasure = getSpeciesSkill (species, 'evaluateTreasure');
+  this.readWriteOwnLanguage =
+}
 
-  this.oratory = intLow + powLow + chaH;
-  this.acting = this.oratory + 5
+let Skills = function (player) { // take in Character.Attributes
+  for (let skill in skillArray) {
+    this[skill[1]]
+    = player[BaseSkills][skill[0]] // add attribute bonus, by category
+    + player[Species][skillBonuses][skill[1]] // addvspecies bonus, by name
+    + player[skillAdditions][skill[1]] // add logged increases, by name
+  }
 }
 
 
-/***** PROTOTYPE METHODS *****/
+/***** HELPER FUNCTIONS *****/
 
 
-Skills.prototype.setValue = function (type, attribute) {
+let setValue = function (type, attribute) {
   return type === 'low' ? (
     attribute <= 4 ? -5
     : (5 <= attribute && attribute <= 16) ? 0
@@ -81,7 +97,7 @@ Skills.prototype.setValue = function (type, attribute) {
   ) : (Math.ceil(attribute / 4) - 3) * 5
 }
 
-Skills.prototype.setDmgBonus = function (str, siz) {
+let setDmgBonus = function (str, siz) {
   let bonus = Math.ceil((str + siz) / 2);
   return bonus <= 6 ? [-1, d4]
   : bonus <= 12 ? [0, 0]
@@ -90,9 +106,9 @@ Skills.prototype.setDmgBonus = function (str, siz) {
   : [Math.ceil((bonus - 12) / 8), d6]
 }
 
-
-/***** HELPER FUNCTIONS *****/
-
+let getSpeciesSkill = function (species, skillName) {
+  return species[skillName] ? species[skillName] : 0;
+}
 
 let skillNotSet = (player, skill) => {
   for (let skillItem in player[skillsToIncrease]) {
@@ -108,5 +124,54 @@ let skillCheck = (player, skill) => {
       `${player.name} was successful, and ${skill} is eligable to be increased`
     ) : `${player.name} was successful`
   )
-  : `${player.name} was unsuccessful`
+  : `${player.name} was unsuccessful`;
 } // end skillCheck function
+
+let resolveSkillIncreases = (player) => {
+  for (let validSkills in player.skillsToIncrease) { // fo each skill set to be increased...
+    let currentSkill = player.skillsToIncrease[validSkills]; // find the skill at the current index
+    return check (100 - player.skills[currentSkill] + player.learnBonus)[0] === true ? ( // if the skill passes increasing,
+      player.skills[currentSkill] += 5, // increase the skill by 5%
+      player.skillsToIncrease.splice(validSkills, 1), // remove it from the array of skills to be increased
+      `${currentSkill} was increased to ${player.skills[currentSkill]}` // return that it was increased
+    ) : `${currentSkill} was not increased`; // if increasing failed, return that message
+  } // end loop
+} // end function
+
+// TODO create function for increasing ability scores, and refreshing the base values
+
+
+
+//   // KNOWLEDGE
+//   this.evaluateTreasure = player[BaseSkills][knowledge] + 5;
+//   this.readWriteOwnLanguage = player[BaseSkills][knowledge] + 10;
+//
+//   // MANIPULATION
+//   this.armorMaking = 0,
+//   this.climbing = player[BaseSKills][manipulation] + 15,
+//   this.hideItem = this.manipulation + 10,
+//   this.jumping = this.manipulation + 15,
+//   this.lockPicking = this.manipulation + 5,
+//   this.mapMaking = this.manipulation + 10,
+//   this.riding = this.manipulation + 5,
+//   this.shieldMaking = 0,
+//   this.swimming = this.manipulation + 15,
+//   this.trapSetAndDisarm = this.manipulation + 5,
+//   this.tumbling = 0,
+//   this.weaponMaking = 0
+//
+//   // PERCEPTION
+//   this.listen = this.perception + 25,
+//   this.spotHiddenItem = this.perception + 5,
+//   this.spotTrap = this.perception + 5,
+//   this.tracking = this.perception + 10
+//
+//   // STEALTH
+//   this.camoflauge = this.stealth + 10,
+//   this.hideInCover = this.stealth + 5,
+//   this.moveSilently = this.stealth + 5,
+//   this.pickPockets = this.stealth + 5
+//
+//   // ORATORY
+//   this.acting = this.oratory + 5
+// }

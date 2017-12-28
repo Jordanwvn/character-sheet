@@ -48,19 +48,6 @@ var Character = function (name, species, sex, age, nationality, weapons, armor, 
 }
 
 
-/***** OBJECT METHODS *****/
-
-
-Spell.prototype.useOnSelf = function () { // if the spell is used on the user
-  this.focused = false; // the spell does not need to be focused
-} // end useOnSelf method
-
-
-Item.prototype.removeIfEmpty = function () {
-  this.quantity === 0 && delete this; // same as a single line if statement
-}
-
-
 /***** HELPER FUNCTIONS *****/
 
 
@@ -84,29 +71,3 @@ let partHP = (hitPoints, part) => {
   : (part === 'ra' || part === 'la') ? index - 1 // otherwise, for these other parts, return index minus 1
   : index + 1 // otherwise, return index plus 1
 }
-
-
-let randomHitLocation = (target) => {
-  let locationRoll = roll(1, d20); // roll a twenty-sided die, then
-  for (let part in target.body) { // for every part of the body...
-    for (let hit in target.body[part].hitNumbers) { // and for every hit number of that part...
-      if (locationRoll === target.body[part].hitNumbers[hit]) return target.body[part].name  // if the part is hit, return the part
-    } // end for (hit number)
-  } // end for (part)
-} // end randomHitLocation function
-
-let resistanceCheck = (attackingPower, defendingPower) => {
-  let difference = 50 + (5 * (attackingPower - defendingPower)); // set difference between attacking and defending
-  return check (difference)[0] === true ? 'attack successful' : 'attack unsuccessful'; // return the result of a check
-}
-
-let resolveSkillIncreases = (player) => {
-  for (let validSkills in player.skillsToIncrease) { // fo each skill set to be increased...
-    let currentSkill = player.skillsToIncrease[validSkills]; // find the skill at the current index
-    return check (100 - player.skills[currentSkill] + player.learnBonus)[0] === true ? ( // if the skill passes increasing,
-      player.skills[currentSkill] += 5, // increase the skill by 5%
-      player.skillsToIncrease.splice(validSkills, 1), // remove it from the array of skills to be increased
-      `${currentSkill} was increased to ${player.skills[currentSkill]}` // return that it was increased
-    ) : `${currentSkill} was not increased`; // if increasing failed, return that message
-  } // end loop
-} // end function

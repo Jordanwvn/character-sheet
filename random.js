@@ -28,6 +28,20 @@ let check = goal => {
   return result <= goal ? [true, percentage] : [false, percentage];
 }
 
+let resistanceCheck = (attackingPower, defendingPower) => {
+  let difference = 50 + (5 * (attackingPower - defendingPower)); // set difference between attacking and defending
+  return check (difference)[0] === true ? 'attack successful' : 'attack unsuccessful'; // return the result of a check
+}
+
+let randomHitLocation = (target) => {
+  let locationRoll = roll(1, d20); // roll a twenty-sided die, then
+  for (let part in target.body) { // for every part of the body...
+    for (let hit in target.body[part].hitNumbers) { // and for every hit number of that part...
+      if (locationRoll === target.body[part].hitNumbers[hit]) return target.body[part].name  // if the part is hit, return the part
+    } // end for (hit number)
+  } // end for (part)
+} // end randomHitLocation function
+
 
 /***** RANDOM CHARACTER ELEMENTS *****/
 
