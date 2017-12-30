@@ -4,6 +4,13 @@
 /***** VARIABLE DECLARATIONS *****/
 
 
+let strLow = setValue ('low', str),
+    sizLow = setValue ('low', siz), sizHigh = setValue ('high', siz),
+    intLow = setValue ('low', int), intHigh = setValue ('high', int),
+    powLow = setValue ('low', pow),
+                                    dexHigh = setValue ('high', dex),
+                                    chaHigh = setValue ('high', cha);
+
 const skillArray = [
   ['knowledge',    'evaluateTreasure'],
   ['knowledge',    'readWriteOwnLanguage'],
@@ -28,7 +35,7 @@ const skillArray = [
   ['stealth',      'moveSilently'],
   ['stealth',      'pickPockets'],
   ['oratory',      'acting']
-]
+];
 
 
 /***** CONSTRUCTORS *****/
@@ -46,12 +53,7 @@ let Attributes = function (attributesArray) {
 
 let BaseSkills = function (playerAttributes) { // take in Character.Attributes
   let {str, con, siz, int, pow, dex, cha} = playerAttributes; // set values to their equivalent at playerAttributes
-  let strLow = setValue ('low', str),
-      sizLow = setValue ('low', siz), sizHigh = setValue ('high', siz),
-      intLow = setValue ('low', int), intHigh = setValue ('high', int),
-      powLow = setValue ('low', pow),
-                                      dexHigh = setValue ('high', dex),
-                                      chaHigh = setValue ('high', cha);
+
   // COMBAT SKILLS
   this.combat = { // the combat section of skills
    attack: strLow + intHigh + powLow + dexHigh, // attack skill is initially set by checking various ability scores
@@ -73,7 +75,6 @@ let SetSkillBonuses = function (species) {
     for (let )
   }
   this.evaluateTreasure = getSpeciesSkill (species, 'evaluateTreasure');
-  this.readWriteOwnLanguage =
 }
 
 let Skills = function (player) { // take in Character.Attributes
