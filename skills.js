@@ -37,6 +37,63 @@ const skillArray = [
   ['oratory',      'acting']
 ];
 
+// new skills
+
+const newSkillArray = [
+  ['agility',       'climb'], // manipulation: climbing
+  ['agility',       'dodge'], // combat: dodging
+  ['agility',       'jump'], // manipulation: jumping
+  ['agility',       'ride'], // manipulation: riding
+  ['agility',       'swim'], // manipulation: swimming
+  ['communication', 'act'], // oratory: acting
+  ['communication', 'art'],
+  ['communication', 'bargain'],
+  ['communication', 'charm'],
+  ['communication', 'dance'],
+  ['communication', 'disguise'],
+  ['communication', 'fastTalk'],
+  ['communication', 'intimidate'],
+  ['communication', 'intrigue'],
+  ['communication', 'orate'],
+  ['communication', 'sing'],
+  ['communication', 'speakOwnLanguage'], // unique skill, seperate from other skills
+  ['communication', 'speakOtherLanguage'], // unique skill, seperate from other skills
+  ['knowledge',     'battle'],
+  ['knowledge',     'customs'],
+  ['knowledge',     'evaluate'], // knowledge: evaluate treasure
+  ['knowledge',     'farm'],
+  ['knowledge',     'firstAid'], // special cult-taught skill
+  ['knowledge',     'herd'],
+  ['knowledge',     'lore'],
+  ['knowledge',     'manageHousehold'],
+  ['knowledge',     'readWrite'], // knowledge: read / write own language
+  ['knowledge',     'survival'],
+  ['magic',         'meditate'],
+  ['magic',         'prepareCorpse'],
+  ['magic',         'spiritCombat'], // unique check, not a skill
+  ['magic',         'worshipDeity'],
+  ['manipulation',  'conceal'], // manipulation: hide item
+  ['manipulation',  'craft'], // manipulation: armor making, map making, shield making, weapon making
+  ['manipulation',  'meleeWeapon'], // unique skill, seperate from other skills
+  ['manipulation',  'missileWeapon'], // unique skill, seperate from other skills
+  ['manipulation',  'shield'], // unique skill, seperate from other skills
+  ['manipulation',  'sleight'], // stealth: pick pockets
+  ['perception',    'insight'],
+  ['perception',    'listen'], // perception: listen
+  ['perception',    'scan'],
+  ['perception',    'search'], // perception: spot hidden item
+  ['perception',    'track'], // perception: tracking
+  ['stealth',       'hide'], // stealth: hide in cover
+  ['stealth',       'moveQuietly'] // stealth: move silently
+]
+// NO EQUIVALENT:
+/*
+  manipulation: lock picking
+  manipulation: trap set and disarm
+  perception: spot trap
+  stealth: camoflauge
+*/
+
 
 /***** CONSTRUCTORS *****/
 

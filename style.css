@@ -1,0 +1,65 @@
+/* CORE RUNES *****************
+* A - dragonewt               *
+* a - law                     *
+* B - beast                   *
+* b - spirit                  *
+* c - stasis                  *
+* e - earth                   *
+* g - air                     *
+* i - illusion                *
+* j - disorder                *
+* K - luck                    *
+* l - harmony                 *
+* o - darkness                *
+* p - plant                   *
+* R - magic                   *
+* S - infinity                *
+* s - movement                *
+* t - death                   *
+* W - mastery                 *
+* w - water                   *
+* X - fate                    *
+* x - fertility               *
+* y - truth                   *
+* , - man                     *
+* . - fire / sky              *
+* / - moon                    *
+* ? - chaos                   *
+******************************/
+
+/* ADDITIONAL RUNES ***********
+* 1 - moon: dying             *
+* 2 - moon: crescent go       *
+* 3 - moon: half full         *
+* 4 - moon: full              *
+* 5 - moon: half empty        *
+* 6 - moon: crescent come     *
+* 7 - moon: black             *
+* C - bear                    *
+* d - dragon                  *
+* E - heler                   *
+* F - barntar                 *
+* f - lightbringers           *
+* G - sartar                  *
+* H - hell                    *
+* h - trade                   *
+* I - god                     *
+* k - shargash                *
+* L - fire / sky (alternative)*
+* n - horse                   *
+* O - light                   *
+* P - pamalt                  *
+* u - unlife                  *
+* V - eternal battle          *
+* Y - yinkin                  *
+******************************/
+
+
+@font-face {
+  font-family: Runes;
+  src: url(/fonts/runes.ttf);
+}
+
+.runes {
+  font-family: Runes;
+}
