@@ -28,6 +28,20 @@ let check = goal => {
   return result <= goal ? [true, percentage] : [false, percentage];
 }
 
+let resistanceCheck = (attackingPower, defendingPower) => {
+  let difference = 50 + (5 * (attackingPower - defendingPower)); // set difference between attacking and defending
+  return check (difference)[0] === true ? 'attack successful' : 'attack unsuccessful'; // return the result of a check
+}
+
+let randomHitLocation = (target) => {
+  let locationRoll = roll(1, d20); // roll a twenty-sided die, then
+  for (let part in target.body) { // for every part of the body...
+    for (let hit in target.body[part].hitNumbers) { // and for every hit number of that part...
+      if (locationRoll === target.body[part].hitNumbers[hit]) return target.body[part].name  // if the part is hit, return the part
+    } // end for (hit number)
+  } // end for (part)
+} // end randomHitLocation function
+
 
 /***** RANDOM CHARACTER ELEMENTS *****/
 
@@ -156,10 +170,10 @@ let randomSpecialItem = () => {
 }
 
 let randomGemAttribute = index => {
-  return index <= 3 ? ['ancient treasure', (roll (1, d20) * 10000)]
-  : index <= 5 ? ['heirloom jewelry', (roll (3, d6) * 1000)]
-  : index <= 10 ? ['superb gemstone', (roll (1, d10) * 1000)]
-  : index <= 15 ? ['excellent jewelry', (roll (1, d6) * 1000)]
+  return index <= 3 ? ['ancient treasure', (roll (1, d20) * 1e4)]
+  : index <= 5 ? ['heirloom jewelry', (roll (3, d6) * 1e3)]
+  : index <= 10 ? ['superb gemstone', (roll (1, d10) * 1e3)]
+  : index <= 15 ? ['excellent jewelry', (roll (1, d6) * 1e3)]
   : index <= 20 ? ['excellent gemstone', (roll (3, d6) * 100)]
   : index <= 30 ? ['very good jewelry', roll (12, d100)]
   : index <= 40 ? ['very good gemstone', roll (6, d100)]
@@ -201,7 +215,7 @@ let treasureResults = function (treasureInput) {
 let treasureValueReturn = treasureValue => {
   let clacks = 0, lunars = 0, wheels = 0, gems = 0, specialItems = 0;
   let gemOutput = '', specialItemsOutput = '';
-  let treasureIndex = Math.floor(treasureValue / 10);
+  let treasureIndex = ~~(treasureValue / 10); // same as Math.floor
 
   if (treasureValue === 0) return false;
   clacks += treasureResults(treasureArray[treasureIndex][0]);

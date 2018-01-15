@@ -1,0 +1,17 @@
+body {
+  font-family: 'Source Serif Pro', serif;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+h1 {
+  font-family: 'Yantramanav', sans-serif;
+  font-size: 50px;
+}
+
+h2 {
+  font-family: 'Source Serif Pro', serif;
+  font-weight: 700;
+  font-size: 20px;
+  text-transform: uppercase;
+}
