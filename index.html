@@ -2,17 +2,142 @@
 <html>
   <head>
     <!-- STYLING CONNECTIONS -->
+    <link rel="stylesheet" href="style/reset.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,700|Yantramanav:700" rel="stylesheet">
     <link rel="stylesheet" href="style/runes.css">
-    <link rel="stylesheet" href="style/base.css">
+    <link rel="stylesheet" href="/style/base.css">
     <link rel="stylesheet" href="style/layout.css">
     <link rel="stylesheet" href="style/modules.css">
     <link rel="icon" href="/images/favicon.ico">
-    
+
     <title>Your Character</title>
   </head>
   <body>
+    <header>
+      <h1>RuneQuest</h1>
+      <nav>
+        <ul>
+          <li>characters</li>
+          <li>encounters</li>
+          <li>references</li>
+        </ul>
+      </nav>
+    </header>
 
-    <span class="runes"></span>
+    <nav id="character-nav">
+      <ul>
+        <li id="background">&#128462 background</li>
+        <li id="skills">&#9874 skills</li>
+        <li id="body">&#128100 body & mind</li>
+        <li id="inventory">&#127890 inventory</li>
+        <li id="cults">&#127963 Cults</li>
+      </ul>
+    </nav>
+
+    <div class="section" id="character-creation">
+
+      <ul>
+        <!-- SAVE -->
+        <li>&#128190</li>
+        <!-- DELETE -->
+        <li>&#128465</li>
+        <!-- OTHER CHARACTERS -->
+        <li>&#128101</li>
+      </ul>
+
+      <!-- BASIC INFORMATION -->
+
+      <div class="character" id="character-name">
+        <h2>Name</h2>
+        <input type="text" name="name" value="" placeholder="character name">
+      </div>
+
+      <div class="character" id="character-gender">
+        <h2>Gender</h2>
+        <span>&#9794</span>
+        <span>&#9792</span>
+      </div>
+
+      <div class="character" id="character-race">
+        <h2>Race</h2>
+        <select class="race" name="race">
+          <option value="human">Human</option>
+          <option value="elf">Elf</option>
+          <option value="dwarf">Dwarf</option>
+        </select>
+      </div>
+
+      <div class="character" id="character-age">
+        <h2>Age</h2>
+        <input type="text" name="age" value="" placeholder="character age">
+      </div>
+
+      <div class="character" id="handedness">
+        <h2>Handedness</h2>
+        <span>&#128401</span>
+        <span id="reversed-hand">&#128401</span>
+        <select class="handedness" name="handedness">
+          <option value="r">Right</option>
+          <option value="l">Left</option>
+        </select>
+      </div>
+
+      <div class="character" id="character-class">
+        <h2>Social Class</h2>
+        <select class="social-class" name="class">
+          <option value="peasant">Peasant</option>
+          <option value="barbarian">Barbarian</option>
+          <option value="townsman">Townsman</option>
+          <option value="poorNoble">Poor Noble</option>
+          <option value="richNoble">Rich Noble</option>
+          <option value="veryRichNoble">Very Rich Noble</option>
+        </select>
+      </div>
+
+      <div class="character" id="attributes">
+        <h2>Attributes</h2>
+        <ul>
+          <li id="str">
+            <h3>Strength</h3>
+            <input class="attribute" type="text" name="str" value="10">
+            <span>3d6</span>
+          </li>
+          <li id="con">
+            <h3>Constitution</h3>
+            <input class="attribute" type="text" name="con" value="10">
+            <span></span>
+          </li>
+          <li id="siz">
+            <h3>Size</h3>
+            <input class="attribute" type="text" name="siz" value="10">
+            <span></span>
+          </li>
+          <li id="int">
+            <h3>Intelligence</h3>
+            <input class="attribute" type="text" name="int" value="10">
+            <span></span>
+          </li>
+          <li id="pow">
+            <h3>Power</h3>
+            <input class="attribute" type="text" name="pow" value="10">
+            <span></span>
+          </li>
+          <li id="dex">
+            <h3>Dexterity</h3>
+            <input class="attribute" type="text" name="dex" value="10">
+            <span></span>
+          </li>
+          <li id="cha">
+            <h3>Charisma</h3>
+            <input class="attribute" type="text" name="cha" value="10">
+            <span></span>
+          </li>
+        </ul>
+      </div>
+      <button type="button" name="random-character">random</button>
+
+    <!-- end of character page -->
+    </div>
 
     <!-- SCRIPTING CONNECTIONS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
