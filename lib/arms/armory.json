@@ -1,0 +1,1009 @@
+{
+    "hatchet": {
+        "name": "hatchet",
+        "hand_requirement": 1,
+        "str_requirement": 7,
+        "dex_requirement": 7,
+        "damage": {
+            "num": 1,
+            "die": 6,
+            "pls": 1
+        },
+        "training": {
+            "q1": 300,
+            "q2": 500,
+            "q3": 1000
+        },
+        "base_effectiveness": 20,
+        "impales": false,
+        "length": 0.4,
+        "health": 15,
+        "cost": 25,
+        "enc": 1,
+        "sr": 4,
+    },
+
+    "battle_axe": {
+        "name": "battle axe",
+        "hand_requirement": 1,
+        "str_requirement": {
+          "one_handed": 13,
+          "two_handed": 9
+        },
+        "dex_requirement": 7,
+        "damage": {
+            "num": 1,
+            "die": 8,
+            "pls": 2
+        },
+        "training": {
+            "q1": 300,
+            "q2": {
+              "one_handed": 500,
+              "two_handed": 600
+              },
+            "q3": {
+              "one_handed": 1000,
+              "two_handed": 1200
+              }
+        },
+        "base_effectiveness": {
+          "one_handed": 20,
+          "two_handed": 15
+          },
+        "switchable": true,
+        "impales": false,
+        "length": 0.8,
+        "health": 15,
+        "cost": 40,
+        "enc": 2,
+        "sr": 3,
+    },
+
+    "great_axe": {
+        "name": "great axe",
+        "hand_requirement": 2,
+        "str_requirement": 11,
+        "dex_requirement": 7,
+        "damage": {
+            "num": 2,
+            "die": 6,
+            "pls": 2
+        },
+        "training": {
+            "q1": 300,
+            "q2": 600,
+            "q3": 1200
+        },
+        "base_effectiveness": 15,
+        "switchable": false,
+        "impales": false,
+        "length": 1.2,
+        "health": 15,
+        "cost": 50,
+        "enc": 2,
+        "sr": 2,
+    },
+
+    "pole_axe": {
+        "name": "pole axe",
+        "hand_requirement": 2,
+        "str_requirement": 13,
+        "dex_requirement": 9,
+        "damage": {
+            "num": 3,
+            "die": 6,
+            "pls": 0
+        },
+        "training": {
+            "q1": 300,
+            "q2": 600,
+            "q3": 1200
+        },
+        "base_effectiveness": 15,
+        "switchable": false,
+        "impales": false,
+        "length": 1.6,
+        "health": 12,
+        "cost": 75,
+        "enc": 3,
+        "sr": 1,
+    },
+
+    "rhomphaia": {
+        "name": "rhomphaia",
+        "hand_requirement": 1,
+        "str_requirement": 11,
+        "dex_requirement": 9,
+        "damage": {
+            "num": 2,
+            "die": 6,
+            "pls": 2
+        },
+        "training": {
+            "q1": 300,
+            "q2": 600,
+            "q3": 1200
+        },
+        "base_effectiveness": 15,
+        "switchable": false,
+        "impales": false,
+        "length": 1.6,
+        "health": 12,
+        "cost": 50,
+        "enc": 2,
+        "sr": 2,
+    },
+
+    "butt": {
+        "name": "butt",
+        "hand_requirement": 0,
+        "str_requirement": 0,
+        "dex_requirement": 0,
+        "damage": {
+            "num": 1,
+            "die": 4,
+            "pls": 0
+        },
+        "training": {
+            "q1": 100,
+            "q2": 500,
+            "q3": 1000
+        },
+        "base_effectiveness": 10,
+        "switchable": false,
+        "impales": false,
+        "length": 0,
+        "health": 0,
+        "cost": 0,
+        "enc": 0,
+        "sr": 4,
+    },
+
+    "dagger": {
+        "name": "dagger",
+        "hand_requirement": 1,
+        "str_requirement": 0,
+        "dex_requirement": 0,
+        "damage": {
+            "num": 1,
+            "die": 4,
+            "pls": 2
+        },
+        "training": {
+            "q1": 100,
+            "q2": 300,
+            "q3": 600
+        },
+        "base_effectiveness": 25,
+        "switchable": false,
+        "impales": true,
+        "length": 0.2,
+        "health": 12,
+        "cost": 20,
+        "enc": 0.5,
+        "sr": 4,
+    },
+
+    "fist": {
+        "name": "fist",
+        "hand_requirement": 1,
+        "str_requirement": 0,
+        "dex_requirement": 0,
+        "damage": {
+            "num": 1,
+            "die": 3,
+            "pls": 0
+        },
+        "training": {
+            "q1": 200,
+            "q2": 400,
+            "q3": 800
+        },
+        "base_effectiveness": 25,
+        "switchable": false,
+        "impales": false,
+        "length": 0,
+        "health": 0,
+        "cost": 0,
+        "enc": 0,
+        "sr": 4,
+    },
+
+    "claw": {
+        "name": "claw",
+        "hand_requirement": 1,
+        "str_requirement": 7,
+        "dex_requirement": 9,
+        "damage": {
+            "num": 1,
+            "die": 4,
+            "pls": 1
+        },
+        "training": {
+            "q1": 200,
+            "q2": 400,
+            "q3": 800
+        },
+        "base_effectiveness": 25,
+        "switchable": false,
+        "impales": false,
+        "length": 0,
+        "health": 5,
+        "cost": 50,
+        "enc": 1,
+        "sr": 4,
+    },
+
+    "heavy_cestus": {
+        "name": "heavy cestus",
+        "hand_requirement": 1,
+        "str_requirement": 11,
+        "dex_requirement": 0,
+        "damage": {
+            "num": 1,
+            "die": 3,
+            "pls": 2
+        },
+        "training": {
+            "q1": 200,
+            "q2": 400,
+            "q3": 800
+        },
+        "base_effectiveness": 25,
+        "switchable": false,
+        "impales": false,
+        "length": 0,
+        "health": 10,
+        "cost": 40,
+        "enc": 1,
+        "sr": 4,
+    },
+
+    "light_cestus": {
+        "name": "light cestus",
+        "hand_requirement": 1,
+        "str_requirement": 7,
+        "dex_requirement": 0,
+        "damage": {
+            "num": 1,
+            "die": 3,
+            "pls": 1
+        },
+        "training": {
+            "q1": 200,
+            "q2": 400,
+            "q3": 800
+        },
+        "base_effectiveness": 25,
+        "switchable": false,
+        "impales": false,
+        "length": 0,
+        "health": 5,
+        "cost": 25,
+        "enc": 0.5,
+        "sr": 4,
+    },
+
+    "grain_flail": {
+        "name": "grain flail",
+        "hand_requirement": 1,
+        "str_requirement": 9,
+        "dex_requirement": 0,
+        "damage": {
+            "num": 1,
+            "die": 6,
+            "pls": 0
+        },
+        "training": {
+            "q1": 300,
+            "q2": 600,
+            "q3": 1200
+        },
+        "base_effectiveness": 15,
+        "switchable": false,
+        "impales": false,
+        "length": 0.5,
+        "health": 8,
+        "cost": 10,
+        "enc": 1,
+        "sr": 3,
+    },
+
+    "war_flail": {
+        "name": "war flail",
+        "hand_requirement": 1,
+        "str_requirement": 11,
+        "dex_requirement": 0,
+        "damage": {
+            "num": 1,
+            "die": 6,
+            "pls": 2
+        },
+        "training": {
+            "q1": 300,
+            "q2": 600,
+            "q3": 1200
+        },
+        "base_effectiveness": 15,
+        "switchable": false,
+        "impales": false,
+        "length": 0.5,
+        "health": 12,
+        "cost": 75,
+        "enc": 2,
+        "sr": 3,
+    },
+
+    "military_flail": {
+        "name": "military flail",
+        "hand_requirement": 2,
+        "str_requirement": 9,
+        "dex_requirement": 0,
+        "damage": {
+            "num": 2,
+            "die": 6,
+            "pls": 2
+        },
+        "training": {
+            "q1": 400,
+            "q2": 800,
+            "q3": 1600
+        },
+        "base_effectiveness": 5,
+        "switchable": false,
+        "impales": false,
+        "length": 2,
+        "health": 15,
+        "cost": 75,
+        "enc": 3,
+        "sr": 0,
+    },
+
+    "grapple": {
+        "name": "grapple",
+        "hand_requirement": 2,
+        "str_requirement": 0,
+        "dex_requirement": 0,
+        "damage": {
+            "num": 0,
+            "die": 0,
+            "pls": 0
+        },
+        "training": {
+            "q1": 200,
+            "q2": 500,
+            "q3": 1200
+        },
+        "base_effectiveness": 25,
+        "switchable": false,
+        "impales": false,
+        "length": 0,
+        "health": 0,
+        "cost": 0,
+        "enc": 0,
+        "sr": 4,
+    },
+
+    "war_hammer": {
+        "name": "war hammer",
+        "hand_requirement": 1,
+        "str_requirement": 11,
+        "dex_requirement": 9,
+        "damage": {
+            "num": 1,
+            "die": 6,
+            "pls": 2
+        },
+        "training": {
+            "q1": 300,
+            "q2": 600,
+            "q3": 1200
+        },
+        "base_effectiveness": 20,
+        "switchable": false,
+        "impales": false,
+        "length": 0.8,
+        "health": 20,
+        "cost": 50,
+        "enc": 1,
+        "sr": 3,
+    },
+
+    "great_hammer": {
+        "name": "great hammer",
+        "hand_requirement": 2,
+        "str_requirement": 9,
+        "dex_requirement": 9,
+        "damage": {
+            "num": 2,
+            "die": 6,
+            "pls": 2
+        },
+        "training": {
+            "q1": 300,
+            "q2": 600,
+            "q3": 1200
+        },
+        "base_effectiveness": 5,
+        "switchable": false,
+        "impales": false,
+        "length": 1.5,
+        "health": 15,
+        "cost": 75,
+        "enc": 3,
+        "sr": 1,
+    },
+
+    "kick": {
+        "name": "kick",
+        "hand_requirement": 0,
+        "str_requirement": 0,
+        "dex_requirement": 0,
+        "damage": {
+            "num": 1,
+            "die": 6,
+            "pls": 0
+        },
+        "training": {
+            "q1": 200,
+            "q2": 400,
+            "q3": 1000
+        },
+        "base_effectiveness": 25,
+        "switchable": false,
+        "impales": false,
+        "length": 0,
+        "health": 0,
+        "cost": 0,
+        "enc": 0,
+        "sr": 4,
+    },
+
+    "heavy_mace": {
+        "name": "heavy mace",
+        "hand_requirement": 1,
+        "str_requirement": {
+          "one_handed": 13,
+          "two_handed": 9
+        },
+        "dex_requirement": 7,
+        "damage": {
+            "num": 1,
+            "die": 8,
+            "pls": 2
+        },
+        "training": {
+            "q1": 200,
+            "q2": {
+              "one_handed": 400,
+              "two_handed": 600
+              },
+            "q3": {
+              "one_handed": 800,
+              "two_handed": 1500
+              }
+        },
+        "base_effectiveness": {
+          "one_handed": 25,
+          "two_handed": 20
+          },
+        "switchable": true,
+        "impales": false,
+        "length": 0.8,
+        "health": 20,
+        "cost": 40,
+        "enc": 2,
+        "sr": 3,
+    },
+
+    "light_mace": {
+        "name": "light mace",
+        "hand_requirement": 1,
+        "str_requirement": 7,
+        "dex_requirement": 7,
+        "damage": {
+            "num": 1,
+            "die": 6,
+            "pls": 2
+        },
+        "training": {
+            "q1": 200,
+            "q2": 400,
+            "q3": 800
+        },
+        "base_effectiveness": 25,
+        "switchable": false,
+        "impales": false,
+        "length": 0.6,
+        "health": 20,
+        "cost": 15,
+        "enc": 1,
+        "sr": 3,
+    },
+
+    "singlestick": {
+        "name": "singlestick",
+        "hand_requirement": 1,
+        "str_requirement": 0,
+        "dex_requirement": 9,
+        "damage": {
+            "num": 1,
+            "die": 6,
+            "pls": 0
+        },
+        "training": {
+            "q1": 200,
+            "q2": 400,
+            "q3": 800
+        },
+        "base_effectiveness": 25,
+        "switchable": false,
+        "impales": false,
+        "length": 0.6,
+        "health": 10,
+        "cost": 10,
+        "enc": 0.5,
+        "sr": 4,
+    },
+
+    "maul": {
+        "name": "maul",
+        "hand_requirement": 2,
+        "str_requirement": 11,
+        "dex_requirement": 7,
+        "damage": {
+            "num": 2,
+            "die": 8,
+            "pls": 0
+        },
+        "training": {
+            "q1": 200,
+            "q2": 600,
+            "q3": 1500
+        },
+        "base_effectiveness": 20,
+        "switchable": false,
+        "impales": false,
+        "length": 1.5,
+        "health": 15,
+        "cost": 40,
+        "enc": 3,
+        "sr": 1,
+    },
+
+    "quarterstaff": {
+        "name": "quarterstaff",
+        "hand_requirement": 2,
+        "str_requirement": 9,
+        "dex_requirement": 9,
+        "damage": {
+            "num": 1,
+            "die": 8,
+            "pls": 0
+        },
+        "training": {
+            "q1": 200,
+            "q2": 600,
+            "q3": 1500
+        },
+        "base_effectiveness": 20,
+        "switchable": false,
+        "impales": false,
+        "length": 2,
+        "health": 15,
+        "cost": 10,
+        "enc": 2,
+        "sr": 0,
+    },
+
+    "morning_star_flail": {
+        "name": "morning star flail",
+        "hand_requirement": 1,
+        "str_requirement": 11,
+        "dex_requirement": 7,
+        "damage": {
+            "num": 1,
+            "die": 10,
+            "pls": 1
+        },
+        "training": {
+            "q1": 400,
+            "q2": 800,
+            "q3": 1600
+        },
+        "base_effectiveness": 5,
+        "switchable": false,
+        "impales": false,
+        "length": 1,
+        "health": 12,
+        "cost": 100,
+        "enc": 2,
+        "sr": 2,
+    },
+
+    "pike": {
+        "name": "pike",
+        "hand_requirement": 2,
+        "str_requirement": 11,
+        "dex_requirement": 7,
+        "damage": {
+            "num": 2,
+            "die": 6,
+            "pls": 1
+        },
+        "training": {
+            "q1": 400,
+            "q2": 800,
+            "q3": 1600
+        },
+        "base_effectiveness": 10,
+        "switchable": false,
+        "impales": false,
+        "length": 3.5,
+        "health": 15,
+        "cost": 30,
+        "enc": 3,
+        "sr": 0,
+    },
+
+    "rapier": {
+        "name": "rapier",
+        "hand_requirement": 1,
+        "str_requirement": 7,
+        "dex_requirement": 13,
+        "damage": {
+            "num": 1,
+            "die": 6,
+            "pls": 1
+        },
+        "training": {
+            "q1": 500,
+            "q2": 1000,
+            "q3": 2000
+        },
+        "base_effectiveness": 5,
+        "switchable": false,
+        "impales": true,
+        "length": 1.2,
+        "health": 12,
+        "cost": 100,
+        "enc": 1,
+        "sr": 2,
+    },
+
+    "shortsword": {
+        "name": "shortsword",
+        "hand_requirement": 1,
+        "str_requirement": 0,
+        "dex_requirement": 0,
+        "damage": {
+            "num": 1,
+            "die": 6,
+            "pls": 1
+        },
+        "training": {
+            "q1": 200,
+            "q2": 400,
+            "q3": 800
+        },
+        "base_effectiveness": 15,
+        "switchable": false,
+        "impales": true,
+        "length": 0.6,
+        "health": 20,
+        "cost": 25,
+        "enc": 1,
+        "sr": 3,
+    },
+
+    "sickle": {
+        "name": "sickle",
+        "hand_requirement": 1,
+        "str_requirement": 0,
+        "dex_requirement": 0,
+        "damage": {
+            "num": 1,
+            "die": 6,
+            "pls": 1
+        },
+        "training": {
+            "q1": 200,
+            "q2": 400,
+            "q3": 800
+        },
+        "base_effectiveness": 15,
+        "switchable": false,
+        "impales": true,
+        "length": 0.5,
+        "health": 15,
+        "cost": 30,
+        "enc": 1,
+        "sr": 3,
+    },
+
+    "long_spear": {
+        "name": "long spear",
+        "hand_requirement": 1,
+        "str_requirement": {
+            "one_handed": 11,
+            "two_handed": 9
+        },
+        "dex_requirement": {
+            "one_handed": 9,
+            "two_handed": 7
+        },
+        "damage": {
+            "one_handed": {
+                "num": 1,
+                "die": 8,
+                "pls": 1
+            },
+            "two_handed": {
+                "num": 1,
+                "die": 10,
+                "pls": 1
+            }
+        },
+        "training": {
+            "q1": 200,
+            "q2": {
+                "one_handed": 500,
+                "two_handed": 400
+            },
+            "q3": {
+                "one_handed": 1000,
+                "two_handed": 800
+            }
+        },
+        "base_effectiveness": {
+            "one_handed": 10,
+            "two_handed": 20
+        },
+        "switchable": true,
+        "impales": true,
+        "length": 2.5,
+        "health": 15,
+        "cost": 20,
+        "enc": 3,
+        "sr": {
+          "one_handed": 1,
+          "two_handed": 0
+          },
+    },
+
+    "short_spear": {
+        "name": "short spear",
+        "hand_requirement": 1,
+        "str_requirement": {
+            "one_handed": 9,
+            "two_handed": 7
+        },
+        "dex_requirement": {
+            "one_handed": 7,
+            "two_handed": 7
+        },
+        "damage": {
+            "one_handed": {
+                "num": 1,
+                "die": 6,
+                "pls": 1
+            },
+            "two_handed": {
+                "num": 1,
+                "die": 8,
+                "pls": 1
+            }
+        },
+        "training": {
+            "q1": 200,
+            "q2": {
+                "one_handed": 500,
+                "two_handed": 400
+            },
+            "q3": {
+                "one_handed": 1000,
+                "two_handed": 800
+            }
+        },
+        "base_effectiveness": {
+            "one_handed": 10,
+            "two_handed": 20
+        },
+        "switchable": true,
+        "impales": true,
+        "length": 1.8,
+        "health": 15,
+        "cost": 15,
+        "enc": 2,
+        "sr": {
+          "one_handed": 2,
+          "two_handed": 1
+          },
+    },
+
+    "lance": {
+        "name": "lance",
+        "hand_requirement": 1,
+        "str_requirement": 9,
+        "dex_requirement": 7,
+        "damage": {
+            "num": 1,
+            "die": 10,
+            "pls": 1
+        },
+        "training": {
+            "q1": 200,
+            "q2": 500,
+            "q3": 1000
+        },
+        "base_effectiveness": 10,
+        "switchable": false,
+        "impales": true,
+        "length": 3,
+        "health": 20,
+        "cost": 30,
+        "enc": 3,
+        "sr": 0,
+    },
+
+    "bastard_sword": {
+        "name": "bastard sword",
+        "hand_requirement": 1,
+        "str_requirement": {
+            "one_handed": 13,
+            "two_handed": 9
+        },
+        "dex_requirement": 9,
+        "damage": {
+            "num": 1,
+            "die": 10,
+            "pls": 1
+        },
+        "training": {
+            "q1": {
+                "one_handed": 300,
+                "two_handed": 500
+            },
+            "q2": {
+                "one_handed": 500,
+                "two_handed": 1000
+            },
+            "q3": {
+                "one_handed": 1000,
+                "two_handed": 2000
+            }
+        },
+        "base_effectiveness": {
+            "one_handed": 10,
+            "two_handed": 5
+        },
+        "switchable": true,
+        "impales": false,
+        "length": 1.2,
+        "health": 20,
+        "cost": 75,
+        "enc": 1,
+        "sr": 2
+    },
+
+    "broadsword": {
+        "name": "broadsword",
+        "hand_requirement": 1,
+        "str_requirement": 9,
+        "dex_requirement": 7,
+        "damage": {
+            "num": 1,
+            "die": 8,
+            "pls": 1
+        },
+        "training": {
+            "q1": 300,
+            "q2": 500,
+            "q3": 1000
+        },
+        "base_effectiveness": 10,
+        "switchable": false,
+        "impales": false,
+        "length": 1,
+        "health": 20,
+        "cost": 50,
+        "enc": 1,
+        "sr": 2,
+    },
+
+    "scimitar": {
+        "name": "scimitar",
+        "hand_requirement": 1,
+        "str_requirement": 9,
+        "dex_requirement": 9,
+        "damage": {
+            "num": 1,
+            "die": 8,
+            "pls": 1
+        },
+        "training": {
+            "q1": 300,
+            "q2": 500,
+            "q3": 1000
+        },
+        "base_effectiveness": 10,
+        "switchable": false,
+        "impales": false,
+        "length": 1,
+        "health": 20,
+        "cost": 50,
+        "enc": 1,
+        "sr": 2,
+    },
+
+    "great_sword": {
+        "name": "great sword",
+        "hand_requirement": 2,
+        "str_requirement": 11,
+        "dex_requirement": 13,
+        "damage": {
+            "num": 2,
+            "die": 8,
+            "pls": 0
+        },
+        "training": {
+            "q1": 500,
+            "q2": 1000,
+            "q3": 2000
+        },
+        "base_effectiveness": 5,
+        "switchable": false,
+        "impales": false,
+        "length": 1.5,
+        "health": 15,
+        "cost": 150,
+        "enc": 2,
+        "sr": 1,
+    },
+
+
+
+    "small_shield": {
+        "name": "small shield",
+        "strRequirement": 5,
+        "training": {
+            "q1": 200,
+            "q2": 400,
+            "q3": 800
+        },
+        "base_effectiveness": 5,
+        "absorbs": 8,
+        "cost": 15,
+        "enc": 1
+    },
+
+    "medium_shield": {
+        "name": "medium shield",
+        "strRequirement": 9,
+        "training": {
+            "q1": 100,
+            "q2": 200,
+            "q3": 400
+        },
+        "base_effectiveness": 10,
+        "absorbs": 12,
+        "cost": 30,
+        "enc": 2
+    },
+
+    "large_shield": {
+        "name": "large shield",
+        "strRequirement": 12,
+        "training": {
+            "q1": 50,
+            "q2": 100,
+            "q3": 200
+        },
+        "base_effectiveness": 20,
+        "absorbs": 16,
+        "cost": 50,
+        "enc": 3
+    },
+
+}
