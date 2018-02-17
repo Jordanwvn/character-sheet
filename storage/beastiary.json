@@ -1,18 +1,130 @@
-'use strict';
+{
+    "baboon": {
+        "name": "baboon",
+        "attributes": {
+            "str": [3, 6, 0],
+            "con": [3, 6, 0],
+            "siz": [3, 6, 0],
+            "int": [3, 6, 0],
+            "pow": [2, 6, 6],
+            "dex": [2, 6, 6],
+            "cha": [3, 6, 0]
+        },
+        "weapons": {
+            "claw": {
+                "sr": 8,
+                "attack": 35,
+                "parry": 0,
+                "health": 0,
+                "damage": {
+                    "rolls": {
+                        "1": {
+                            "num": 1,
+                            "die": 6,
+                            "pls": 0
+                        },
+                        "2": {
+                            "num": 1,
+                            "die": 4,
+                            "pls": 0
+                        }
+                    },
+                }
+            },
+            "teeth": {
+                "sr": 8,
+                "attack": 25,
+                "parry": 0,
+                "health": 0,
+                "damage": {
+                    "rolls": {
+                        "1": {
+                            "num": 1,
+                            "die": 8,
+                            "pls": 0
+                        },
+                        "2": {
+                            "num": 1,
+                            "die": 4,
+                            "pls": 0
+                        }
+                    },
+                }
+            },
+            "spear": {
+                "sr": 4,
+                "attack": 35,
+                "parry": 35,
+                "health": 15,
+                "damage": {
+                    "rolls": {
+                        "1": {
+                            "num": 1,
+                            "die": 6,
+                            "pls": 1
+                        },
+                        "2": {
+                            "num": 1,
+                            "die": 4,
+                            "pls": 0
+                        }
+                    },
+                }
+            },
+            "sling": {
+                "sr": 2,
+                "attack": 35,
+                "parry": 35,
+                "health": 0,
+                "damage": {
+                    "rolls": {
+                        "1": {
+                            "num": 1,
+                            "die": 8,
+                            "pls": 0
+                        }
+                    },
+                }
+            },
+        },
+        "skills": {
+            "tracking": {
+              "name": "tracking",
+              "value": 30
+            },
+            "spot hidden items": 25,
+            "spot traps": 25,
+            "move quietly": 25
+        },
+        "spells": [
+            "ironhand",
+            "protection",
+            "speeddart"
+        ],
+        "armor": 1,
+        "movement": 10,
+        "treasure_factor": 8,
+        "defense": 5,
+        "description": "Baboons are intelligent animals who dwell in plains and hilly areas. They are the victims of a curse. Like their unintelligent cousins, they travel in family groups of 15 to 20 individuals, including males, females, and children. Their weapon use is limited to slings and spears, but they are proficient with claws and teeth. They may wear armor, but must buy it from humans. They can use all normal battle magic. They are beasts, and any Rune magic they use will be slanted toward the Beast Rune. They are said to have a cult worshipping a monkey god with all the usual cult attributes. Baboons rarely enter other human cults since it is a rare temple which will accept a baboon as a member. To become a Rune Lord, a baboon would need skills of 90% in fighting with claws, teeth, spear, and sling. He would also need skills at 90% in Tracking, Trap Set/Disarm, and Spot Hidden Items.",
+        "strategy": "use slings at a distance, but prefer to move in and stab with spears. Once close enough, they will try to use their bite or claws. They typically travel in large groups, so they will become frantic with low numbers."
+    },
 
-// TODO convert to JSON, add expected behavior
-
-const Species = require ('./species.js');
-
-const beasiary = module.exports = {};
-
-beastiary.baboon = new Species (
-  'baboon',
-  [[3, d6, 6], [3, d6, 0], [3, d6, 0], [3, d6, 0], [2, d6, 6], [2, d6, 6], [3, d6, 0]],
-  10, // movement
-  8, // treasure factor
-  5 // defense bonus
-)
+    "basalisk": {
+        "name": "basalisk",
+        "attributes": {
+            "strength": [2, 6, 0],
+            "constitution": [3, 6, 0],
+            "size": [2, 6, 0],
+            "intelligence": "animal",
+            "power": [1, 6, 12],
+            "dexterity": [2, 6, 6],
+            "charisma": "animal"
+        },
+        "movement": 10,
+        "treasure_factor": 8,
+        "defense": 0
+    },
+}
 
 beastiary.basalisk = new Species (
   'basalisk',

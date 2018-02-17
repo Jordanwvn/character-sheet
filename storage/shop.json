@@ -1,0 +1,356 @@
+{
+    "public_house": {
+        "food": {
+            "cheap_meal": {
+                "name": "cheap meal",
+                "cost": 0.2,
+                "description": ""
+            },
+            "good_meal": {
+                "name": "good meal",
+                "cost": 0.5,
+                "description": ""
+            },
+            "banquet": {
+                "name": "banquet",
+                "cost": 1,
+                "description": ""
+            },
+            "trail_provisions": {
+                "name": "trail provisions",
+                "cost": 5,
+                "description": "week's worth of food"
+            }
+        },
+        "drink": {
+            "beer_mug": {
+                "name": "beer mug",
+                "cost": 0.05,
+                "description": ""
+            },
+            "beer_cask": {
+                "name": "beer cask",
+                "cost": 0.5,
+                "description": ""
+            },
+            "beer_keg": {
+                "name": "beer keg",
+                "cost": 1.5,
+                "description": ""
+            },
+            "wine_mug": {
+                "name": "wine mug",
+                "cost": 0.2,
+                "description": ""
+            },
+            "wine_cask": {
+                "name": "wine cask",
+                "cost": 2,
+                "description": ""
+            },
+            "wine_keg": {
+                "name": "wine keg",
+                "cost": 6,
+                "description": ""
+            }
+        },
+        "room": {
+            "floor": {
+                "name": "common room floor",
+                "cost": 0.1,
+                "description": ""
+            },
+            "dorm": {
+                "name": "dormitory",
+                "cost": 0.5,
+                "description": ""
+            },
+            "shared_room": {
+                "name": "shared private room",
+                "cost": 1,
+                "description": ""
+            },
+            "single_room": {
+                "name": "private room",
+                "cost": 2,
+                "description": ""
+            },
+            "hot_water": {
+                "name": "hot water",
+                "cost": 0.2,
+                "description": ""
+            }
+        }
+    },
+
+    "tailor": {
+        "peasant": {
+            "name": "peasant clothes",
+            "cost": 2,
+            "description": "yearly clothes for a peasant"
+        },
+        "townsman": {
+            "name": "townsman clothes",
+            "cost": 5,
+            "description": "yearly clothes for a townsman"
+        },
+        "noble": {
+            "name": "noble clothes",
+            "cost": 20,
+            "description": "yearly clothes for a noble"
+        },
+        "adventurer": {
+            "name": "adventurer clothes",
+            "cost": 10,
+            "description": "monthly clothes for a adventurer"
+        }
+    },
+
+    "stable": {
+        "stall": {
+            "name": "stable stall",
+            "cost": 0.1,
+            "description": "stall for a day"
+        },
+        "feed": {
+            "name": "stable feed",
+            "cost": 0.4,
+            "description": "feed for a day"
+        },
+        "special_care": {
+            "name": "stable special care",
+            "cost": 1,
+            "description": ""
+        },
+        "trail_oats": {
+            "name": "trail oats",
+            "cost": 2,
+            "description": "trail fodder for a week"
+        },
+        "cart_horse": {
+            "name": "cart horse",
+            "cost": 50,
+            "description": "work horse with 18 average HP."
+        },
+        "riding_horse": {
+            "name": "riding horse",
+            "cost": 100,
+            "description": "Untrained horse with 18 average HP."
+        },
+        "cavalry_horse": {
+            "name": "cavalry horse",
+            "cost": 1500,
+            "description": "battle-trained horse with 20 average HP."
+        },
+        "war_horse": {
+            "name": "war horse",
+            "cost": 5000,
+            "description": "attack-trained horse, 25% on all attacks, with 22 average HP."
+        },
+        "two_wheeled_cart": {
+            "name": "two-wheeled cart",
+            "cost": 35,
+            "description": ""
+        },
+        "four_wheeled_cart": {
+            "name": "four-wheeled cart",
+            "cost": 85,
+            "description": ""
+        },
+        "saddle": {
+            "name": "saddle",
+            "cost": 20,
+            "description": ""
+        }
+    },
+
+    "living_expenses": {
+        "noble": {
+            "name": "noble expenses",
+            "cost": 10,
+            "description": "average weekly noble expenses"
+        },
+        "adventurer": {
+          "name": "adventurer expenses",
+          "cost": 5,
+          "description": "average weekly adventurer expenses"
+        },
+        "pack": {
+          "name": "adventurer's backpack",
+          "cost": 25,
+          "description": "backpack with a wineskin, rope, peasant clothes, a hand axe, a hammer, wood spikes, fish hooks, a small sack, a knife, cooking gear, and a blanket."
+        }
+    },
+
+    "general_store": {
+        "backpack": {
+          "name": "backpack",
+          "cost": 1,
+          "description": "can be used to hold items."
+        },
+        "small_sack": {
+          "name": "small sack",
+          "cost": 0.2,
+          "description": "can be used to hold items."
+        },
+        "large_sack": {
+          "name": "large sack",
+          "cost": 0.5,
+          "description": "can be used to hold items."
+        },
+        "hammer": {
+            "name": "hammer",
+            "cost": 0.2,
+            "description": ""
+        },
+        "fish_hooks": {
+            "name": "fish hooks",
+            "cost": 0.2,
+            "description": ""
+        },
+        "writing tools": {
+            "name": "writing tools",
+            "cost": 10,
+            "description": ""
+        },
+        "papyrus": {
+            "name": "papyrus sheet",
+            "cost": 0.5,
+            "description": ""
+        },
+        "cooking_gear": {
+            "name": "cooking gear",
+            "cost": 2,
+            "description": "both cookery and eatery"
+        },
+        "fire_starter": {
+            "name": "fire starter",
+            "cost": 1,
+            "description": ""
+        },
+        "torch": {
+            "name": "torch",
+            "cost": 0,
+            "description": ""
+        },
+        "wine_skin": {
+            "name": "wine skin",
+            "cost": 1,
+            "description": ""
+        },
+        "flask": {
+            "name": "flask",
+            "cost": 1,
+            "description": ""
+        },
+        "jug": {
+            "name": "jug",
+            "cost": 2,
+            "description": "holds 2 liters"
+        },
+        "cask": {
+            "name": "cask",
+            "cost": 5,
+            "description": "holds 5 liters"
+        },
+        "keg": {
+            "name": "keg",
+            "cost": 15,
+            "description": "holds 15 liters"
+        },
+        "barrel": {
+            "name": "barrel",
+            "cost": 25,
+            "description": "holds 50 liters"
+        },
+    },
+
+    "dungeoneering_store": {
+        "rope": {
+          "name": "rope",
+          "cost": 5,
+          "description": "15 meters long."
+        },
+        "lamp": {
+          "name": "lamp",
+          "cost": 5,
+          "description": ""
+        },
+        "lamp_oil": {
+          "name": "lamp oil",
+          "cost": 0.5,
+          "description": ""
+        },
+        "climbing_pack": {
+            "name": "climbing pack",
+            "cost": 20,
+            "description": ""
+        },
+        "pole": {
+            "name": "pole",
+            "cost": 0,
+            "description": "trap testing pole, 3 meters."
+        },
+    },
+
+    "wilderness_survival_store": {
+        "small_tent": {
+            "name": "small tent",
+            "cost": 10,
+            "description": "holds one person."
+        },
+        "medium_tent": {
+            "name": "medium tent",
+            "cost": 25,
+            "description": "holds three people."
+        },
+        "large_tent": {
+            "name": "large tent",
+            "cost": 40,
+            "description": "holds five people."
+        },
+        "wood_spikes": {
+            "name": "wood spikes",
+            "cost": 1,
+            "description": ""
+        },
+        "mallet": {
+            "name": "mallet",
+            "cost": 0.5,
+            "description": ""
+        },
+    },
+    
+    "music_store": {
+        "bugle": {
+            "name": "bugle",
+            "cost": 5,
+            "description": ""
+        },
+        "lur_horn": {
+            "name": "lur horn",
+            "cost": 25,
+            "description": ""
+        },
+        "harp": {
+            "name": "harp",
+            "cost": 10,
+            "description": ""
+        },
+        "lyre": {
+            "name": "lyre",
+            "cost": 20,
+            "description": ""
+        },
+        "reed_pipes": {
+            "name": "reed pipes",
+            "cost": 5,
+            "description": ""
+        },
+        "bagpipes": {
+            "name": "bagpipes",
+            "cost": 25,
+            "description": ""
+        }
+    }
+}

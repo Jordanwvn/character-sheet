@@ -181,7 +181,7 @@
         "length": 0.2,
         "health": 12,
         "cost": 20,
-        "enc": 0.5,
+        "enc": 0.25,
         "sr": 4,
     },
 
@@ -960,6 +960,320 @@
         "cost": 150,
         "enc": 2,
         "sr": 1,
+    },
+
+
+
+    "throwing_axe": {
+        "name": "throwing axe",
+        "hand_requirement": 1,
+        "str_requirement": 9,
+        "dex_requirement": 9,
+        "damage": {
+            "num": 1,
+            "die": 6,
+            "pls": 0
+        },
+        "training": {
+            "q1": 300,
+            "q2": 600,
+            "q3": 1200
+        },
+        "base_effectiveness": 10,
+        "impales": false,
+        "range": 20,
+        "health": 15,
+        "rate": "as many as SR permits",
+        "cost": 35,
+        "enc": 1
+    },
+
+    "composite_bow": {
+        "name": "composite bow",
+        "hand_requirement": 2,
+        "str_requirement": 13,
+        "dex_requirement": 9,
+        "damage": {
+            "num": 1,
+            "die": 8,
+            "pls": 1
+        },
+        "training": {
+            "q1": 300,
+            "q2": 800,
+            "q3": 1500
+        },
+        "base_effectiveness": 10,
+        "impales": true,
+        "range": 100,
+        "health": 10,
+        "rate": "as many as SR permits",
+        "cost": 150,
+        "enc": 2
+    },
+
+    "elf_bow": {
+        "name": "elf bow",
+        "hand_requirement": 2,
+        "str_requirement": 0,
+        "dex_requirement": 0,
+        "damage": {
+            "num": 1,
+            "die": 8,
+            "pls": 1
+        },
+        "training": {
+            "q1": 300,
+            "q2": 800,
+            "q3": 1500
+        },
+        "base_effectiveness": 10,
+        "impales": true,
+        "range": 120,
+        "health": 10,
+        "rate": "as many as SR permits",
+        "cost": 0,
+        "enc": 2
+    },
+
+    "self_bow": {
+        "name": "self bow",
+        "hand_requirement": 2,
+        "str_requirement": 9,
+        "dex_requirement": 9,
+        "damage": {
+            "num": 1,
+            "die": 6,
+            "pls": 1
+        },
+        "training": {
+            "q1": 300,
+            "q2": 800,
+            "q3": 1500
+        },
+        "base_effectiveness": 10,
+        "impales": true,
+        "range": 80,
+        "health": 6,
+        "rate": "as many as SR permits",
+        "cost": 50,
+        "enc": 2
+    },
+
+    "arbalest": {
+        "name": "arbalest",
+        "hand_requirement": 2,
+        "str_requirement": 13,
+        "dex_requirement": 7,
+        "damage": {
+            "num": 3,
+            "die": 6,
+            "pls": 1
+        },
+        "training": {
+            "q1": 200,
+            "q2": 400,
+            "q3": 800
+        },
+        "base_effectiveness": 20,
+        "impales": true,
+        "range": 150,
+        "health": 10,
+        "rate": "one shot every 5 rounds",
+        "cost": 150,
+        "enc": 3
+    },
+
+    "heavy_crossbow": {
+        "name": "heavy crossbow",
+        "hand_requirement": 2,
+        "str_requirement": 11,
+        "dex_requirement": 7,
+        "damage": {
+            "num": 2,
+            "die": 6,
+            "pls": 2
+        },
+        "training": {
+            "q1": 200,
+            "q2": 400,
+            "q3": 800
+        },
+        "base_effectiveness": 20,
+        "impales": true,
+        "range": 120,
+        "health": 10,
+        "rate": "one shot every 3 rounds",
+        "cost": 100,
+        "enc": 2
+    },
+
+    "light_crossbow": {
+        "name": "light crossbow",
+        "hand_requirement": 2,
+        "str_requirement": 7,
+        "dex_requirement": 7,
+        "damage": {
+            "num": 2,
+            "die": 4,
+            "pls": 2
+        },
+        "training": {
+            "q1": 200,
+            "q2": 400,
+            "q3": 800
+        },
+        "base_effectiveness": 20,
+        "impales": true,
+        "range": 100,
+        "health": 6,
+        "rate": "one shot every 2 rounds",
+        "cost": 80,
+        "enc": 2
+    },
+
+    "throwing_dagger": {
+        "name": "throwing dagger",
+        "hand_requirement": 1,
+        "str_requirement": 0,
+        "dex_requirement": 9,
+        "damage": {
+            "num": 1,
+            "die": 4,
+            "pls": 0
+        },
+        "training": {
+            "q1": 300,
+            "q2": 600,
+            "q3": 1200
+        },
+        "base_effectiveness": 15,
+        "impales": false,
+        "range": 20,
+        "health": 12,
+        "rate": "as many as SR permits",
+        "cost": 50,
+        "enc": 0.25
+    },
+
+    "dart": {
+        "name": "dart",
+        "hand_requirement": 1,
+        "str_requirement": 0,
+        "dex_requirement": 9,
+        "damage": {
+            "num": 1,
+            "die": 6,
+            "pls": 0
+        },
+        "training": {
+            "q1": 300,
+            "q2": 600,
+            "q3": 1200
+        },
+        "base_effectiveness": 15,
+        "impales": true,
+        "range": 20,
+        "health": 8,
+        "rate": "as many as SR permits",
+        "cost": 25,
+        "enc": 0.5
+    },
+
+    "javelin": {
+        "name": "javelin",
+        "hand_requirement": 1,
+        "str_requirement": 9,
+        "dex_requirement": 9,
+        "damage": {
+            "num": 1,
+            "die": 10,
+            "pls": 0
+        },
+        "training": {
+            "q1": 300,
+            "q2": 600,
+            "q3": 1200
+        },
+        "base_effectiveness": 15,
+        "impales": true,
+        "range": 20,
+        "health": 10,
+        "rate": "one shot every round",
+        "cost": 35,
+        "enc": 1
+    },
+
+    "rock": {
+        "name": "rock",
+        "hand_requirement": 1,
+        "str_requirement": 0,
+        "dex_requirement": 0,
+        "damage": {
+            "num": 1,
+            "die": 4,
+            "pls": 0
+        },
+        "training": {
+            "q1": 100,
+            "q2": 300,
+            "q3": 800
+        },
+        "base_effectiveness": 25,
+        "impales": false,
+        "range": 20,
+        "health": 0,
+        "rate": "as many as SR permits",
+        "cost": 0,
+        "enc": 0.25
+    },
+
+    "sling": {
+        "name": "sling",
+        "hand_requirement": 1,
+        "str_requirement": 0,
+        "dex_requirement": 9,
+        "damage": {
+            "num": 1,
+            "die": 8,
+            "pls": 0
+        },
+        "training": {
+            "q1": 300,
+            "q2": 600,
+            "q3": 1200
+        },
+        "base_effectiveness": 10,
+        "impales": false,
+        "range": 80,
+        "health": 0,
+        "rate": "as many as SR permits",
+        "cost": 5,
+        "enc": 1
+    },
+
+    "staff_sling": {
+        "name": "staff sling",
+        "hand_requirement": 2,
+        "str_requirement": 9,
+        "dex_requirement": 9,
+        "damage": {
+            "num": 1,
+            "die": 10,
+            "pls": 0
+        },
+        "training": {
+            "q1": 400,
+            "q2": 800,
+            "q3": 1600
+        },
+        "base_effectiveness": 5,
+        "impales": false,
+        "range": 100,
+        "health": 10,
+        "rate": "one shot every round",
+        "cost": 15,
+        "enc": 2
     },
 
 
