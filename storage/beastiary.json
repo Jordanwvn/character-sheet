@@ -1,6 +1,7 @@
 {
     "baboon": {
         "name": "baboon",
+        "body_type": "humanoid",
         "attributes": {
             "str": [3, 6, 0],
             "con": [3, 6, 0],

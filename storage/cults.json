@@ -1,395 +1,397 @@
 {
-    "barbarian_gods": {
-
-        "daka_fal": {
-            "name": "Daka Fal",
-            "runes": ["man", "spirit"],
-            "purpose": "The religion of Daka Fal is an integral link in the cosmic structure. It supports the reality of human mortality by worshipping the Lord of the Dead, and by drawing upon the dead for strength to survive in life. At the same time it provides the basic barriers to help protect weak humans from the mighty powers.",
-            "joining": {
-                "lay": "anyone is allowed to join.",
-                "initiate": "Initiates must be willing to disavow all previous cult connections and stand by the rules of this cult. They must be initiated by a priest of the cult, or by a shaman.",
-                "runelord": "The member must be an Initiate of the cult. They must have 90% skill in any five skills, including five different weapons if desired; they must have a POW of 15; they must convince the examiners by calling an Ancestor.",
-                "runepriest": "Must have 18 POW. 90% Spirit Speech is required instead of literacy. It is possible to approach one's own ancestors instead of an established priest to become a Priest."
-            },
-            "restrictions": {
-                "lay": "There are no particular requirements except to partake in the ceremonies.",
-                "initiate": "Belonging is merely dependent upon the priest's demands. Initiates always are expected to help defend their priest, and to assist in rituals and other magical acts. They must usually help provide for his upkeep as well by providing food and shelter.",
-                "runelord": "There are no special restrictions.",
-                "runepriest": "Priests are required to give one point of POW per week to each of their bound spirits. The POW may come from themselves or from their worshippers."
-            },
-            "benefits": {
-              "lay": "No automatic mundane benefits.",
-              "initiate": "No automatic mundane benefits.",
-              "runelord": "May gain an Allied Spirit, and may use iron armor or weapons or tools if they procure them.",
-              "runepriest": "Priests benefit by getting considerable magical power under their command without becoming an outcast like normal shamans."
-            },
-            "spells": ["free ghost", "summon ancestor", "summon specific ancestor", "summon spirit teacher", "incarnate ancestor", "resurrection"]
+    "daka_fal": {
+        "name": "Daka Fal",
+        "group": "barbarian_gods",
+        "runes": ["man", "spirit"],
+        "purpose": "The religion of Daka Fal is an integral link in the cosmic structure. It supports the reality of human mortality by worshipping the Lord of the Dead, and by drawing upon the dead for strength to survive in life. At the same time it provides the basic barriers to help protect weak humans from the mighty powers.",
+        "joining": {
+            "lay": "anyone is allowed to join.",
+            "initiate": "Initiates must be willing to disavow all previous cult connections and stand by the rules of this cult. They must be initiated by a priest of the cult, or by a shaman.",
+            "runelord": "The member must be an Initiate of the cult. They must have 90% skill in any five skills, including five different weapons if desired; they must have a POW of 15; they must convince the examiners by calling an Ancestor.",
+            "runepriest": "Must have 18 POW. 90% Spirit Speech is required instead of literacy. It is possible to approach one's own ancestors instead of an established priest to become a Priest."
         },
-
-        "storm_bull": {
-            "name": "Storm Bull",
-            "runes": ["death", "storm / air", "beast"],
-            "purpose": "The purpose of the Storm Bull is to prevent the rise of the Devil, or any associated form of Chaos.",
-            "joining": {
-                "lay": "To join the cult of the Storm Bull requires that the candidates not be tainted by chaos, that they be armed with magic or weapons, be willing to follow the orders of their superiors, and pay ten Lunars to the priest accepting them.",
-                "initiate": "Candidates for Initiation must have been Lay Members for at least one year, and to have shown during that time that they upheld the laws of the cult. Candidates must pay their priest 100 Lunars for the ceremony.",
-                "runelord": "Rune Lord candidates must have 90% ability with their tribal weapon, know at least 4 point Healing, and have 90% ability in any four from this list: Another weapon, Shield, Riding, Tracking, Spot Hidden, Climb, Sense Chaos.",
-                "runepriest": "Rune Priest must fulfill all the normal priestly requirements, except that instead of the literacy requirements they must know Beast Speech at least 80%. They must have defeated forces of chaos in a combat of personal danger."
-            },
-            "restrictions": {
-                "lay": "Lay members must attend all cult functions. Also, until they are initiated, they must pay for their own upkeep and make a donation of 5 Lunars a week to their priest. Alternatively they may sacrifice one herd beast for a year's membership. Members must all shun the presence of chaos, however, Lay members are expected to report it rather than directly fight.",
-                "initiate": "Initiates must be present for at least one half of the year, where they must only interact with friendly or associated cults and are required to investigate any hints or rumors of chaotic presence personally, rousing local lay members if possible. They may also be responsible to caring for a number of lay members.",
-                "runelord": "If a Rune Long learns of or sense the presence of chaos they must leap up, shout for their god, grab their weapons, and set off on their task.",
-                "runepriest": "Rune Priests must pledge themselves fully to their god, and swear away the opportunity to ever enter normal tribal life."
-            },
-            "benefits": {
-              "lay": "The cult promises to protect its lay members while they are with their priest. They do not provide weapons, horses, money, or free aid to lay members.",
-              "initiate": "Initiates are provided food, weapons, magic, steeds, gold, and other favors from their priest.",
-              "runelord": "Rune Lords of Storm Bull are given great honor, freedom through all of Prax, iron armor and weapons by the cult if available, and freedom from allegience to any priest. They can always tell when a storm is approaching, and have a highly developed Sense Chaos ability.",
-              "runepriest": "Rune Priests are given honor, and are gifted once per year by the Kahn of the tribe which they originally left. This gift must be at least three beasts suitable for riding or eating, as specified by the priest, and the exchange of all damaged weapons from the Storm Bulls for as many repaired and whole weapons from the tribe."
-            },
-            "spells": ["defent against chaos", "face chaos"]
+        "restrictions": {
+            "lay": "There are no particular requirements except to partake in the ceremonies.",
+            "initiate": "Belonging is merely dependent upon the priest's demands. Initiates always are expected to help defend their priest, and to assist in rituals and other magical acts. They must usually help provide for his upkeep as well by providing food and shelter.",
+            "runelord": "There are no special restrictions.",
+            "runepriest": "Priests are required to give one point of POW per week to each of their bound spirits. The POW may come from themselves or from their worshippers."
         },
-
-        "waha": {
-            "name": "Waha",
-            "runes": ["death", "beast", "man"],
-            "purpose": "The cult of Waha provides the basic life style and survival needs for the men of the animal nomads of Prax. It carefully explains what each man must do to survive, and determines the social order within the tribe.",
-            "joining": {
-                "lay": "Unless already chosen for another cult, all male barbarian children join as Lay Members as part of their puberty initiation. The cult is not open to women.",
-                "initiate": "Tribe members are Initiated after they have proved their warrior abilities to the tribe elders when the men are 20-25 years old or by proving themselves at a seasonal festival. Tribal warriors must have 50%+ ability in riding and in a tribal weapon, and know one spell.",
-                "runelord": "Rune Lords must have proven themselves, and not be proved murderers, robbers, or cowards. Candidates must provide their own iron armor and weapons. Candidates must have a 90% Ability with Riding and using their Tribal Weapon, and a 90% Ability in any three of these skills: Peaceful Cut, Another weapon, Shield, Tracking, Sense Ambush, or Oratory.",
-                "runepriest": "Membership in the priesthood requires that a person be of noble blood. Instead of knowing how to read and write his native tongue a candidate must have purchased the Beast-speech Rune Magic spell as an Initiate"
-            },
-            "restrictions": {
-                "lay": "All Lay Members of the cult must attend to the needs of the herds without stint of time, and this takes most of their time. On each holy day they sacrifice one point of Power to their god during a rope-tieing ceremony dedicated to Waha. Lay members are assigned to family-grouped warrior bands, following the orders of a  warrior-leader, who is an Initiate of the cult.",
-                "initiate": "Initiates must sacrifice two points of Power each holy day. They must follow every command from their chieftains and protect the Lay Members they lead from chaos and other dangers, to the point of sacrificing their lives.",
-                "runelord": "Rune Lords of Waha are required to celebrate High Holy Day with followers of the cult. They are not allowed ever to ride any steed but their own herd beasts. Once in his lifetime a Rune Lord must travel to the Marsh and kill a thing of chaos.",
-                "runepriest": "Once in their life, Rune Priests must make pilgrimmage to the Marsh and kill something of chaos. Rune Priests are responsible for the welfare of their followers, and must not do anything which will uselessly or foolishly endanger his wards."
-            },
-            "benefits": {
-                "lay": "Lay members of the cult of Waha are provided tribal weapons, clothes, and food by the cult. They may learn skills from their elders and priests.",
-                "initiate": "Initiates  are allowed to go on war parties and raids, and they may gain special powers through a heroquest. Initiates receive the third choice of portions from a slaughtered animal and a second choice of weapons from traders.",
-                "runelord": "A Rune Lord receives first choice of weapons from the traders, and shares the second portion of a slaughtered animal with the priests of the cult. Rune Lords are allowed to lead a chosen party of Initiates on independent missions away from the herds. Rune Lords who capture ten each of the herd beasts of the other four tribes will receive a blessing from their god. This takes the form of a Protection spell permanently cast upon their favorite riding animal, unlocking full intelligence.",
-                "runepriest": "As noblemen of the tribes the Rune Priests get second portions of slaughtered beasts. They receive all gifts from foreign travellers to distribute as they see fit. Their favorite riding animal will become their allied spirit, with unlocked intelligence and Protection cast over it."
-            },
-            "spells": ["summon spirit of law"]
+        "benefits": {
+          "lay": "No automatic mundane benefits.",
+          "initiate": "No automatic mundane benefits.",
+          "runelord": "May gain an Allied Spirit, and may use iron armor or weapons or tools if they procure them.",
+          "runepriest": "Priests benefit by getting considerable magical power under their command without becoming an outcast like normal shamans."
         },
-
-        "eiritha": {
-            "name": "Eiritha",
-            "runes": ["beast", "fertility"],
-            "purpose": "The people of Prax are utterly dependent upon the goddess Eiritha for their daily existence upon the bleak plains. She is the source of all their daily goods, for the people are unable to extract the requirements for survival from the region, but the beast-daughters of the cult can. To be cursed or exiled by the goddess means death, unless the victim is able to flee the plains.",
-            "joining": {
-                "lay": "All people are Lay members of the cult if they live with the tribe. Outsiders may be allowed in the worship, but they must join by paying two cattle, its cost equivalent, or otherwise satisfy the priestess presiding and show that they are sincere and friendly.",
-                "initiate": "Initiate membership requires that a person have been a Lay Member in good standing and be a female member of the tribe.",
-                "runelord": "Herd Sisters must have a 90% skill in these: Find Water, Find Cattle Food, and Riding. They must also have two of these skills: Any 1-hand axe weapon, Understand Beast-talk, Read Own Language, Spot Trap, Spot Hidden, First Aid, Treat Disease. Also, each 3 points of Xenohealing may be substituted for one of the optional skills.",
-                "runepriest": "Priestesses must be women. There is no literacy requirement, but instead they must know Beast-speech at 90%. Other requirements are as normal."
-            },
-            "restrictions": {
-                "lay": "Membership in the cult is permanent for all Lay members unless they are outlawed. They must also worship each week with the cult and maintain the cult prejudices.",
-                "initiate": "Membership in the cult is permanent for all Initiate members unless they are outlawed. They must also worship each week with the cult and maintain the cult prejudices.",
-                "runelord": "Herd Sisters have only the usual restrictions on their status.",
-                "runepriest": "The restrictions are the same as those of the Initiates, but there is a strict prohibition against using any weapons other than axes or knives. Also, they may not use any weapons magic. Offensive spells are allowed."
-            },
-            "benefits": {
-                "lay": "As a result of Lay membership the peoples may partake of the gifts of the goddess. This means that they have food, clothing, and the tools and implements made from the bodies of the beasts.",
-                "initiate": "As a result of Initiate membership the peoples may partake of the gifts of the goddess. This means that they have food, clothing, and the tools and implements made from the bodies of the beasts.",
-                "runelord": "The benefits of being a Herd Sister of the cult are that the person is accorded priority over all members of the tribe in gift-receiving except the kahns and priestesses, and maintain whatever status they may personally acquire.",
-                "runepriest": "Priestesses receive the first choice of any portions of a slaughtered animal. They receive great status among their tribes as well, and all social benefits thereby granted."
-            },
-            "spells": ["bless animals", "speak to beast"]
-        }
+        "spells": ["free ghost", "summon ancestor", "summon specific ancestor", "summon spirit teacher", "incarnate ancestor", "resurrection"]
     },
 
-    "invader_deities": {
-
-        "humakt": {
-            "name": "Humakt",
-            "runes": ["death", "truth"],
-            "purpose": "As the god of soldiers, Humakt has a permanent place in the godly ranks of any religion. Priests act as trainers and chaplins for mercenary and national forces, and their Rune Lords are the first asked to lead perilous quests, unless subtlety will be called for. Temples are also used as hiring halls in many regions.",
-            "joining": {
-                "lay": "Humakt welcomes all races as long as they are warriors and will swear to keep discipline and uphold the Humakt Code of fair play and honor.",
-                "initiate": "Lay Members who have shown true dedication to the ideal and cult of Humakt may be invited to become Initiates of the cult. An Initiate must have a sponsor who is already an Initiate and a battle comrade of the candidate. He must also pass a test which is abstracted for the game by rolling on D100 the formula CHA x 5 + % to hit with Sword, divided by 2.",
-                "runelord": "A candidate for Sword of Humakt must have been an Initiate in the cult for at least two years. The candidate must have 90% skill in at least five of the following skills. At least three skills must be with weapons. Broadsword, Riding, Greatsword, Spot Hidden, Shortsword, Camouflage, Rapier, Detect Assassin, Epee, Armoring/Weapon Making, Dagger, First Aid, Dagger Throwing, Treat Poison, Oratory, Shield Parry, The candidate must also have a Power of 15 or, greater and convince the Examining Council of the cult and the god with a 1D100 roll of (POW + CHA) X 5, divided by 2.",
-                "runepriest": "Candidates must have spent two years or more as an Initiate of the cult, and must convince the Examining Council. Rune Priest Examiners will take contributions to the cult treasury into account. Literacy is not required."
-            },
-            "restrictions": {
-                "lay": "Lay Members are expected to tithe ten percent of their current silver every cult holy day and give up the usual point of Power when they worship. They must uphold the Code of Humakt, 1. always fighting other Humakt members fairly, 2. honoring the fallen, and 3. maintaining strict truth and confidence with one another.",
-                "initiate": "Once accepted, the Initiate must take a Humakt gift(s) and accept a Humakt geas per gift. The Initiate (often called a “Swordbrother/sister”) must also sacrifice two points of POW every holy day. They often are in demand as bodyguards against assassination.",
-                "runelord": "A Rune Lord must personify honor and fair combat in his every deed, upholding the meek and protecting the oppressed. He must never turn his back on a fair fight in a good cause and never break a sworn vow.",
-                "runepriest": "Humakt Rune Priests must serve time as chaplains to regiments and Temple business. However, they continue training in skills hallowed to their god as a form of worship."
-            },
-            "benefits": {
-                "lay": "The Humakt temple maintains good relations with the Arroin cult, so that its members can be assured of first aid for their battle wounds. Members can occasionally call on the Temple for room and board.",
-                "initiate": "Initiates get first call on all Sargent positions within the Temple, lead other members in devotions, always have healing, room, and board arranged, and will be ransomed or rescued if captured. A cult member will never be called back from the dead in any way, not even as a skeleton or zombie.",
-                "runelord": "the Sword of Humakt attains an Allied Spirit (which is always put into an iron sword), iron armor (if available to the Temple), support of his Power so that he will be able to fend off magical attack, and Divine Intervention on call. The Rune Lord of Humakt must also take unto himself at least one more gift and its attendant geas(es). A Rune Lord of Humakt may become a Rune Priest any time he meets the Power requirements, with no reduction of fighting ability.",
-                "runepriest": "A new Priest must take one new gift of his choice and its geases. A Humakt Sword Priest always has a place in any council of war, and has a claim second only to a Sword in taking any tactical command. Humakt-worshipping soldiers will always see that the Priest gets fed on the march."
-            },
-            "spells": ["bind ghosts", "detect truth", "turn undead", "truesword", "morale", "oath", "sever spirit"]
+    "storm_bull": {
+        "name": "Storm Bull",
+        "group": "barbarian_gods",
+        "runes": ["death", "storm / air", "beast"],
+        "purpose": "The purpose of the Storm Bull is to prevent the rise of the Devil, or any associated form of Chaos.",
+        "joining": {
+            "lay": "To join the cult of the Storm Bull requires that the candidates not be tainted by chaos, that they be armed with magic or weapons, be willing to follow the orders of their superiors, and pay ten Lunars to the priest accepting them.",
+            "initiate": "Candidates for Initiation must have been Lay Members for at least one year, and to have shown during that time that they upheld the laws of the cult. Candidates must pay their priest 100 Lunars for the ceremony.",
+            "runelord": "Rune Lord candidates must have 90% ability with their tribal weapon, know at least 4 point Healing, and have 90% ability in any four from this list: Another weapon, Shield, Riding, Tracking, Spot Hidden, Climb, Sense Chaos.",
+            "runepriest": "Rune Priest must fulfill all the normal priestly requirements, except that instead of the literacy requirements they must know Beast Speech at least 80%. They must have defeated forces of chaos in a combat of personal danger."
         },
-
-        "the_seven_mothers": {
-            "name": "The Seven Mothers",
-            "runes": ["lunar", "life / fertility", "death"],
-            "purpose": "The Seven Mothers is the guardian cult of the borderlands, and is an official state cult responsible for keeping foes of the Empire out and admitting friends of the Empire. In the former mode, the cult has a warrior subcult, terrible in its fury. In the latter mode is a teacher subcult whose mission is to educate those wanting to meet the greater Red Goddess.",
-            "joining": {
-                "lay": "There are no racial, birth, or ability requirements. Lay Members must rejoin every Full Moon by telling the priestess of their desire to join. However, a member can ask to be placed on a list that lasts for 5 years instead.",
-                "initiate": "Candidates for initiation must be in good standing and have been Lay Members for a total of 49 weeks, the last three of the weeks consecutively and at the temple. They will be quizzed about the basics of the religion, on their attitudes, expectations, and intentions.",
-                "runelord": "Rune Lords of the cult are required to have been Initiates in good standing with the cult for at least one full year and to have served in the temple regiment for at least one year (these may be concurrent). Rune Lords must also have a 90% or better skill in two of the following: Mounted Lance, Spear, Scimitar, or Shield Parry. They must have 90% ability in three of the following: Riding, Read and Write Lunar, Map-Making, Climbing, Listening, Spot Hidden, Camouflage, Tracking, Move Quietly, or General Knowledge. They must have a minimum of 50% in all of these abilities: Riding, Oratory, Spot Hidden. They also must pass the test of the examiners.",
-                "runepriest": "Rune Priest candidates must have been Initiates for at least one full year and otherwise meet standard requirements as in RuneQuest."
-            },
-            "restrictions": {
-                "lay": "There are no unusual requirements in remaining a Lay Member of the cult.",
-                "initiate": "Initiates must serve one week per month in active duty for the temple. Initiates should attend regular weekly services if at all possible, and if not possible they should meditate and sacrifice privately.",
-                "runelord": "The Rune Lord must spend an average of five-sevenths of their time on cult business. The other two-sevenths is free time.",
-                "runepriest": "The greatest restriction placed upon Lunar Priests is the cyclical nature of their Rune Magic. Priests do not consider this a weakness but a great honor to be so bound to their goddess’ nature."
-            },
-            "benefits": {
-                "lay": "Members may partake of the Poor Fund at any time, and also be allowed to sleep under the roof of the Outer Temple. Also, Lay Members can purchase healing for themselves or their friends from priestesses at the cult temple.",
-                "initiate": "All Lay benefits are available. Initiates also are allowed to join special units in the regular Lunar army.",
-                "runelord": "Upon acceptance, a Rune Lord will receive a free iron helmet, breastplate, and greaves, plus an iron-bound shield and two iron weapons. Rune Lords of any Lunar Cult are generally welcome at any other Lunar Temple. They wield considerable influence among all Lunarites. They may join any other Lunar cult as an Initiate.",
-                "runepriest": "Rune Priests of the cult are allowed two weeks per season of freedom to do as they wish, and they are also given an average of one day per week off-duty. This 'vacation time' may be accumulated gradually if circumstances allow. They always receive free room and board at any Lunar cult."
-            },
-            "spells": ["summon small lune", "summon small elemental", "summon medium lune", "madness", "mind blast", "summon large lune"]
+        "restrictions": {
+            "lay": "Lay members must attend all cult functions. Also, until they are initiated, they must pay for their own upkeep and make a donation of 5 Lunars a week to their priest. Alternatively they may sacrifice one herd beast for a year's membership. Members must all shun the presence of chaos, however, Lay members are expected to report it rather than directly fight.",
+            "initiate": "Initiates must be present for at least one half of the year, where they must only interact with friendly or associated cults and are required to investigate any hints or rumors of chaotic presence personally, rousing local lay members if possible. They may also be responsible to caring for a number of lay members.",
+            "runelord": "If a Rune Long learns of or sense the presence of chaos they must leap up, shout for their god, grab their weapons, and set off on their task.",
+            "runepriest": "Rune Priests must pledge themselves fully to their god, and swear away the opportunity to ever enter normal tribal life."
         },
-
-        "pavis": {
-            "name": "Pavis",
-            "runes": ["earth", "stasis", "harmony", "man"],
-            "purpose": "Pavis is a “city cult.” Like most of them, it is essentially a worship of the founder of the city, with the belief that this worship reinforces the potency of the worshipper, without which the city will die. The cult draws worshippers from town residents. Most are principal worshippers of other gods, but worship at the Pavis temple as well to augment the city's strength. With the Orlanth agreement, Pavis became the patron god of Pavis Outside the Walls as well as in the Rubble, and the Sartarite colonists worship there as well as to their normal gods.",
-            "joining": {
-                "lay": "Anyone in the city can join the Cult of Pavis, even if they are also worshippers of other gods. Worship at city festivals is all that’s needed.",
-                "initiate": "All Initiates of this temple must have been born in Pavis or in Pavis Outside the Walls, and every Initiate must first have been a Lay Member. The applicant must be passed by the examiners of the cult, a board composed of all the priests of Pavis. The Examination of Initiation can be abstracted by rolling POW+CHA divided by 2 X 5 on D100 or less.",
-                "runelord": "The priests are desperate for proper Champions of Pavis. They will accept anyone with mastery of two weapons skills and any other three skills which will work to the benefit of cult and city. To convince the Examiners, the applicant must have a Power of 15, but otherwise must fulfill the requirements for an Initiate.",
-                "runepriest": "The applicant must be an Initiate with a Power of 18 and some ability to read and write Old Pavic or Old Wyrmish."
-            },
-            "restrictions": {
-                "lay": "Lay members are expected to support the city against invasion and lend a hand if the Temple needs repairs. They must sacrifice 1 point of POW per season in worship.",
-                "initiate": "The Initiate may worship only Pavis and friendly and associated gods. Every holy day the Initiate must temporarily sacrifice two points of Power to the god. If the temple is ever assailed, Initiates must defend it to the death. Initiates also may be called upon to quest for the cult and to bring back glory for the cult.",
-                "runelord": "The Champion of Pavis always remains within the Rubble or in Pavis Outside the Walls except when he is called by the cult and given missions for the glory of the city.",
-                "runepriest": "The priests of Pavis must stay within the city, spending all regard toward the welfare of the citizens. Of an ecumenical nature, the cult has no other special behavior restrictions."
-            },
-            "benefits": {
-                "lay": "Mostly, the cult serves as a social meeting place for people throughout the city, acting as a sort of “lodge” for consummation of business deals and organization of mutual welfare organizations.",
-                "initiate": "If there is room, Initiates may live in the temple. Temple Initiation gives a character some influence with the ruling council of Pavis. All Initiates of Pavis always can find the directions of the compass in Pavis Outside the Wall or in the Rubble.",
-                "runelord": "The Champion of Pavis is automatically Captain of the Pavis Survivors. This may be a figurehead post unless the Rune Lord’s skills include riding and horse archery, but the Survivors will train their captain in these skills. The Champion of Pavis also has a manor house for his residence.",
-                "runepriest": "Within the city of Pavis Outside the Wall, the Priests of Pavis are prestigious; the Council hears them automatically."
-            },
-            "spells": ["city harmony"]
+        "benefits": {
+          "lay": "The cult promises to protect its lay members while they are with their priest. They do not provide weapons, horses, money, or free aid to lay members.",
+          "initiate": "Initiates are provided food, weapons, magic, steeds, gold, and other favors from their priest.",
+          "runelord": "Rune Lords of Storm Bull are given great honor, freedom through all of Prax, iron armor and weapons by the cult if available, and freedom from allegience to any priest. They can always tell when a storm is approaching, and have a highly developed Sense Chaos ability.",
+          "runepriest": "Rune Priests are given honor, and are gifted once per year by the Kahn of the tribe which they originally left. This gift must be at least three beasts suitable for riding or eating, as specified by the priest, and the exchange of all damaged weapons from the Storm Bulls for as many repaired and whole weapons from the tribe."
         },
-
-        "yemalio": {
-            "name": "Yemalio",
-            "runes": ["light", "truth"],
-            "purpose": "The cult has continued its existence amid the hostile Storm worshippers because of the sacred pacts signed in mythical times wherein Orlanth and Yelm grudgingly admitted each other's right to live. The pact allowed certain minor air gods to be worshipped in sky-god territory and, conversely, some minor sky gods represent their element within storms. Such balance is, after all, necessary to maintain the cosmos.",
-            "joining": {
-                "lay": "Lay Membership is open to humans, elves, beast people, dragonewts, or griffins. Trolls and dwarves, creatures of Dark and underground, respectively, may not join. Humans and elves pay ten Lunars each time they join, but other races are required to pay 100 Lunars to become Lay Members, and so are not so often found in the cult.",
-                "initiate": "Lay Members who were born into residence in the temple area or who served two years with the temple mercenaries may become Initiates.",
-                "runelord": "Acceptance as a Light Son requires that the person have proved a loyal Initiate for at least four years. They must have at least 90% proficiency in Bow and one of these skills: Javelin, Listen, Spot Hidden, Large Shield, 1- or 2-Handed Spear, Move Silently, Sense Ambush. An Initiate also must know the battle magic spell Farsee, or have the power as a Yelmalio gift.",
-                "runepriest": "To become a Rune Priest, the candidate must have been an Initiate for at least five years and have an unstained record for that time. They also must know the battle magic spells Farsee (unless they have it as a gift from Yelmalio), Lightwall, and Xenohealing. They must take another Yelmalio gift, this time one of their own choosing, along with the requisite number of geases."
-            },
-            "restrictions": {
-                "lay": "Lay Members must without fail attend the regular weekly services on Fireday. Lay Members never befriend trolls or dwarves, always support the Truth in all they do, and suffer expulsion if discovered to be lying to the detriment of the cult.",
-                "initiate": "Initiates are required either to spend four days per week working for the cult, or work two weeks per season for the cult. The work period may not be spent in training. Initiates also must temporarily sacrifice two points of POW every holy day. It is insisted that Initiates of the Adventuring Path accept a gift and take on a geas.",
-                "runelord": "Every Light Son must own a gold spear worth at least 1,000 Lunars for ceremonial purposes, and are urged to own properly gilded spurs, helmet, and cuirass. On all Firedays Light Sons speak only in the cult tongue of Firespeech. No Light Son ever may sleep under a red blanket or ride upon a horse with a red saddle blanket, because red is the color of Fire.",
-                "runepriest": "Priests of this cult have heavy responsibilities, and so all their Dexterity-based skills will be reduced to DEX times 5, as normal."
-            },
-            "benefits": {
-                "lay": "Lay Members may farm, hunt, or live on lands owned by the cult. All buildings and livestock are also owned by the cult, though ownership of personal private property is respected.",
-                "initiate": "The temple provides further plots of cult land, ransom when necessary, and one set of armor and weapons for all Initiates free of charge. This includes a Scale armor hauberk, cuirboilli limb armor, and an open helm, plus two spears, a large shield, and a self bow.",
-                "runelord": "Light Sons receive one untrained war horse and gear, though they must purchase the horse's training and any replacements. They may pick three Initiates of the cult as their personal guards, and these three will attend the Light Son at all times and pay loyalty to him before all else, even before the High Priests or other priests of the cult.",
-                "runepriest": "Priests of the cult may take one pilgrimmage to the Golden Hill during their lifetime, unless they are on HeroQuest. If they find any of their god's crystals there, then they have the chance to receive a four-point Divine Intervention."
-            },
-            "spells": ["catseye", "sunbright", "cloud clear"]
-        }
+        "spells": ["defent against chaos", "face chaos"]
     },
 
-    "lightbringers": {
-
-        "issaries": {
-            "name": "Issaries",
-            "runes": ["mobility", "harmony", "issaries"],
-            "purpose": "The worshippers of this deity fulfill their appropriate functions in their societies. Among primitive societies the priests of “Spare Grain” are the individuals who deal with outsiders, thanks to their special language skills. The very existence of trade and exchange rests upon the skills of middlemen, and civilization could not exist without this exchange. Goldentongue provides long-distance communication between parts of the cult and, less directly, parts of the world.",
-            "joining": {
-                "lay": "To join the cult of Issaries as a Lay person only requires purchase of a statue of Issaries from another member of the cult of Initiate or Rune rank. Costs vary widely.",
-                "initiate": "Initiation is a prerequisite to becoming a full priest or Rune Lord, and also an assurance to shop-owners that their region will be protected by some higher magics. To join as an initiate will require previous Lay membership of at least one month, a fee of 100 Lunars, and convincing an examiner.",
-                "runelord": "To become a Rune Lord of the cult of Issaries one must first be an Initiate for at least a year, and be in good standing with his priest. Candidates must have a 90% ability in Tradetalk and Staff Fighting, plus three other abilities from this list: Spot Hidden, Oratory, Evaluate Treasure, Evaluate Trade Goods, Bargaining, up to two other languages, up to two other weapons.",
-                "runepriest": "Candidates for priesthood must have been an Initiate in good standing for at least one year and have Priest or Rune Lord as sponsor. They must have a POW of 18 and know their native language (Tradetalk) at 90%. They must also pass their examination."
-            },
-            "restrictions": {
-                "lay": "Remaining a member costs but one point of Power sacrificed per season, renewable of course. This will be done by reciting a simple prayer with the sacrifice, followed by some sort of business transaction.",
-                "initiate": "Initiates must vow to uphold the cult ideals and never to defile any other cult member's ground or market. They use only Tradetalk in cult functions. They do not have to report to a Priest or Rune Lord.",
-                "runelord": "Rune Lords of Issaries are obliged to go to the aid of any Issaries priest in trouble. They must also protect all their own followers with their own lives, if necessary. This is a formal obligation which may be temporarily hired by outsiders.",
-                "runepriest": "Priests of Issaries are never allowed to steal, except from someone who stole from them or from a being of chaos. They must always come to the aid of fellow cultists, except where such aid would greatly endanger them. They form their own opinion of the potential danger involved."
-            },
-            "benefits": {
-                "lay": "None to Lay members.",
-                "initiate": "An Initiate  will receive room, board, and one week of each five set aside for free training in a cult skill by their priest or lord. Initiates also may own their own shops.",
-                "runelord": "Rune Lords are allowed to hire themselves out as travelling guards to anyone who will meet their fees. Their clients must temporarily join the cult of Issaries for the duration of the employment. The Rune Lords may also hire Initiates for this task, and no priest is allowed to force his Initiates to stay if invited to go by a Rune Lord. Finally, they may initiate members into their cult at the rate of one per month.",
-                "runepriest": "Benefits for the Priests of Issaries are primarily those which their neutrality will bring: a presumed friendship with all whom they meet, a chance to trade with anyone who comes along, and few automatic enemies. They may also accept laypeople into the cult, and also initiate them, They are often hired to act as interpreters if no one else is about."
-            },
-            "spells": ["lock", "special lock", "create great market", "spell trading", "path watch", "create market"]
+    "waha": {
+        "name": "Waha",
+        "group": "barbarian_gods",
+        "runes": ["death", "beast", "man"],
+        "purpose": "The cult of Waha provides the basic life style and survival needs for the men of the animal nomads of Prax. It carefully explains what each man must do to survive, and determines the social order within the tribe.",
+        "joining": {
+            "lay": "Unless already chosen for another cult, all male barbarian children join as Lay Members as part of their puberty initiation. The cult is not open to women.",
+            "initiate": "Tribe members are Initiated after they have proved their warrior abilities to the tribe elders when the men are 20-25 years old or by proving themselves at a seasonal festival. Tribal warriors must have 50%+ ability in riding and in a tribal weapon, and know one spell.",
+            "runelord": "Rune Lords must have proven themselves, and not be proved murderers, robbers, or cowards. Candidates must provide their own iron armor and weapons. Candidates must have a 90% Ability with Riding and using their Tribal Weapon, and a 90% Ability in any three of these skills: Peaceful Cut, Another weapon, Shield, Tracking, Sense Ambush, or Oratory.",
+            "runepriest": "Membership in the priesthood requires that a person be of noble blood. Instead of knowing how to read and write his native tongue a candidate must have purchased the Beast-speech Rune Magic spell as an Initiate"
         },
-
-        "chalana_arroy": {
-            "name": "Chalana Arroy",
-            "runes": ["life", "harmony"],
-            "purpose": "As the goddess of Healing and Comfort, Chalana Arroy’s worship will continue until there is no need to heal anyone again.",
-            "joining": {
-                "lay": "Anyone with a sincere wish to heal may join the cult. The sincerity is checked with Divination.",
-                "initiate": "The candidate for Initiate status must have 90% ability with one of the Healing Arts, and pass the test given by the Priestesses. They need not have been a Lay Member before becoming an Initiate, as long as they swear to live by the dictates of the Cult on becoming Initiates.",
-                "runelord": "90% ability in the three Healing Arts, plus knowledge of Healing 6 as Battle Magic or Potion, and at least one Poison Antidote at the level of 20.",
-                "runepriest": "The Healer candidate must be an Initiate with a Power of 18."
-            },
-            "restrictions": {
-                "lay": "Lay Members must work at least as many hours for the temple or the individual healer to whom they apprentice as they do in learning skills from the temple or healer. Lay Members also must take an oath never to harm a living creature and to aid all within the limits of their ability. Lay Members must become vegetarians.",
-                "initiate": "The Initiate must teach the mastered skill to Lay Members and spend four hours a day on temple duties, i.e., healing or training, and meet other usual requirements.",
-                "runelord": "There are no further restrictions to the Status of Arroin Healer, since they are thoroughly restricted at Lay and Initiate level and those restrictions still apply.",
-                "runepriest": "The Healer Priest is expected to improve his skills up to the level of a Rune Lord, but is in no other way more restricted than the Rune Lord."
-            },
-            "benefits": {
-                "lay": "Lay Members will be healed by the temple for free and gain this privilege for family members as well.",
-                "initiate": "The Initiate is given room and board at the Temple, or any other Temple he may visit. They are known by the title of Nurse. They may receive 4 hours/day training free from the cult.",
-                "runelord": "The Chalana Arroy healer is inviolate in the eyes of most gods. Almost anyone harming a healer would be outcast from his cult unless he belonged to a Darkness or a chaos cult. Healers are welcome always at feasts and festivals and are much honored. Chalana Arroy cult spells work equally well on any creature, and need not distinguish between Healing and Xenohealing. For each year in the cult, Healers receive another 5% free training in Find Healing Plants.",
-                "runepriest": "The Healer Priest receives the same benefits as the Healer Lord."
-            },
-            "spells": ["Comfort Song", "Cure Brain Fever", "Cure Chaos Wound", "Cure Chills", "Cure Shakes", "Cure Wasting", "Heal Area", "Refine Medicine", " Cure All Disease", "Cure Soul Waste", "Heal Constitution", "Regrow Limb", "Resurrection"]
+        "restrictions": {
+            "lay": "All Lay Members of the cult must attend to the needs of the herds without stint of time, and this takes most of their time. On each holy day they sacrifice one point of Power to their god during a rope-tieing ceremony dedicated to Waha. Lay members are assigned to family-grouped warrior bands, following the orders of a  warrior-leader, who is an Initiate of the cult.",
+            "initiate": "Initiates must sacrifice two points of Power each holy day. They must follow every command from their chieftains and protect the Lay Members they lead from chaos and other dangers, to the point of sacrificing their lives.",
+            "runelord": "Rune Lords of Waha are required to celebrate High Holy Day with followers of the cult. They are not allowed ever to ride any steed but their own herd beasts. Once in his lifetime a Rune Lord must travel to the Marsh and kill a thing of chaos.",
+            "runepriest": "Once in their life, Rune Priests must make pilgrimmage to the Marsh and kill something of chaos. Rune Priests are responsible for the welfare of their followers, and must not do anything which will uselessly or foolishly endanger his wards."
         },
-
-        "lhankor_mhy": {
-            "name": "Lhankor Mhy",
-            "runes": ["truth", "stasis"],
-            "purpose": "The cult of Lhankor Mhy provides the same service to the Material Plane as its god does for the Spirit Plane. The Sages (as the priests and Rune Lords of the cult are called) provide information to all who will pay for it, whether in money or service. They also constantly quest for new information.",
-            "joining": {
-                "lay": "There are two forms of membership. Apprentices are young people who are apprenticed to the Sages to become scribes, historians, and other forms of clerks. They will be trained, paying for it with service to the cult. Worshippers are any people who come to the temple to worship and learn by paying for training.",
-                "initiate": "An Initiate to the Cult of Lhankor Mhy must be a Master (90%) of one of the Cult's Skills. Once tested by the Cult and accepted into Master status, he will automatically be accepted if he has been an Apprentice. If he has been only a worshipping Lay Member he must pass a test. This may be attempted once per game year.",
-                "runelord": "The Sage must be an Initiate, master of a Sage skill, and a master of four other skills which may be other Sage skills, weapon skills, or other skills taught by cult temples.",
-                "runepriest": "Rune Priests, as premier representatives of their god, must have a firm grasp of their subjects. They must meet at least three of these requirements: Read and Write Language other than their own, 90%; Identify Treasure, 90%; Map-Making, 90%; Orate, 75%; General Knowledge, 75%; brew Potency 10 poison or antidote."
-            },
-            "restrictions": {
-                "lay": "Continued Lay Membership involves continued dedication to studies. Apprentices must remain celibate and cloistered within the Temple. Normal worshippers have no restrictions on non-study hours. All Lay Members take a vow of Truth.",
-                "initiate": "An Initiate is required to voluntarily sacrifice 2 points of Power each Holy Day, Also, he must spend at least 1⁄2 of each year teaching and the rest of his time doing further research. All fees earned for teaching are split 30 - 70 with the Temple getting the 70.",
-                "runelord": "Temple Sage Lords must never mix into individual quarrels nor participate in wars. They must spend half their time teaching and pay 90% to the temple. They must never allow a repository of knowledge to be threatened and any items of importance to the gathering of knowledge must be acquired for the cult.",
-                "runepriest": "The Sage Priest must follow the same restrictions imposed on the Rune Lord of Lhankor Mhy. Furthermore, he is expected to give 3⁄4 of his time to teaching and research."
-            },
-            "benefits": {
-                "lay": "As membership implies the chance to study it is about the sole benefit given to Lay Members.",
-                "initiate": "Initiates of the Grey Lords have complete access to all cult libraries and instructors. They may also be assured of a season’s room and board at any temple.",
-                "runelord": "The major benefit of the status of Sage is the ability to increase one's skills beyond the 100% mark. However, they are much in demand as advisers.",
-                "runepriest": "Priests take formal precedence in all ceremonies, and are the most prized of advisors. However, they will only act as free-lance advisers and never permanently attach themself to any individual or government. In this way they have come to be known by their other name, the Brotherhood of Free Sages. The Sage Priest is also allowed to use the Evaluate Treasure skill on all items brought to the temple for evaluation. Of this income 90% must go to the temple, but the remainder does help brighten lives."
-            },
-            "spells": ["Analyze Magic", "Translate", "Knowledge", "Mind-Read", "Clairvoyance / Clairaudience", "Truespeak", "Reconstruction"]
+        "benefits": {
+            "lay": "Lay members of the cult of Waha are provided tribal weapons, clothes, and food by the cult. They may learn skills from their elders and priests.",
+            "initiate": "Initiates  are allowed to go on war parties and raids, and they may gain special powers through a heroquest. Initiates receive the third choice of portions from a slaughtered animal and a second choice of weapons from traders.",
+            "runelord": "A Rune Lord receives first choice of weapons from the traders, and shares the second portion of a slaughtered animal with the priests of the cult. Rune Lords are allowed to lead a chosen party of Initiates on independent missions away from the herds. Rune Lords who capture ten each of the herd beasts of the other four tribes will receive a blessing from their god. This takes the form of a Protection spell permanently cast upon their favorite riding animal, unlocking full intelligence.",
+            "runepriest": "As noblemen of the tribes the Rune Priests get second portions of slaughtered beasts. They receive all gifts from foreign travellers to distribute as they see fit. Their favorite riding animal will become their allied spirit, with unlocked intelligence and Protection cast over it."
         },
-
-        "orlanth": {
-            "name": "Orlanth",
-            "runes": ["air / storm", "mostion", "mastery"],
-            "purpose": "The general cosmological reasons for Orlanth's existence is the necessity of a god of the elemental Air. It provides a cult for wanderers and others willing to move outside of their rigid tribal or civilized hierarchies. In Prax, Orlanth provides an acceptable outlet for the dissidents who do not wish to follow the rigid role models of the Waha and Eiritha cults, yet wish to remain with the tribe.",
-            "joining": {
-                "lay": "Orlanth welcomes almost all beings who breathe air. Lay Members must have reached their maturity and must make the choice to join by their own free will.",
-                "initiate": "The prospective Initiate of Orlanth must have belonged to the cult for at least a year as a Lay Member, and must make a formal rejection of former cult ties and swear to devote himself “to the winds.” He must have a sponser who is already an Initiate. He must pass a test given by the Priest. The Priest may choose to take into account great deeds done for the god.",
-                "runelord": "Candidates for Wind Lord who fulfill the minimal requirements and have been Initiates for at least a year will be accepted by the priests almost automatically. Candidates may also attempt to become a Wind Lord even if they have not previously been Initiates. They must prove their sincerity, make a contribution of at least 1500 Lunars in cash or kind, and pass an exam. All candidates for Wind Lord must have 90% proficiency with any sword weapon, plus 90% proficiency with any four of this list: Another Weapon, Oratory, Riding, Climbing, Shield Parry, Mapping, Spot Hidden, Hide, Move Silently, and Storm Speech.",
-                "runepriest": "Priests of Orlanth Adventurous must be able to speak their native tongue and Storm Speech at least 80%, have a Power of 18 or more, and convince the examiners in the usual fashion. They must also have been Initiates for at least 2 years."
-            },
-            "restrictions": {
-                "lay": "Lay Members are required to  give three clacks, or some comparable foodstuff, to the priest at each worship. Lay Members are expected to act in accordance with the wishes of their priests and to come to the aid of the cult.",
-                "initiate": "Initiates must tithe 10% of their income, including income made while on leave. Initiates are required to spend at least six weeks a year aiding in the defense of their priest and in performing tasks for him. They are now bound to the cult likes and dislikes.",
-                "runelord": "Wind Lords have specific greetings and challenges they must meet followers of Yelmalio, Eiritha, and Chaos with. A Yelmalio follower must be riddled, a Eiritha priestess must be served, and a follower of Chaos must be slain.",
-                "runepriest": "Wind Voices must never fail to succor a member of his congregation nor fail to aid an Initiate of any Lightbringers cult. The same rivalries arise for Wind Voices as for Wind Lords, but the Wind Voices do not have the standardized challenges to go through. Their hatred of chaos, and the Lunar chaos connections, is intense and undisguised."
-            },
-            "benefits": {
-                "lay": "Because of the wandering nature of this cult there are rarely any board or food supplied by the cult. Ransom or liberating Lay Members is also not required of the cult.",
-                "initiate": "Initiates of Orlanth may receive room and board from any Orlanth temple, though not for a period of time beyond Windsday of the next Mobility week. They may demand assistance in combat from all Air Rune cultists, but if non-Orlanthians assist then the helpers may demand a price for it afterwards.",
-                "runelord": "A Wind Lord has the immense benefit of being called upon for many dangerous tasks and trying to outshine his contemporaries in feats of glory and prowess. He is the subject of awe, admiration and many poems. Iron weapons and armor are rarely available to present to a Wind Lord upon his accession to the rank. He may receive one piece of iron to mark his status, but it is often the first quest for the new Wind Lord to gain his whole regalia of iron accoutrements.",
-                "runepriest": "Wind Voices attached to tribes or clans are revered for having their exotic powers of Rune Magic normally unknown to the Waha pantheon. Although they have no official status in tribal affairs they are usually allowed to sit in on council meetings and voice their opinions to the elders. Priests are allowed to Initiate new members, as usual, and to keep the money given as part of their examination."
-            },
-            "spells": ["Telekinesis", "Guided Teleportation", "Teleportation"]
-        }
+        "spells": ["summon spirit of law"]
     },
 
-    "nonhuman_gods": {
-
-        "kyger_litor": {
-            "name": "Kyger Litor",
-            "runes": ["man", "darkness"],
-            "purpose": "Kyger Litor is the basic Ancestress of the races of trolls, and as such forms the root of all their beings. She is very popular with her children and so continues to exist. Also, she is one of the primary fighters against chaos. This fact is begrudged by humans and troll-haters, but undeniable. Her importance in this is enough to prompt an occasional human to join.",
-            "joining": {
-                "lay": "Lay Membership is granted to all trolls and trollkin who reach their fifth birthday without dying. They remain Lay Members until they attain status to become Initiates. Non-trolls may join the cult, but to become even a Lay Member they must pass an examination which is the same as that of becoming a Rune Lord. Remember that CHA is reduced for being a foreign species. A non-troll passing this exam will undergo a ritual rebirth ceremony and afterwards be addressed as a troll by cult members. They will have no more special exams other than those required of all members.",
-                "initiate": "Candidates for Initiation must know one weapon at least 40%, a weapon or shield parry at least 40%, speak Darktongue at 80%+, and have POW of 10 or more. The POW requirement effectively denies initiation to most trollkin. Candidates must take a pro forma examination by a priest; passing marks are automatic unless the member has performed hostile or questionable acts. Initiation is thus a matter of course for most dark trolls of 14 years or more.",
-                "runelord": "To become a Rune Lord a member must have been an Initiate for at least one full year. They must know Darktongue at 80%. They must also have at least 90% in two weapons plus a weapon or shield parry, and have at least 90% in any two of these skills: Climbing, Jumping, Set Trap, Listen, Ambush, or Camouflage. They must also meet other normal requirements.",
-                "runepriest": "Candidates must meet the normal requirements. Their language is Darktongue, an ancient tongue with a history of written documentation from before the Darkness. Candidates must have been Initiates for at least 2 years. They must also know Mindspeech."
-            },
-            "restrictions": {
-                "lay": "Remaining a member of the cult requires that the person attend at least the seasonal services, and sacrifice one point of POW to Kyger Litor at that time. Attendance on weekly Darkday services other than the seasonal holy days is not required, but is urged and usually gains favor from the priestesses.",
-                "initiate": "Initiates are required to recite a grumbling prayer (learned as part of their Initiation rites) each Darkday at dawn and therein sacrifice a point of Power to their Goddess. Initiates must obey the instructions and rules of their priestesses. They must also follow the Kyger Litor hatred of all things of chaos, and work for its destruction. They must join the militia. Initiates must devour some form of vegetation each week; they must tithe 10% to their priestess.",
-                "runelord": "Rune Lords of Kyger Litor are not allowed to speak directly with Trollkin, and require underlings to act as intermediaries. They must ritually eat a large quantity of some vegetable matter. (Elves are considered vegetable matter.) On each seasonal Holy Day a Rune Lord must eat a relative. (This can be a trollkin.) Rune Lords cannot sleep under a roof while their people are at war. They can not pass by a herd of sheep or pigs without trying to kill one to give to their Priests. They cannot have only one spouse, but must marry two at a time, and neither of them can be a priestess of Kyger Litor, but one can be a priestess of an associated, friendly, or neutral cult. Rune Lords must always let a musician finish a song or tune before he praises or condemns it. (Kyger Litor loves music.) Rune Lords must own slaves (to show the superiority of trolls) and are urged to own non-troll slaves. Rune Lords must hunt down one meal per season for themselves and their close family. They must personally kill and bring one deer, pig, horse, elf, or other appropriate food gift to their local High Priest once each week. Rune Lords favor black clothing, but are allowed to trim or decorate it as they wish. They must never travel about unarmed, even in their own dwelling.",
-                "runepriest": "that they make no compromises in maintaining the cult needs, likes, and dislikes. Also, they must accept responsibility for their followers' welfare, and provide them leadership. Even a troll populace will accept only limited tyranny. Their DEX-based skills are limited to DEX times 5 as a percentage, as with most priests."
-            },
-            "benefits": {
-                "lay": "The cult owes no mundane benefits to its Lay Members.",
-                "initiate": "Initiates operate on a working relationship with their priestesses similiar to that of all warriors to their chieftains. Favored Initiates will receive whatever they can earn or get by cheating. The best Initiates will be chosen for the personal band of the priestess and receive full board, armor, weapons, and training. Others, less fervent in their religion, will receive round-headed maces, medium shields, and a minimal militia training.",
-                "runelord": "Rune Lords will be given a set of magically smithed lead armor upon attaining their status. This is equal to good bronze in point absorption and Encumberance. Expensive sets of armor are available, set with jewels and sculpture. Even non-troll lords use this and not iron, which trolls cannot touch. Rune Lords will normally bind their allied spirits into their weapons. Hafted weapons can be made of lead and treated too, so they will break less easily, giving 5 additional damage points. Rune Lords have the honor of leading armies in battle, and of leading small parties on specialized missions. Even priests must defer to their command when in the field with them. Rune Lords may sponsor Troll Ball teams in their own names. Even in peacetime, Rune Lords are respected and honored members of the community. They live in the temples of the cult and may treat them as their own homes. Rune Lords may choose a number of Initiates to be their personal bodyguard and household troops. The number depends on the fame of the selecting Lord and the willingness of those selected. Most Lords prefer to have a smaller body of experts rather than a colorful parade-ground platoon. Rune Lords determine the disposition of spoils after a battle.",
-                "runepriest": "Priestesses are allowed to extract as much as they can from their followers, and are treated with all the dignity and honor of the community. They have earned the right of speaking for their followers in higher councils, or with outsiders. This dealing with outsiders includes trade benefits, diplomatic missions, and so on. All Rune Priestesses are given a giant beetle to act as their watch creature and receive their allied spirit."
-            },
-            "spells": ["darksee", "blinding", "counter chaos"]
+    "eiritha": {
+        "name": "Eiritha",
+        "group": "barbarian_gods",
+        "runes": ["beast", "fertility"],
+        "purpose": "The people of Prax are utterly dependent upon the goddess Eiritha for their daily existence upon the bleak plains. She is the source of all their daily goods, for the people are unable to extract the requirements for survival from the region, but the beast-daughters of the cult can. To be cursed or exiled by the goddess means death, unless the victim is able to flee the plains.",
+        "joining": {
+            "lay": "All people are Lay members of the cult if they live with the tribe. Outsiders may be allowed in the worship, but they must join by paying two cattle, its cost equivalent, or otherwise satisfy the priestess presiding and show that they are sincere and friendly.",
+            "initiate": "Initiate membership requires that a person have been a Lay Member in good standing and be a female member of the tribe.",
+            "runelord": "Herd Sisters must have a 90% skill in these: Find Water, Find Cattle Food, and Riding. They must also have two of these skills: Any 1-hand axe weapon, Understand Beast-talk, Read Own Language, Spot Trap, Spot Hidden, First Aid, Treat Disease. Also, each 3 points of Xenohealing may be substituted for one of the optional skills.",
+            "runepriest": "Priestesses must be women. There is no literacy requirement, but instead they must know Beast-speech at 90%. Other requirements are as normal."
         },
-
-        "zorak_zoran": {
-            "name": "Zorak Zoran",
-            "runes": ["death"],
-            "purpose": "Zorak Zoran is the mindless explosion of fear and frenzy against both order and chaos which finds its only justification and satisfaction in unlimited violence. As much as the rest of the world might regret it, this entity is one which helped save the world and whose powers may be needed again. He is part of the Cosmic Balance.",
-            "joining": {
-                "lay": "Dark trolls, great trolls, Mistress Race trolls, men, dragonewts, beast men, and baboons all are welcome to join this cult. Only exceptional trollkin are permitted. Elves and Dwarves are forbidden, as are all creatures tainted with chaos, including cave trolls and ogres. To join, the Lay Member must pass a test which is abstracted for game purposes by a roll of (1⁄2STR + 1⁄2CON) times 5 on D100, or less.",
-                "initiate": "A prospective Initiate must be at least 75% in one of the weapons skills and one of the non-weapons skills shown above. They also must be ready to be promoted to an NCO position within their company, which is abstracted here by rolling 1⁄2CHA + 1⁄2STR times 5 or less on D100.",
-                "runelord": "A Zorak Zoran Death Lord must be at least 90% with Mace and have Charisma of 14 or better, though an Oratory of 90%+ may be substituted for the Charisma. They also must have three of the following skills: Brew Blade Venom 10, be 90% with blunt missile (Sling or Thrown Rock), Shield Parry, Set Ambush, some other weapon, or 90% Riding. Riding is usually substituted by non-troll members, since most trolls dislike to ride. To be formally accepted as a Death Lord, the Initiate must make a roll of STR + CHA + 1 per 100 Lunars contributed, divided by 3, then multiplied by 5 on D100, or less. The Initiate must have a minimum POW of 15.",
-                "runepriest": "A Death Priest candidate must satisfy the usual criteria for priests, including the ability to Read and Write Darktongue 80%. This last must be learned at a Kyger Litor temple, so no price reduction is possible. A Death Priest candidate must have been an Initiate for at least four years."
-            },
-            "restrictions": {
-                "lay": "Lay Members must join the company of a particular priest or lord and be ready to fight with him if called. A member is expected to have and maintain a mace, a maul, and a sling. He also must have a month’s rations ready to take with him at a moment’s notice. Lay Members are expected to sacrifice the normal one point of POW each holy day, and to make an offering of kind or money on Darkday of each week.",
-                "initiate": "The Initiates is expected to sacrifice two points of POW each holy day, and one point each Darkday. The Initiate may act as an NCO for his company and be on call for special missions. He also is obliged to work bodyguard details and generally protect the community.",
-                "runelord": "The Death Lord must look to the welfare of any followers (as long as they can follow), and never to retreat in the face of a foe unless so commanded. They must never willingly cooperate with Aldrya, Humakt, Mostal, Orlanth, or Yelmalio worshippers, and (at least) refuse to deal with any Lunar worshippers they meet. Further, no troll may use iron, and so Death Lords of the cult wear lead magically treated to have the qualities of bronze, even if they are not trolls.",
-                "runepriest": "Death Priest restrictions are identical to Death Lord restrictions."
-            },
-            "benefits": {
-                "lay": "Each Lay Member may live in an enclave of the temple which is fortified and guarded day and night. His dependents also are taken care of in these enclaves, even if they are trollkin. A once-per-week market lets worshippers obtain supplies at reduced rates. The market usually is run by a Death Priest special company member.",
-                "initiate": "The Initiate has the same privileges of the enclave and the weekly market as does the Lay Member.",
-                "runelord": "The Death Lord’s company attends their commander. The Death Lord receives a tithe of the proceeds of the company’s market. The company always will protect its Death Lord. Death Lords may sponsor Troll Ball teams.",
-                "runepriest": "Death Priests enjoy the same benefits as do Death Lords."
-            },
-            "spells": ["create ghost", "create skeleton", "crush", "fear", "seal wound", "berseker", "create zombie", "sever spirit"]
+        "restrictions": {
+            "lay": "Membership in the cult is permanent for all Lay members unless they are outlawed. They must also worship each week with the cult and maintain the cult prejudices.",
+            "initiate": "Membership in the cult is permanent for all Initiate members unless they are outlawed. They must also worship each week with the cult and maintain the cult prejudices.",
+            "runelord": "Herd Sisters have only the usual restrictions on their status.",
+            "runepriest": "The restrictions are the same as those of the Initiates, but there is a strict prohibition against using any weapons other than axes or knives. Also, they may not use any weapons magic. Offensive spells are allowed."
         },
-
-        "aldrya": {
-            "name": "Aldrya",
-            "runes": ["plant", "earth", "fertility"],
-            "purpose": "This is the cult of growing and fertile vegetable life whose continued existence helps secure the world for all life. Without the worship provided by these beings for their plants the life would wither and die. This is the ancestral cult for the sentient and nonsentient Aldryami races.",
-            "joining": {
-                "lay": "All Elves, Dryads, Runners, and Pixies are automatically members of this cult upon birth. As they grow older they learn skills and magics appropriate to their types. This is part of their everyday life and there is, of course, no charge for natural training. The costs included in this chapter are those which outsiders must pay to learn after they have joined, which is a rare event. It should be noted that most Runners and Pixies never develop beyond this Lay Member stage. It is called the Children of the Forest Cult at times. Beastmen, dragonewts, ducks, and humans may sometimes join. They must pass the Gardeners’ examination, who will also make sure, through Divination, that the foreigner has no ill intents in mind or heart. The examination may be abstracted as POW + CHA divided by 2 X 5 on D100. CHA is always minus 10 for non-Aldryami races. Other races are not allowed to join.",
-                "initiate": "Candidates for Initiation must prove themselves to be ready for adulthood in the tribe. They must have been Lay Members for at least 2 years (for outsiders) and know all of the skills listed for Lay Members at least 50%, plus at least 1 point of all three spells. They also must prove themselves to the council of Elders. This is done by making a roll of POW + INT + CHA divided by 2 X 5 on D100. Note that non-Aldryami races must subtract 10 from their CHA for being from a foreign race. After Initiation, though, they will always measure their CHA as if they were an elf, and will have the penalty when using CHA in relation to non-Aldryami. Candidates for Initiation must choose to join either Elder Sister or Elf cult. Both are open to any Initiate, but Elder Sister also requires a special empathy for plants inherent in dryads. This empathy is found often also in female elves, occasionally in male elves, beastmen, and dragonewts, and but rarely in any human.",
-                "runelord": "Candidates must have been Initiates for at least five years and served in the Marching Aldryami for at least three years. He must have proved himself capable of command in the elf army. He must Read and Write Aldryami at least 50%. He also must have at least 90% ability in five of these skills: Elf Bow, Set Ambush, Spot Hidden, Set Snares/Traps, Move Silently, or any hand weapon. They must also have 15 points of POW and know Extinguish, Detect Detection, Multimissile, and Healing 6.",
-                "runepriest": "Candidates must have been Initiates for a least five years. They must have a Power of at least 18. They must be able to read and write Aldryami at 80% or more. They must know Extinguish, and either Detect Life or Harmonize. They must pass an exam before the Gardener Council which can be abstracted to be POW X 5 on D100. (A roll of 96-00 always means rejection. Candidates will then become either Renegade or Rootless Elves.)"
-            },
-            "restrictions": {
-                "lay": "Lay Membership requires the usual worship requirements. Lay Members must always report whenever they see someone doing damage to the woods and obey the commands of their cult leaders.",
-                "initiate": {
-                    "elder_sister": "Initiation of Dryads commonly occurs between the tenth and seventeenth years after their awakening. Elder Sister Initiates must bind themselves to the linking them directly to their goddess' subconscious urges, and spirit of Aldrya. This has immense effect on the individuals by their daily lives are at unity with their nature. This spiritual contact also forces the deciduous tree dryads into the same seasonal cycle as Aldrya. They will sleep all winter, wake in the spring for a full summer life, and fall asleep again the autumn so their souls can rest in the Underworld. Plants which do not lie dormant for part of the season are not subject to the variations. This includes Evergreens and jungle plants. Non-dryads of this cult have several options open to them. They may occasionally inherit a tree from a dryad who died in some way or another, thereby preserving the tree's life. More often, though, they form a wandering priesthood which moves through the woods as the Spirit of Aldrya moves them. They go where they feel needed, and are called Wandering Dryads. Elder Sister Initiates must undertake to learn one point of battle magic spells per summer, and try to go up 5% in two cult abilities per year. They must also sacrifice at least 2 points of battle magic power per week in worship. It is characteristic for dryads of most types of trees to use more than the minimal amount of power for worship, and to expend it more often in worship than necessary. They are often very active and vital beings, but find it difficult or tedious to meet their minimal learning requirements.",
-                    "elf_cult": "Initiates of the Elf Cult must take a working part in the elf society. They leave their parents’ care, though they will always be a part of the same family and clan obligations, and may enter into any elf occupation available. One obligation of all Elves is to serve in the defense of the forest. If they ever fail in answering the call to duty they will all suffer the same loss as the forest. This may take years to accomplish, but it is sure. Stories still are told of the renegade elves of the Moon Bow Legion who stood aside when the Lunars set the might Moonburn upon the great forest of Rist. Every elf and man of the legion died in flames within five years. Elf Cult members must sacrifice two points of power per Holy Day in worship."
-                },
-                "runelord": "Wood Lords must never eat meat (Aldryami never do, in any case) and must never kill except in defense of themselves and their woods. Destroyers of growing things must be eliminated at their source, and Wood Lords are the ones who lead such expeditions forth. The perversion of life called Undead must be smitten wherever found. After accepting their status they must spend spring through fall season in training before they are ready for service. At this time their skills will have increased 5%.",
-                "runepriest": "Priests and priestesses both are eligible to be summoned to the emergency defense of the forest. They form magical battalions in such times under the direction of Elf Priests who know the appropriate magic. Priests and priestesses judge disputes between their followers. They must learn Tradetalk to at least 50%. (This is known by some elves at all times, learned long ago from Issaries and passed down from generation to generation of Tradetalkers.) They must be foremost in dealing with outsiders, and never fear to go to the aid of their kin or kind."
-            },
-            "benefits": {
-                "lay": "All Aldryami are taught how to find water in wooded areas, passwords and signs to guide them through Aldryami areas, and how to tell their direction. Lay Members also receive protection and a sustenance from their community.",
-                "initiate": {
-                    "elder_sister": "The Initiate of Elder Sister will always be able to find food or water in a forest. They will always be alive and healthy as long as their tree is too. They will always be aware of their goddess' natural desires and act accordingly.",
-                    "elf_cult": "Initiates of the Elf Cult can always find food and water in a forest, even if it is winter. Also, once per week, they can find a flower, any time and any place. They receive the comfort and safety of the elf tribe, and healing by their fellows when they need it. Also, every elf receives his Elf seed. This will be planted on his initiation day and, in one year, will be ready for harvesting and finishing to become a fabled Elf Bow. It will take another year to finish, and each new Initiate must dedicate one week each season to making it. In two full years it will be done. Only the maker of such a bow can use it. If another race takes it in hand it will become brittle and dead. Even other elves cannot use its full potency, but can use it as a normal Self Bow. Elf Bow specifications are: Range 120m., Power of storage 2D6+2. The bow’s range is halved in the woods. Elves will have only one bow at a time. They must begin anew if theirs is broken and take two years to make a new one. Non-elves cannot do this as naturally as the woodborn elves. If such members wish such a bow they must spend a Rune point of permanent Power to do so, under the guidance of their local Tree Lord, and requiring four years total. All Initiates receive leather armor, a small shield, and a spear and shortsword for free."
-                },
-                "runelord": "A Wood Lord is welcomed and will be fed, healed, and sheltered in any elf woods or Sun Dome Temple. Elder Sisters always will share their better wares with Tree Lords on holy days. Wood Lords traditionally receive their favored weapons and a magically-tempered suit of copper armor, both of which have the properties of bronze. (Elves never may touch iron.) Wood Lords receive an allied spirit ‘awakened’ in their elf bow. The ally has normal spirit statistics. It may, if its Power is high enough, become a priest of the cult. They may also attempt to gain Gardener status.",
-                "runepriest": "Communion Of The Tree is the largest single benefit to priests. This is an empathic connection with Aldrya which always works while they are in any woods, even those not ordinarily elf-guarded. (It does not work in orchards.) This bouys them up in adversity and guards them against all these spells: Befuddle, Demoralize, Fanaticism, and Zorak Zoran’s Fear spell, by letting them defend against those spells as if their current Power were doubled in value, Priests and priestesses are allowed to see the Great Tree of the forest, and to take part in rituals with it. They may try also to attain Gardener status. Priests receive an allied spirit, which must be placed in a staff. This may be shod in special copper to do double damage, and priests may learn to use it as a weapon. Dryad priestesses receive allied spirits and bind them into their home tree to guard it and serve as a source of communication while they are gone. Priestess dryads are thus very mobile, and they may join the wandering dryads to lead the non-human Initiates and teach them. Priests and priestesses may receive leather armor when consecrated, and also a copper (5-point) helmet. Priests and priestesses may attempt to become High Priests and High Priestesses by proving themselves over the years to their comrades and communities by deeds of pro- tection and preservation. They will become Chief Priests before they become High Priests."
-            },
-            "spells": ["accelerate growth", "plant eye", "arrow trance", "create warrior of wood", "silence", "tanglethicket", "sunripen", "chameleon", "heal body"]
+        "benefits": {
+            "lay": "As a result of Lay membership the peoples may partake of the gifts of the goddess. This means that they have food, clothing, and the tools and implements made from the bodies of the beasts.",
+            "initiate": "As a result of Initiate membership the peoples may partake of the gifts of the goddess. This means that they have food, clothing, and the tools and implements made from the bodies of the beasts.",
+            "runelord": "The benefits of being a Herd Sister of the cult are that the person is accorded priority over all members of the tribe in gift-receiving except the kahns and priestesses, and maintain whatever status they may personally acquire.",
+            "runepriest": "Priestesses receive the first choice of any portions of a slaughtered animal. They receive great status among their tribes as well, and all social benefits thereby granted."
         },
+        "spells": ["bless animals", "speak to beast"]
+    },
 
+    "humakt": {
+        "name": "Humakt",
+        "group": "invader_deities",
+        "runes": ["death", "truth"],
+        "purpose": "As the god of soldiers, Humakt has a permanent place in the godly ranks of any religion. Priests act as trainers and chaplins for mercenary and national forces, and their Rune Lords are the first asked to lead perilous quests, unless subtlety will be called for. Temples are also used as hiring halls in many regions.",
+        "joining": {
+            "lay": "Humakt welcomes all races as long as they are warriors and will swear to keep discipline and uphold the Humakt Code of fair play and honor.",
+            "initiate": "Lay Members who have shown true dedication to the ideal and cult of Humakt may be invited to become Initiates of the cult. An Initiate must have a sponsor who is already an Initiate and a battle comrade of the candidate. He must also pass a test which is abstracted for the game by rolling on D100 the formula CHA x 5 + % to hit with Sword, divided by 2.",
+            "runelord": "A candidate for Sword of Humakt must have been an Initiate in the cult for at least two years. The candidate must have 90% skill in at least five of the following skills. At least three skills must be with weapons. Broadsword, Riding, Greatsword, Spot Hidden, Shortsword, Camouflage, Rapier, Detect Assassin, Epee, Armoring/Weapon Making, Dagger, First Aid, Dagger Throwing, Treat Poison, Oratory, Shield Parry, The candidate must also have a Power of 15 or, greater and convince the Examining Council of the cult and the god with a 1D100 roll of (POW + CHA) X 5, divided by 2.",
+            "runepriest": "Candidates must have spent two years or more as an Initiate of the cult, and must convince the Examining Council. Rune Priest Examiners will take contributions to the cult treasury into account. Literacy is not required."
+        },
+        "restrictions": {
+            "lay": "Lay Members are expected to tithe ten percent of their current silver every cult holy day and give up the usual point of Power when they worship. They must uphold the Code of Humakt, 1. always fighting other Humakt members fairly, 2. honoring the fallen, and 3. maintaining strict truth and confidence with one another.",
+            "initiate": "Once accepted, the Initiate must take a Humakt gift(s) and accept a Humakt geas per gift. The Initiate (often called a “Swordbrother/sister”) must also sacrifice two points of POW every holy day. They often are in demand as bodyguards against assassination.",
+            "runelord": "A Rune Lord must personify honor and fair combat in his every deed, upholding the meek and protecting the oppressed. He must never turn his back on a fair fight in a good cause and never break a sworn vow.",
+            "runepriest": "Humakt Rune Priests must serve time as chaplains to regiments and Temple business. However, they continue training in skills hallowed to their god as a form of worship."
+        },
+        "benefits": {
+            "lay": "The Humakt temple maintains good relations with the Arroin cult, so that its members can be assured of first aid for their battle wounds. Members can occasionally call on the Temple for room and board.",
+            "initiate": "Initiates get first call on all Sargent positions within the Temple, lead other members in devotions, always have healing, room, and board arranged, and will be ransomed or rescued if captured. A cult member will never be called back from the dead in any way, not even as a skeleton or zombie.",
+            "runelord": "the Sword of Humakt attains an Allied Spirit (which is always put into an iron sword), iron armor (if available to the Temple), support of his Power so that he will be able to fend off magical attack, and Divine Intervention on call. The Rune Lord of Humakt must also take unto himself at least one more gift and its attendant geas(es). A Rune Lord of Humakt may become a Rune Priest any time he meets the Power requirements, with no reduction of fighting ability.",
+            "runepriest": "A new Priest must take one new gift of his choice and its geases. A Humakt Sword Priest always has a place in any council of war, and has a claim second only to a Sword in taking any tactical command. Humakt-worshipping soldiers will always see that the Priest gets fed on the march."
+        },
+        "spells": ["bind ghosts", "detect truth", "turn undead", "truesword", "morale", "oath", "sever spirit"]
+    },
+
+    "the_seven_mothers": {
+        "name": "The Seven Mothers",
+        "group": "invader_deities",
+        "runes": ["lunar", "life / fertility", "death"],
+        "purpose": "The Seven Mothers is the guardian cult of the borderlands, and is an official state cult responsible for keeping foes of the Empire out and admitting friends of the Empire. In the former mode, the cult has a warrior subcult, terrible in its fury. In the latter mode is a teacher subcult whose mission is to educate those wanting to meet the greater Red Goddess.",
+        "joining": {
+            "lay": "There are no racial, birth, or ability requirements. Lay Members must rejoin every Full Moon by telling the priestess of their desire to join. However, a member can ask to be placed on a list that lasts for 5 years instead.",
+            "initiate": "Candidates for initiation must be in good standing and have been Lay Members for a total of 49 weeks, the last three of the weeks consecutively and at the temple. They will be quizzed about the basics of the religion, on their attitudes, expectations, and intentions.",
+            "runelord": "Rune Lords of the cult are required to have been Initiates in good standing with the cult for at least one full year and to have served in the temple regiment for at least one year (these may be concurrent). Rune Lords must also have a 90% or better skill in two of the following: Mounted Lance, Spear, Scimitar, or Shield Parry. They must have 90% ability in three of the following: Riding, Read and Write Lunar, Map-Making, Climbing, Listening, Spot Hidden, Camouflage, Tracking, Move Quietly, or General Knowledge. They must have a minimum of 50% in all of these abilities: Riding, Oratory, Spot Hidden. They also must pass the test of the examiners.",
+            "runepriest": "Rune Priest candidates must have been Initiates for at least one full year and otherwise meet standard requirements as in RuneQuest."
+        },
+        "restrictions": {
+            "lay": "There are no unusual requirements in remaining a Lay Member of the cult.",
+            "initiate": "Initiates must serve one week per month in active duty for the temple. Initiates should attend regular weekly services if at all possible, and if not possible they should meditate and sacrifice privately.",
+            "runelord": "The Rune Lord must spend an average of five-sevenths of their time on cult business. The other two-sevenths is free time.",
+            "runepriest": "The greatest restriction placed upon Lunar Priests is the cyclical nature of their Rune Magic. Priests do not consider this a weakness but a great honor to be so bound to their goddess’ nature."
+        },
+        "benefits": {
+            "lay": "Members may partake of the Poor Fund at any time, and also be allowed to sleep under the roof of the Outer Temple. Also, Lay Members can purchase healing for themselves or their friends from priestesses at the cult temple.",
+            "initiate": "All Lay benefits are available. Initiates also are allowed to join special units in the regular Lunar army.",
+            "runelord": "Upon acceptance, a Rune Lord will receive a free iron helmet, breastplate, and greaves, plus an iron-bound shield and two iron weapons. Rune Lords of any Lunar Cult are generally welcome at any other Lunar Temple. They wield considerable influence among all Lunarites. They may join any other Lunar cult as an Initiate.",
+            "runepriest": "Rune Priests of the cult are allowed two weeks per season of freedom to do as they wish, and they are also given an average of one day per week off-duty. This 'vacation time' may be accumulated gradually if circumstances allow. They always receive free room and board at any Lunar cult."
+        },
+        "spells": ["summon small lune", "summon small elemental", "summon medium lune", "madness", "mind blast", "summon large lune"]
+    },
+
+    "pavis": {
+        "name": "Pavis",
+        "group": "invader_deities",
+        "runes": ["earth", "stasis", "harmony", "man"],
+        "purpose": "Pavis is a “city cult.” Like most of them, it is essentially a worship of the founder of the city, with the belief that this worship reinforces the potency of the worshipper, without which the city will die. The cult draws worshippers from town residents. Most are principal worshippers of other gods, but worship at the Pavis temple as well to augment the city's strength. With the Orlanth agreement, Pavis became the patron god of Pavis Outside the Walls as well as in the Rubble, and the Sartarite colonists worship there as well as to their normal gods.",
+        "joining": {
+            "lay": "Anyone in the city can join the Cult of Pavis, even if they are also worshippers of other gods. Worship at city festivals is all that’s needed.",
+            "initiate": "All Initiates of this temple must have been born in Pavis or in Pavis Outside the Walls, and every Initiate must first have been a Lay Member. The applicant must be passed by the examiners of the cult, a board composed of all the priests of Pavis. The Examination of Initiation can be abstracted by rolling POW+CHA divided by 2 X 5 on D100 or less.",
+            "runelord": "The priests are desperate for proper Champions of Pavis. They will accept anyone with mastery of two weapons skills and any other three skills which will work to the benefit of cult and city. To convince the Examiners, the applicant must have a Power of 15, but otherwise must fulfill the requirements for an Initiate.",
+            "runepriest": "The applicant must be an Initiate with a Power of 18 and some ability to read and write Old Pavic or Old Wyrmish."
+        },
+        "restrictions": {
+            "lay": "Lay members are expected to support the city against invasion and lend a hand if the Temple needs repairs. They must sacrifice 1 point of POW per season in worship.",
+            "initiate": "The Initiate may worship only Pavis and friendly and associated gods. Every holy day the Initiate must temporarily sacrifice two points of Power to the god. If the temple is ever assailed, Initiates must defend it to the death. Initiates also may be called upon to quest for the cult and to bring back glory for the cult.",
+            "runelord": "The Champion of Pavis always remains within the Rubble or in Pavis Outside the Walls except when he is called by the cult and given missions for the glory of the city.",
+            "runepriest": "The priests of Pavis must stay within the city, spending all regard toward the welfare of the citizens. Of an ecumenical nature, the cult has no other special behavior restrictions."
+        },
+        "benefits": {
+            "lay": "Mostly, the cult serves as a social meeting place for people throughout the city, acting as a sort of “lodge” for consummation of business deals and organization of mutual welfare organizations.",
+            "initiate": "If there is room, Initiates may live in the temple. Temple Initiation gives a character some influence with the ruling council of Pavis. All Initiates of Pavis always can find the directions of the compass in Pavis Outside the Wall or in the Rubble.",
+            "runelord": "The Champion of Pavis is automatically Captain of the Pavis Survivors. This may be a figurehead post unless the Rune Lord’s skills include riding and horse archery, but the Survivors will train their captain in these skills. The Champion of Pavis also has a manor house for his residence.",
+            "runepriest": "Within the city of Pavis Outside the Wall, the Priests of Pavis are prestigious; the Council hears them automatically."
+        },
+        "spells": ["city harmony"]
+    },
+
+    "yemalio": {
+        "name": "Yemalio",
+        "group": "invader_deities",
+        "runes": ["light", "truth"],
+        "purpose": "The cult has continued its existence amid the hostile Storm worshippers because of the sacred pacts signed in mythical times wherein Orlanth and Yelm grudgingly admitted each other's right to live. The pact allowed certain minor air gods to be worshipped in sky-god territory and, conversely, some minor sky gods represent their element within storms. Such balance is, after all, necessary to maintain the cosmos.",
+        "joining": {
+            "lay": "Lay Membership is open to humans, elves, beast people, dragonewts, or griffins. Trolls and dwarves, creatures of Dark and underground, respectively, may not join. Humans and elves pay ten Lunars each time they join, but other races are required to pay 100 Lunars to become Lay Members, and so are not so often found in the cult.",
+            "initiate": "Lay Members who were born into residence in the temple area or who served two years with the temple mercenaries may become Initiates.",
+            "runelord": "Acceptance as a Light Son requires that the person have proved a loyal Initiate for at least four years. They must have at least 90% proficiency in Bow and one of these skills: Javelin, Listen, Spot Hidden, Large Shield, 1- or 2-Handed Spear, Move Silently, Sense Ambush. An Initiate also must know the battle magic spell Farsee, or have the power as a Yelmalio gift.",
+            "runepriest": "To become a Rune Priest, the candidate must have been an Initiate for at least five years and have an unstained record for that time. They also must know the battle magic spells Farsee (unless they have it as a gift from Yelmalio), Lightwall, and Xenohealing. They must take another Yelmalio gift, this time one of their own choosing, along with the requisite number of geases."
+        },
+        "restrictions": {
+            "lay": "Lay Members must without fail attend the regular weekly services on Fireday. Lay Members never befriend trolls or dwarves, always support the Truth in all they do, and suffer expulsion if discovered to be lying to the detriment of the cult.",
+            "initiate": "Initiates are required either to spend four days per week working for the cult, or work two weeks per season for the cult. The work period may not be spent in training. Initiates also must temporarily sacrifice two points of POW every holy day. It is insisted that Initiates of the Adventuring Path accept a gift and take on a geas.",
+            "runelord": "Every Light Son must own a gold spear worth at least 1,000 Lunars for ceremonial purposes, and are urged to own properly gilded spurs, helmet, and cuirass. On all Firedays Light Sons speak only in the cult tongue of Firespeech. No Light Son ever may sleep under a red blanket or ride upon a horse with a red saddle blanket, because red is the color of Fire.",
+            "runepriest": "Priests of this cult have heavy responsibilities, and so all their Dexterity-based skills will be reduced to DEX times 5, as normal."
+        },
+        "benefits": {
+            "lay": "Lay Members may farm, hunt, or live on lands owned by the cult. All buildings and livestock are also owned by the cult, though ownership of personal private property is respected.",
+            "initiate": "The temple provides further plots of cult land, ransom when necessary, and one set of armor and weapons for all Initiates free of charge. This includes a Scale armor hauberk, cuirboilli limb armor, and an open helm, plus two spears, a large shield, and a self bow.",
+            "runelord": "Light Sons receive one untrained war horse and gear, though they must purchase the horse's training and any replacements. They may pick three Initiates of the cult as their personal guards, and these three will attend the Light Son at all times and pay loyalty to him before all else, even before the High Priests or other priests of the cult.",
+            "runepriest": "Priests of the cult may take one pilgrimmage to the Golden Hill during their lifetime, unless they are on HeroQuest. If they find any of their god's crystals there, then they have the chance to receive a four-point Divine Intervention."
+        },
+        "spells": ["catseye", "sunbright", "cloud clear"]
+    },
+
+    "issaries": {
+        "name": "Issaries",
+        "group": "lightbringers",
+        "runes": ["mobility", "harmony", "issaries"],
+        "purpose": "The worshippers of this deity fulfill their appropriate functions in their societies. Among primitive societies the priests of “Spare Grain” are the individuals who deal with outsiders, thanks to their special language skills. The very existence of trade and exchange rests upon the skills of middlemen, and civilization could not exist without this exchange. Goldentongue provides long-distance communication between parts of the cult and, less directly, parts of the world.",
+        "joining": {
+            "lay": "To join the cult of Issaries as a Lay person only requires purchase of a statue of Issaries from another member of the cult of Initiate or Rune rank. Costs vary widely.",
+            "initiate": "Initiation is a prerequisite to becoming a full priest or Rune Lord, and also an assurance to shop-owners that their region will be protected by some higher magics. To join as an initiate will require previous Lay membership of at least one month, a fee of 100 Lunars, and convincing an examiner.",
+            "runelord": "To become a Rune Lord of the cult of Issaries one must first be an Initiate for at least a year, and be in good standing with his priest. Candidates must have a 90% ability in Tradetalk and Staff Fighting, plus three other abilities from this list: Spot Hidden, Oratory, Evaluate Treasure, Evaluate Trade Goods, Bargaining, up to two other languages, up to two other weapons.",
+            "runepriest": "Candidates for priesthood must have been an Initiate in good standing for at least one year and have Priest or Rune Lord as sponsor. They must have a POW of 18 and know their native language (Tradetalk) at 90%. They must also pass their examination."
+        },
+        "restrictions": {
+            "lay": "Remaining a member costs but one point of Power sacrificed per season, renewable of course. This will be done by reciting a simple prayer with the sacrifice, followed by some sort of business transaction.",
+            "initiate": "Initiates must vow to uphold the cult ideals and never to defile any other cult member's ground or market. They use only Tradetalk in cult functions. They do not have to report to a Priest or Rune Lord.",
+            "runelord": "Rune Lords of Issaries are obliged to go to the aid of any Issaries priest in trouble. They must also protect all their own followers with their own lives, if necessary. This is a formal obligation which may be temporarily hired by outsiders.",
+            "runepriest": "Priests of Issaries are never allowed to steal, except from someone who stole from them or from a being of chaos. They must always come to the aid of fellow cultists, except where such aid would greatly endanger them. They form their own opinion of the potential danger involved."
+        },
+        "benefits": {
+            "lay": "None to Lay members.",
+            "initiate": "An Initiate  will receive room, board, and one week of each five set aside for free training in a cult skill by their priest or lord. Initiates also may own their own shops.",
+            "runelord": "Rune Lords are allowed to hire themselves out as travelling guards to anyone who will meet their fees. Their clients must temporarily join the cult of Issaries for the duration of the employment. The Rune Lords may also hire Initiates for this task, and no priest is allowed to force his Initiates to stay if invited to go by a Rune Lord. Finally, they may initiate members into their cult at the rate of one per month.",
+            "runepriest": "Benefits for the Priests of Issaries are primarily those which their neutrality will bring: a presumed friendship with all whom they meet, a chance to trade with anyone who comes along, and few automatic enemies. They may also accept laypeople into the cult, and also initiate them, They are often hired to act as interpreters if no one else is about."
+        },
+        "spells": ["lock", "special lock", "create great market", "spell trading", "path watch", "create market"]
+    },
+
+    "chalana_arroy": {
+        "name": "Chalana Arroy",
+        "group": "lightbringers",
+        "runes": ["life", "harmony"],
+        "purpose": "As the goddess of Healing and Comfort, Chalana Arroy’s worship will continue until there is no need to heal anyone again.",
+        "joining": {
+            "lay": "Anyone with a sincere wish to heal may join the cult. The sincerity is checked with Divination.",
+            "initiate": "The candidate for Initiate status must have 90% ability with one of the Healing Arts, and pass the test given by the Priestesses. They need not have been a Lay Member before becoming an Initiate, as long as they swear to live by the dictates of the Cult on becoming Initiates.",
+            "runelord": "90% ability in the three Healing Arts, plus knowledge of Healing 6 as Battle Magic or Potion, and at least one Poison Antidote at the level of 20.",
+            "runepriest": "The Healer candidate must be an Initiate with a Power of 18."
+        },
+        "restrictions": {
+            "lay": "Lay Members must work at least as many hours for the temple or the individual healer to whom they apprentice as they do in learning skills from the temple or healer. Lay Members also must take an oath never to harm a living creature and to aid all within the limits of their ability. Lay Members must become vegetarians.",
+            "initiate": "The Initiate must teach the mastered skill to Lay Members and spend four hours a day on temple duties, i.e., healing or training, and meet other usual requirements.",
+            "runelord": "There are no further restrictions to the Status of Arroin Healer, since they are thoroughly restricted at Lay and Initiate level and those restrictions still apply.",
+            "runepriest": "The Healer Priest is expected to improve his skills up to the level of a Rune Lord, but is in no other way more restricted than the Rune Lord."
+        },
+        "benefits": {
+            "lay": "Lay Members will be healed by the temple for free and gain this privilege for family members as well.",
+            "initiate": "The Initiate is given room and board at the Temple, or any other Temple he may visit. They are known by the title of Nurse. They may receive 4 hours/day training free from the cult.",
+            "runelord": "The Chalana Arroy healer is inviolate in the eyes of most gods. Almost anyone harming a healer would be outcast from his cult unless he belonged to a Darkness or a chaos cult. Healers are welcome always at feasts and festivals and are much honored. Chalana Arroy cult spells work equally well on any creature, and need not distinguish between Healing and Xenohealing. For each year in the cult, Healers receive another 5% free training in Find Healing Plants.",
+            "runepriest": "The Healer Priest receives the same benefits as the Healer Lord."
+        },
+        "spells": ["Comfort Song", "Cure Brain Fever", "Cure Chaos Wound", "Cure Chills", "Cure Shakes", "Cure Wasting", "Heal Area", "Refine Medicine", " Cure All Disease", "Cure Soul Waste", "Heal Constitution", "Regrow Limb", "Resurrection"]
+    },
+
+    "lhankor_mhy": {
+        "name": "Lhankor Mhy",
+        "group": "lightbringers",
+        "runes": ["truth", "stasis"],
+        "purpose": "The cult of Lhankor Mhy provides the same service to the Material Plane as its god does for the Spirit Plane. The Sages (as the priests and Rune Lords of the cult are called) provide information to all who will pay for it, whether in money or service. They also constantly quest for new information.",
+        "joining": {
+            "lay": "There are two forms of membership. Apprentices are young people who are apprenticed to the Sages to become scribes, historians, and other forms of clerks. They will be trained, paying for it with service to the cult. Worshippers are any people who come to the temple to worship and learn by paying for training.",
+            "initiate": "An Initiate to the Cult of Lhankor Mhy must be a Master (90%) of one of the Cult's Skills. Once tested by the Cult and accepted into Master status, he will automatically be accepted if he has been an Apprentice. If he has been only a worshipping Lay Member he must pass a test. This may be attempted once per game year.",
+            "runelord": "The Sage must be an Initiate, master of a Sage skill, and a master of four other skills which may be other Sage skills, weapon skills, or other skills taught by cult temples.",
+            "runepriest": "Rune Priests, as premier representatives of their god, must have a firm grasp of their subjects. They must meet at least three of these requirements: Read and Write Language other than their own, 90%; Identify Treasure, 90%; Map-Making, 90%; Orate, 75%; General Knowledge, 75%; brew Potency 10 poison or antidote."
+        },
+        "restrictions": {
+            "lay": "Continued Lay Membership involves continued dedication to studies. Apprentices must remain celibate and cloistered within the Temple. Normal worshippers have no restrictions on non-study hours. All Lay Members take a vow of Truth.",
+            "initiate": "An Initiate is required to voluntarily sacrifice 2 points of Power each Holy Day, Also, he must spend at least 1⁄2 of each year teaching and the rest of his time doing further research. All fees earned for teaching are split 30 - 70 with the Temple getting the 70.",
+            "runelord": "Temple Sage Lords must never mix into individual quarrels nor participate in wars. They must spend half their time teaching and pay 90% to the temple. They must never allow a repository of knowledge to be threatened and any items of importance to the gathering of knowledge must be acquired for the cult.",
+            "runepriest": "The Sage Priest must follow the same restrictions imposed on the Rune Lord of Lhankor Mhy. Furthermore, he is expected to give 3⁄4 of his time to teaching and research."
+        },
+        "benefits": {
+            "lay": "As membership implies the chance to study it is about the sole benefit given to Lay Members.",
+            "initiate": "Initiates of the Grey Lords have complete access to all cult libraries and instructors. They may also be assured of a season’s room and board at any temple.",
+            "runelord": "The major benefit of the status of Sage is the ability to increase one's skills beyond the 100% mark. However, they are much in demand as advisers.",
+            "runepriest": "Priests take formal precedence in all ceremonies, and are the most prized of advisors. However, they will only act as free-lance advisers and never permanently attach themself to any individual or government. In this way they have come to be known by their other name, the Brotherhood of Free Sages. The Sage Priest is also allowed to use the Evaluate Treasure skill on all items brought to the temple for evaluation. Of this income 90% must go to the temple, but the remainder does help brighten lives."
+        },
+        "spells": ["Analyze Magic", "Translate", "Knowledge", "Mind-Read", "Clairvoyance / Clairaudience", "Truespeak", "Reconstruction"]
+    },
+
+    "orlanth": {
+        "name": "Orlanth",
+        "group": "lightbringers",
+        "runes": ["air / storm", "mostion", "mastery"],
+        "purpose": "The general cosmological reasons for Orlanth's existence is the necessity of a god of the elemental Air. It provides a cult for wanderers and others willing to move outside of their rigid tribal or civilized hierarchies. In Prax, Orlanth provides an acceptable outlet for the dissidents who do not wish to follow the rigid role models of the Waha and Eiritha cults, yet wish to remain with the tribe.",
+        "joining": {
+            "lay": "Orlanth welcomes almost all beings who breathe air. Lay Members must have reached their maturity and must make the choice to join by their own free will.",
+            "initiate": "The prospective Initiate of Orlanth must have belonged to the cult for at least a year as a Lay Member, and must make a formal rejection of former cult ties and swear to devote himself “to the winds.” He must have a sponser who is already an Initiate. He must pass a test given by the Priest. The Priest may choose to take into account great deeds done for the god.",
+            "runelord": "Candidates for Wind Lord who fulfill the minimal requirements and have been Initiates for at least a year will be accepted by the priests almost automatically. Candidates may also attempt to become a Wind Lord even if they have not previously been Initiates. They must prove their sincerity, make a contribution of at least 1500 Lunars in cash or kind, and pass an exam. All candidates for Wind Lord must have 90% proficiency with any sword weapon, plus 90% proficiency with any four of this list: Another Weapon, Oratory, Riding, Climbing, Shield Parry, Mapping, Spot Hidden, Hide, Move Silently, and Storm Speech.",
+            "runepriest": "Priests of Orlanth Adventurous must be able to speak their native tongue and Storm Speech at least 80%, have a Power of 18 or more, and convince the examiners in the usual fashion. They must also have been Initiates for at least 2 years."
+        },
+        "restrictions": {
+            "lay": "Lay Members are required to  give three clacks, or some comparable foodstuff, to the priest at each worship. Lay Members are expected to act in accordance with the wishes of their priests and to come to the aid of the cult.",
+            "initiate": "Initiates must tithe 10% of their income, including income made while on leave. Initiates are required to spend at least six weeks a year aiding in the defense of their priest and in performing tasks for him. They are now bound to the cult likes and dislikes.",
+            "runelord": "Wind Lords have specific greetings and challenges they must meet followers of Yelmalio, Eiritha, and Chaos with. A Yelmalio follower must be riddled, a Eiritha priestess must be served, and a follower of Chaos must be slain.",
+            "runepriest": "Wind Voices must never fail to succor a member of his congregation nor fail to aid an Initiate of any Lightbringers cult. The same rivalries arise for Wind Voices as for Wind Lords, but the Wind Voices do not have the standardized challenges to go through. Their hatred of chaos, and the Lunar chaos connections, is intense and undisguised."
+        },
+        "benefits": {
+            "lay": "Because of the wandering nature of this cult there are rarely any board or food supplied by the cult. Ransom or liberating Lay Members is also not required of the cult.",
+            "initiate": "Initiates of Orlanth may receive room and board from any Orlanth temple, though not for a period of time beyond Windsday of the next Mobility week. They may demand assistance in combat from all Air Rune cultists, but if non-Orlanthians assist then the helpers may demand a price for it afterwards.",
+            "runelord": "A Wind Lord has the immense benefit of being called upon for many dangerous tasks and trying to outshine his contemporaries in feats of glory and prowess. He is the subject of awe, admiration and many poems. Iron weapons and armor are rarely available to present to a Wind Lord upon his accession to the rank. He may receive one piece of iron to mark his status, but it is often the first quest for the new Wind Lord to gain his whole regalia of iron accoutrements.",
+            "runepriest": "Wind Voices attached to tribes or clans are revered for having their exotic powers of Rune Magic normally unknown to the Waha pantheon. Although they have no official status in tribal affairs they are usually allowed to sit in on council meetings and voice their opinions to the elders. Priests are allowed to Initiate new members, as usual, and to keep the money given as part of their examination."
+        },
+        "spells": ["Telekinesis", "Guided Teleportation", "Teleportation"]
+    },
+
+    "kyger_litor": {
+        "name": "Kyger Litor",
+        "group": "nonhuman_gods",
+        "runes": ["man", "darkness"],
+        "purpose": "Kyger Litor is the basic Ancestress of the races of trolls, and as such forms the root of all their beings. She is very popular with her children and so continues to exist. Also, she is one of the primary fighters against chaos. This fact is begrudged by humans and troll-haters, but undeniable. Her importance in this is enough to prompt an occasional human to join.",
+        "joining": {
+            "lay": "Lay Membership is granted to all trolls and trollkin who reach their fifth birthday without dying. They remain Lay Members until they attain status to become Initiates. Non-trolls may join the cult, but to become even a Lay Member they must pass an examination which is the same as that of becoming a Rune Lord. Remember that CHA is reduced for being a foreign species. A non-troll passing this exam will undergo a ritual rebirth ceremony and afterwards be addressed as a troll by cult members. They will have no more special exams other than those required of all members.",
+            "initiate": "Candidates for Initiation must know one weapon at least 40%, a weapon or shield parry at least 40%, speak Darktongue at 80%+, and have POW of 10 or more. The POW requirement effectively denies initiation to most trollkin. Candidates must take a pro forma examination by a priest; passing marks are automatic unless the member has performed hostile or questionable acts. Initiation is thus a matter of course for most dark trolls of 14 years or more.",
+            "runelord": "To become a Rune Lord a member must have been an Initiate for at least one full year. They must know Darktongue at 80%. They must also have at least 90% in two weapons plus a weapon or shield parry, and have at least 90% in any two of these skills: Climbing, Jumping, Set Trap, Listen, Ambush, or Camouflage. They must also meet other normal requirements.",
+            "runepriest": "Candidates must meet the normal requirements. Their language is Darktongue, an ancient tongue with a history of written documentation from before the Darkness. Candidates must have been Initiates for at least 2 years. They must also know Mindspeech."
+        },
+        "restrictions": {
+            "lay": "Remaining a member of the cult requires that the person attend at least the seasonal services, and sacrifice one point of POW to Kyger Litor at that time. Attendance on weekly Darkday services other than the seasonal holy days is not required, but is urged and usually gains favor from the priestesses.",
+            "initiate": "Initiates are required to recite a grumbling prayer (learned as part of their Initiation rites) each Darkday at dawn and therein sacrifice a point of Power to their Goddess. Initiates must obey the instructions and rules of their priestesses. They must also follow the Kyger Litor hatred of all things of chaos, and work for its destruction. They must join the militia. Initiates must devour some form of vegetation each week; they must tithe 10% to their priestess.",
+            "runelord": "Rune Lords of Kyger Litor are not allowed to speak directly with Trollkin, and require underlings to act as intermediaries. They must ritually eat a large quantity of some vegetable matter. (Elves are considered vegetable matter.) On each seasonal Holy Day a Rune Lord must eat a relative. (This can be a trollkin.) Rune Lords cannot sleep under a roof while their people are at war. They can not pass by a herd of sheep or pigs without trying to kill one to give to their Priests. They cannot have only one spouse, but must marry two at a time, and neither of them can be a priestess of Kyger Litor, but one can be a priestess of an associated, friendly, or neutral cult. Rune Lords must always let a musician finish a song or tune before he praises or condemns it. (Kyger Litor loves music.) Rune Lords must own slaves (to show the superiority of trolls) and are urged to own non-troll slaves. Rune Lords must hunt down one meal per season for themselves and their close family. They must personally kill and bring one deer, pig, horse, elf, or other appropriate food gift to their local High Priest once each week. Rune Lords favor black clothing, but are allowed to trim or decorate it as they wish. They must never travel about unarmed, even in their own dwelling.",
+            "runepriest": "that they make no compromises in maintaining the cult needs, likes, and dislikes. Also, they must accept responsibility for their followers' welfare, and provide them leadership. Even a troll populace will accept only limited tyranny. Their DEX-based skills are limited to DEX times 5 as a percentage, as with most priests."
+        },
+        "benefits": {
+            "lay": "The cult owes no mundane benefits to its Lay Members.",
+            "initiate": "Initiates operate on a working relationship with their priestesses similiar to that of all warriors to their chieftains. Favored Initiates will receive whatever they can earn or get by cheating. The best Initiates will be chosen for the personal band of the priestess and receive full board, armor, weapons, and training. Others, less fervent in their religion, will receive round-headed maces, medium shields, and a minimal militia training.",
+            "runelord": "Rune Lords will be given a set of magically smithed lead armor upon attaining their status. This is equal to good bronze in point absorption and Encumberance. Expensive sets of armor are available, set with jewels and sculpture. Even non-troll lords use this and not iron, which trolls cannot touch. Rune Lords will normally bind their allied spirits into their weapons. Hafted weapons can be made of lead and treated too, so they will break less easily, giving 5 additional damage points. Rune Lords have the honor of leading armies in battle, and of leading small parties on specialized missions. Even priests must defer to their command when in the field with them. Rune Lords may sponsor Troll Ball teams in their own names. Even in peacetime, Rune Lords are respected and honored members of the community. They live in the temples of the cult and may treat them as their own homes. Rune Lords may choose a number of Initiates to be their personal bodyguard and household troops. The number depends on the fame of the selecting Lord and the willingness of those selected. Most Lords prefer to have a smaller body of experts rather than a colorful parade-ground platoon. Rune Lords determine the disposition of spoils after a battle.",
+            "runepriest": "Priestesses are allowed to extract as much as they can from their followers, and are treated with all the dignity and honor of the community. They have earned the right of speaking for their followers in higher councils, or with outsiders. This dealing with outsiders includes trade benefits, diplomatic missions, and so on. All Rune Priestesses are given a giant beetle to act as their watch creature and receive their allied spirit."
+        },
+        "spells": ["darksee", "blinding", "counter chaos"]
+    },
+
+    "zorak_zoran": {
+        "name": "Zorak Zoran",
+        "group": "nonhuman_gods",
+        "runes": ["death"],
+        "purpose": "Zorak Zoran is the mindless explosion of fear and frenzy against both order and chaos which finds its only justification and satisfaction in unlimited violence. As much as the rest of the world might regret it, this entity is one which helped save the world and whose powers may be needed again. He is part of the Cosmic Balance.",
+        "joining": {
+            "lay": "Dark trolls, great trolls, Mistress Race trolls, men, dragonewts, beast men, and baboons all are welcome to join this cult. Only exceptional trollkin are permitted. Elves and Dwarves are forbidden, as are all creatures tainted with chaos, including cave trolls and ogres. To join, the Lay Member must pass a test which is abstracted for game purposes by a roll of (1⁄2STR + 1⁄2CON) times 5 on D100, or less.",
+            "initiate": "A prospective Initiate must be at least 75% in one of the weapons skills and one of the non-weapons skills shown above. They also must be ready to be promoted to an NCO position within their company, which is abstracted here by rolling 1⁄2CHA + 1⁄2STR times 5 or less on D100.",
+            "runelord": "A Zorak Zoran Death Lord must be at least 90% with Mace and have Charisma of 14 or better, though an Oratory of 90%+ may be substituted for the Charisma. They also must have three of the following skills: Brew Blade Venom 10, be 90% with blunt missile (Sling or Thrown Rock), Shield Parry, Set Ambush, some other weapon, or 90% Riding. Riding is usually substituted by non-troll members, since most trolls dislike to ride. To be formally accepted as a Death Lord, the Initiate must make a roll of STR + CHA + 1 per 100 Lunars contributed, divided by 3, then multiplied by 5 on D100, or less. The Initiate must have a minimum POW of 15.",
+            "runepriest": "A Death Priest candidate must satisfy the usual criteria for priests, including the ability to Read and Write Darktongue 80%. This last must be learned at a Kyger Litor temple, so no price reduction is possible. A Death Priest candidate must have been an Initiate for at least four years."
+        },
+        "restrictions": {
+            "lay": "Lay Members must join the company of a particular priest or lord and be ready to fight with him if called. A member is expected to have and maintain a mace, a maul, and a sling. He also must have a month’s rations ready to take with him at a moment’s notice. Lay Members are expected to sacrifice the normal one point of POW each holy day, and to make an offering of kind or money on Darkday of each week.",
+            "initiate": "The Initiates is expected to sacrifice two points of POW each holy day, and one point each Darkday. The Initiate may act as an NCO for his company and be on call for special missions. He also is obliged to work bodyguard details and generally protect the community.",
+            "runelord": "The Death Lord must look to the welfare of any followers (as long as they can follow), and never to retreat in the face of a foe unless so commanded. They must never willingly cooperate with Aldrya, Humakt, Mostal, Orlanth, or Yelmalio worshippers, and (at least) refuse to deal with any Lunar worshippers they meet. Further, no troll may use iron, and so Death Lords of the cult wear lead magically treated to have the qualities of bronze, even if they are not trolls.",
+            "runepriest": "Death Priest restrictions are identical to Death Lord restrictions."
+        },
+        "benefits": {
+            "lay": "Each Lay Member may live in an enclave of the temple which is fortified and guarded day and night. His dependents also are taken care of in these enclaves, even if they are trollkin. A once-per-week market lets worshippers obtain supplies at reduced rates. The market usually is run by a Death Priest special company member.",
+            "initiate": "The Initiate has the same privileges of the enclave and the weekly market as does the Lay Member.",
+            "runelord": "The Death Lord’s company attends their commander. The Death Lord receives a tithe of the proceeds of the company’s market. The company always will protect its Death Lord. Death Lords may sponsor Troll Ball teams.",
+            "runepriest": "Death Priests enjoy the same benefits as do Death Lords."
+        },
+        "spells": ["create ghost", "create skeleton", "crush", "fear", "seal wound", "berseker", "create zombie", "sever spirit"]
+    },
+
+    "aldrya": {
+        "name": "Aldrya",
+        "group": "nonhuman_gods",
+        "runes": ["plant", "earth", "fertility"],
+        "purpose": "This is the cult of growing and fertile vegetable life whose continued existence helps secure the world for all life. Without the worship provided by these beings for their plants the life would wither and die. This is the ancestral cult for the sentient and nonsentient Aldryami races.",
+        "joining": {
+            "lay": "All Elves, Dryads, Runners, and Pixies are automatically members of this cult upon birth. As they grow older they learn skills and magics appropriate to their types. This is part of their everyday life and there is, of course, no charge for natural training. The costs included in this chapter are those which outsiders must pay to learn after they have joined, which is a rare event. It should be noted that most Runners and Pixies never develop beyond this Lay Member stage. It is called the Children of the Forest Cult at times. Beastmen, dragonewts, ducks, and humans may sometimes join. They must pass the Gardeners’ examination, who will also make sure, through Divination, that the foreigner has no ill intents in mind or heart. The examination may be abstracted as POW + CHA divided by 2 X 5 on D100. CHA is always minus 10 for non-Aldryami races. Other races are not allowed to join.",
+            "initiate": "Candidates for Initiation must prove themselves to be ready for adulthood in the tribe. They must have been Lay Members for at least 2 years (for outsiders) and know all of the skills listed for Lay Members at least 50%, plus at least 1 point of all three spells. They also must prove themselves to the council of Elders. This is done by making a roll of POW + INT + CHA divided by 2 X 5 on D100. Note that non-Aldryami races must subtract 10 from their CHA for being from a foreign race. After Initiation, though, they will always measure their CHA as if they were an elf, and will have the penalty when using CHA in relation to non-Aldryami. Candidates for Initiation must choose to join either Elder Sister or Elf cult. Both are open to any Initiate, but Elder Sister also requires a special empathy for plants inherent in dryads. This empathy is found often also in female elves, occasionally in male elves, beastmen, and dragonewts, and but rarely in any human.",
+            "runelord": "Candidates must have been Initiates for at least five years and served in the Marching Aldryami for at least three years. He must have proved himself capable of command in the elf army. He must Read and Write Aldryami at least 50%. He also must have at least 90% ability in five of these skills: Elf Bow, Set Ambush, Spot Hidden, Set Snares/Traps, Move Silently, or any hand weapon. They must also have 15 points of POW and know Extinguish, Detect Detection, Multimissile, and Healing 6.",
+            "runepriest": "Candidates must have been Initiates for a least five years. They must have a Power of at least 18. They must be able to read and write Aldryami at 80% or more. They must know Extinguish, and either Detect Life or Harmonize. They must pass an exam before the Gardener Council which can be abstracted to be POW X 5 on D100. (A roll of 96-00 always means rejection. Candidates will then become either Renegade or Rootless Elves.)"
+        },
+        "restrictions": {
+            "lay": "Lay Membership requires the usual worship requirements. Lay Members must always report whenever they see someone doing damage to the woods and obey the commands of their cult leaders.",
+            "initiate": {
+                "elder_sister": "Initiation of Dryads commonly occurs between the tenth and seventeenth years after their awakening. Elder Sister Initiates must bind themselves to the linking them directly to their goddess' subconscious urges, and spirit of Aldrya. This has immense effect on the individuals by their daily lives are at unity with their nature. This spiritual contact also forces the deciduous tree dryads into the same seasonal cycle as Aldrya. They will sleep all winter, wake in the spring for a full summer life, and fall asleep again the autumn so their souls can rest in the Underworld. Plants which do not lie dormant for part of the season are not subject to the variations. This includes Evergreens and jungle plants. Non-dryads of this cult have several options open to them. They may occasionally inherit a tree from a dryad who died in some way or another, thereby preserving the tree's life. More often, though, they form a wandering priesthood which moves through the woods as the Spirit of Aldrya moves them. They go where they feel needed, and are called Wandering Dryads. Elder Sister Initiates must undertake to learn one point of battle magic spells per summer, and try to go up 5% in two cult abilities per year. They must also sacrifice at least 2 points of battle magic power per week in worship. It is characteristic for dryads of most types of trees to use more than the minimal amount of power for worship, and to expend it more often in worship than necessary. They are often very active and vital beings, but find it difficult or tedious to meet their minimal learning requirements.",
+                "elf_cult": "Initiates of the Elf Cult must take a working part in the elf society. They leave their parents’ care, though they will always be a part of the same family and clan obligations, and may enter into any elf occupation available. One obligation of all Elves is to serve in the defense of the forest. If they ever fail in answering the call to duty they will all suffer the same loss as the forest. This may take years to accomplish, but it is sure. Stories still are told of the renegade elves of the Moon Bow Legion who stood aside when the Lunars set the might Moonburn upon the great forest of Rist. Every elf and man of the legion died in flames within five years. Elf Cult members must sacrifice two points of power per Holy Day in worship."
+            },
+            "runelord": "Wood Lords must never eat meat (Aldryami never do, in any case) and must never kill except in defense of themselves and their woods. Destroyers of growing things must be eliminated at their source, and Wood Lords are the ones who lead such expeditions forth. The perversion of life called Undead must be smitten wherever found. After accepting their status they must spend spring through fall season in training before they are ready for service. At this time their skills will have increased 5%.",
+            "runepriest": "Priests and priestesses both are eligible to be summoned to the emergency defense of the forest. They form magical battalions in such times under the direction of Elf Priests who know the appropriate magic. Priests and priestesses judge disputes between their followers. They must learn Tradetalk to at least 50%. (This is known by some elves at all times, learned long ago from Issaries and passed down from generation to generation of Tradetalkers.) They must be foremost in dealing with outsiders, and never fear to go to the aid of their kin or kind."
+        },
+        "benefits": {
+            "lay": "All Aldryami are taught how to find water in wooded areas, passwords and signs to guide them through Aldryami areas, and how to tell their direction. Lay Members also receive protection and a sustenance from their community.",
+            "initiate": {
+                "elder_sister": "The Initiate of Elder Sister will always be able to find food or water in a forest. They will always be alive and healthy as long as their tree is too. They will always be aware of their goddess' natural desires and act accordingly.",
+                "elf_cult": "Initiates of the Elf Cult can always find food and water in a forest, even if it is winter. Also, once per week, they can find a flower, any time and any place. They receive the comfort and safety of the elf tribe, and healing by their fellows when they need it. Also, every elf receives his Elf seed. This will be planted on his initiation day and, in one year, will be ready for harvesting and finishing to become a fabled Elf Bow. It will take another year to finish, and each new Initiate must dedicate one week each season to making it. In two full years it will be done. Only the maker of such a bow can use it. If another race takes it in hand it will become brittle and dead. Even other elves cannot use its full potency, but can use it as a normal Self Bow. Elf Bow specifications are: Range 120m., Power of storage 2D6+2. The bow’s range is halved in the woods. Elves will have only one bow at a time. They must begin anew if theirs is broken and take two years to make a new one. Non-elves cannot do this as naturally as the woodborn elves. If such members wish such a bow they must spend a Rune point of permanent Power to do so, under the guidance of their local Tree Lord, and requiring four years total. All Initiates receive leather armor, a small shield, and a spear and shortsword for free."
+            },
+            "runelord": "A Wood Lord is welcomed and will be fed, healed, and sheltered in any elf woods or Sun Dome Temple. Elder Sisters always will share their better wares with Tree Lords on holy days. Wood Lords traditionally receive their favored weapons and a magically-tempered suit of copper armor, both of which have the properties of bronze. (Elves never may touch iron.) Wood Lords receive an allied spirit ‘awakened’ in their elf bow. The ally has normal spirit statistics. It may, if its Power is high enough, become a priest of the cult. They may also attempt to gain Gardener status.",
+            "runepriest": "Communion Of The Tree is the largest single benefit to priests. This is an empathic connection with Aldrya which always works while they are in any woods, even those not ordinarily elf-guarded. (It does not work in orchards.) This bouys them up in adversity and guards them against all these spells: Befuddle, Demoralize, Fanaticism, and Zorak Zoran’s Fear spell, by letting them defend against those spells as if their current Power were doubled in value, Priests and priestesses are allowed to see the Great Tree of the forest, and to take part in rituals with it. They may try also to attain Gardener status. Priests receive an allied spirit, which must be placed in a staff. This may be shod in special copper to do double damage, and priests may learn to use it as a weapon. Dryad priestesses receive allied spirits and bind them into their home tree to guard it and serve as a source of communication while they are gone. Priestess dryads are thus very mobile, and they may join the wandering dryads to lead the non-human Initiates and teach them. Priests and priestesses may receive leather armor when consecrated, and also a copper (5-point) helmet. Priests and priestesses may attempt to become High Priests and High Priestesses by proving themselves over the years to their comrades and communities by deeds of pro- tection and preservation. They will become Chief Priests before they become High Priests."
+        },
+        "spells": ["accelerate growth", "plant eye", "arrow trance", "create warrior of wood", "silence", "tanglethicket", "sunripen", "chameleon", "heal body"]
     }
 }
