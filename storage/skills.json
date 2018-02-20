@@ -1,0 +1,1496 @@
+{
+    "agility": {
+        "climb": {
+            "name": "climb",
+            "starting_value": 40,
+            "description": "Climbing up or down walls, trees, cliffs, or any other surface.",
+            "taught_by": "thieve's guild",
+            "training_cost": {
+                "1": 200,
+                "2": 400,
+                "3": 800,
+                "4": 1600
+            }
+        },
+        "dodge": {
+            "name": "dodge",
+            "starting_value": 10,
+            "description": "Avoiding being hit by an attack.",
+            "taught_by": "fighter's guild",
+            "training_cost": {
+                "1": 300,
+                "2": 500,
+                "3": 1000
+            }
+        },
+        "jump": {
+            "name": "jump",
+            "starting_value": 30,
+            "description": " Leaping for height or distance over obstacles, as well as falling (or landing) well.",
+            "taught_by": "thieve's guild",
+            "training_cost": {
+                "1": 100,
+                "2": 200,
+                "3": 400,
+                "4": 800
+            }
+        },
+        "ride": {
+            "name": "ride",
+            "starting_value": 5,
+            "description": "Riding a horse or other riding animal.",
+            "taught_by": "horsemaster's guild",
+            "training_cost": {
+                "1": 100,
+                "2": 500,
+                "3": 1000,
+                "4": 5000
+            }
+        },
+        "swim": {
+            "name": "swim",
+            "starting_value": 15,
+            "description": "Staying afloat and moving in a desired direction while in the water.",
+            "taught_by": "maritime brotherhood",
+            "training_cost": {
+                "1": 100,
+                "2": 200,
+                "3": 300,
+                "4": 400
+            }
+        },
+    },
+
+    "communication": {
+        "act": {
+            "name": "act",
+            "starting_value": 5,
+            "description": "Portraying a different persona, whether in a staged performance or in a social situation",
+            "taught_by": "players and minstrels",
+            "training_cost": {
+                "1": 500,
+                "2": 1000,
+                "3": 3000,
+                "4": 10000
+            }
+        },
+        "art": {
+            "name": "art",
+            "starting_value": 5,
+            "description": "The creation of images or objects such as painting and sculpture.",
+            "taught_by": "artisan's guild",
+            "training_cost": {
+                "1": 400,
+                "2": 800,
+                "3": 1600,
+                "4": 2400
+            }
+        },
+        "bargain": {
+            "name": "bargain",
+            "starting_value": 5,
+            "description": "Negotiation and compromise, haggling: used when buying and selling.",
+            "taught_by": "thieve's guild",
+            "training_cost": {
+                "1": 400,
+                "2": 800,
+                "3": 1600,
+                "4": 3200
+            }
+        },
+        "charm": {
+            "name": "charm",
+            "starting_value": 15,
+            "description": "Physical attraction, seduction, flattery, or simply warmth of personality, used to compel a desired reaction.",
+            "taught_by": "players and minstrels",
+            "training_cost": {
+                "1": 100,
+                "2": 500,
+                "3": 1000,
+                "4": 5000
+            }
+        },
+        "dance": {
+            "name": "dance",
+            "starting_value": 10,
+            "description": "Performing a social, ceremonial, erotic, martial, or sacred dance.",
+            "taught_by": "players and minstrels",
+            "training_cost": {
+                "1": 200,
+                "2": 400,
+                "3": 800,
+                "4": 1600
+            }
+        },
+        "disguise": {
+            "name": "disguise",
+            "starting_value": 5,
+            "description": "Creating a convincing disguise using appropriate materials (costumes, cosmetics, wigs, or hairpieces).",
+            "taught_by": "thieve's guild",
+            "training_cost": {
+                "1": 200,
+                "2": 500,
+                "3": 1200,
+                "4": 2600
+            }
+        },
+        "fast_talk": {
+            "name": "fast talk",
+            "starting_value": 5,
+            "description": " Convincing one or more people to agree with whatever the fast talker is saying, deceiving them into thinking that the user is logically correct.",
+            "taught_by": "thieve's guild",
+            "training_cost": {
+                "1": 400,
+                "2": 800,
+                "3": 1600,
+                "4": 3200
+            }
+        },
+        "intimidate": {
+            "name": "intimidate",
+            "starting_value": 15,
+            "description": " Frightening or compelling a person to act in a certain way.",
+            "taught_by": "fighter's guild",
+            "training_cost": {
+                "1": 100,
+                "2": 500,
+                "3": 1000,
+                "4": 5000
+            }
+        },
+        "intrigue": {
+            "name": "intrigue",
+            "starting_value": 5,
+            "description": "Knowing what is going on at a court, great temple, warlord’s camp, bureaucracy, or similar institution.",
+            "taught_by": "thieve's guild",
+            "training_cost": {
+                "1": 500,
+                "2": 1000,
+                "3": 2000,
+                "4": 4000
+            }
+        },
+        "orate": {
+            "name": "orate",
+            "starting_value": 10,
+            "description": "Speech used to make groups of reluctant listeners take action or grant a request, driven by emotion.",
+            "taught_by": "sages",
+            "training_cost": {
+                "1": 500,
+                "2": 1000,
+                "3": 2000,
+                "4": 4000
+            }
+        },
+        "sing": {
+            "name": "sing",
+            "starting_value": 10,
+            "description": " Knowledge of poetry as well as singing or reciting poetry, used in religious rituals as well as a way of remembering oral history, genealogy, and law.",
+            "taught_by": "players and minstrels",
+            "training_cost": {
+                "1": 100,
+                "2": 500,
+                "3": 1000,
+                "4": 5000
+            }
+        },
+        "speak_esrolian": {
+            "name": "speak Esrolian",
+            "starting_value": 0,
+            "description": "A language used in the Holy Country land of Esrolia. It is related to the “earth speech” of the spirits worshipped in that country. Esrolians generally learn Tradetalk as a second language. Speakers also know Earthtongue at a ratio of 1% Earthtongue per 10% Esrolian.",
+            "taught_by": "sages",
+            "training_cost": {
+                "1": 600,
+                "2": 1200,
+                "3": 2000,
+                "4": 4000
+            }
+        },
+        "speak_grazelander": {
+            "name": "speak Grazelander",
+            "starting_value": 0,
+            "description": "This is the remnants of a language once known as “Pure Horse Tongue.” It is spoken only by the Grazelanders as a primary language, but is very similar to the language of the horse barbarians of northern Peloria. The natives use it only among themselves, preferring Tarshite, Esrolian, Sartarite, or Tradetalk with outsiders.",
+            "taught_by": "sages",
+            "training_cost": {
+                "1": 600,
+                "2": 1200,
+                "3": 2000,
+                "4": 4000
+            }
+        },
+        "speak_lunar": {
+            "name": "speak Lunar",
+            "starting_value": 0,
+            "description": "This is also called “New Pelorian” and has many similarities to Tarshite. It originated in Peloria with the Empire of the Red Moon and has altered that old tongue. It is spoken by all Lunar natives, who will ordinarily know Tarshite, Tradetalk, Grazelander, or another foreign tongue as their second language. Speakers understand Tarshite at 1⁄2 x their Lunar ability.",
+            "taught_by": "sages",
+            "training_cost": {
+                "1": 600,
+                "2": 1200,
+                "3": 2000,
+                "4": 4000
+            }
+        },
+        "speak_old_pavic": {
+            "name": "speak Old Pavic",
+            "starting_value": 0,
+            "description": "Some 500 years before, this now nearly-dead language was spoken in the Empire of the Wyrms Friends. The Empire ruled Old Pavis in that age when the huge ruins were cut off from the outside world, and the native humans still speak it. Now that the city is reopened, it is again known to the outside world. It is also used in ancient religious ceremonies at Adari, but not spoken by the populace there. Speakers of this language also know Draconic at 1⁄4 x their Old Pavic ability.",
+            "taught_by": "sages",
+            "training_cost": {
+                "1": 600,
+                "2": 1200,
+                "3": 2000,
+                "4": 4000
+            }
+        },
+        "speak_praxian": {
+            "name": "speak Praxian",
+            "starting_value": 0,
+            "description": "The Prax Animal Nomads use this language. It is spoken by all of the tribes there, including the nonhuman morokanth, and has also been adopted by the non-herding peoples such as the Men-and-a-half, or the local Basmoli Berserkers.",
+            "taught_by": "sages",
+            "training_cost": {
+                "1": 600,
+                "2": 1200,
+                "3": 2000,
+                "4": 4000
+            }
+        },
+        "speak_shartarite": {
+            "name": "speak Shartarite",
+            "starting_value": 0,
+            "description": "The primary language for all of the natives of the kingdom of Sartar, it was imported from the region of the Hendriki in the Holy Country when the Sartarites moved northwards, and they speak it there as well. It is the second language of the peoples of Alone and Alda-Chur, which joined the kingdom later than the other cities. Speakers are likely to know Tradetalk as a second language. Speakers will know Stormspeech as well, at 1% Stormspeech per 10% ability in Sartarite.",
+            "taught_by": "sages",
+            "training_cost": {
+                "1": 600,
+                "2": 1200,
+                "3": 2000,
+                "4": 4000
+            }
+        },
+        "speak_tarshite": {
+            "name": "speak Tarshite",
+            "starting_value": 0,
+            "description": "The native tongue for the regions of Tarsh and the Tarsh Exiles around Wintertop in the Far Place cities, the speech was imported when natives from Peloria (to the north) moved into Dragon Pass. It is sometimes called “Old Pelorian” for that reason. A speaker of it can speak Lunar to 1⁄2 his Tarshite language ability.",
+            "taught_by": "sages",
+            "training_cost": {
+                "1": 600,
+                "2": 1200,
+                "3": 2000,
+                "4": 4000
+            }
+        },
+        "speak_tradetalk": {
+            "name": "speak Tradetalk",
+            "starting_value": 0,
+            "description": "The cult language of the Issaries trader cult, Tradetalk has been taught by them all across the world. It is the closest thing to a common tongue which Glorantha has, and may be learned almost anywhere, including non-human areas. It is the widest-known second language.",
+            "taught_by": "sages",
+            "training_cost": {
+                "1": 600,
+                "2": 1200,
+                "3": 2000,
+                "4": 4000
+            }
+        },
+        "speak_aldryami": {
+            "name": "speak Aldryami",
+            "starting_value": 0,
+            "description": "The language of elves and their kin: since the separation of the elf nations across the world, the different forests have developed some local variations of Aldryami, but these are more like accents than different dialects. All Aldryami prefer to use Tradetalk to communicate with non-elves, even if the non-elves show off their knowledge of Aldryami.",
+            "taught_by": "sages",
+            "training_cost": {
+                "1": 600,
+                "2": 1200,
+                "3": 2000,
+                "4": 4000
+            }
+        },
+        "speak_beastspeech": {
+            "name": "speak Beastspeech",
+            "starting_value": 0,
+            "description": "The language of animals and half-animals, such as Beastmen and baboons, is very difficult for people to speak it, but it is easier for people to learn it if they can find a teacher.",
+            "taught_by": "sages",
+            "training_cost": {
+                "1": 600,
+                "2": 1200,
+                "3": 2000,
+                "4": 4000
+            }
+        },
+        "speak_darktongue": {
+            "name": "speak Darktongue",
+            "starting_value": 0,
+            "description": "Creatures of darkness, such as trolls, giants, shades, and their ilk, speak Darktongue. It is very ancient, and writings in it exist from before the Great Darkness.",
+            "taught_by": "sages",
+            "training_cost": {
+                "1": 600,
+                "2": 1200,
+                "3": 2000,
+                "4": 4000
+            }
+        },
+        "speak_draconic": {
+            "name": "speak Draconic",
+            "starting_value": 0,
+            "description": "Dragons and their kin, especially the Dragonewts, Wyrms, and such creatures, speak it. Dream Dragons almost always speak it, rarely knowing another language due to their peculiar origin. It is difficult for non-draconic types to learn, though dragonewts seem to have little problem learning other tongues. Speakers of Draconic also know Old Pavic at 1⁄2 their Draconic ability.",
+            "taught_by": "sages",
+            "training_cost": {
+                "1": 600,
+                "2": 1200,
+                "3": 2000,
+                "4": 4000
+            }
+        },
+        "speak_earthtongue": {
+            "name": "speak Earthtongue",
+            "starting_value": 0,
+            "description": "The speech of gnomes, Earth cults, reptiles, and other earth-related creatures; the language has a few affinities with Aldryami.",
+            "taught_by": "sages",
+            "training_cost": {
+                "1": 600,
+                "2": 1200,
+                "3": 2000,
+                "4": 4000
+            }
+        },
+        "speak_firespeech": {
+            "name": "speak Firespeech",
+            "starting_value": 0,
+            "description": "Fire-worshipping or constructed creatures such as salamanders, and birds and more obscure races speak it.",
+            "taught_by": "sages",
+            "training_cost": {
+                "1": 600,
+                "2": 1200,
+                "3": 2000,
+                "4": 4000
+            }
+        },
+        "speak_mostali": {
+            "name": "speak Mostali",
+            "starting_value": 0,
+            "description": "The tongue of Mostali, dwarves, and their minor created races is little-used, though some miners use it as a “secret language” to confound their overseers or other foreigners.",
+            "taught_by": "sages",
+            "training_cost": {
+                "1": 600,
+                "2": 1200,
+                "3": 2000,
+                "4": 4000
+            }
+        },
+        "speak_seatongue": {
+            "name": "speak Seatongue",
+            "starting_value": 0,
+            "description": "The watery races, including all Triolini (merpeople, intelligent beasts such as dolphins, and undines) speak this.",
+            "taught_by": "sages",
+            "training_cost": {
+                "1": 600,
+                "2": 1200,
+                "3": 2000,
+                "4": 4000
+            }
+        },
+        "speak_spiritspeech": {
+            "name": "speak Spiritspeech",
+            "starting_value": 0,
+            "description": "This is a common tongue for spirits when they do not communicate by Mind Link. It is made of parts of all the divine languages, but especially Stormspeech.",
+            "taught_by": "sages",
+            "training_cost": {
+                "1": 600,
+                "2": 1200,
+                "3": 2000,
+                "4": 4000
+            }
+        },
+        "speak_stormspeech": {
+            "name": "speak Stormspeech",
+            "starting_value": 0,
+            "description": "Native talk of sylphs, mammals, and other air spirits and cults.",
+            "taught_by": "sages",
+            "training_cost": {
+                "1": 600,
+                "2": 1200,
+                "3": 2000,
+                "4": 4000
+            }
+        }
+    },
+    "knowledge": {
+        "battle": {
+            "name": "battle",
+            "starting_value": 10,
+            "description": "Leading warriors and surviving in massed combat.",
+            "taught_by": "fighter's guild",
+            "training_cost": {
+                "1": 100,
+                "2": 200,
+                "3": 400,
+                "4": 800
+            }
+        },
+        /"customs": {
+            "name": "customs",
+            "starting_value": ,
+            "description":
+        },
+        "evaluate": {
+            "name": "evaluate",
+            "starting_value": 5,
+            "description": "Estimating the worth of artifacts and goods and valuable natural materials.",
+            "taught_by": "sages",
+            "training_cost": {
+                "1": 400,
+                "2": 800,
+                "3": 1600,
+                "4": 2400
+            }
+        },
+        "farm": {
+            "name": "farm",
+            "starting_value": 5,
+            "description": " Plowing, planting, growing, and harvesting crops, and caring for common domestic animals.",
+            "taught_by": "peasants",
+            "training_cost": {
+                "1": 50,
+                "2": 100,
+                "3": 200,
+                "4": 400
+            }
+        },
+        "first_aid": {
+            "name": "first aid",
+            "starting_value": 10,
+            "description": "Treating injuries or victims in shock.",
+            "taught_by": "sages",
+            "training_cost": {
+                "1": 500,
+                "2": 1000,
+                "3": 3000,
+                "4": 5000
+            }
+        },
+        "herd": {
+            "name": "herd",
+            "starting_value": 5,
+            "description": "Keeping individual animals together in a herd, maintain the herd, and moving the herd from place to place.",
+            "taught_by": "barbarians",
+            "training_cost": {
+                "1": 100,
+                "2": 200,
+                "3": 500,
+                "4": 1000
+            }
+        },
+        /"lore": {
+            "name": "lore",
+            "starting_value":,
+            "description":
+        },
+        "manage_household": {
+            "name": "manage household",
+            "starting_value": 10,
+            "description": "Handling the property and resources (property, followers, agents, and slaves) of a farm, herd, market, workshop, temple, or palace.",
+            "taught_by": "peasants",
+            "training_cost": {
+                "1": 100,
+                "2": 250,
+                "3": 500,
+                "4": 1000
+            }
+        },
+        "read_write_esrolian": {
+            "name": "read & write Esrolian",
+            "starting_value": 0,
+            "description": "A language used in the Holy Country land of Esrolia. It is related to the “earth speech” of the spirits worshipped in that country. Esrolians generally learn Tradetalk as a second language. Speakers also know Earthtongue at a ratio of 1% Earthtongue per 10% Esrolian.",
+            "taught_by": "sages",
+            "training_cost": {
+                "1": 400,
+                "2": 800,
+                "3": 2000,
+                "4": 4000
+            }
+        },
+        "read_write_grazelander": {
+            "name": "read & write Grazelander",
+            "starting_value": 0,
+            "description": "This is the remnants of a language once known as “Pure Horse Tongue.” It is spoken only by the Grazelanders as a primary language, but is very similar to the language of the horse barbarians of northern Peloria. The natives use it only among themselves, preferring Tarshite, Esrolian, Sartarite, or Tradetalk with outsiders.",
+            "taught_by": "sages",
+            "training_cost": {
+                "1": 400,
+                "2": 800,
+                "3": 2000,
+                "4": 4000
+            }
+        },
+        "read_write_lunar": {
+            "name": "read & write Lunar",
+            "starting_value": 0,
+            "description": "This is also called “New Pelorian” and has many similarities to Tarshite. It originated in Peloria with the Empire of the Red Moon and has altered that old tongue. It is spoken by all Lunar natives, who will ordinarily know Tarshite, Tradetalk, Grazelander, or another foreign tongue as their second language. Speakers understand Tarshite at 1⁄2 x their Lunar ability.",
+            "taught_by": "sages",
+            "training_cost": {
+                "1": 400,
+                "2": 800,
+                "3": 2000,
+                "4": 4000
+            }
+        },
+        "read_write_old_pavic": {
+            "name": "read & write Old Pavic",
+            "starting_value": 0,
+            "description": "Some 500 years before, this now nearly-dead language was spoken in the Empire of the Wyrms Friends. The Empire ruled Old Pavis in that age when the huge ruins were cut off from the outside world, and the native humans still speak it. Now that the city is reopened, it is again known to the outside world. It is also used in ancient religious ceremonies at Adari, but not spoken by the populace there. Speakers of this language also know Draconic at 1⁄4 x their Old Pavic ability.",
+            "taught_by": "sages",
+            "training_cost": {
+                "1": 400,
+                "2": 800,
+                "3": 2000,
+                "4": 4000
+            }
+        },
+        "read_write_praxian": {
+            "name": "read & write Praxian",
+            "starting_value": 0,
+            "description": "The Prax Animal Nomads use this language. It is spoken by all of the tribes there, including the nonhuman morokanth, and has also been adopted by the non-herding peoples such as the Men-and-a-half, or the local Basmoli Berserkers.",
+            "taught_by": "sages",
+            "training_cost": {
+                "1": 400,
+                "2": 800,
+                "3": 2000,
+                "4": 4000
+            }
+        },
+        "read_write_shartarite": {
+            "name": "read & write Shartarite",
+            "starting_value": 0,
+            "description": "The primary language for all of the natives of the kingdom of Sartar, it was imported from the region of the Hendriki in the Holy Country when the Sartarites moved northwards, and they speak it there as well. It is the second language of the peoples of Alone and Alda-Chur, which joined the kingdom later than the other cities. Speakers are likely to know Tradetalk as a second language. Speakers will know Stormspeech as well, at 1% Stormspeech per 10% ability in Sartarite.",
+            "taught_by": "sages",
+            "training_cost": {
+                "1": 400,
+                "2": 800,
+                "3": 2000,
+                "4": 4000
+            }
+        },
+        "read_write_tarshite": {
+            "name": "read & write Tarshite",
+            "starting_value": 0,
+            "description": "The native tongue for the regions of Tarsh and the Tarsh Exiles around Wintertop in the Far Place cities, the speech was imported when natives from Peloria (to the north) moved into Dragon Pass. It is sometimes called “Old Pelorian” for that reason. A speaker of it can speak Lunar to 1⁄2 his Tarshite language ability.",
+            "taught_by": "sages",
+            "training_cost": {
+                "1": 400,
+                "2": 800,
+                "3": 2000,
+                "4": 4000
+            }
+        },
+        "read_write_tradetalk": {
+            "name": "read & write Tradetalk",
+            "starting_value": 0,
+            "description": "The cult language of the Issaries trader cult, Tradetalk has been taught by them all across the world. It is the closest thing to a common tongue which Glorantha has, and may be learned almost anywhere, including non-human areas. It is the widest-known second language.",
+            "taught_by": "sages",
+            "training_cost": {
+                "1": 400,
+                "2": 800,
+                "3": 2000,
+                "4": 4000
+            }
+        },
+        "read_write_aldryami": {
+            "name": "read & write Aldryami",
+            "starting_value": 0,
+            "description": "The language of elves and their kin: since the separation of the elf nations across the world, the different forests have developed some local variations of Aldryami, but these are more like accents than different dialects. All Aldryami prefer to use Tradetalk to communicate with non-elves, even if the non-elves show off their knowledge of Aldryami.",
+            "taught_by": "sages",
+            "training_cost": {
+                "1": 400,
+                "2": 800,
+                "3": 2000,
+                "4": 4000
+            }
+        },
+        "read_write_beastspeech": {
+            "name": "read & write Beastspeech",
+            "starting_value": 0,
+            "description": "The language of animals and half-animals, such as Beastmen and baboons, is very difficult for people to speak it, but it is easier for people to learn it if they can find a teacher.",
+            "taught_by": "sages",
+            "training_cost": {
+                "1": 400,
+                "2": 800,
+                "3": 2000,
+                "4": 4000
+            }
+        },
+        "read_write_darktongue": {
+            "name": "speak Darktongue",
+            "starting_value": 0,
+            "description": "Creatures of darkness, such as trolls, giants, shades, and their ilk, speak Darktongue. It is very ancient, and writings in it exist from before the Great Darkness.",
+            "taught_by": "sages",
+            "training_cost": {
+                "1": 400,
+                "2": 800,
+                "3": 2000,
+                "4": 4000
+            }
+        },
+        "read_write_draconic": {
+            "name": "speak Draconic",
+            "starting_value": 0,
+            "description": "Dragons and their kin, especially the Dragonewts, Wyrms, and such creatures, speak it. Dream Dragons almost always speak it, rarely knowing another language due to their peculiar origin. It is difficult for non-draconic types to learn, though dragonewts seem to have little problem learning other tongues. Speakers of Draconic also know Old Pavic at 1⁄2 their Draconic ability.",
+            "taught_by": "sages",
+            "training_cost": {
+                "1": 400,
+                "2": 800,
+                "3": 2000,
+                "4": 4000
+            }
+        },
+        "read_write_earthtongue": {
+            "name": "speak Earthtongue",
+            "starting_value": 0,
+            "description": "The speech of gnomes, Earth cults, reptiles, and other earth-related creatures; the language has a few affinities with Aldryami.",
+            "taught_by": "sages",
+            "training_cost": {
+                "1": 400,
+                "2": 800,
+                "3": 2000,
+                "4": 4000
+            }
+        },
+        "read_write_firespeech": {
+            "name": "speak Firespeech",
+            "starting_value": 0,
+            "description": "Fire-worshipping or constructed creatures such as salamanders, and birds and more obscure races speak it.",
+            "taught_by": "sages",
+            "training_cost": {
+                "1": 400,
+                "2": 800,
+                "3": 2000,
+                "4": 4000
+            }
+        },
+        "read_write_mostali": {
+            "name": "speak Mostali",
+            "starting_value": 0,
+            "description": "The tongue of Mostali, dwarves, and their minor created races is little-used, though some miners use it as a “secret language” to confound their overseers or other foreigners.",
+            "taught_by": "sages",
+            "training_cost": {
+                "1": 400,
+                "2": 800,
+                "3": 2000,
+                "4": 4000
+            }
+        },
+        "read_write_seatongue": {
+            "name": "speak Seatongue",
+            "starting_value": 0,
+            "description": "The watery races, including all Triolini (merpeople, intelligent beasts such as dolphins, and undines) speak this.",
+            "taught_by": "sages",
+            "training_cost": {
+                "1": 400,
+                "2": 800,
+                "3": 2000,
+                "4": 4000
+            }
+        },
+        "read_write_spiritspeech": {
+            "name": "speak Spiritspeech",
+            "starting_value": 0,
+            "description": "This is a common tongue for spirits when they do not communicate by Mind Link. It is made of parts of all the divine languages, but especially Stormspeech.",
+            "taught_by": "sages",
+            "training_cost": {
+                "1": 400,
+                "2": 800,
+                "3": 2000,
+                "4": 4000
+            }
+        },
+        "read_write_stormspeech": {
+            "name": "speak Stormspeech",
+            "starting_value": 0,
+            "description": "Native talk of sylphs, mammals, and other air spirits and cults.",
+            "taught_by": "sages",
+            "training_cost": {
+                "1": 400,
+                "2": 800,
+                "3": 2000,
+                "4": 4000
+            }
+        },
+        "survival": {
+            "name": "survival",
+            "starting_value": 15,
+            "description": " Surviving in a rural or wilderness environment, including foraging, building a fire, and finding shelter.",
+            "taught_by": "foresters",
+            "training_cost": {
+                "1": 200,
+                "2": 400,
+                "3": 800,
+                "4": 1200
+            }
+        }
+    },
+    "magic": {
+        "meditate": {
+            "name": "meditate",
+            "starting_value": 0,
+            "description": "Entering a trance-like state to achieve inner calm and to restore serenity and focus. Meditate can augment spells and skills, and meditating can help restore spent magic points.",
+            /"long_description": "An adventurer can successfully Meditate uninterrupted for one full hour, attempting no other skill rolls, making any movement, or communicating in any way. No spellcasting may be attempted, and if the gamemaster determines that a distraction might be enough to disturb the Meditation attempt, the adventurer must perform a successful POW×3 roll to resist being distracted from the Meditation attempt. A successful Meditation skill roll yields the adventurer 1 additional magic point, in addition to any restored through normal rest and recuperation. A special success rewards the adventurer with 1D3 and a critical success yields 1D3+1 magic points. If the roll fails, the adventurer recovers no additional magic points, and a fumble causes the loss of 1D3 additional magic points.",
+            "taught_by": "runepriests",
+            "training_cost": {
+                "1": 500,
+                "2": 1000,
+                "3": 5000,
+                "4": 10000
+            }
+        },
+        "prepare_corpse": {
+            "name": "prepare corpse",
+            "starting_value": 10,
+            "description": "Properly laying out a corpse, preparing it for the final rites and knowing traditional death rituals or spells.",
+            "taught_by": "runepriests",
+            "training_cost": {
+                "1": 500,
+                "2": 1000,
+                "3": 5000,
+                "4": 10000
+            }
+        },
+        "sprit_combat": {
+            "name": "sprit combat",
+            "starting_value": 20,
+            "description": "Battling a hostile spirit.",
+            "taught_by": "runepriests",
+            "training_cost": {
+                "1": 500,
+                "2": 1000,
+                "3": 5000,
+                "4": 10000
+            }
+        },
+        "worship_deity": {
+            "name": "worship deity",
+            "starting_value": 5,
+            "description": " Linked to a specific god, this takes a full day to perform and must be held on sacred ground.",
+            "taught_by": "runepriests",
+            "training_cost": {
+                "1": 500,
+                "2": 1000,
+                "3": 5000,
+                "4": 10000
+            }
+        }
+    },
+    "manipulation": {
+        "conceal": {
+            "name": "conceal",
+            "starting_value": 5,
+            "description": "Concealed an object so that it may be found only with a Search skill roll.",
+            "taught_by": "thieve's guild",
+            "training_cost": {
+                "1": 400,
+                "2": 800,
+                "3": 1600,
+                "4": 3200
+            }
+        },
+        "craft beer": {
+            "name": "craft beer",
+            "starting_value": 10,
+            "description": ""
+        },
+        "craft carpentry": {
+            "name": "craft carpentry",
+            "starting_value": 10,
+            "description": ""
+        },
+        "craft jewelry": {
+            "name": "craft jewelry",
+            "starting_value": 10,
+            "description": ""
+        },
+        "craft leather": {
+            "name": "craft leather",
+            "starting_value": 10,
+            "description": ""
+        },
+        "craft masonry": {
+            "name": "craft masonry",
+            "starting_value": 10,
+            "description": ""
+        },
+        "craft pottery": {
+            "name": "craft pottery",
+            "starting_value": 10,
+            "description": ""
+        },
+        "craft redsmithing": {
+            "name": "craft redsmithing",
+            "starting_value": 10,
+            "description": ""
+        },
+        "craft vinification": {
+            "name": "craft vinification",
+            "starting_value": 10,
+            "description": ""
+        },
+        "craft weaving": {
+            "name": "craft weaving",
+            "starting_value": 10,
+            "description": ""
+        },
+        "hatchet": {
+            "name": "hatchet",
+            "starting_value": 20,
+            "taught_by": "fighter's guild",
+            "training_cost": {
+                "1": 300,
+                "2": 500,
+                "3": 1000
+            }
+        },
+        "battle_axe_one_handed": {
+            "name": "battle axe (one-handed)",
+            "starting_value": 20,
+            "taught_by": "fighter's guild",
+            "training_cost": {
+                "1": 300,
+                "2": 500,
+                "3": 1000,
+            }
+        },
+        "battle_axe_two_handed": {
+            "name": "battle axe (two-handed)",
+            "starting_value": 15,
+            "taught_by": "fighter's guild",
+            "training_cost": {
+                "1": 300,
+                "2": 600,
+                "3": 1200
+            }
+        },
+        "great_axe": {
+            "name": "great axe",
+            "starting_value": 15,
+            "taught_by": "fighter's guild",
+            "training_cost": {
+                "1": 300,
+                "2": 600,
+                "3": 1200
+            }
+        },
+        "pole_axe": {
+            "name": "pole axe",
+            "starting_value": 15,
+            "taught_by": "fighter's guild",
+            "training_cost": {
+                "1": 300,
+                "2": 600,
+                "3": 1200
+            }
+        },
+        "rhomphaia": {
+            "name": "rhomphaia",
+            "taught_by": "fighter's guild",
+            "starting_value": 15,
+            "training_cost": {
+                "1": 300,
+                "2": 600,
+                "3": 1200
+            }
+        },
+        "butt": {
+            "name": "butt",
+            "starting_value": 10,
+            "taught_by": "fighter's guild",
+            "training_cost": {
+                "1": 100,
+                "2": 500,
+                "3": 1000
+            }
+        },
+        "dagger": {
+            "name": "dagger",
+            "starting_value": 25,
+            "taught_by": "fighter's guild",
+            "training_cost": {
+                "1": 100,
+                "2": 300,
+                "3": 600
+            }
+        },
+        "fist": {
+            "name": "fist",
+            "starting_value": 25,
+            "taught_by": "fighter's guild",
+            "training_cost": {
+                "1": 200,
+                "2": 400,
+                "3": 800
+            }
+        },
+        "claw": {
+            "name": "claw",
+            "starting_value": 25,
+            "taught_by": "fighter's guild",
+            "training_cost": {
+                "1": 200,
+                "2": 400,
+                "3": 800
+            }
+        },
+        "heavy_cestus": {
+            "name": "heavy cestus",
+            "starting_value": 25,
+            "taught_by": "fighter's guild",
+            "training_cost": {
+                "1": 200,
+                "2": 400,
+                "3": 800
+            }
+        },
+        "light_cestus": {
+            "name": "light cestus",
+            "starting_value": 25,
+            "taught_by": "fighter's guild",
+            "training_cost": {
+                "1": 200,
+                "2": 400,
+                "3": 800
+            }
+        },
+        "grain_flail": {
+            "name": "grain flail",
+            "starting_value": 15,
+            "taught_by": "fighter's guild",
+            "training_cost": {
+                "1": 300,
+                "2": 600,
+                "3": 1200
+            }
+        },
+        "war_flail": {
+            "name": "war flail",
+            "starting_value": 15,
+            "taught_by": "fighter's guild",
+            "training_cost": {
+                "1": 300,
+                "2": 600,
+                "3": 1200
+            }
+        },
+        "military_flail": {
+            "name": "military flail",
+            "starting_value": 5,
+            "taught_by": "fighter's guild",
+            "training_cost": {
+                "1": 400,
+                "2": 800,
+                "3": 1600
+            }
+        },
+        "grapple": {
+            "name": "grapple",
+            "starting_value": 25,
+            "taught_by": "fighter's guild",
+            "training_cost": {
+                "1": 200,
+                "2": 500,
+                "3": 1200
+            }
+        },
+        "war_hammer": {
+            "name": "war hammer",
+            "starting_value": 20,
+            "taught_by": "fighter's guild",
+            "training_cost": {
+                "1": 300,
+                "2": 600,
+                "3": 1200
+            }
+        },
+        "great_hammer": {
+            "name": "great hammer",
+            "starting_value": 5,
+            "taught_by": "fighter's guild",
+            "training_cost": {
+                "1": 300,
+                "2": 600,
+                "3": 1200
+            }
+        },
+        "kick": {
+            "name": "kick",
+            "starting_value": 25,
+            "taught_by": "fighter's guild",
+            "training_cost": {
+                "1": 200,
+                "2": 400,
+                "3": 1000
+            }
+        },
+        "heavy_mace_one_handed": {
+            "name": "heavy mace (one-handed)",
+            "starting_value": 25,
+            "taught_by": "fighter's guild",
+            "training_cost": {
+                "1": 200,
+                "2": 400,
+                "3": 800,
+            }
+        },
+        "heavy_mace_two_handed": {
+            "name": "heavy mace (two-handed)",
+            "starting_value": 20,
+            "taught_by": "fighter's guild",
+            "training_cost": {
+                "1": 200,
+                "2": 600,
+                "3": 1500
+            }
+        },
+        "light_mace": {
+            "name": "light mace",
+            "starting_value": 25,
+            "taught_by": "fighter's guild",
+            "training_cost": {
+                "1": 200,
+                "2": 400,
+                "3": 800
+            }
+        },
+        "singlestick": {
+            "name": "singlestick",
+            "starting_value": 25,
+            "taught_by": "fighter's guild",
+            "training_cost": {
+                "1": 200,
+                "2": 400,
+                "3": 800
+            }
+        },
+        "maul": {
+            "name": "maul",
+            "starting_value": 20,
+            "taught_by": "fighter's guild",
+            "training_cost": {
+                "1": 200,
+                "2": 600,
+                "3": 1500
+            }
+        },
+        "quarterstaff": {
+            "name": "quarterstaff",
+            "starting_value": 20,
+            "taught_by": "fighter's guild",
+            "training_cost": {
+                "1": 200,
+                "2": 600,
+                "3": 1500
+            }
+        },
+        "morning_star_flail": {
+            "name": "morning star flail",
+            "starting_value": 5,
+            "taught_by": "fighter's guild",
+            "training_cost": {
+                "1": 400,
+                "2": 800,
+                "3": 1600
+            }
+        },
+        "pike": {
+            "name": "pike",
+            "starting_value": 10,
+            "taught_by": "fighter's guild",
+            "training_cost": {
+                "1": 400,
+                "2": 800,
+                "3": 1600
+            }
+        },
+        "rapier": {
+            "name": "rapier",
+            "starting_value": 5,
+            "taught_by": "fighter's guild",
+            "training_cost": {
+                "1": 500,
+                "2": 1000,
+                "3": 2000
+            }
+        },
+        "shortsword": {
+            "name": "shortsword",
+            "starting_value": 15,
+            "taught_by": "fighter's guild",
+            "training_cost": {
+                "1": 200,
+                "2": 400,
+                "3": 800
+            }
+        },
+        "sickle": {
+            "name": "sickle",
+            "starting_value": 15,
+            "taught_by": "fighter's guild",
+            "training_cost": {
+                "1": 200,
+                "2": 400,
+                "3": 800
+            }
+        },
+        "long_spear_one_handed": {
+            "name": "long spear (one-handed)",
+            "starting_value": 10,
+            "taught_by": "fighter's guild",
+            "training_cost": {
+                "1": 200,
+                "2": 500,
+                "3": 1000,
+
+        },
+        "long_spear_two_handed": {
+            "name": "long spear (two-handed)",
+            "starting_value": 20,
+            "taught_by": "fighter's guild",
+            "training_cost": {
+                "1": 200,
+                "2": 400,
+                "3": 800
+            }
+        },
+        "short_spear_one_handed": {
+            "name": "short spear (one-handed)",
+            "starting_value": 10,
+            "taught_by": "fighter's guild",
+            "training_cost": {
+                "1": 200,
+                "2": 500,
+                "3": 1000
+            }
+        },
+        "short_spear_two_handed": {
+            "name": "short spear (two-handed)",
+            "starting_value": 20,
+            "taught_by": "fighter's guild",
+            "training_cost": {
+                "1": 200,
+                "2": 400,
+                "3": 800
+            }
+        },
+        "lance": {
+            "name": "lance",
+            "starting_value": 10,
+            "taught_by": "fighter's guild",
+            "training_cost": {
+                "1": 200,
+                "2": 500,
+                "3": 1000
+            }
+        },
+        "bastard_sword_one_handed": {
+            "name": "bastard sword (one-handed)",
+            "starting_value": 10,
+            "taught_by": "fighter's guild",
+            "training_cost": {
+                "1": 300,
+                "2": 500,
+                "3": 1000,
+            }
+        },
+        "bastard_sword_two_handed": {
+            "name": "bastard sword (two-handed)",
+            "starting_value": 5,
+            "taught_by": "fighter's guild",
+            "training_cost": {
+                "1": 500,
+                "2": 1000,
+                "3": 2000
+            }
+        },
+        "broadsword": {
+            "name": "broadsword",
+            "starting_value": 10,
+            "taught_by": "fighter's guild",
+            "training_cost": {
+                "1": 300,
+                "2": 500,
+                "3": 1000
+            }
+        },
+        "scimitar": {
+            "name": "scimitar",
+            "starting_value": 10,
+            "taught_by": "fighter's guild",
+            "training_cost": {
+                "1": 300,
+                "2": 500,
+                "3": 1000
+            }
+        },
+        "great_sword": {
+            "name": "great sword",
+            "starting_value": 5,
+            "taught_by": "fighter's guild",
+            "training_cost": {
+                "1": 500,
+                "2": 1000,
+                "3": 2000
+            }
+        },
+        "throwing_axe": {
+            "name": "throwing axe",
+            "starting_value": 10,
+            "taught_by": "fighter's guild",
+            "training_cost": {
+              "1": 300,
+              "2": 600,
+              "3": 1200
+            }
+        },
+        "composite_bow": {
+            "name": "composite bow",
+            "starting_value": 10,
+            "taught_by": "fighter's guild",
+            "training_cost": {
+                "1": 300,
+                "2": 800,
+                "3": 1500
+            }
+        },
+        "elf_bow": {
+            "name": "elf bow",
+            "starting_value": 10,
+            "taught_by": "fighter's guild",
+            "training_cost": {
+                "1": 300,
+                "2": 800,
+                "3": 1500
+            }
+        },
+        "self_bow": {
+            "name": "self bow",
+            "starting_value": 10,
+            "taught_by": "fighter's guild",
+            "training_cost": {
+                "1": 300,
+                "2": 800,
+                "3": 1500
+            }
+        },
+        "arbalest": {
+            "name": "arbalest",
+            "starting_value": 20,
+            "taught_by": "fighter's guild",
+            "training_cost": {
+                "1": 200,
+                "2": 400,
+                "3": 800
+            }
+        },
+        "heavy_crossbow": {
+            "name": "heavy crossbow",
+            "starting_value": 20,
+            "taught_by": "fighter's guild",
+            "training_cost": {
+                "1": 200,
+                "2": 400,
+                "3": 800
+            }
+        },
+        "light_crossbow": {
+            "name": "light crossbow",
+            "starting_value": 20,
+            "taught_by": "fighter's guild",
+            "training_cost": {
+                "1": 200,
+                "2": 400,
+                "3": 800
+            }
+        },
+        "throwing_dagger": {
+            "name": "throwing dagger",
+            "starting_value": 15,
+            "taught_by": "thieve's guild",
+            "training_cost": {
+                "1": 300,
+                "2": 600,
+                "3": 1200
+            }
+        },
+        "dart": {
+            "name": "dart",
+            "starting_value": 15,
+            "taught_by": "fighter's guild",
+            "training_cost": {
+                "1": 300,
+                "2": 600,
+                "3": 1200
+            }
+        },
+        "javelin": {
+            "name": "javelin",
+            "starting_value": 15,
+            "taught_by": "fighter's guild",
+            "training_cost": {
+                "1": 300,
+                "2": 600,
+                "3": 1200
+            }
+        },
+        "rock": {
+            "name": "rock",
+            "starting_value": 25,
+            "taught_by": "fighter's guild",
+            "training_cost": {
+                "1": 100,
+                "2": 300,
+                "3": 800
+            }
+        },
+        "sling": {
+            "name": "sling",
+            "starting_value": 10,
+            "taught_by": "fighter's guild",
+            "training_cost": {
+                "1": 300,
+                "2": 600,
+                "3": 1200
+            }
+        },
+        "staff_sling": {
+            "name": "staff sling",
+            "starting_value": 5,
+            "taught_by": "fighter's guild",
+            "training_cost": {
+                "1": 400,
+                "2": 800,
+                "3": 1600
+            }
+        },
+        "small_shield": {
+            "name": "small shield",
+            "starting_value": 5,
+            "taught_by": "fighter's guild",
+            "training_cost": {
+                "q1": 200,
+                "q2": 400,
+                "q3": 800
+            }
+        },
+        "medium_shield": {
+            "name": "medium shield",
+            "starting_value": 10,
+            "taught_by": "fighter's guild",
+            "training_cost": {
+                "q1": 100,
+                "q2": 200,
+                "q3": 400
+            }
+        },
+        "large_shield": {
+            "name": "large shield",
+            "starting_value": 20,
+            "taught_by": "fighter's guild",
+            "training_cost": {
+                "q1": 50,
+                "q2": 100,
+                "q3": 200
+            }
+        },
+        "sleight": {
+            "name": "sleight",
+            "starting_value": 5,
+            "description": "Using speed or misdirection to manipulate a small object while being watched by others.",
+            "taught_by": "thieve's guild",
+            "training_cost": {
+                "1": 400,
+                "2": 800,
+                "3": 1600,
+                "4": 3200
+            }
+        }
+    },
+    "perception": {
+        /"insight": {
+            "name": "insight",
+            "starting_value": 0,
+            "description": "Evaluating someone’s character, emotional state, trustworthiness, and motives based on body language, speech patterns, and other factors.",
+            "taught_by": "sages",
+            "training_cost": {
+                "1": 400,
+                "2": 800,
+                "3": 1600,
+                "4": 2400
+            }
+        },
+        "listen": {
+            "name": "listen",
+            "starting_value": 25,
+            "description": "Listening intently for sound where one would not normally hear it and picking up incidental sounds.",
+            "taught_by": "thieve's guild",
+            "training_cost": {
+                "1": 200,
+                "2": 400,
+                "3": 800,
+                "4": 1600
+            }
+        },
+        "scan": {
+            "name": "scan",
+            "starting_value": 25,
+            "description": "Observing an area for any signs of movement.",
+            "taught_by": "thieve's guild",
+            "training_cost": {
+                "1": 200,
+                "2": 600,
+                "3": 1000,
+                "4": 5000
+            }
+        },
+        "search": {
+            "name": "search",
+            "starting_value": 25,
+            "description": "Scrutinizing an area to find a concealed or lost object or person.",
+            "taught_by": "runepriests",
+            "training_cost": {
+                "1": 200,
+                "2": 600,
+                "3": 1000,
+                "4": 5000
+            }
+        },
+        "track": {
+            "name": "track",
+            "starting_value": 5,
+            "description": "Following the trail left by a living being through wilderness and rural areas.",
+            "taught_by": "foresters",
+            "training_cost": {
+                "1": 200,
+                "2": 400,
+                "3": 800,
+                "4": 1000
+            }
+        }
+    },
+    "stealth": {
+        "hide": {
+            "name": "hide",
+            "starting_value": 10,
+            "description": "Using available cover, including shadows, misty areas, etc., to hide from others.",
+            "taught_by": "thieve's guild",
+            "training_cost": {
+                "1": 200,
+                "2": 500,
+                "3": 1200,
+                "4": 2600
+            }
+        },
+        "move_quietly": {
+            "name": "move quietly",
+            "starting_value": 10,
+            "description": "Moving in silence, without alerting a foe.",
+            "taught_by": "thieve's guild",
+            "training_cost": {
+                "1": 200,
+                "2": 600,
+                "3": 1200,
+                "4": 2000
+            }
+        }
+    }
+}
